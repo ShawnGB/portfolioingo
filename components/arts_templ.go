@@ -8,7 +8,7 @@ package components
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
-func Arts() templ.Component {
+func Arts(images []string) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -41,7 +41,30 @@ func Arts() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"arts\"><header><h1>Arts</h1><p>Exploration without outcome – just presence, practice, and play.</p></header><p>Before I wrote code, I made music. Before I designed interfaces, I followed light through a lens. Art, for me, is not a separate category – it’s another way of listening to the world.</p><p>This section is a window into the creative side of my life:</p><ul><li><h3>Photography:</h3>fragments of light, architecture, mood, and movement</li><li><h3>Sound & Music:</h3>analog and digital explorations, ambient compositions, sonic journaling</li><li><h3>Sketches & Studies:</h3>visual experiments, layout explorations, captured atmospheres</li></ul><p>I don’t publish everything I make – but I share what feels honest. These works aren’t always finished, but they are always true.</p><p>Creativity, for me, is not about showcasing talent. It’s about returning to presence. Paying attention. Letting intuition guide the way.</p></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<section id=\"arts\"><header><h1>Arts</h1><p>Exploration without outcome – just presence, practice, and play.</p></header><p>Before I wrote code, I made music. Before I designed interfaces, I followed light through a lens. Art, for me, is not a separate category – it’s another way of listening to the world.</p><p>This section is a window into the creative side of my life:</p><ul><li><h3>Photography:</h3>fragments of light, architecture, mood, and movement</li><li><h3>Sound & Music:</h3>analog and digital explorations, ambient compositions, sonic journaling</li><li><h3>Sketches & Studies:</h3>visual experiments, layout explorations, captured atmospheres</li></ul><p>I don’t publish everything I make – but I share what feels honest. These works aren’t always finished, but they are always true.</p><p>Creativity, for me, is not about showcasing talent. It’s about returning to presence. Paying attention. Letting intuition guide the way.</p><div class=\"image-gallery\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			for _, image := range images {
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"image-gallery__image-box\"><img src=\"")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var3 string
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs("./" + image)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/arts.templ`, Line: 37, Col: 29}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" alt=\"Art Image\" class=\"image-gallery__image\"><div class=\"image-gallery__layover\"><p class=\"image-gallery__layover-text\">View Image</p></div></div>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

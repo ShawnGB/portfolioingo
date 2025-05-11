@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"mymodules/gofolio/components"
+	"mymodules/gofolio/utils"
 	"net/http"
 )
 
@@ -26,7 +27,13 @@ func ProjectsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ArtsHandler(w http.ResponseWriter, r *http.Request) {
-	component := components.Arts()
+	images, err := utils.GetImageFilenames()
+	if err != nil {
+		http.Error(w, "Unable to load images", http.StatusInternalServerError)
+		return
+	}
+
+	component := components.Arts(images)
 	component.Render(r.Context(), w)
 }
 

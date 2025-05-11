@@ -17,6 +17,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 4rem;
+  min-height: 100vh;
 }
 
 nav {
@@ -28,6 +30,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-color);
 }
 
 ul {
@@ -77,21 +80,72 @@ section {
 }
 
 footer {
+  /* position: fixed; und bottom:0 entfernt! */
   width: 100%;
-  height: 16rem;
-  position: fixed;
-  bottom: 0;
+  height: 16rem; /* oder min-height, oder padding für Inhaltshöhe */
   background-color: var(--secondary);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: auto; /* DAS IST DER SCHLÜSSEL für den Sticky Footer */
+  /* z-index nicht mehr nötig, da im normalen Fluss */
+}
 
-  section {
-    display: flex;
-    justify-content: space-between;
-    margin: 0;
-    width: 60%;
-    font-size: 1.1rem;
-  }
+footer section {
+  /* Annahme: Du möchtest immer noch eine section im footer */
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 60%;
+  font-size: 1.1rem;
+}
+
+.image-gallery {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-auto-flow: row;
+  gap: 2rem;
+}
+
+.image-gallery__image-box {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    z-index 0s linear 0.3s;
+  z-index: 1;
+}
+
+.image-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-gallery:hover .image-gallery__image-box {
+  opacity: 0.5;
+}
+
+.image-gallery .image-gallery__image-box:hover {
+  opacity: 1;
+  transform: scale(2);
+  z-index: 10;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition-delay: 0s, 0s, 0s, 0s;
+}
+/* .image-gallery__image-box:nth-child(7n + 1) { */
+/*   grid-column: span 2; */
+/*   grid-row: span 2; */
+/* } */
+
+.image-gallery .image-gallery__image-box:hover img {
+  object-fit: contain;
+  background-color: var(--bg-color);
 }
