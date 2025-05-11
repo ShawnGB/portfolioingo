@@ -1,0 +1,80 @@
+package components
+
+templ BaseHtml() {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/static/styles.css"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&family=Syne:wght@400..800&display=swap"
+				rel="stylesheet"
+			/>
+			<title>Shawn Gordon Becker</title>
+		</head>
+		<nav>
+			<a href="/">
+				<h3>
+					SGB
+				</h3>
+			</a>
+			<ul>
+				<li>
+					<a href="/about">
+						About me
+					</a>
+				</li>
+				<li>
+					<a href="/services">
+						Services
+					</a>
+				</li>
+				<li>
+					<a href="/projects">Projects</a>
+				</li>
+				<li>
+					<a href="/arts">
+						Arts
+					</a>
+				</li>
+				<li>
+					<a href="/contact">
+						Contact
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<body>
+			{ children... }
+		</body>
+		<footer>
+			<section>
+				<div>
+					<p>
+						<strong>
+							Shawn Gordon Becker
+						</strong>
+					</p>
+					<p>Baseler Str 38</p>
+					<p>12205 Berlin</p>
+				</div>
+				<div>
+					<p>
+						<strong>
+							tel: <a>+49 170 966 47 25</a>
+						</strong>
+					</p>
+					<p>
+						<strong>
+							email: <a>contact@shawnbecker.de</a>
+						</strong>
+					</p>
+				</div>
+			</section>
+			<p>Copyright 2025 Shawn Gordon Becker</p>
+		</footer>
+	</html>
+}
