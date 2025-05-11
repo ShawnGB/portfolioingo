@@ -1,0 +1,6 @@
+# tmp and build files
+tmp/
+*.log
+
+tmp/
+*.log
