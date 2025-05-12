@@ -37,7 +37,7 @@ func ArtsHandler(w http.ResponseWriter, r *http.Request) {
 	component.Render(r.Context(), w)
 }
 
-func Contacthandler(w http.ResponseWriter, r *http.Request) {
+func ContactHandler(w http.ResponseWriter, r *http.Request) {
 	component := components.Contact()
 	component.Render(r.Context(), w)
 }

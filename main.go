@@ -1,9 +1,10 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"mymodules/gofolio/handlers"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -15,11 +16,18 @@ func main() {
 	http.HandleFunc("/services", handlers.ServiceHandler)
 	http.HandleFunc("/projects", handlers.ProjectsHandler)
 	http.HandleFunc("/arts", handlers.ArtsHandler)
-	http.HandleFunc("/contact", handlers.Contacthandler)
+	http.HandleFunc("/contact", handlers.ContactHandler)
 
-	fmt.Println("Running server on port 8080")
-	err := http.ListenAndServe(":8080", nil) // Server starten
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+		log.Printf("INFO: No PORT environment variable detected, defaulting to :%s", port)
+	}
+
+	log.Printf("INFO: Starting server on :%s", port)
+
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
-		fmt.Println("Server error:", err)
+		log.Fatalf("FATAL: Server error: %v", err)
 	}
 }
