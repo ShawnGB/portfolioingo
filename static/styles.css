@@ -158,3 +158,15 @@ footer section {
   object-fit: contain;
   background-color: var(--bg-color);
 }
+
+@media (max-width: 767.98px) {
+  section {
+    width: 90%;
+  }
+  footer {
+    height: 24rem;
+    section {
+      flex-direction: column;
+    }
+  }
+}
