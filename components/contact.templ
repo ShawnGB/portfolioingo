@@ -1,8 +1,21 @@
 package components
 
-templ Contact() {
+// ContactFormData wird benötigt, um ggf. alte Eingaben bei Fehlern wieder ins Formular zu laden.
+// Für den initialen Aufruf sind diese leer.
+type ContactFormData struct {
+	FirstName      string
+	LastName       string
+	Email          string
+	Phone          string
+	Service        string
+	Message        string
+	SuccessMessage string
+	ErrorMessage   string
+}
+
+templ Contact(data ContactFormData) {
 	@BaseHtml() {
-		<section id="contact">
+		<section id="contact-section">
 			<header>
 				<h1>Contact</h1>
 				<p>Reach out – with an idea, a question, or just curiosity.</p>
@@ -15,6 +28,56 @@ templ Contact() {
 				You don’t need a polished pitch. A simple message is enough. I value real human connection, and I do my best to
 				respond personally to every inquiry.
 			</p>
+			// Anzeige für Erfolgs- oder Fehlermeldungen
+			if data.SuccessMessage != "" {
+				<div
+					id="form-feedback"
+					class="alert alert-success"
+					style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 15px;"
+				>{ data.SuccessMessage }</div>
+			}
+			if data.ErrorMessage != "" {
+				<div
+					id="form-feedback"
+					class="alert alert-danger"
+					style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 15px;"
+				>{ data.ErrorMessage }</div>
+			}
+			<form hx-post="/contact" hx-target="#contact-section" hx-swap="outerHTML" hx-indicator="#loading-indicator">
+				<div style="margin-bottom: 15px;">
+					<label for="firstname">Vorname:</label>
+					<input type="text" id="firstname" name="firstname" value={ data.FirstName } required/>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<label for="lastname">Nachname:</label>
+					<input type="text" id="lastname" name="lastname" value={ data.LastName } required/>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<label for="email">E-Mail:</label>
+					<input type="email" id="email" name="email" value={ data.Email } required/>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<label for="phone">Telefon (optional):</label>
+					<input type="tel" id="phone" name="phone" value={ data.Phone }/>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<label for="service">Serviceleistung (optional):</label>
+					<select id="service" name="service">
+						<option value="" selected={ data.Service == "" }>Bitte wählen...</option>
+						<option value="entwicklung" selected={ data.Service == "entwicklung" }>Entwicklung</option>
+						<option value="beratung" selected={ data.Service == "beratung" }>Beratung</option>
+						<option value="product_management" selected={ data.Service == "product_management" }>Product Management</option>
+						<option value="andere" selected={ data.Service == "andere" }>Andere</option>
+					</select>
+				</div>
+				<div style="margin-bottom: 15px;">
+					<label for="message">Ihre Nachricht:</label>
+					<textarea id="message" name="message" rows="6" required>{ data.Message }</textarea>
+				</div>
+				<button type="submit">Nachricht senden</button>
+				<span id="loading-indicator" class="htmx-indicator">Wird gesendet...</span>
+			</form>
+			<hr style="margin-top: 30px; margin-bottom: 30px;"/>
 			<h2>You might reach out if:</h2>
 			<ul>
 				<li>You want to collaborate on a web or creative project</li>
@@ -23,6 +86,7 @@ templ Contact() {
 				<li>You just want to share something – a thought, a link, an idea</li>
 			</ul>
 			<p>Let’s see where the conversation leads.</p>
+			<h1>penis</h1>
 		</section>
 	}
 }
