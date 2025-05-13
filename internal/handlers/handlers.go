@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"mymodules/gofolio/components"
-	"mymodules/gofolio/utils"
+	"mymodules/gofolio/internal/utils"
+	"mymodules/gofolio/ui/components"
 	"net/http"
 )
 

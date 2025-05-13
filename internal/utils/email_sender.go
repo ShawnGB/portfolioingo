@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 	"log"
-	"mymodules/gofolio/components"
+	"mymodules/gofolio/ui/components"
 
 	"github.com/resend/resend-go/v2"
 )
