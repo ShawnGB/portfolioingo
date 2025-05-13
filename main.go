@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"mymodules/gofolio/internal/handlers"
+	"mymodules/gofolio/handlers"
 	"net/http"
 	"os"
 
