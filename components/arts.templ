@@ -1,7 +1,9 @@
 package components
 
-templ Arts(images []string) {
-@BaseHtml() {
+import "mymodules/gofolio/i18n"
+
+templ Arts(images []string, pCtx i18n.PageContext) {
+@BaseHtml(pCtx) {
 <section id="arts">
   <header>
     <h1>Arts</h1>

@@ -3,14 +3,17 @@ package handlers
 import (
 	"log"
 	"mymodules/gofolio/components"
+	"mymodules/gofolio/i18n"
 	"mymodules/gofolio/utils"
 	"net/http"
 	"os"
 )
 
 func renderContact(w http.ResponseWriter, r *http.Request, data components.ContactFormData, statusCode int) {
+	pCtx := i18n.NewPageContext(r)
+
 	w.WriteHeader(statusCode)
-	if err := components.Contact(data).Render(r.Context(), w); err != nil {
+	if err := components.Contact(data, pCtx).Render(r.Context(), w); err != nil {
 		log.Printf("Error rendering 'components.Contact' component: %v. Status Code: %d. Form ErrorMessage: '%s', Form SuccessMessage: '%s'", err, statusCode, data.ErrorMessage, data.SuccessMessage)
 	}
 }

@@ -1,7 +1,9 @@
 package components
 
-templ Services() {
-@BaseHtml() {
+import "mymodules/gofolio/i18n"
+
+templ Services(pCtx i18n.PageContext) {
+@BaseHtml(pCtx) {
 <section id="services" class="services-section">
   <div class="container">
     <!-- Hero -->

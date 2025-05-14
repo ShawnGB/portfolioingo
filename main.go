@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"mymodules/gofolio/handlers"
+	"mymodules/gofolio/i18n"
 	"net/http"
 	"os"
 
@@ -12,18 +13,23 @@ import (
 func main() {
 	err := godotenv.Load()
 	if err != nil {
-		log.Println("INFO: .env Datei nicht gefunden, verwende gesetzte Umgebungsvariablen.")
+		log.Println("INFO: .env not found")
 	}
 
-	fs := http.FileServer(http.Dir("./static"))
-	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	i18n.Init("i18n/locales")
 
-	http.HandleFunc("/", handlers.IndexHandler)
-	http.HandleFunc("/about", handlers.AboutHandler)
-	http.HandleFunc("/services", handlers.ServiceHandler)
-	http.HandleFunc("/projects", handlers.ProjectsHandler)
-	http.HandleFunc("/arts", handlers.ArtsHandler)
-	http.HandleFunc("/contact", handlers.ContactHandler)
+	mux := http.NewServeMux()
+
+	// Static File Server
+	fs := http.FileServer(http.Dir("./static"))
+	mux.Handle("/static/", http.StripPrefix("/static/", fs)) // mux anstelle von http verwenden
+
+	mux.HandleFunc("/", handlers.IndexHandler)
+	mux.HandleFunc("/about", handlers.AboutHandler)
+	mux.HandleFunc("/services", handlers.ServiceHandler)
+	mux.HandleFunc("/projects", handlers.ProjectsHandler)
+	mux.HandleFunc("/arts", handlers.ArtsHandler)
+	mux.HandleFunc("/contact", handlers.ContactHandler)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -32,7 +38,9 @@ func main() {
 
 	log.Printf("INFO: Starting server on :%s", port)
 
-	err = http.ListenAndServe(":"+port, nil)
+	i18nedMux := i18n.MiddlewareI18n(mux)
+
+	err = http.ListenAndServe(":"+port, i18nedMux)
 	if err != nil {
 		log.Fatalf("FATAL: Server error: %v", err)
 	}

@@ -1,62 +1,54 @@
 package components
 
-templ About() {
-	@BaseHtml() {
-		<section id="about" class="about-section">
-			<div class="container">
-				<!-- Hero -->
-				<header class="about-hero">
-					<h2>About Me</h2>
-					<h3>Not just what I do – but why I do it.</h3>
-				</header>
-				<!-- Full Intro Text -->
-				<div class="intro-text">
-					<p>Hi, I’m Shawn.</p>
-					<p>
-						I’m a full-stack developer, product thinker, and interdisciplinary creative. My path has never been strictly
-						linear –
-						it’s been shaped by curiosity, collaboration, and a strong inner compass.
-					</p>
-					<p>
-						What unites my work is a desire to build with care: to create things that are useful, beautiful, and built on
-						solid ground.
-						I’ve worked in startups, non-profits, cultural initiatives, and my own independent projects. I’ve led teams,
-						built products
-						from scratch, coded into the night, and facilitated conversations that matter.
-					</p>
-					<p>
-						But beyond roles and skills, I’m interested in the spaces in between – between technology and ethics, between
-						design and
-						feeling, between productivity and presence.
-					</p>
-				</div>
-				<!-- Key Threads -->
-				<h4>Some key threads of who I am:</h4>
-				<ul>
-					<li>
-						<h3>International & interdisciplinary background:</h3>
-						I studied product management, marketing & computer science – across Ireland, Berlin, and beyond.
-					</li>
-					<li>
-						<h3>Community & connection:</h3>
-						I’ve co-founded communities, run festivals, and designed experiences rooted in connection.
-					</li>
-					<li>
-						<h3>Values-driven approach:</h3>
-						I care about sustainability, neurodiversity, and creating systems that respect complexity.
-					</li>
-					<li>
-						<h3>Philosophy:</h3>
-						I believe in small, good things done well – with clarity, heart, and purpose.
-					</li>
-				</ul>
-				<!-- Outro / CTA -->
-				<div class="cta">
-					<p>This site is one way of weaving all those parts together.</p>
-					<p>I hope it gives you a sense of who I am – and the kinds of things I’d love to build with others.</p>
-					<a href="#contact" class="cta-button">Let’s connect</a>
-				</div>
-			</div>
-		</section>
-	}
+import "mymodules/gofolio/i18n"
+
+// Dein Import für das i18n-Paket, das PageContext enthält
+templ About(pCtx i18n.PageContext) {
+@BaseHtml(pCtx) {
+// Wichtig: pCtx hier an BaseHtml weitergeben!
+<section id="about" class="about-section">
+  <div class="container">
+    <header class="about-hero">
+      <h2>{ pCtx.T("about.hero.title") }</h2>
+      <h3>{ pCtx.T("about.hero.subtitle") }</h3>
+    </header>
+    <div class="intro-text">
+      <p>{ pCtx.T("about.intro.greeting") }</p>
+      <p>
+        { pCtx.T("about.intro.p1") }
+      </p>
+      <p>
+        { pCtx.T("about.intro.p2") }
+      </p>
+      <p>
+        { pCtx.T("about.intro.p3") }
+      </p>
+    </div>
+    <h4>{ pCtx.T("about.keyThreads.title") }</h4>
+    <ul>
+      <li>
+        <h3>{ pCtx.T("about.keyThreads.item1.title") }</h3>
+        { pCtx.T("about.keyThreads.item1.text") }
+      </li>
+      <li>
+        <h3>{ pCtx.T("about.keyThreads.item2.title") }</h3>
+        { pCtx.T("about.keyThreads.item2.text") }
+      </li>
+      <li>
+        <h3>{ pCtx.T("about.keyThreads.item3.title") }</h3>
+        { pCtx.T("about.keyThreads.item3.text") }
+      </li>
+      <li>
+        <h3>{ pCtx.T("about.keyThreads.item4.title") }</h3>
+        { pCtx.T("about.keyThreads.item4.text") }
+      </li>
+    </ul>
+    <div class="cta">
+      <p>{ pCtx.T("about.cta.p1") }</p>
+      <p>{ pCtx.T("about.cta.p2") }</p>
+      <a href="#contact" class="cta-button">{ pCtx.T("about.cta.connectLink") }</a>
+    </div>
+  </div>
+</section>
+}
 }

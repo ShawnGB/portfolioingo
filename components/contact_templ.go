@@ -8,6 +8,8 @@ package components
 import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
+import "mymodules/gofolio/i18n"
+
 // ContactFormData wird benötigt, um ggf. alte Eingaben bei Fehlern wieder ins Formular zu laden.
 // Für den initialen Aufruf sind diese leer.
 type ContactFormData struct {
@@ -21,7 +23,7 @@ type ContactFormData struct {
 	ErrorMessage   string
 }
 
-func Contact(data ContactFormData) templ.Component {
+func Contact(data ContactFormData, pCtx i18n.PageContext) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -66,7 +68,7 @@ func Contact(data ContactFormData) templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(data.SuccessMessage)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 37, Col: 26}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 36, Col: 108}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -85,7 +87,7 @@ func Contact(data ContactFormData) templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.ErrorMessage)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 44, Col: 24}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 40, Col: 102}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -103,7 +105,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(data.FirstName)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 49, Col: 78}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 45, Col: 79}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -116,7 +118,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(data.LastName)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 53, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 49, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -129,7 +131,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(data.Email)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 57, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 53, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -142,7 +144,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(data.Phone)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 61, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 57, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -155,7 +157,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(data.Service == "")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 66, Col: 52}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 62, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -168,7 +170,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(data.Service == "entwicklung")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 67, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 63, Col: 74}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -181,7 +183,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var11 string
 			templ_7745c5c3_Var11, templ_7745c5c3_Err = templ.JoinStringErrs(data.Service == "beratung")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 68, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 64, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var11))
 			if templ_7745c5c3_Err != nil {
@@ -194,7 +196,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(data.Service == "product_management")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 69, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 65, Col: 88}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -207,7 +209,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var13 string
 			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(data.Service == "andere")
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 70, Col: 64}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 66, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
@@ -220,7 +222,7 @@ func Contact(data ContactFormData) templ.Component {
 			var templ_7745c5c3_Var14 string
 			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(data.Message)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 75, Col: 75}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/contact.templ`, Line: 71, Col: 76}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
@@ -232,7 +234,7 @@ func Contact(data ContactFormData) templ.Component {
 			}
 			return nil
 		})
-		templ_7745c5c3_Err = BaseHtml().Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = BaseHtml(pCtx).Render(templ.WithChildren(ctx, templ_7745c5c3_Var2), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
