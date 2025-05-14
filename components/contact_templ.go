@@ -226,7 +226,7 @@ func Contact(data ContactFormData) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</textarea></div><button type=\"submit\">Nachricht senden</button> <span id=\"loading-indicator\" class=\"htmx-indicator\">Wird gesendet...</span></form><hr style=\"margin-top: 30px; margin-bottom: 30px;\"><h2>You might reach out if:</h2><ul><li>You want to collaborate on a web or creative project</li><li>You’re building something thoughtful and need a developer or strategist</li><li>You’re exploring digital ethics or sustainable tech practices</li><li>You just want to share something – a thought, a link, an idea</li></ul><p>Let’s see where the conversation leads.</p><h1>penis</h1></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</textarea></div><button type=\"submit\">Nachricht senden</button> <span id=\"loading-indicator\" class=\"htmx-indicator\">Wird gesendet...</span></form><hr style=\"margin-top: 30px; margin-bottom: 30px;\"><h2>You might reach out if:</h2><ul><li>You want to collaborate on a web or creative project</li><li>You’re building something thoughtful and need a developer or strategist</li><li>You’re exploring digital ethics or sustainable tech practices</li><li>You just want to share something – a thought, a link, an idea</li></ul><p>Let’s see where the conversation leads.</p></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
