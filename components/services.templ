@@ -3,47 +3,75 @@ package components
 import "mymodules/gofolio/i18n"
 
 templ Services(pCtx i18n.PageContext) {
-@BaseHtml(pCtx) {
-<section id="services" class="services-section">
-  <div class="container">
-    <header class="services-hero">
-      <h2>{ pCtx.T("services.title") }</h2>
-      <h3>{ pCtx.T("services.subtitle") }</h3>
-    </header>
-    <div class="services-intro-container">
-      <p>
-        { pCtx.T("services.intro.p1") }
-      </p>
-    </div>
-    <h4>{ pCtx.T("services.howICanSupport.title") }</h4>
-    <ul>
-      <li>
-        <h3>{ pCtx.T("services.offering1.title") }</h3>
-        { pCtx.T("services.offering1.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("services.offering2.title") }</h3>
-        { pCtx.T("services.offering2.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("services.offering3.title") }</h3>
-        { pCtx.T("services.offering3.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("services.offering4.title") }</h3>
-        { pCtx.T("services.offering4.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("services.offering5.title") }</h3>
-        { pCtx.T("services.offering5.text") }
-      </li>
-    </ul>
-    <div class="cta">
-      <p>{ pCtx.T("services.cta.p1") }</p>
-      // Der Link geht zur Kontaktseite, auch hier sprachspezifisch
-      <a href={ pCtx.CurrentLangLink("/contact") } class="cta-button">{ pCtx.T("services.cta.link") }</a>
-    </div>
-  </div>
-</section>
-}
+	@BaseHtml(pCtx) {
+		<header>
+			<h1>{ pCtx.T("services.pageTitle") }</h1>
+			<p>{ pCtx.T("services.pageSubtitle") }</p>
+		</header>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("services.introduction.title") }</h2>
+			<p>{ pCtx.T("services.introduction.p1") }</p>
+			<p>{ pCtx.T("services.introduction.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("services.webDev.title") }</h2>
+			<p class="service-sub-description"><em>{ pCtx.T("services.webDev.subDescription") }</em></p>
+			<ul>
+				<li>{ pCtx.T("services.webDev.item1") }</li>
+				<li>{ pCtx.T("services.webDev.item2") }</li>
+				<li>{ pCtx.T("services.webDev.item3") }</li>
+				<li>{ pCtx.T("services.webDev.item4") }</li>
+				<li>{ pCtx.T("services.webDev.item5") }</li>
+				<li>{ pCtx.T("services.webDev.item6") }</li>
+			</ul>
+			<dl class="service-details">
+				<dt>{ pCtx.T("services.webDev.tools.label") }</dt>
+				<dd>{ pCtx.T("services.webDev.tools.text") }</dd>
+			</dl>
+			<p><a class="cta-link" href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("services.webDev.linkToProjects") }</a></p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("services.strategy.title") }</h2>
+			<p class="service-sub-description"><em>{ pCtx.T("services.strategy.subDescription") }</em></p>
+			<ul>
+				<li>{ pCtx.T("services.strategy.item1") }</li>
+				<li>{ pCtx.T("services.strategy.item2") }</li>
+				<li>{ pCtx.T("services.strategy.item3") }</li>
+				<li>{ pCtx.T("services.strategy.item4") }</li>
+				<li>{ pCtx.T("services.strategy.item5") }</li>
+			</ul>
+			<dl class="service-details">
+				<dt>{ pCtx.T("services.strategy.background.label") }</dt>
+				<dd>{ pCtx.T("services.strategy.background.text") }</dd>
+			</dl>
+			<p><a class="cta-link" href={ pCtx.CurrentLangLink("/about") }>{ pCtx.T("services.strategy.linkToProcess") }</a></p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("services.ethicalTech.title") }</h2>
+			<p class="service-sub-description"><em>{ pCtx.T("services.ethicalTech.subDescription") }</em></p>
+			<ul>
+				<li>{ pCtx.T("services.ethicalTech.item1") }</li>
+				<li>{ pCtx.T("services.ethicalTech.item2") }</li>
+				<li>{ pCtx.T("services.ethicalTech.item3") }</li>
+				<li>{ pCtx.T("services.ethicalTech.item4") }</li>
+				<li>{ pCtx.T("services.ethicalTech.item5") }</li>
+			</ul>
+			<dl class="service-details">
+				<dt>{ pCtx.T("services.ethicalTech.relevantFor.label") }</dt>
+				<dd>{ pCtx.T("services.ethicalTech.relevantFor.text") }</dd>
+			</dl>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("services.howIWork.title") }</h2>
+			<p class="service-sub-description"><em>{ pCtx.T("services.howIWork.subDescription") }</em></p>
+			<p>{ pCtx.T("services.howIWork.p1") }</p>
+			<p>{ pCtx.T("services.howIWork.p2") }</p>
+			<p><a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("services.howIWork.linkToContact") }</a></p>
+		</section>
+	}
 }

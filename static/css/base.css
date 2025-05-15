@@ -1,8 +1,40 @@
 :root {
-  --bg-color: #eeeeee;
-  --primary: #f79b72;
-  --text: #2a4759;
+  --bg-color: #eeeeee; /* Dein heller Seitenhintergrund */
+  --primary: #f79b72; /* Orange */
+  --text: #2a4759; /* Dunkles Blau-Grau */
   --secondary: #dddddd;
+  --nav-height: 4rem;
+  --text-muted: #5c7080;
+  --primary-rgb: 247, 155, 114;
+  --hero-text-on-dark-rgb: 240, 240, 240;
+
+  /* Neue kräftige Farben für Hero */
+  --hero-accent-blue: #3a506b; /* Ein sattes Blau */
+  --hero-accent-teal: #00796b; /* Ein kräftiges Teal */
+  --hero-text-light: #f0f0f0; /* Für Text auf dunklem Grund */
+
+  --hero-text-on-dark: #f0f0f0; /* Für hellen Text auf dunklen Hintergründen */
+
+  /* HINTERGRUNDFARBEN FÜR HERO-SPALTEN */
+  --hero-left-bg: var(--text);
+  --hero-right-bg: var(--bg-color);
+
+  /* CTA Button Farben */
+  --cta-color-1-bg: var(--primary); /* Orange */
+  --cta-color-1-text: var(--hero-text-light);
+  --cta-color-1-bg-hover: color-mix(in srgb, var(--primary) 85%, black);
+
+  --cta-color-2-bg: var(--text); /* Dunkles Text-Blau-Grau */
+  --cta-color-2-text: var(--hero-text-light);
+  --cta-color-2-bg-hover: color-mix(in srgb, var(--text) 85%, black);
+
+  --cta-color-3-bg: var(--hero-accent-teal); /* Teal */
+  --cta-color-3-text: var(--hero-text-light);
+  --cta-color-3-bg-hover: color-mix(
+    in srgb,
+    var(--hero-accent-teal) 85%,
+    black
+  );
 }
 
 body {
@@ -11,88 +43,301 @@ body {
   color: var(--text);
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
+  line-height: 1.65;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 4rem;
+  padding-top: var(--nav-height);
   min-height: 100vh;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: space-evenly;
 }
 
 a {
   all: unset;
-  font-size: 1.1rem;
   cursor: pointer;
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-underline-offset: 0.2em;
+  transition:
+    color 0.2s ease-in-out,
+    text-decoration-color 0.2s ease-in-out;
 }
 
-a:hover {
+a:hover,
+a:focus {
   color: var(--primary);
+  text-decoration-color: var(--text);
 }
 
 h1,
 h2,
-h3 {
-  font-family: "Syne", sans-serif;
-  color: var(--primary);
-  margin: 0.5rem 0;
+h3,
+h4 {
+  font-family: "Overpass", sans-serif;
   padding: 0;
+  color: var(--primary);
 }
+
+h1 {
+  font-size: 2.8rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.9rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  max-width: 75ch;
+  font-weight: 400;
+}
+
+p strong,
+strong {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Optional: Nutzung von Overpass Mono für spezifische Elemente */
+.tech-label,
+.metadata,
+code,
+kbd,
+samp {
+  /* code, kbd, samp sind semantische HTML-Tags für Code/Eingaben */
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.9em;
+  color: #4a6a79;
+  background-color: rgba(221, 221, 221, 0.5);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+/* Beispiel für die optionale Nutzung von Overpass Mono */
+.tech-label,
+.metadata {
+  /* Beispielklassen */
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.9em;
+  color: #555;
+}
+dl dt {
+  /* Gilt für alle dt, es sei denn, du hast spezifischere Klassen wie .service-details oder .project-details-list */
+  font-family: "Overpass Mono", monospace;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  font-size: 0.95em;
+  margin-bottom: 0.25rem;
+}
+
+/* Styling für Definitions-Beschreibungen (dd) - wenn du sie generell so haben willst */
+dl dd {
+  margin-inline-start: 0; /* Standard-Einrückung entfernen, falls du das immer willst */
+  margin-bottom: 1rem;
+  padding-inline-start: 1rem; /* Leichte Einrückung, anpassbar */
+}
+
+/* Styling für ULs innerhalb von DDs in Definitionslisten */
+dl dd ul {
+  list-style-type: disc;
+  margin-block-start: 0.25em;
+  margin-block-end: 0;
+  padding-inline-start: 20px; /* Browsereinzug für Listenpunkte innerhalb der dd */
+}
+
+dl dd ul li {
+  margin-bottom: 0.25em;
+}
+
+/* Für Sub-Beschreibungen (wenn du diese Klasse .service-sub-description seitenübergreifend nutzen willst) */
+.service-sub-description {
+  /* Beachte: Der Name ist spezifisch für "Service". Evtl. eine generischere Klasse wie .page-intro-subtitle? */
+  font-style: italic;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem; /* Oder var(--spacing-l) */
+  font-size: 1.05em;
+}
+
+/* Für Meta-Texte (z.B. "(WIP)", Jahreszahlen) - das ist eine gute generische Klasse */
+.meta-text {
+  font-family: "Inter", sans-serif;
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.5em;
+}
+
+/* Konsolidiertes Styling für Code-ähnliche Elemente und Labels */
+.tech-label, /* Für explizite Labels */
+.metadata,   /* Für andere Metadaten */
+code,        /* Für HTML <code> Tags */
+kbd,         /* Für HTML <kbd> Tags */
+samp {
+  /* Für HTML <samp> Tags */
+  font-family: "Overpass Mono", monospace;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  background-color: rgba(
+    221,
+    221,
+    221,
+    0.4
+  ); /* var(--secondary) mit Transparenz */
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* Call-to-Action Links (cta-link) - das ist auch eine gute generische Klasse */
+a.cta-link {
+  display: inline-block;
+  padding: 0.5em 1em;
+  background-color: var(--primary);
+  color: white; /* Oder eine andere helle, kontrastreiche Farbe */
+  text-decoration: none; /* Überschreibt globales Link-Styling */
+  border-radius: 4px;
+  font-weight: 600; /* Oder 700, je nach Schrift und gewünschter Stärke */
+  font-family: "Inter", sans-serif; /* Oder "Overpass", wenn CTAs die Überschriftenschrift haben sollen */
+  margin-top: 1rem; /* Standardabstand nach oben */
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+a.cta-link:hover,
+a.cta-link:focus {
+  background-color: #e08a62; /* Dunklere Variante */
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px); /* Leichter "Anhebe"-Effekt */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Etwas stärkerer Schatten beim Hover */
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--secondary);
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  width: 100%;
+}
+
+hr.section-divider {
+  border: none;
+  border-top: 1px solid var(--secondary); /* Deine Sekundärfarbe */
+  margin-top: 3rem; /* Großer Abstand oben */
+  margin-bottom: 3rem; /* Großer Abstand unten */
+  width: 100%; /* Volle Breite */
+}
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  div {
-    width: 30%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
 }
-section {
-  width: 60%;
-  min-height: calc(100vh-24rem);
-  margin: 4rem 8rem;
 
-  ul {
-    width: 100%;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 1rem;
-    li {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      margin: 1rem;
-      box-sizing: border-box;
-      padding: 1.5rem;
-      flex-basis: calc((100% - 2 * 1rem) / 3);
-      flex-grow: 1;
-      flex-shrink: 1;
-    }
-  }
+form div {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.page-container {
+  width: 60%;
+  min-height: calc(100vh - 24rem);
+  margin: 4rem 8rem;
+}
+
+.page-container ul {
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+  width: auto;
+  display: block;
+}
+
+.page-container ul li {
+  margin-bottom: 0.5em;
+  box-shadow: none;
+  padding: 0;
+  flex-basis: auto;
+  flex-grow: 0;
+}
+
+.page-container ul.is-grid {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+.page-container ul.is-grid li {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 0;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  flex-basis: calc((100% - 2 * 1rem) / 3);
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-bottom: 1rem;
+}
+.page-container ul:not(.is-grid):not(.nav-links) {
+  list-style-type: none; /* Entfernt die Punkte */
+  padding-inline-start: 0; /* Entfernt die Standard-Einrückung der Liste */
+}
+
+.page-container ul:not(.is-grid):not(.nav-links) li {
+  /* Optional: Wenn du möchtest, dass die Listenelemente ohne Punkte trotzdem leicht eingerückt sind */
+  /* padding-inline-start: 1em; */
+  margin-bottom: 0.5em; /* Beibehaltung des Abstands zwischen den li-Elementen */
 }
 
 @media (max-width: 767.98px) {
-  form {
-    div {
-      width: 90%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
+  form div {
+    width: 90%;
   }
 
-  section {
+  .page-container {
     width: 90%;
+    margin: 2rem 1rem;
+  }
+
+  .page-container ul li {
+    flex-basis: calc((100% - 1rem) / 2);
   }
 }

@@ -3,47 +3,45 @@ package components
 import "mymodules/gofolio/i18n"
 
 templ Arts(images []string, pCtx i18n.PageContext) {
-@BaseHtml(pCtx) {
-<section id="arts">
-  <header>
-    <h1>{ pCtx.T("arts.title") }</h1>
-    <p>{ pCtx.T("arts.subtitle") }</p>
-  </header>
-  <p>
-    { pCtx.T("arts.intro.p1") }
-  </p>
-  <p>{ pCtx.T("arts.intro.p2") }</p>
-  <ul>
-    <li>
-      <h3>{ pCtx.T("arts.photography.title") }</h3>
-      { pCtx.T("arts.photography.text") }
-    </li>
-    <li>
-      <h3>{ pCtx.T("arts.sound.title") }</h3>
-      { pCtx.T("arts.sound.text") }
-    </li>
-    <li>
-      <h3>{ pCtx.T("arts.sketches.title") }</h3>
-      { pCtx.T("arts.sketches.text") }
-    </li>
-  </ul>
-  <p>
-    { pCtx.T("arts.outro.p1") }
-  </p>
-  <p>
-    { pCtx.T("arts.outro.p2") }
-  </p>
-  <div class="image-gallery">
-    for _, image := range images {
-    <div class="image-gallery__image-box">
-      // Die src hier ist dynamisch und wird nicht übersetzt.
-      <img src={ "./" + image } alt={ pCtx.T("arts.gallery.imageAlt") } class="image-gallery__image" />
-      <div class="image-gallery__layover">
-        <p class="image-gallery__layover-text">{ pCtx.T("arts.gallery.viewImageText") }</p>
-      </div>
-    </div>
-    }
-  </div>
-</section>
-}
+	@BaseHtml(pCtx) {
+		<header>
+			<h1>{ pCtx.T("arts.title") }</h1>
+			<p>{ pCtx.T("arts.subtitle") }</p>
+		</header>
+		<p>
+			{ pCtx.T("arts.intro.p1") }
+		</p>
+		<p>{ pCtx.T("arts.intro.p2") }</p>
+		<ul>
+			<li>
+				<h3>{ pCtx.T("arts.photography.title") }</h3>
+				{ pCtx.T("arts.photography.text") }
+			</li>
+			<li>
+				<h3>{ pCtx.T("arts.sound.title") }</h3>
+				{ pCtx.T("arts.sound.text") }
+			</li>
+			<li>
+				<h3>{ pCtx.T("arts.sketches.title") }</h3>
+				{ pCtx.T("arts.sketches.text") }
+			</li>
+		</ul>
+		<p>
+			{ pCtx.T("arts.outro.p1") }
+		</p>
+		<p>
+			{ pCtx.T("arts.outro.p2") }
+		</p>
+		<div class="image-gallery">
+			for _, image := range images {
+				<div class="image-gallery__image-box">
+					// Die src hier ist dynamisch und wird nicht übersetzt.
+					<img src={ "./" + image } alt={ pCtx.T("arts.gallery.imageAlt") } class="image-gallery__image"/>
+					<div class="image-gallery__layover">
+						<p class="image-gallery__layover-text">{ pCtx.T("arts.gallery.viewImageText") }</p>
+					</div>
+				</div>
+			}
+		</div>
+	}
 }

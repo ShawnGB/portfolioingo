@@ -3,26 +3,144 @@ package components
 import "mymodules/gofolio/i18n"
 
 templ Projects(pCtx i18n.PageContext) {
-@BaseHtml(pCtx) {
-<section id="projects">
-  <header>
-    <h1>{ pCtx.T("projects.title") }</h1>
-    <p>{ pCtx.T("projects.subtitle") }</p>
-  </header>
-  <p>
-    { pCtx.T("projects.intro.p1") }
-  </p>
-  <h2>{ pCtx.T("projects.whatYoullFind.title") }</h2>
-  <ul>
-    <li>{ pCtx.T("projects.whatYoullFind.item1") }</li>
-    <li>{ pCtx.T("projects.whatYoullFind.item2") }</li>
-    <li>{ pCtx.T("projects.whatYoullFind.item3") }</li>
-    <li>{ pCtx.T("projects.whatYoullFind.item4") }</li>
-  </ul>
-  <p>
-    { pCtx.T("projects.outro.p1") }
-  </p>
-  <p>{ pCtx.T("projects.outro.p2") }</p>
-</section>
-}
+	@BaseHtml(pCtx) {
+		<header>
+			<h1>{ pCtx.T("projects.pageTitle") }</h1>
+			<p>{ pCtx.T("projects.pageSubtitle") }</p>
+		</header>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("projects.introduction.title") }</h2>
+			<p>{ pCtx.T("projects.introduction.p1") }</p>
+			<p>{ pCtx.T("projects.introduction.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("projects.currentProject.title") }</h2>
+			<p>{ pCtx.T("projects.currentProject.description") }</p>
+			<dl class="project-details-list">
+				<dt>{ pCtx.T("projects.currentProject.motivation.label") }</dt>
+				<dd>{ pCtx.T("projects.currentProject.motivation.text") }</dd>
+				<dt>{ pCtx.T("projects.currentProject.stack.label") }</dt>
+				<dd>
+					<ul>
+						<li>{ pCtx.T("projects.currentProject.stack.item1") }</li>
+						<li>{ pCtx.T("projects.currentProject.stack.item2") }</li>
+						<li>{ pCtx.T("projects.currentProject.stack.item3") }</li>
+						<li>{ pCtx.T("projects.currentProject.stack.item4") }</li>
+						<li>{ pCtx.T("projects.currentProject.stack.item5") }</li>
+					</ul>
+				</dd>
+			</dl>
+			<p>
+				<a href="https://github.com/ShawnGB/portfolioingo" target="_blank" rel="noopener noreferrer">
+					→ { pCtx.T("projects.currentProject.linkGithubText") }
+				</a>
+			</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("projects.websitesBuilt.title") }</h2>
+			<ul class="is-grid">
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.jessebecker.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.jessebecker.description") }</p>
+						<p><a href="http://www.jessebecker.com/" target="_blank" rel="noopener noreferrer">→ www.jessebecker.com</a></p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.arinashanzev.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.arinashanzev.description") }</p>
+						<p><a href="https://arinashanzev.com" target="_blank" rel="noopener noreferrer">→ arinashanzev.com</a></p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.berndwolf.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.berndwolf.description") }</p>
+						<p><a href="https://berndwolf.net/en/home" target="_blank" rel="noopener noreferrer">→ berndwolf.net</a></p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.description") }</p>
+						<p>
+							<a href="https://www.evolve-festival.com/" target="_blank" rel="noopener noreferrer">
+								→ www.evolve-festival.com
+							</a>
+						</p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.oldPortfolio.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.oldPortfolio.description") }</p>
+						<p>
+							<a href="https://github.com/ShawnGB/my-portfolio" target="_blank" rel="noopener noreferrer">
+								→ { pCtx.T("projects.currentProject.linkGithubText") }
+							</a>
+						</p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.websitesBuilt.uskillity.name") }</h3>
+						<p>{ pCtx.T("projects.websitesBuilt.uskillity.description") }</p>
+						<p>
+							<a href="https://www.instagram.com/uskillity/" target="_blank" rel="noopener noreferrer">
+								→ { pCtx.T("projects.websitesBuilt.uskillity.linkInstagramText") }
+							</a>
+							<br/>
+							<a href="https://github.com/ShawnGB/uskillity-frontend" target="_blank" rel="noopener noreferrer">
+								→ { pCtx.T("projects.websitesBuilt.uskillity.linkFrontendRepoText") }
+							</a>
+							<br/>
+							<a href="https://github.com/ShawnGB/uskillity-backend" target="_blank" rel="noopener noreferrer">
+								→ { pCtx.T("projects.websitesBuilt.uskillity.linkBackendRepoText") }
+							</a>
+						</p>
+					</article>
+				</li>
+			</ul>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("projects.cultural.title") }</h2>
+			<ul class="is-grid">
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.cultural.kultschaette.name") }</h3>
+						<p>{ pCtx.T("projects.cultural.kultschaette.p1") }</p>
+						<p>{ pCtx.T("projects.cultural.kultschaette.p2") }</p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.cultural.evolveFestivalSupport.name") }</h3>
+						<p>{ pCtx.T("projects.cultural.evolveFestivalSupport.p1") }</p>
+					</article>
+				</li>
+				<li>
+					<article>
+						<h3>{ pCtx.T("projects.cultural.vegetarischDeluxe.name") }</h3>
+						<p>{ pCtx.T("projects.cultural.vegetarischDeluxe.p1") }</p>
+					</article>
+				</li>
+			</ul>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("projects.film.title") }</h2>
+			<p>{ pCtx.T("projects.film.description") }</p>
+			<p>
+				<a href="https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html" target="_blank" rel="noopener noreferrer">
+					→
+					{ pCtx.T("projects.film.linkCrewUnitedText") }
+				</a>
+			</p>
+		</section>
+	}
 }

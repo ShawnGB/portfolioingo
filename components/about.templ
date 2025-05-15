@@ -2,53 +2,80 @@ package components
 
 import "mymodules/gofolio/i18n"
 
-// Dein Import für das i18n-Paket, das PageContext enthält
 templ About(pCtx i18n.PageContext) {
-@BaseHtml(pCtx) {
-// Wichtig: pCtx hier an BaseHtml weitergeben!
-<section id="about" class="about-section">
-  <div class="container">
-    <header class="about-hero">
-      <h2>{ pCtx.T("about.hero.title") }</h2>
-      <h3>{ pCtx.T("about.hero.subtitle") }</h3>
-    </header>
-    <div class="intro-text">
-      <p>{ pCtx.T("about.intro.greeting") }</p>
-      <p>
-        { pCtx.T("about.intro.p1") }
-      </p>
-      <p>
-        { pCtx.T("about.intro.p2") }
-      </p>
-      <p>
-        { pCtx.T("about.intro.p3") }
-      </p>
-    </div>
-    <h4>{ pCtx.T("about.keyThreads.title") }</h4>
-    <ul>
-      <li>
-        <h3>{ pCtx.T("about.keyThreads.item1.title") }</h3>
-        { pCtx.T("about.keyThreads.item1.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("about.keyThreads.item2.title") }</h3>
-        { pCtx.T("about.keyThreads.item2.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("about.keyThreads.item3.title") }</h3>
-        { pCtx.T("about.keyThreads.item3.text") }
-      </li>
-      <li>
-        <h3>{ pCtx.T("about.keyThreads.item4.title") }</h3>
-        { pCtx.T("about.keyThreads.item4.text") }
-      </li>
-    </ul>
-    <div class="cta">
-      <p>{ pCtx.T("about.cta.p1") }</p>
-      <p>{ pCtx.T("about.cta.p2") }</p>
-      <a href="#contact" class="cta-button">{ pCtx.T("about.cta.connectLink") }</a>
-    </div>
-  </div>
-</section>
-}
+	@BaseHtml(pCtx) {
+		<header>
+			<h1>{ pCtx.T("about.pageTitle") }</h1>
+			<p>{ pCtx.T("about.pageSubtitle") }</p>
+		</header>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.greeting.title") }</h2>
+			<p>{ pCtx.T("about.greeting.p1") }</p>
+			<p>{ pCtx.T("about.greeting.p2") }</p>
+			<p>{ pCtx.T("about.greeting.p3") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.path.title") }</h2>
+			<p>{ pCtx.T("about.path.p1") }</p>
+			<p>{ pCtx.T("about.path.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
+			<ul>
+				<li>
+					<strong>{ pCtx.T("about.drivesMe.item1.title") }</strong>
+					<br/>
+					{ pCtx.T("about.drivesMe.item1.text") }
+				</li>
+				<li>
+					<strong>{ pCtx.T("about.drivesMe.item2.title") }</strong>
+					<br/>
+					{ pCtx.T("about.drivesMe.item2.text") }
+				</li>
+				<li>
+					<strong>{ pCtx.T("about.drivesMe.item3.title") }</strong>
+					<br/>
+					{ pCtx.T("about.drivesMe.item3.text") }
+				</li>
+				<li>
+					<strong>{ pCtx.T("about.drivesMe.item4.title") }</strong>
+					<br/>
+					{ pCtx.T("about.drivesMe.item4.text") }
+				</li>
+			</ul>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.skillset.title") }</h2>
+			<h3>{ pCtx.T("about.skillset.devFullstack.title") }</h3>
+			<p>{ pCtx.T("about.skillset.devFullstack.skills") }</p>
+			<h3>{ pCtx.T("about.skillset.productStrategy.title") }</h3>
+			<p>{ pCtx.T("about.skillset.productStrategy.skills") }</p>
+			<h3>{ pCtx.T("about.skillset.ethicalConsulting.title") }</h3>
+			<p>{ pCtx.T("about.skillset.ethicalConsulting.skills") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.outsideScreen.title") }</h2>
+			<p>{ pCtx.T("about.outsideScreen.p1") }</p>
+			<p>{ pCtx.T("about.outsideScreen.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.connect.title") }</h2>
+			<p>{ pCtx.T("about.connect.p1") }</p>
+			<p>
+				<a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
+			</p>
+			<p>
+				<a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer">
+					→ { 
+      pCtx.T("about.connect.githubLinkText") }
+				</a>
+			</p>
+		</section>
+	}
 }
