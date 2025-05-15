@@ -6,39 +6,40 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 @BaseHtml(pCtx) {
 <section id="arts">
   <header>
-    <h1>Arts</h1>
-    <p>Exploration without outcome – just presence, practice, and play.</p>
+    <h1>{ pCtx.T("arts.title") }</h1>
+    <p>{ pCtx.T("arts.subtitle") }</p>
   </header>
   <p>
-    Before I wrote code, I made music. Before I designed interfaces, I followed light through a lens. Art, for me, is
-    not a separate category – it’s another way of listening to the world.
+    { pCtx.T("arts.intro.p1") }
   </p>
-  <p>This section is a window into the creative side of my life:</p>
+  <p>{ pCtx.T("arts.intro.p2") }</p>
   <ul>
     <li>
-      <h3>Photography:</h3> fragments of light, architecture, mood, and movement
+      <h3>{ pCtx.T("arts.photography.title") }</h3>
+      { pCtx.T("arts.photography.text") }
     </li>
     <li>
-      <h3>Sound & Music:</h3> analog and digital explorations, ambient compositions, sonic journaling
+      <h3>{ pCtx.T("arts.sound.title") }</h3>
+      { pCtx.T("arts.sound.text") }
     </li>
     <li>
-      <h3>Sketches & Studies:</h3> visual experiments, layout explorations, captured atmospheres
+      <h3>{ pCtx.T("arts.sketches.title") }</h3>
+      { pCtx.T("arts.sketches.text") }
     </li>
   </ul>
   <p>
-    I don’t publish everything I make – but I share what feels honest. These works aren’t always finished, but they are
-    always true.
+    { pCtx.T("arts.outro.p1") }
   </p>
   <p>
-    Creativity, for me, is not about showcasing talent. It’s about returning to presence. Paying attention. Letting
-    intuition guide the way.
+    { pCtx.T("arts.outro.p2") }
   </p>
   <div class="image-gallery">
     for _, image := range images {
     <div class="image-gallery__image-box">
-      <img src={ "./" + image } alt="Art Image" class="image-gallery__image" />
+      // Die src hier ist dynamisch und wird nicht übersetzt.
+      <img src={ "./" + image } alt={ pCtx.T("arts.gallery.imageAlt") } class="image-gallery__image" />
       <div class="image-gallery__layover">
-        <p class="image-gallery__layover-text">View Image</p>
+        <p class="image-gallery__layover-text">{ pCtx.T("arts.gallery.viewImageText") }</p>
       </div>
     </div>
     }

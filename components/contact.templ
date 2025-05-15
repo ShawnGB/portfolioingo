@@ -2,8 +2,7 @@ package components
 
 import "mymodules/gofolio/i18n"
 
-// ContactFormData wird benötigt, um ggf. alte Eingaben bei Fehlern wieder ins Formular zu laden.
-// Für den initialen Aufruf sind diese leer.
+// ContactFormData bleibt wie es ist.
 type ContactFormData struct {
 FirstName string
 LastName string
@@ -19,18 +18,16 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 @BaseHtml(pCtx) {
 <section id="contact-section">
   <header>
-    <h1>Contact</h1>
-    <p>Reach out – with an idea, a question, or just curiosity.</p>
+    <h1>{ pCtx.T("contact.title") }</h1>
+    <p>{ pCtx.T("contact.subtitle") }</p>
   </header>
   <p>
-    I’m always open to conversation – whether you're looking to collaborate, need support for a digital project, or
-    just feel drawn to something you’ve seen here.
+    { pCtx.T("contact.intro.p1") }
   </p>
   <p>
-    You don’t need a polished pitch. A simple message is enough. I value real human connection, and I do my best to
-    respond personally to every inquiry.
+    { pCtx.T("contact.intro.p2") }
   </p>
-  // Anzeige für Erfolgs- oder Fehlermeldungen
+  // Anzeige für Erfolgs- oder Fehlermeldungen (bleibt wie es war, da die Nachrichten vom Handler kommen)
   if data.SuccessMessage != "" {
   <div id="form-feedback" class="alert alert-success"
     style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 15px;">{ data.SuccessMessage }</div>
@@ -39,49 +36,54 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
   <div id="form-feedback" class="alert alert-danger"
     style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 15px;">{ data.ErrorMessage }</div>
   }
-  <form hx-post="/contact" hx-target="#contact-section" hx-swap="outerHTML" hx-indicator="#loading-indicator">
+  <form hx-post={ pCtx.CurrentLangLink("/contact") } hx-target="#contact-section" hx-swap="outerHTML"
+    hx-indicator="#loading-indicator">
     <div style="margin-bottom: 15px;">
-      <label for="firstname">Vorname:</label>
+      <label for="firstname">{ pCtx.T("contact.form.firstname.label") }</label>
       <input type="text" id="firstname" name="firstname" value={ data.FirstName } required />
     </div>
     <div style="margin-bottom: 15px;">
-      <label for="lastname">Nachname:</label>
+      <label for="lastname">{ pCtx.T("contact.form.lastname.label") }</label>
       <input type="text" id="lastname" name="lastname" value={ data.LastName } required />
     </div>
     <div style="margin-bottom: 15px;">
-      <label for="email">E-Mail:</label>
+      <label for="email">{ pCtx.T("contact.form.email.label") }</label>
       <input type="email" id="email" name="email" value={ data.Email } required />
     </div>
     <div style="margin-bottom: 15px;">
-      <label for="phone">Telefon (optional):</label>
+      <label for="phone">{ pCtx.T("contact.form.phone.label") }</label>
       <input type="tel" id="phone" name="phone" value={ data.Phone } />
     </div>
     <div style="margin-bottom: 15px;">
-      <label for="service">Serviceleistung (optional):</label>
+      <label for="service">{ pCtx.T("contact.form.service.label") }</label>
       <select id="service" name="service">
-        <option value="" selected={ data.Service=="" }>Bitte wählen...</option>
-        <option value="entwicklung" selected={ data.Service=="entwicklung" }>Entwicklung</option>
-        <option value="beratung" selected={ data.Service=="beratung" }>Beratung</option>
-        <option value="product_management" selected={ data.Service=="product_management" }>Product Management</option>
-        <option value="andere" selected={ data.Service=="andere" }>Andere</option>
+        <option value="" selected={ data.Service=="" }>{ pCtx.T("contact.form.service.option.select") }</option>
+        <option value="entwicklung" selected={ data.Service=="entwicklung" }>{
+          pCtx.T("contact.form.service.option.development") }</option>
+        <option value="beratung" selected={ data.Service=="beratung" }>{
+          pCtx.T("contact.form.service.option.consulting") }</option>
+        <option value="product_management" selected={ data.Service=="product_management" }>{
+          pCtx.T("contact.form.service.option.productManagement") }</option>
+        <option value="andere" selected={ data.Service=="andere" }>{ pCtx.T("contact.form.service.option.other") }
+        </option>
       </select>
     </div>
     <div style="margin-bottom: 15px;">
-      <label for="message">Ihre Nachricht:</label>
+      <label for="message">{ pCtx.T("contact.form.message.label") }</label>
       <textarea id="message" name="message" rows="6" required>{ data.Message }</textarea>
     </div>
-    <button type="submit">Nachricht senden</button>
-    <span id="loading-indicator" class="htmx-indicator">Wird gesendet...</span>
+    <button type="submit">{ pCtx.T("contact.form.submitButton") }</button>
+    <span id="loading-indicator" class="htmx-indicator">{ pCtx.T("contact.form.loadingIndicator") }</span>
   </form>
   <hr style="margin-top: 30px; margin-bottom: 30px;" />
-  <h2>You might reach out if:</h2>
+  <h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
   <ul>
-    <li>You want to collaborate on a web or creative project</li>
-    <li>You’re building something thoughtful and need a developer or strategist</li>
-    <li>You’re exploring digital ethics or sustainable tech practices</li>
-    <li>You just want to share something – a thought, a link, an idea</li>
+    <li>{ pCtx.T("contact.reachOutIf.item1") }</li>
+    <li>{ pCtx.T("contact.reachOutIf.item2") }</li>
+    <li>{ pCtx.T("contact.reachOutIf.item3") }</li>
+    <li>{ pCtx.T("contact.reachOutIf.item4") }</li>
   </ul>
-  <p>Let’s see where the conversation leads.</p>
+  <p>{ pCtx.T("contact.outro.p1") }</p>
 </section>
 }
 }

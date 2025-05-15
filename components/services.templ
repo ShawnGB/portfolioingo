@@ -6,52 +6,42 @@ templ Services(pCtx i18n.PageContext) {
 @BaseHtml(pCtx) {
 <section id="services" class="services-section">
   <div class="container">
-    <!-- Hero -->
     <header class="services-hero">
-      <h2>Services</h2>
-      <h3>Crafting thoughtful digital solutions — from idea to impact.</h3>
+      <h2>{ pCtx.T("services.title") }</h2>
+      <h3>{ pCtx.T("services.subtitle") }</h3>
     </header>
-    <!-- Intro Text -->
     <div class="services-intro-container">
       <p>
-        I support purpose-driven teams, creatives, and founders with a mix of hands-on development, strategic thinking,
-        and human-centered design. Whether you need a digital product built from scratch or guidance to refine your idea
-        —
-        I’m here to help.
+        { pCtx.T("services.intro.p1") }
       </p>
     </div>
-    <!-- Service Offerings -->
-    <h4>How I can support you</h4>
+    <h4>{ pCtx.T("services.howICanSupport.title") }</h4>
     <ul>
       <li>
-        <h3>Fullstack Development</h3>
-        Custom web apps, responsive frontends, performant APIs. Technologies I use include React, Node.js, Swift, and
-        more.
+        <h3>{ pCtx.T("services.offering1.title") }</h3>
+        { pCtx.T("services.offering1.text") }
       </li>
       <li>
-        <h3>Product Strategy</h3>
-        Clarify your vision, prioritize features, and align user needs with business goals — from MVPs to mature
-        platforms.
+        <h3>{ pCtx.T("services.offering2.title") }</h3>
+        { pCtx.T("services.offering2.text") }
       </li>
       <li>
-        <h3>UX/UI & Prototyping</h3>
-        Simple, honest design that speaks clearly. I help translate complexity into intuitive flows and meaningful
-        interactions.
+        <h3>{ pCtx.T("services.offering3.title") }</h3>
+        { pCtx.T("services.offering3.text") }
       </li>
       <li>
-        <h3>Technical Consulting</h3>
-        From architecture choices to ethical tech decisions — I provide insight with a systems-thinking mindset.
+        <h3>{ pCtx.T("services.offering4.title") }</h3>
+        { pCtx.T("services.offering4.text") }
       </li>
       <li>
-        <h3>Creative Collaboration</h3>
-        I love working with musicians, artists, and cultural initiatives — helping translate ideas into digital
-        presence.
+        <h3>{ pCtx.T("services.offering5.title") }</h3>
+        { pCtx.T("services.offering5.text") }
       </li>
     </ul>
-    <!-- Call to Action -->
     <div class="cta">
-      <p>Curious how we could work together?</p>
-      <a href="#contact" class="cta-button">Let’s start a conversation</a>
+      <p>{ pCtx.T("services.cta.p1") }</p>
+      // Der Link geht zur Kontaktseite, auch hier sprachspezifisch
+      <a href={ pCtx.CurrentLangLink("/contact") } class="cta-button">{ pCtx.T("services.cta.link") }</a>
     </div>
   </div>
 </section>
