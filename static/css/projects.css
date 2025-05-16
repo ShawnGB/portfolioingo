@@ -1,24 +1,24 @@
+/* In deiner projektspezifischen CSS oder einer globalen Komponenten-CSS */
 .project-details-list dt {
-  font-family: "Overpass Mono", monospace; /* Oder "Inter" SemiBold, je nach gewünschtem Look */
-  font-weight: 600; /* Oder ein anderes Gewicht */
-  color: var(--text); /* Deine Standard-Textfarbe */
-  margin-top: 1rem; /* Abstand über dem Label */
-  font-size: 1em; /* Oder etwas kleiner, z.B. 0.9em */
+  font-family: "Overpass Mono", monospace;
+  font-weight: 600;
+  color: var(--primary); /* Geändert von var(--text) zu var(--primary) */
+  margin-top: 1rem;
+  font-size: 1em;
+  margin-bottom: 0.35rem; /* Angepasst für besseren Abstand zum DD */
 }
 
 .project-details-list dd {
-  margin-inline-start: 0; /* Standard-Browser-Einrückung für dd entfernen */
-  margin-bottom: 1rem; /* Abstand unter der Definition */
-  padding-inline-start: 1rem; /* Eigene leichte Einrückung, oder 0 für bündig */
+  margin-inline-start: 0;
+  margin-bottom: 1rem;
+  padding-inline-start: 0; /* Entfernt, wenn .skill-list direkt im dd ist und gap nutzt */
+  /* oder behalte es für normale Text-dd und überschreibe es für .skill-list-dd */
 }
 
-/* Spezifisches Styling für die ul innerhalb der dd (Tech-Stack-Liste) */
-.project-details-list dd ul {
-  list-style-type: disc; /* Oder was du für normale Listen definiert hast */
-  margin-block-start: 0.25em; /* Weniger Abstand nach dem dd-Label */
-  padding-inline-start: 20px; /* Standard-Einrückung für Listenpunkte */
-}
-
-.project-details-list dd ul li {
-  margin-bottom: 0.25em; /* Weniger Abstand zwischen den Tech-Stack-Items */
+/* Stelle sicher, dass .skill-list und .tech-label global definiert sind (in base.css) */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  /* Ggf. margin-top hinzufügen, wenn es direkt nach dt kommt */
 }

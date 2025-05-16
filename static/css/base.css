@@ -6,35 +6,8 @@
   --nav-height: 4rem;
   --text-muted: #5c7080;
   --primary-rgb: 247, 155, 114;
-  --hero-text-on-dark-rgb: 240, 240, 240;
 
-  /* Neue kräftige Farben für Hero */
-  --hero-accent-blue: #3a506b; /* Ein sattes Blau */
-  --hero-accent-teal: #00796b; /* Ein kräftiges Teal */
-  --hero-text-light: #f0f0f0; /* Für Text auf dunklem Grund */
-
-  --hero-text-on-dark: #f0f0f0; /* Für hellen Text auf dunklen Hintergründen */
-
-  /* HINTERGRUNDFARBEN FÜR HERO-SPALTEN */
-  --hero-left-bg: var(--text);
-  --hero-right-bg: var(--bg-color);
-
-  /* CTA Button Farben */
-  --cta-color-1-bg: var(--primary); /* Orange */
-  --cta-color-1-text: var(--hero-text-light);
-  --cta-color-1-bg-hover: color-mix(in srgb, var(--primary) 85%, black);
-
-  --cta-color-2-bg: var(--text); /* Dunkles Text-Blau-Grau */
-  --cta-color-2-text: var(--hero-text-light);
-  --cta-color-2-bg-hover: color-mix(in srgb, var(--text) 85%, black);
-
-  --cta-color-3-bg: var(--hero-accent-teal); /* Teal */
-  --cta-color-3-text: var(--hero-text-light);
-  --cta-color-3-bg-hover: color-mix(
-    in srgb,
-    var(--hero-accent-teal) 85%,
-    black
-  );
+  --accent-neon-pink-rgb: 255, 60, 172;
 }
 
 body {
@@ -84,31 +57,38 @@ h1 {
   font-size: 2.8rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 h2 {
-  font-size: 2rem;
+  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
+  font-size: 2rem; /* Größe erstmal beibehalten */
+  font-weight: 500; /* Von 700 auf 600 oder sogar 500 */
+  color: var(--text);
   margin-top: 2.5rem;
   margin-bottom: 0.9rem;
-  color: var(--text);
-  font-weight: 700;
 }
 
 h3 {
-  font-size: 1.6rem;
+  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
+  font-size: 1.6rem; /* Größe erstmal beibehalten */
+  font-weight: 500; /* Von 600 auf 500 */
+  /* Für "Overpass" ist 500 (Medium) oft ein guter Kompromiss. 
+     Prüfe, welche Gewichte "Overpass" anbietet, falls 500 nicht ideal ist.
+     "Normal" (400) könnte schon zu dünn sein für eine H3. */
+  color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  color: var(--text);
-  font-weight: 600;
 }
 
 h4 {
-  font-size: 1.2rem;
+  /* Normale h4, nicht die .drives-me-item-title */
+  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
+  font-size: 1.2rem; /* Größe erstmal beibehalten */
+  font-weight: 500; /* Von 600 auf 500, oder 600 beibehalten, wenn h3 auf 500 geht */
+  color: var(--text);
   margin-top: 1.5rem;
   margin-bottom: 0.6rem;
-  color: var(--text);
-  font-weight: 600;
 }
 
 p {
@@ -219,26 +199,31 @@ samp {
 /* Call-to-Action Links (cta-link) - das ist auch eine gute generische Klasse */
 a.cta-link {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.8em 1.8em; /* Mehr Padding */
   background-color: var(--primary);
-  color: white; /* Oder eine andere helle, kontrastreiche Farbe */
-  text-decoration: none; /* Überschreibt globales Link-Styling */
-  border-radius: 4px;
-  font-weight: 600; /* Oder 700, je nach Schrift und gewünschter Stärke */
-  font-family: "Inter", sans-serif; /* Oder "Overpass", wenn CTAs die Überschriftenschrift haben sollen */
-  margin-top: 1rem; /* Standardabstand nach oben */
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out;
+  /* Optional: Subtiler Gradient */
+  /* background-image: linear-gradient(to right, var(--primary) 0%, color-mix(in srgb, var(--primary) 80%, black) 100%); */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px; /* Oder 0px für kantiger */
+  font-family: "Overpass Mono", monospace; /* Hero-Schrift */
+  font-weight: 700; /* Oder dein Standard-Mono-Gewicht */
+  text-transform: uppercase; /* Großbuchstaben */
+  letter-spacing: 0.075em; /* Etwas mehr Abstand */
+  margin-top: 1rem;
+  transition: all 0.25s ease-out; /* 'all' für mehrere Eigenschaften, 'ease-out' für sanfteres Ausklingen */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiler Basisschatten */
 }
 
 a.cta-link:hover,
 a.cta-link:focus {
-  background-color: #e08a62; /* Dunklere Variante */
+  background-color: color-mix(in srgb, var(--primary) 85%, black);
   color: white;
-  text-decoration: none;
-  transform: translateY(-2px); /* Leichter "Anhebe"-Effekt */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Etwas stärkerer Schatten beim Hover */
+  transform: translateY(-3px);
+  /* Neuer Akzent: Pinker Schatten oder Rand */
+  box-shadow: 0 6px 12px rgba(var(--accent-neon-pink-rgb), 0.25); /* Pinker Glow */
+  /* Oder ein feiner pinker Rand beim Hover */
+  /* border: 1px solid rgb(var(--accent-neon-pink-rgb)); */
 }
 
 hr {
@@ -247,14 +232,6 @@ hr {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
   width: 100%;
-}
-
-hr.section-divider {
-  border: none;
-  border-top: 1px solid var(--secondary); /* Deine Sekundärfarbe */
-  margin-top: 3rem; /* Großer Abstand oben */
-  margin-bottom: 3rem; /* Großer Abstand unten */
-  width: 100%; /* Volle Breite */
 }
 
 form {
@@ -325,6 +302,30 @@ form div {
   /* Optional: Wenn du möchtest, dass die Listenelemente ohne Punkte trotzdem leicht eingerückt sind */
   /* padding-inline-start: 1em; */
   margin-bottom: 0.5em; /* Beibehaltung des Abstands zwischen den li-Elementen */
+} /* Wenn du die Klasse .page-main-header verwendest */
+
+.page-main-header {
+  text-align: left; /* Standard im .page-container ist schon links, aber zur Sicherheit */
+  margin-bottom: 2.5rem; /* Abstand zum ersten section-divider */
+}
+
+.page-main-header h1 {
+  font-family: "Overpass Mono", monospace; /* Für stärkere Hero-Anlehnung */
+  font-size: 3.2rem; /* Deutlich größer als Standard H1 (2.8rem) */
+  /* color: var(--primary); // Ist schon in base.css für h1 */
+  font-weight: 700; /* Falls Overpass Mono verschiedene Schnitte hat, sonst Standard */
+  line-height: 1.1;
+  margin-bottom: 0.5rem; /* Weniger Abstand zum Untertitel */
+  text-transform: uppercase; /* Optional, wie beim Hero */
+  letter-spacing: -0.03em; /* Optional, für engeren Satz wie beim Hero */
+}
+
+.page-subtitle {
+  font-size: 1.2rem; /* Etwas größer als Standard-Fließtext */
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 65ch; /* Maximale Breite für Lesbarkeit */
 }
 
 @media (max-width: 767.98px) {

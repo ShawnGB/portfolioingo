@@ -43,27 +43,27 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header><h1>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<header class=\"page-main-header\"><h1>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.pageTitle"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 8, Col: 37}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 8, Col: 36}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</h1><p class=\"page-subtitle\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.pageSubtitle"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 9, Col: 39}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 9, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -76,7 +76,7 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.introduction.title"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 13, Col: 46}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 13, Col: 45}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -89,7 +89,7 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.introduction.p1"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 14, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 14, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
@@ -102,7 +102,7 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			var templ_7745c5c3_Var7 string
 			templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.introduction.p2"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 15, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 15, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 			if templ_7745c5c3_Err != nil {
@@ -115,7 +115,7 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			var templ_7745c5c3_Var8 string
 			templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.title"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 19, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 19, Col: 47}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 			if templ_7745c5c3_Err != nil {
@@ -128,7 +128,7 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 20, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 20, Col: 52}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
@@ -173,183 +173,183 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</dt><dd><ul><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "</dt><dd><div class=\"skill-list\"><span class=\"tech-label\">Go (Golang) + native SSR templating</span> <span class=\"tech-label\">Hosted on Render</span> <span class=\"tech-label\">Email service integration with Resend</span> <span class=\"tech-label\">Language fallback and routing (i18n)</span> <span class=\"tech-label\">No framework – pure HTML, CSS and logic</span></div></dd></dl><p><a href=\"https://github.com/ShawnGB/portfolioingo\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var13 string
-			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.stack.item1"))
+			templ_7745c5c3_Var13, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.linkGithubText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 27, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 37, Col: 60}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var13))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "</a></p></section><hr class=\"section-divider\"><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var14 string
-			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.stack.item2"))
+			templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.title"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 28, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 43, Col: 46}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 13, "</h2><ul class=\"is-grid\"><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var15 string
-			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.stack.item3"))
+			templ_7745c5c3_Var15, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.jessebecker.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 29, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 47, Col: 63}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var15))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 14, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var16 string
-			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.stack.item4"))
+			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.jessebecker.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 30, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 48, Col: 69}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</li><li>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 15, "</p><p class=\"project-links\"><a href=\"http://www.jessebecker.com/\" target=\"_blank\" rel=\"noopener noreferrer\">→ www.jessebecker.com</a></p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var17 string
-			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.stack.item5"))
+			templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.arinashanzev.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 31, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 55, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</li></ul></dd></dl><p><a href=\"https://github.com/ShawnGB/portfolioingo\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 16, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var18 string
-			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.linkGithubText"))
+			templ_7745c5c3_Var18, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.arinashanzev.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 37, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 56, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var18))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</a></p></section><hr class=\"section-divider\"><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 17, "</p><p class=\"project-links\"><a href=\"https://arinashanzev.com\" target=\"_blank\" rel=\"noopener noreferrer\">→ arinashanzev.com</a></p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var19 string
-			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.title"))
+			templ_7745c5c3_Var19, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.berndwolf.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 43, Col: 47}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 63, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var19))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</h2><ul class=\"is-grid\"><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 18, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var20 string
-			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.jessebecker.name"))
+			templ_7745c5c3_Var20, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.berndwolf.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 47, Col: 61}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 64, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var20))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 19, "</p><p class=\"project-links\"><a href=\"https://berndwolf.net/en/home\" target=\"_blank\" rel=\"noopener noreferrer\">→ berndwolf.net</a></p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var21 string
-			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.jessebecker.description"))
+			templ_7745c5c3_Var21, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 48, Col: 67}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 71, Col: 73}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var21))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</p><p><a href=\"http://www.jessebecker.com/\" target=\"_blank\" rel=\"noopener noreferrer\">→ www.jessebecker.com</a></p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 20, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var22 string
-			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.arinashanzev.name"))
+			templ_7745c5c3_Var22, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 54, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 72, Col: 79}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var22))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 21, "</p><p class=\"project-links\"><a href=\"https://www.evolve-festival.com/\" target=\"_blank\" rel=\"noopener noreferrer\">→ www.evolve-festival.com</a></p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var23 string
-			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.arinashanzev.description"))
+			templ_7745c5c3_Var23, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.oldPortfolio.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 55, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 82, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var23))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</p><p><a href=\"https://arinashanzev.com\" target=\"_blank\" rel=\"noopener noreferrer\">→ arinashanzev.com</a></p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 22, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var24 string
-			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.berndwolf.name"))
+			templ_7745c5c3_Var24, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.oldPortfolio.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 61, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 83, Col: 70}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var24))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 23, "</p><p class=\"project-links\"><a href=\"https://github.com/ShawnGB/my-portfolio\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var25 string
-			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.berndwolf.description"))
+			templ_7745c5c3_Var25, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.linkGithubText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 62, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 86, Col: 66}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var25))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</p><p><a href=\"https://berndwolf.net/en/home\" target=\"_blank\" rel=\"noopener noreferrer\">→ berndwolf.net</a></p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 24, "</a></p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var26 string
-			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.name"))
+			templ_7745c5c3_Var26, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 68, Col: 71}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 93, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var26))
 			if templ_7745c5c3_Err != nil {
@@ -360,139 +360,139 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var27 string
-			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.description"))
+			templ_7745c5c3_Var27, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 69, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 94, Col: 67}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var27))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</p><p><a href=\"https://www.evolve-festival.com/\" target=\"_blank\" rel=\"noopener noreferrer\">→ www.evolve-festival.com</a></p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 26, "</p><div class=\"project-links\"><a href=\"https://www.instagram.com/uskillity/\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var28 string
-			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.oldPortfolio.name"))
+			templ_7745c5c3_Var28, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkInstagramText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 79, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 97, Col: 78}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var28))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 27, "</a> <a href=\"https://github.com/ShawnGB/uskillity-frontend\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var29 string
-			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.oldPortfolio.description"))
+			templ_7745c5c3_Var29, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkFrontendRepoText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 80, Col: 68}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 100, Col: 81}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var29))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</p><p><a href=\"https://github.com/ShawnGB/my-portfolio\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 28, "</a> <a href=\"https://github.com/ShawnGB/uskillity-backend\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var30 string
-			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.currentProject.linkGithubText"))
+			templ_7745c5c3_Var30, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkBackendRepoText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 83, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 103, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var30))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</a></p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 29, "</a></div></article></li></ul></section><hr class=\"section-divider\"><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var31 string
-			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.name"))
+			templ_7745c5c3_Var31, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.title"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 90, Col: 59}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 112, Col: 41}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var31))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 30, "</h2><ul class=\"is-grid\"><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var32 string
-			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.description"))
+			templ_7745c5c3_Var32, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 91, Col: 65}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 116, Col: 59}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var32))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</p><p><a href=\"https://www.instagram.com/uskillity/\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 31, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var33 string
-			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkInstagramText"))
+			templ_7745c5c3_Var33, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.p1"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 94, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 117, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var33))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</a><br><a href=\"https://github.com/ShawnGB/uskillity-frontend\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 32, "</p><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var34 string
-			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkFrontendRepoText"))
+			templ_7745c5c3_Var34, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.p2"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 98, Col: 77}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 118, Col: 56}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var34))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</a><br><a href=\"https://github.com/ShawnGB/uskillity-backend\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 33, "</p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var35 string
-			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.websitesBuilt.uskillity.linkBackendRepoText"))
+			templ_7745c5c3_Var35, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.evolveFestivalSupport.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 102, Col: 76}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 123, Col: 68}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var35))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</a></p></article></li></ul></section><hr class=\"section-divider\"><section><h2>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</h3><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var36 string
-			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.title"))
+			templ_7745c5c3_Var36, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.evolveFestivalSupport.p1"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 111, Col: 42}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 124, Col: 65}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var36))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</h2><ul class=\"is-grid\"><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 35, "</p></article></li><li class=\"service-card\"><article><h3>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var37 string
-			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.name"))
+			templ_7745c5c3_Var37, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.vegetarischDeluxe.name"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 115, Col: 57}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 129, Col: 64}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var37))
 			if templ_7745c5c3_Err != nil {
@@ -503,119 +503,54 @@ func Projects(pCtx i18n.PageContext) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var38 string
-			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.p1"))
+			templ_7745c5c3_Var38, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.vegetarischDeluxe.p1"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 116, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 130, Col: 61}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var38))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 37, "</p></article></li></ul></section><hr class=\"section-divider\"><section><h2>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var39 string
-			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.kultschaette.p2"))
+			templ_7745c5c3_Var39, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.title"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 117, Col: 54}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 137, Col: 37}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var39))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</p></article></li><li><article><h3>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 38, "</h2><p>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var40 string
-			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.evolveFestivalSupport.name"))
+			templ_7745c5c3_Var40, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.description"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 122, Col: 66}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 138, Col: 42}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var40))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</h3><p>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 39, "</p><p><a href=\"https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var41 string
-			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.evolveFestivalSupport.p1"))
+			templ_7745c5c3_Var41, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.linkCrewUnitedText"))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 123, Col: 63}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 141, Col: 54}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var41))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</p></article></li><li><article><h3>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var42 string
-			templ_7745c5c3_Var42, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.vegetarischDeluxe.name"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 128, Col: 62}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var42))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 41, "</h3><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var43 string
-			templ_7745c5c3_Var43, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.cultural.vegetarischDeluxe.p1"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 129, Col: 59}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var43))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 42, "</p></article></li></ul></section><hr class=\"section-divider\"><section><h2>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var44 string
-			templ_7745c5c3_Var44, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.title"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 136, Col: 38}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var44))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 43, "</h2><p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var45 string
-			templ_7745c5c3_Var45, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.description"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 137, Col: 43}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var45))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 44, "</p><p><a href=\"https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html\" target=\"_blank\" rel=\"noopener noreferrer\">→ ")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var46 string
-			templ_7745c5c3_Var46, templ_7745c5c3_Err = templ.JoinStringErrs(pCtx.T("projects.film.linkCrewUnitedText"))
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `components/projects.templ`, Line: 141, Col: 49}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var46))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 45, "</a></p></section>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 40, "</a></p></section>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

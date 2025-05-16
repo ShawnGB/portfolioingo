@@ -3,42 +3,24 @@ package components
 import "mymodules/gofolio/i18n"
 
 templ Home(pCtx i18n.PageContext) {
-	@BaseHtml(pCtx) {
-		<div class="hero-section-wrapper hero-split-layout">
-			<div class="hero-left-column">
-				<h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual") }</h1>
-				<h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual2") }</h1>
-				<h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual3") }</h1>
-				<div></div>
-			</div>
-			<div class="hero-right-column">
-				if pCtx.T("home.hero.nameVisual") != "" {
-					<p class="hero-name-signature">{ pCtx.T("home.hero.nameVisual") }</p>
-				}
-				<p class="hero-sub-intro">{ pCtx.T("home.hero.subIntroText") }</p>
-				<section class="hero-intro-paragraphs">
-					<p>{ pCtx.T("home.intro.p1") }</p>
-					<p>{ pCtx.T("home.intro.p2") }</p>
-				</section>
-				<div class="hero-cta-links">
-					<ul>
-						<li>
-							<a href={ pCtx.CurrentLangLink("/projects") } class="cta-link cta-button-1">
-								{ pCtx.T("home.cta.projects") }
-							</a>
-						</li>
-						<li>
-							<a href={ pCtx.CurrentLangLink("/services") } class="cta-link cta-button-2">
-								{ pCtx.T("home.cta.services") }
-							</a>
-						</li>
-						<li>
-							<a href={ pCtx.CurrentLangLink("/about") } class="cta-link cta-button-3">{ pCtx.T("home.cta.about") }</a>
-						</li>
-					</ul>
-				</div>
-				<div class="hero-right-bg"></div>
-			</div>
-		</div>
-	}
+@BaseHtml(pCtx) {
+<div class="hero-section-wrapper hero-split-layout">
+  <div class="hero-left-column">
+    <h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual") }</h1>
+    <h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual2") }</h1>
+    <h1 class="hero-main-visual-text">{ pCtx.T("home.hero.taglineVisual3") }</h1>
+    <div></div>
+  </div>
+  <div class="hero-right-column">
+    <div class="hero-right-bg-wrapper">
+      if pCtx.T("home.hero.nameVisual") != "" {
+      <p class="hero-name-signature">{ pCtx.T("home.hero.nameVisual") }</p>
+      }
+      <p class="hero-sub-intro">{ pCtx.T("home.hero.subIntroText") }</p>
+      <p class="hero-intro-paragraph">{ pCtx.T("home.intro.p1") }</p>
+      <a href={ pCtx.CurrentLangLink("/about") } class="hero-intro-paragraph">{ pCtx.T("home.cta.about") }</a>
+    </div>
+  </div>
+</div>
+}
 }

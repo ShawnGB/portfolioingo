@@ -4,101 +4,86 @@ import "mymodules/gofolio/i18n"
 
 // ContactFormData bleibt wie es ist.
 type ContactFormData struct {
-	FirstName      string
-	LastName       string
-	Email          string
-	Phone          string
-	Service        string
-	Message        string
-	SuccessMessage string
-	ErrorMessage   string
+FirstName string
+LastName string
+Email string
+Phone string
+Service string
+Message string
+SuccessMessage string
+ErrorMessage string
 }
 
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
-	@BaseHtml(pCtx) {
-		<header>
-			<h1>{ pCtx.T("contact.title") }</h1>
-			<p>{ pCtx.T("contact.subtitle") }</p>
-		</header>
-		<p>
-			{ pCtx.T("contact.intro.p1") }
-		</p>
-		<p>
-			{ pCtx.T("contact.intro.p2") }
-		</p>
-		// Anzeige für Erfolgs- oder Fehlermeldungen (bleibt wie es war, da die Nachrichten vom Handler kommen)
-		if data.SuccessMessage != "" {
-			<div
-				id="form-feedback"
-				class="alert alert-success"
-				style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 15px;"
-			>{ data.SuccessMessage }</div>
-		}
-		if data.ErrorMessage != "" {
-			<div
-				id="form-feedback"
-				class="alert alert-danger"
-				style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 15px;"
-			>{ data.ErrorMessage }</div>
-		}
-		<form
-			hx-post={ pCtx.CurrentLangLink("/contact") }
-			hx-target="#contact-section"
-			hx-swap="outerHTML"
-			hx-indicator="#loading-indicator"
-		>
-			<div style="margin-bottom: 15px;">
-				<label for="firstname">{ pCtx.T("contact.form.firstname.label") }</label>
-				<input type="text" id="firstname" name="firstname" value={ data.FirstName } required/>
-			</div>
-			<div style="margin-bottom: 15px;">
-				<label for="lastname">{ pCtx.T("contact.form.lastname.label") }</label>
-				<input type="text" id="lastname" name="lastname" value={ data.LastName } required/>
-			</div>
-			<div style="margin-bottom: 15px;">
-				<label for="email">{ pCtx.T("contact.form.email.label") }</label>
-				<input type="email" id="email" name="email" value={ data.Email } required/>
-			</div>
-			<div style="margin-bottom: 15px;">
-				<label for="phone">{ pCtx.T("contact.form.phone.label") }</label>
-				<input type="tel" id="phone" name="phone" value={ data.Phone }/>
-			</div>
-			<div style="margin-bottom: 15px;">
-				<label for="service">{ pCtx.T("contact.form.service.label") }</label>
-				<select id="service" name="service">
-					<option value="" selected={ data.Service == "" }>{ pCtx.T("contact.form.service.option.select") }</option>
-					<option value="entwicklung" selected={ data.Service == "entwicklung" }>
-						{ 
-        pCtx.T("contact.form.service.option.development") }
-					</option>
-					<option value="beratung" selected={ data.Service == "beratung" }>
-						{ 
-        pCtx.T("contact.form.service.option.consulting") }
-					</option>
-					<option value="product_management" selected={ data.Service == "product_management" }>
-						{ 
-        pCtx.T("contact.form.service.option.productManagement") }
-					</option>
-					<option value="andere" selected={ data.Service == "andere" }>
-						{ pCtx.T("contact.form.service.option.other") }
-					</option>
-				</select>
-			</div>
-			<div style="margin-bottom: 15px;">
-				<label for="message">{ pCtx.T("contact.form.message.label") }</label>
-				<textarea id="message" name="message" rows="6" required>{ data.Message }</textarea>
-			</div>
-			<button type="submit">{ pCtx.T("contact.form.submitButton") }</button>
-			<span id="loading-indicator" class="htmx-indicator">{ pCtx.T("contact.form.loadingIndicator") }</span>
-		</form>
-		<hr style="margin-top: 30px; margin-bottom: 30px;"/>
-		<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
-		<ul>
-			<li>{ pCtx.T("contact.reachOutIf.item1") }</li>
-			<li>{ pCtx.T("contact.reachOutIf.item2") }</li>
-			<li>{ pCtx.T("contact.reachOutIf.item3") }</li>
-			<li>{ pCtx.T("contact.reachOutIf.item4") }</li>
-		</ul>
-		<p>{ pCtx.T("contact.outro.p1") }</p>
-	}
+@BaseHtml(pCtx) {
+<header class="page-main-header">
+  <h1>{ pCtx.T("contact.title") }</h1>
+  <p class="page-subtitle">{ pCtx.T("contact.subtitle") }</p>
+</header>
+<hr class="section-divider" />
+<p>{ pCtx.T("contact.intro.p1") }</p>
+<p>{ pCtx.T("contact.intro.p2") }</p>
+if data.SuccessMessage != "" {
+<div id="form-feedback-success" class="alert alert-success">{ data.SuccessMessage }</div>
+}
+if data.ErrorMessage != "" {
+<div id="form-feedback-error" class="alert alert-danger">{ data.ErrorMessage }</div>
+}
+<form hx-post={ pCtx.CurrentLangLink("/contact") } hx-target="#contact-section" hx-swap="outerHTML"
+  hx-indicator="#loading-indicator" class="contact-form">
+  <div class="form-group">
+    <label for="firstname">{ pCtx.T("contact.form.firstname.label") }</label>
+    <input type="text" id="firstname" name="firstname" value={ data.FirstName } required />
+  </div>
+  <div class="form-group">
+    <label for="lastname">{ pCtx.T("contact.form.lastname.label") }</label>
+    <input type="text" id="lastname" name="lastname" value={ data.LastName } required />
+  </div>
+  <div class="form-group">
+    <label for="email">{ pCtx.T("contact.form.email.label") }</label>
+    <input type="email" id="email" name="email" value={ data.Email } required />
+  </div>
+  <div class="form-group">
+    <label for="phone">{ pCtx.T("contact.form.phone.label") }</label>
+    <input type="tel" id="phone" name="phone" value={ data.Phone } />
+  </div>
+  <div class="form-group">
+    <label for="service">{ pCtx.T("contact.form.service.label") }</label>
+    <select id="service" name="service">
+      <option value="" selected={ data.Service=="" }>{ pCtx.T("contact.form.service.option.select") }</option>
+      <option value="entwicklung" selected={ data.Service=="entwicklung" }>
+        { pCtx.T("contact.form.service.option.development") }
+      </option>
+      <option value="beratung" selected={ data.Service=="beratung" }>
+        { pCtx.T("contact.form.service.option.consulting") }
+      </option>
+      <option value="product_management" selected={ data.Service=="product_management" }>
+        { pCtx.T("contact.form.service.option.productManagement") }
+      </option>
+      <option value="andere" selected={ data.Service=="andere" }>
+        { pCtx.T("contact.form.service.option.other") }
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="message">{ pCtx.T("contact.form.message.label") }</label>
+    <textarea id="message" name="message" rows="6" required>{ data.Message }</textarea>
+  </div>
+  <div class="form-actions">
+    <button type="submit" class="cta-link">{ pCtx.T("contact.form.submitButton") }</button>
+    <span id="loading-indicator" class="htmx-indicator loading-indicator">
+      { pCtx.T("contact.form.loadingIndicator") }
+    </span>
+  </div>
+</form>
+<hr class="section-divider" />
+<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
+<ul class="reach-out-list">
+  <li>{ pCtx.T("contact.reachOutIf.item1") }</li>
+  <li>{ pCtx.T("contact.reachOutIf.item2") }</li>
+  <li>{ pCtx.T("contact.reachOutIf.item3") }</li>
+  <li>{ pCtx.T("contact.reachOutIf.item4") }</li>
+</ul>
+<p>{ pCtx.T("contact.outro.p1") }</p>
+}
 }

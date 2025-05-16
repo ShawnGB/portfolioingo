@@ -1,61 +1,102 @@
-/* Für static/css/services.css oder eine ähnliche Datei */
+/* --- Grid Container für Service-Karten --- */
+.services-grid-container {
+  display: grid;
+  /* Erzeugt Spalten, die mind. 320px breit sind, aber mitwachsen.
+     Passt Spaltenanzahl automatisch an Bildschirmbreite an. */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 2.5rem; /* Vergrößerter Abstand zwischen den Karten (ca. 40px) */
+  margin-top: 2.5rem;
+  margin-bottom: 3.5rem;
+}
 
-.service-sub-description {
-  font-style: italic;
+/* --- Styling der einzelnen Service-Karte --- */
+.service-card {
+  /* Visuelle Trennung: Kein Rand, stattdessen ein sehr subtiler Schatten */
+  border: none;
+  border-radius: 6px; /* Abgerundete Ecken beibehalten */
+
+  /* Hintergrund: Weiß, wenn dein --bg-color z.B. #eeeeee ist,
+     um einen leichten Kontrast für den Schatten zu haben.
+     Wenn --bg-color schon weiß ist, ist das hier optional. */
+  background-color: #ffffff; /* Oder eine sehr helle Variante von --bg-color */
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07); /* Weicher, subtiler Schatten */
+
+  /* Innenabstand: Großzügiger für mehr Luft */
+  padding: 2.5rem; /* ca. 40px */
+
+  /* Flexbox für einheitliche Höhe und Ausrichtung des Inhalts: */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Wichtig, um CTAs unten auszurichten */
+}
+
+/* --- Elemente innerhalb der Service-Karte --- */
+
+.service-card h2 {
+  /* Kartentitel */
+  margin-top: 0; /* Kein Abstand nach oben in der Karte */
+  font-size: 1.7rem; /* Etwas kleiner als Haupt-H2 (2rem), erbt "Overpass", weight 500 */
+  color: var(--text); /* Standard-Textfarbe für h2 */
+  margin-bottom: 1rem; /* Abstand zum Untertitel (ca. 16px) */
+}
+
+.service-card .service-sub-description {
+  /* Kursiver Untertitel in der Karte */
+  font-size: 1.05em; /* Beibehaltung der Größe */
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  font-size: 1.05em;
+  font-style: italic;
+  margin-bottom: 2rem; /* Mehr Abstand zur Feature-Liste (ca. 32px) */
 }
 
-dl.service-details {
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+.service-card ul {
+  /* Feature-Liste */
+  list-style-type: disc; /* Standard-Bullets vorerst beibehalten */
+  padding-left: 1.25rem; /* Standard-Einrückung für Bullets (ca. 20px) */
+  margin-bottom: 2rem; /* Abstand zum nächsten Element (ca. 32px) */
 }
 
-dl.service-details dt {
+.service-card ul li {
+  margin-bottom: 0.85em; /* Mehr Abstand zwischen den Listenelementen (ca. 12-14px) */
+  padding-left: 0.25em; /* Kleiner zusätzlicher Abstand zum Bullet, falls nötig */
+  line-height: 1.6; /* Gute Lesbarkeit für Listeneinträge */
+}
+
+.service-card dl.service-details {
+  /* "Tools:", "Background:" etc. */
+  margin-top: 1.5rem; /* Abstand von der Feature-Liste oder Sub-Description */
+  margin-bottom: 2rem; /* Abstand zum CTA (ca. 32px) */
+}
+
+.service-card dl.service-details dt {
+  /* Label wie "Tools:" */
   font-family: "Overpass Mono", monospace;
   font-weight: 600;
-  color: var(--text-muted);
-  margin-top: 1rem;
+  color: var(--text-muted); /* Dezente Farbe für das Label */
   font-size: 0.95em;
-  margin-bottom: 0.25rem;
+  margin-top: 1rem; /* Wenn mehrere DT/DD Paare vorkommen */
+  margin-bottom: 0.35rem; /* Kleinerer Abstand zum DD */
 }
 
-dl.service-details dd {
-  margin-inline-start: 0;
-  margin-bottom: 1rem;
-  padding-inline-start: 1rem;
+.service-card dl.service-details dd {
+  margin-inline-start: 0; /* Keine zusätzliche Einrückung für DD */
+  margin-bottom: 1rem; /* Abstand, falls mehrere DDs oder vor .skill-list */
+  padding-inline-start: 0; /* Keine zusätzliche Einrückung für DD */
 }
 
-dl.service-details dd ul {
-  list-style-type: disc;
-  margin-block-start: 0.25em;
-  margin-block-end: 0;
-  padding-inline-start: 20px;
+.service-card .skill-list {
+  /* Container für die Tech-Labels/Tags */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em 0.5em; /* Etwas mehr vertikaler Gap, falls Tags umbrechen */
+  /* margin-bottom: wird vom dl.service-details oder dd geregelt */
 }
+/* .tech-label Stil kommt aus base.css */
 
-dl.service-details dd ul li {
-  margin-bottom: 0.25em;
+.service-card p:has(a.cta-link) {
+  /* Absatz, der den CTA-Button enthält */
+  margin-top: auto; /* SCHIEBT DEN CTA NACH UNTEN! Wichtig für gleiche Höhe. */
+  padding-top: 1.5rem; /* Abstand nach oben zum vorherigen Inhalt (ca. 24px) */
+  margin-bottom: 0; /* Kein extra Abstand unten am CTA-Absatz selbst */
 }
-
-a.cta-link {
-  display: inline-block;
-  padding: 0.5em 1em;
-  background-color: var(--primary);
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 600;
-  font-family: "Inter", sans-serif;
-  margin-top: 1rem;
-  transition:
-    background-color 0.2s ease-in-out,
-    color 0.2s ease-in-out;
-}
-
-a.cta-link:hover,
-a.cta-link:focus {
-  background-color: #e08a62;
-  color: white;
-  text-decoration: none;
-}
+/* .cta-link Stil kommt aus base.css (der "Modern & Bold" Stil) */
