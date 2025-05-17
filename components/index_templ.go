@@ -43,7 +43,7 @@ func Home(pCtx i18n.PageContext) templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"hero-section-wrapper hero-split-layout\"><div class=\"hero-left-column\"><h1 class=\"hero-main-visual-text\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"hero-section-wrapper \"><div class=\"hero-left-column\"><h1 class=\"hero-main-visual-text\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
