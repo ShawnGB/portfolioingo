@@ -22,7 +22,16 @@ func main() {
 
 	// Static File Server
 	fs := http.FileServer(http.Dir("./static"))
-	mux.Handle("/static/", http.StripPrefix("/static/", fs)) // mux anstelle von http verwenden
+	mux.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// routes fuer sitemap und robots
+	mux.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/robots.txt")
+	})
+
+	mux.HandleFunc("/sitemap.xml", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/sitemap.xml")
+	})
 
 	mux.HandleFunc("/", handlers.IndexHandler)
 	mux.HandleFunc("/about", handlers.AboutHandler)
