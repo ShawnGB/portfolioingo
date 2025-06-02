@@ -2,76 +2,73 @@ package components
 
 import "mymodules/gofolio/i18n"
 
-templ BaseHtml(pCtx i18n.PageContext) {
-<!DOCTYPE html>
-<html lang={ pCtx.ActiveLang }>
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/static/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&family=Overpass:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Overpass+Mono:wght@300..700&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet" />
-  <title>{ pCtx.T("site.title") }</title>
-  <script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js"
-    integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-    crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C24CERYFB"></script>
-  <script>
+templ BaseHtml(pCtx i18n.PageContext, pagetitle string) {
+	<!DOCTYPE html>
+	<html lang={ pCtx.ActiveLang }>
+		<head>
+			<title>{ pagetitle }</title>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="stylesheet" href="/static/styles.css"/>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link
+				href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700&family=Overpass:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Overpass+Mono:wght@300..700&display=swap"
+				rel="stylesheet"
+			/>
+			<link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet"/>
+			<title>{ pCtx.T("site.title") }</title>
+			<script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+			<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C24CERYFB"></script>
+			<script>
     window.dataLayer = window.dataLayer || [];
     function gtag() {dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-8C24CERYFB');
   </script>
-</head>
-<nav>
-  <a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
-    <h3>SGB</h3>
-  </a>
-  <input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox" />
-  <div class="language-switcher" style="margin: 0 1rem;">
-    <a href={ pCtx.LanguageSwitchURL("de") } style="padding: 0 5px; text-decoration: none; color: inherit;">de</a>
-    <span style="padding: 0 5px;">|</span>
-    <a href={ pCtx.LanguageSwitchURL("en") } style="padding: 0 5px; text-decoration: none; color: inherit;">en</a>
-  </div>
-  <label for="burger-toggle" class="burger-menu-label">
-    <span class="burger-bar"></span>
-    <span class="burger-bar"></span>
-    <span class="burger-bar"></span>
-  </label>
-  <ul class="nav-links" id="nav-links-list">
-    <li><a href={ pCtx.CurrentLangLink("/about") }>{ pCtx.T("nav.about") }</a></li>
-    <li><a href={ pCtx.CurrentLangLink("/services") }>{ pCtx.T("nav.services") }</a></li>
-    <li><a href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("nav.projects") }</a></li>
-    <li><a href={ pCtx.CurrentLangLink("/arts") }>{ pCtx.T("nav.arts") }</a></li>
-    <li><a href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("nav.contact") }</a></li>
-  </ul>
-</nav>
-
-<body>
-  <div class="page-container">
-    { children... }
-  </div>
-</body>
-<footer>
-  <section>
-    <div>
-      <p><strong>Shawn Gordon Becker</strong></p>
-      <p>Baseler Str 38</p>
-      <p>12205 Berlin</p>
-    </div>
-    <div>
-      <p><strong>tel: <a>+49 170 966 47 25</a></strong></p>
-      <p><strong>email: <a>contact@shawnbecker.de</a></strong></p>
-    </div>
-  </section>
-  <p>Copyright 2025 Shawn Gordon Becker</p>
-</footer>
-
-</html>
+		</head>
+		<nav>
+			<a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
+				<h3>SGB</h3>
+			</a>
+			<input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox"/>
+			<div class="language-switcher" style="margin: 0 1rem;">
+				<a href={ pCtx.LanguageSwitchURL("de") } style="padding: 0 5px; text-decoration: none; color: inherit;">de</a>
+				<span style="padding: 0 5px;">|</span>
+				<a href={ pCtx.LanguageSwitchURL("en") } style="padding: 0 5px; text-decoration: none; color: inherit;">en</a>
+			</div>
+			<label for="burger-toggle" class="burger-menu-label">
+				<span class="burger-bar"></span>
+				<span class="burger-bar"></span>
+				<span class="burger-bar"></span>
+			</label>
+			<ul class="nav-links" id="nav-links-list">
+				<li><a href={ pCtx.CurrentLangLink("/about") }>{ pCtx.T("nav.about") }</a></li>
+				<li><a href={ pCtx.CurrentLangLink("/services") }>{ pCtx.T("nav.services") }</a></li>
+				<li><a href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("nav.projects") }</a></li>
+				<li><a href={ pCtx.CurrentLangLink("/arts") }>{ pCtx.T("nav.arts") }</a></li>
+				<li><a href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("nav.contact") }</a></li>
+			</ul>
+		</nav>
+		<body>
+			<div class="page-container">
+				{ children... }
+			</div>
+		</body>
+		<footer>
+			<section>
+				<div>
+					<p><strong>Shawn Gordon Becker</strong></p>
+					<p>Baseler Str 38</p>
+					<p>12205 Berlin</p>
+				</div>
+				<div>
+					<p><strong>tel: <a>+49 170 966 47 25</a></strong></p>
+					<p><strong>email: <a>contact@shawnbecker.de</a></strong></p>
+				</div>
+			</section>
+			<p>Copyright 2025 Shawn Gordon Becker</p>
+		</footer>
+	</html>
 }

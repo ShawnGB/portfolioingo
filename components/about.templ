@@ -3,88 +3,88 @@ package components
 import "mymodules/gofolio/i18n"
 
 templ About(pCtx i18n.PageContext) {
-@BaseHtml(pCtx) {
-<header class="page-main-header">
-  <h1>{ pCtx.T("about.pageTitle") }</h1>
-  <p class="page-subtitle">{ pCtx.T("about.pageSubtitle") }</p>
-</header>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.greeting.title") }</h2>
-  <p>{ pCtx.T("about.greeting.p1") }</p>
-  <p>{ pCtx.T("about.greeting.p2") }</p>
-  <p>{ pCtx.T("about.greeting.p3") }</p>
-</section>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.path.title") }</h2>
-  <p>{ pCtx.T("about.path.p1") }</p>
-  <p>{ pCtx.T("about.path.p2") }</p>
-</section>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.drivesMe.title") }</h2>
-  <ul class="drives-me-list">
-    <li>
-      <h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item1.title") }</h4>
-      <p>{ pCtx.T("about.drivesMe.item1.text") }</p>
-    </li>
-    <li>
-      <h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item2.title") }</h4>
-      <p>{ pCtx.T("about.drivesMe.item2.text") }</p>
-    </li>
-    <li>
-      <h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item3.title") }</h4>
-      <p>{ pCtx.T("about.drivesMe.item3.text") }</p>
-    </li>
-    <li>
-      <h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item4.title") }</h4>
-      <p>{ pCtx.T("about.drivesMe.item4.text") }</p>
-    </li>
-  </ul>
-</section>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.skillset.title") }</h2>
-  <h3>{ pCtx.T("about.skillset.devFullstack.title") }</h3>
-  <div class="skill-list">
-    <span class="tech-label">JavaScript/TypeScript</span>
-    <span class="tech-label">React</span>
-    <span class="tech-label">Node.js</span>
-    <span class="tech-label">Go</span>
-    <span class="tech-label">HTML5</span>
-    <span class="tech-label">CSS3</span>
-    <span class="tech-label">API Development</span>
-    <span class="tech-label">Databases (MySQL, MongoDB)</span>
-    <span class="tech-label">CMS (WordPress, Headless CMS)</span>
-  </div>
-  <h3>{ pCtx.T("about.skillset.productStrategy.title") }</h3>
-  <div class="skill-list">
-    <p>{ pCtx.T("about.skillset.productStrategy.skills") }</p>
-  </div>
-  <h3>{ pCtx.T("about.skillset.ethicalConsulting.title") }</h3>
-  <div class="skill-list">
-    <p>{ pCtx.T("about.skillset.ethicalConsulting.skills") }</p>
-  </div>
-</section>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.outsideScreen.title") }</h2>
-  <p>{ pCtx.T("about.outsideScreen.p1") }</p>
-  <p>{ pCtx.T("about.outsideScreen.p2") }</p>
-</section>
-<hr class="section-divider" />
-<section>
-  <h2>{ pCtx.T("about.connect.title") }</h2>
-  <p>{ pCtx.T("about.connect.p1") }</p>
-  <p>
-    <a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
-  </p>
-  <p>
-    <a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer">
-      → { pCtx.T("about.connect.githubLinkText") }
-    </a>
-  </p>
-</section>
-}
+	@BaseHtml(pCtx, "About Shawn") {
+		<header class="page-main-header">
+			<h1>{ pCtx.T("about.pageTitle") }</h1>
+			<p class="page-subtitle">{ pCtx.T("about.pageSubtitle") }</p>
+		</header>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.greeting.title") }</h2>
+			<p>{ pCtx.T("about.greeting.p1") }</p>
+			<p>{ pCtx.T("about.greeting.p2") }</p>
+			<p>{ pCtx.T("about.greeting.p3") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.path.title") }</h2>
+			<p>{ pCtx.T("about.path.p1") }</p>
+			<p>{ pCtx.T("about.path.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
+			<ul class="drives-me-list">
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item1.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item2.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item3.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item4.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
+				</li>
+			</ul>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.skillset.title") }</h2>
+			<h3>{ pCtx.T("about.skillset.devFullstack.title") }</h3>
+			<div class="skill-list">
+				<span class="tech-label">JavaScript/TypeScript</span>
+				<span class="tech-label">React</span>
+				<span class="tech-label">Node.js</span>
+				<span class="tech-label">Go</span>
+				<span class="tech-label">HTML5</span>
+				<span class="tech-label">CSS3</span>
+				<span class="tech-label">API Development</span>
+				<span class="tech-label">Databases (MySQL, MongoDB)</span>
+				<span class="tech-label">CMS (WordPress, Headless CMS)</span>
+			</div>
+			<h3>{ pCtx.T("about.skillset.productStrategy.title") }</h3>
+			<div class="skill-list">
+				<p>{ pCtx.T("about.skillset.productStrategy.skills") }</p>
+			</div>
+			<h3>{ pCtx.T("about.skillset.ethicalConsulting.title") }</h3>
+			<div class="skill-list">
+				<p>{ pCtx.T("about.skillset.ethicalConsulting.skills") }</p>
+			</div>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.outsideScreen.title") }</h2>
+			<p>{ pCtx.T("about.outsideScreen.p1") }</p>
+			<p>{ pCtx.T("about.outsideScreen.p2") }</p>
+		</section>
+		<hr class="section-divider"/>
+		<section>
+			<h2>{ pCtx.T("about.connect.title") }</h2>
+			<p>{ pCtx.T("about.connect.p1") }</p>
+			<p>
+				<a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
+			</p>
+			<p>
+				<a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer">
+					→ { pCtx.T("about.connect.githubLinkText") }
+				</a>
+			</p>
+		</section>
+	}
 }
