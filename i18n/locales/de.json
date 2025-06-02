@@ -18,7 +18,6 @@
   "home.cta.services": "Leistungen entdecken",
   "home.cta.about": "Mehr über mich",
 
-  "about.pageTitle": "Über mich",
   "about.pageSubtitle": "Zwischen Code und Sinn: Ein Entwickler mit Klarheit und Tiefe.",
   "about.greeting.title": "Hi, ich bin Shawn.",
   "about.greeting.p1": "Ich bin Fullstack-Webentwickler und digitaler Produktdenker – ich verbinde technische Präzision mit Gespür für Design. Ich denke digitale Produkte immer auch aus der Sicht der Nutzer:innen. Ich gestalte digitale Erlebnisse, die von Integrität geprägt sind – klar, zielgerichtet und fundiert.",
@@ -71,7 +70,6 @@
   "arts.gallery.imageAlt": "Kunstbild",
   "arts.gallery.viewImageText": "Bild ansehen",
 
-  "projects.pageTitle": "Projekte",
   "projects.pageSubtitle": "Ausgewählte Arbeiten, Spielwiesen und Kollaborationen",
   "projects.introduction.title": "Einleitung",
   "projects.introduction.p1": "Diese Seite zeigt eine Auswahl digitaler und kultureller Projekte, an denen ich über die Jahre beteiligt war – von persönlichen Portfolio-Websites bis hin zu kollaborativen Festivalräumen und Filmarbeiten.",
@@ -118,7 +116,6 @@
   "projects.film.description": "Mitglied der Filmproduktionscrew bei verschiedenen Kurz- und Langfilmprojekten, hauptsächlich in den Bereichen Licht und Kamera.",
   "projects.film.linkCrewUnitedText": "Shawn Gordon Becker bei Crew United",
 
-  "services.pageTitle": "Leistungen",
   "services.pageSubtitle": "Digitales Handwerk, verwurzelt in Klarheit, Zweck und Ästhetik",
   "services.introduction.title": "Einleitung",
   "services.introduction.p1": "Ich biete durchdachte, schlanke und menschenzentrierte digitale Dienstleistungen – zugeschnitten auf Einzelpersonen, Teams und Organisationen, die Wert auf Klarheit, Qualität und bewusstes Design legen.",
@@ -192,5 +189,23 @@
   "contact.error.sendFail": "Ihre Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es später erneut oder verwenden Sie die E-Mail-Adresse in der Fußzeile.",
   "contact.success.messageSent": "Ihre Nachricht wurde erfolgreich gesendet! Ich melde mich so schnell wie möglich bei Ihnen.",
   "contact.methodNotAllowed": "Methode nicht erlaubt",
-  "arts.error.loadImages": "Bilder für den Kunstbereich konnten nicht geladen werden."
+  "arts.error.loadImages": "Bilder für den Kunstbereich konnten nicht geladen werden.",
+
+  "home.pageTitle": "Shawn Gordon Becker - Fullstack Entwickler & Digital Product Thinker",
+  "home.pageMetaDescription": "Shawn Gordon Becker: Fullstack Web Entwickler & Digital Product Thinker. Entdecken Sie digitale Lösungen mit Substanz – an der Schnittstelle von Code, Konzept und Ästhetik.",
+
+  "about.pageTitle": "Über Mich - Shawn Gordon Becker",
+  "about.pageMetaDescription": "Lernen Sie Shawn Gordon Becker kennen: Fullstack Entwickler & Digital Product Thinker. Entdecken Sie seinen Weg, seine Philosophie und seinen Antrieb für klare, zielgerichtete digitale Lösungen.",
+
+  "services.pageTitle": "Leistungen - Shawn Gordon Becker",
+  "services.pageMetaDescription": "Entdecken Sie die digitalen Services von Shawn Gordon Becker: Individuelle Webentwicklung, Produktstrategie und ethische Tech-Beratung – mit Fokus auf Klarheit, Sinn und Ästhetik.",
+
+  "projects.pageTitle": "Projekte - Shawn Gordon Becker",
+  "projects.pageMetaDescription": "Ausgewählte digitale und kulturelle Projekte von Shawn Gordon Becker. Einblicke in Fullstack Webentwicklung, Product Thinking und kollaborative Arbeiten.",
+
+  "arts.pageTitle": "Kunst - Shawn Gordon Becker",
+  "arts.pageMetaDescription": "Einblicke in die kreativen Arbeiten von Shawn Gordon Becker – Erkundungen in Fotografie, Sound und Skizzen, die eine einzigartige Perspektive auf die Welt zeigen.",
+
+  "contact.pageTitle": "Kontakt - Shawn Gordon Becker",
+  "contact.pageMetaDescription": "Nehmen Sie Kontakt mit Shawn Gordon Becker auf. Für Projektanfragen, Ideenaustausch oder eine mögliche Zusammenarbeit im Bereich Webentwicklung und Digitalstrategie."
 }
