@@ -18,6 +18,7 @@
   "home.cta.services": "Discover Services",
   "home.cta.about": "Learn More About Me",
 
+  "about.title": "About me",
   "about.pageSubtitle": "Between code and meaning: A developer with clarity and depth.",
   "about.greeting.title": "Hi, I'm Shawn.",
   "about.greeting.p1": "I’m a fullstack web developer and digital product thinker – bridging technical precision with intuitive design, analytical thinking with a sense for human context. I build digital experiences that work with integrity – clear, purposeful, and grounded.",
@@ -70,6 +71,7 @@
   "arts.gallery.imageAlt": "Art Image",
   "arts.gallery.viewImageText": "View Image",
 
+  "projects.title": "My Projects",
   "projects.pageSubtitle": "Selected works, playgrounds and collaborations",
   "projects.introduction.title": "Introduction",
   "projects.introduction.p1": "This page showcases a selection of digital and cultural projects I’ve been involved in over the years – from personal portfolio websites to collaborative festival spaces and film work.",
@@ -116,6 +118,7 @@
   "projects.film.description": "Film production crew member in various short and feature-length projects, mostly in lighting and camera departments.",
   "projects.film.linkCrewUnitedText": "Shawn Gordon Becker on Crew United",
 
+  "services.title": "My services",
   "services.pageSubtitle": "Digital craftsmanship rooted in clarity, purpose and aesthetics",
   "services.introduction.title": "Introduction",
   "services.introduction.p1": "I offer thoughtful, lean and human-centered digital services – tailored for individuals, teams and organizations that value clarity, quality and conscious design.",
