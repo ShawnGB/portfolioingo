@@ -61,21 +61,20 @@ h1 {
 }
 
 h2 {
-  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
-  font-size: 2rem; /* Größe erstmal beibehalten */
-  font-weight: 500; /* Von 700 auf 600 oder sogar 500 */
+  font-family: "Overpass", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
   color: var(--text);
   margin-top: 2.5rem;
   margin-bottom: 0.9rem;
+  background-color: var(--accent-neon-pink-rgb);
 }
 
 h3 {
-  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
-  font-size: 1.6rem; /* Größe erstmal beibehalten */
-  font-weight: 500; /* Von 600 auf 500 */
-  /* Für "Overpass" ist 500 (Medium) oft ein guter Kompromiss. 
-     Prüfe, welche Gewichte "Overpass" anbietet, falls 500 nicht ideal ist.
-     "Normal" (400) könnte schon zu dünn sein für eine H3. */
+  font-family: "Overpass", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+
   color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.75rem;

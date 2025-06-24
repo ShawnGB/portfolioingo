@@ -29,12 +29,18 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
+		formData.Website = r.FormValue("website")
 		formData.FirstName = r.FormValue("firstname")
 		formData.LastName = r.FormValue("lastname")
 		formData.Email = r.FormValue("email")
 		formData.Phone = r.FormValue("phone")
 		formData.Service = r.FormValue("service")
 		formData.Message = r.FormValue("message")
+
+		if formData.Website != "" {
+			log.Println("Handler: Honeypotfield filled, contactform submission cancelled")
+			return
+		}
 
 		if formData.FirstName == "" || formData.LastName == "" || formData.Email == "" || formData.Message == "" {
 			formData.ErrorMessage = "Please fill out all required fields (First Name, Last Name, Email, and Message)."

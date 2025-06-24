@@ -4,6 +4,7 @@ import "mymodules/gofolio/i18n"
 
 // ContactFormData bleibt wie es ist.
 type ContactFormData struct {
+Website string
 FirstName string
 LastName string
 Email string
@@ -31,6 +32,7 @@ if data.ErrorMessage != "" {
 }
 <form hx-post={ pCtx.CurrentLangLink("/contact") } hx-target="#contact-section" hx-swap="outerHTML"
   hx-indicator="#loading-indicator" class="contact-form">
+  <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off" />
   <div class="form-group">
     <label for="firstname">{ pCtx.T("contact.form.firstname.label") }</label>
     <input type="text" id="firstname" name="firstname" value={ data.FirstName } required />
