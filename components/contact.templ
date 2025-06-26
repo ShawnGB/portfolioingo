@@ -76,14 +76,26 @@ if data.ErrorMessage != "" {
   </div>
   <div class="form-group" style="width: 100%; display: flex; justify-content: center; align-items: center;">
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
-    <div class="h-captcha" data-sitekey="66f63f0e-f6b6-4fd4-9658-868291dca84a"></div>
+    <div class="h-captcha" data-sitekey="66f63f0e-f6b6-4fd4-9658-868291dca84a" data-callback="enableSubmitButton"></div>
   </div>
   <div class="form-actions">
-    <button type="submit" class="cta-link">{ pCtx.T("contact.form.submitButton") }</button>
+    <button type="submit" class="cta-link" id="submit-contact-form-button" disabled>
+      {
+      pCtx.T("contact.form.submitButton") }
+    </button>
     <span id="loading-indicator" class="htmx-indicator loading-indicator">
       { pCtx.T("contact.form.loadingIndicator") }
     </span>
   </div>
+  <script>
+
+    function enableSubmitButton() {
+      const submitButton = document.getElementById('submit-contact-form-button');
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
+  </script>
 </form>
 <hr class="section-divider" />
 <h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
