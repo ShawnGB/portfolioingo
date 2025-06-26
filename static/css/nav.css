@@ -29,12 +29,12 @@ nav {
 }
 /* Versteckte Checkbox */
 .burger-toggle-checkbox {
-  display: none; /* Checkbox selbst unsichtbar machen */
+  display: none;
 }
 
 /* Burger-Icon (Label) */
 .burger-menu-label {
-  display: none; /* Auf Desktop standardmäßig ausgeblendet */
+  display: none;
   flex-direction: column;
   justify-content: space-around;
   width: 2rem;
@@ -43,7 +43,7 @@ nav {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 10; /* Über den Links, falls sie sich überlappen könnten */
+  z-index: 10;
 }
 
 .burger-bar {
@@ -53,7 +53,7 @@ nav {
   border-radius: 10px;
   transition:
     transform 0.3s ease-in-out,
-    opacity 0.3s ease-in-out; /* Für X-Animation */
+    opacity 0.3s ease-in-out;
 }
 
 .image-gallery {
@@ -80,23 +80,23 @@ nav {
   }
 
   .nav-links {
-    display: none; /* Navigationslinks standardmäßig ausblenden */
-    flex-direction: column; /* Links untereinander anordnen */
+    display: none;
+    flex-direction: column;
     width: 100%;
     position: absolute;
-    top: var(--nav-height); /* Unterhalb der fixierten Navigationsleiste */
+    top: var(--nav-height);
     left: 0;
     background-color: var(--bg-color);
-    border-top: 1px solid #eee; /* Trennlinie zur Navigationsleiste */
-    padding: 1rem 0; /* Etwas Innenabstand oben/unten */
+    border-top: 1px solid #eee;
+    padding: 1rem 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   .burger-menu-label {
-    display: flex; /* Burger-Icon auf Mobilgeräten anzeigen */
+    display: flex;
   }
 
   .nav-links {
-    display: none; /* Navigationslinks standardmäßig ausblenden */
+    display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
@@ -124,12 +124,10 @@ nav {
     border-bottom: none;
   }
 
-  /* Magie: Zeige das Menü, wenn die Checkbox gecheckt ist */
   .burger-toggle-checkbox:checked ~ .nav-links {
     display: flex;
   }
 
-  /* Optionale X-Animation für Burger-Icon bei :checked Zustand */
   .burger-toggle-checkbox:checked
     ~ .burger-menu-label
     .burger-bar:nth-child(1) {

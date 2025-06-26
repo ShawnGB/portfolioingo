@@ -1,44 +1,21 @@
-/* section ul für "What Drives Me" anpassen, falls es die einzige ul in den sections ist,
-   oder spezifischer werden, z.B. durch eine Klasse für die UL: <ul class="drives-me-list"> */
-
-/* Angenommen du gibst der UL die Klasse .drives-me-list */
 .drives-me-list {
   list-style-type: none;
   padding-left: 0;
 }
 
 .drives-me-list li {
-  margin-bottom: 2rem; /* Mehr Abstand zwischen den Items */
-  /* Optional: ein kleiner Akzent an der Seite */
-  /* padding-left: 1.5rem; */
-  /* border-left: 3px solid var(--secondary); */
-  /* position: relative; */
+  margin-bottom: 2rem;
 }
-
-/* Optionaler Akzent mit Pseudo-Element, falls border-left nicht gefällt */
-/*
-.drives-me-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.2em; 
-  height: calc(100% - 0.2em); 
-  width: 3px;
-  background-color: var(--secondary);
-}
-*/
 
 .drives-me-item-title {
-  /* Styling für die neuen H4-Titel */
-  font-family: "Overpass Mono", monospace; /* Verbindung zum Hero-Stil */
-  color: var(--primary); /* Akzentfarbe */
-  font-size: 1.2rem; /* Ggf. anpassen, sollte kleiner als h3 (1.6rem) sein */
-  font-weight: 700; /* Oder 600 */
-  margin-bottom: 0.35rem; /* Kleiner Abstand zum Text darunter */
+  font-family: "Overpass Mono", monospace;
+  color: var(--primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
 }
 
-/* Die <p> innerhalb der <li> werden die Standard-Absatzstile aus base.css erben. */
 .drives-me-list li p {
-  margin-bottom: 0; /* Falls die <p> einen eigenen margin-bottom haben, der hier stört */
-  max-width: 70ch; /* Behalte oder passe die Lesbarkeitsbreite an */
+  margin-bottom: 0;
+  max-width: 70ch;
 }

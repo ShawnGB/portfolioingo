@@ -1,31 +1,26 @@
-/* === Globale Seitenstruktur-Elemente (Arts-spezifisch) === */
-
 .page-intro-text .lead {
-  font-size: 1.25em; /* Etwas größer für den einleitenden Absatz */
+  font-size: 1.25em;
   color: var(--text);
   line-height: 1.7;
-  margin-bottom: 2rem; /* Mehr Abstand zum nächsten Absatz */
-  max-width: 70ch; /* Gute Leselänge */
+  margin-bottom: 2rem;
+  max-width: 70ch;
 }
 
 .art-category {
-  margin-bottom: 3.5rem; /* Größerer Abstand zwischen den Kunstkategorie-Sektionen,
-                            ersetzt die hr.section-divider zwischen diesen. */
+  margin-bottom: 3.5rem;
 }
 
 .art-category h2 {
-  /* Nutzt globale h2-Styles (Overpass, 500er Gewicht) */
   margin-bottom: 0.75rem;
 }
 
 .art-category p {
   max-width: 70ch;
   line-height: 1.65;
-  color: var(--text-muted); /* Beschreibungstexte etwas dezenter */
+  color: var(--text-muted);
 }
 
 .page-outro-text blockquote {
-  /* Styling für das Zitat am Ende */
   border-left: 3px solid var(--primary);
   padding-left: 1.5em;
   margin-left: 0;
@@ -37,7 +32,6 @@
   max-width: 70ch;
 }
 
-/* === Image Gallery von dir bereitgestelltes CSS === */
 .image-gallery__image-box {
   position: relative;
   overflow: hidden;
@@ -47,62 +41,42 @@
     transform 0.3s ease-out,
     opacity 0.3s ease-out,
     box-shadow 0.3s ease-out,
-    z-index 0s linear 0.3s; /* Sorgt dafür, dass z-index erst nach der Opacity-Transition greift */
+    z-index 0s linear 0.3s;
   z-index: 1;
 }
 
 .image-gallery img {
-  /* Gilt für .image-gallery__image */
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: object-fit 0.1s ease-in-out; /* Sanfter Übergang für object-fit Änderung */
+  transition: object-fit 0.1s ease-in-out;
 }
 
-/* Effekt beim Hovern über die gesamte Galerie */
 .image-gallery:hover .image-gallery__image-box {
   opacity: 0.5;
 }
 
-/* Effekt beim Hovern über ein einzelnes Bild in der Galerie */
 .image-gallery .image-gallery__image-box:hover {
   opacity: 1;
-  transform: scale(
-    1.25
-  ); /* Skalierung etwas reduziert für weniger Aggressivität */
-  /* Ursprünglich war scale(2) */
+  transform: scale(1.25);
+
   z-index: 10; /* Bild kommt nach vorne */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  transition-delay: 0s, 0s, 0s, 0s; /* Reset der Delays für sofortige Reaktion */
+  transition-delay: 0s, 0s, 0s, 0s;
 }
-
-/* nth-child Regel für variableres Grid (auskommentiert, bei Bedarf anpassen und aktivieren) */
-/* .image-gallery__image-box:nth-child(5n + 1) { 
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto; // Damit es sich anpassen kann
-}
-.image-gallery__image-box:nth-child(5n + 1) img {
-    // Ggf. object-fit anpassen, wenn es ein größeres Bild ist
-}
-*/
 
 .image-gallery .image-gallery__image-box:hover img {
-  object-fit: contain; /* Zeigt das ganze Bild beim Hover */
-  background-color: var(--bg-color); /* Hintergrund für 'contain'-Modus */
+  object-fit: contain;
+  background-color: var(--bg-color);
 }
-
-/* === Neues CSS für die Galerie-Struktur und das Layover === */
 
 .image-gallery {
   display: grid;
-  /* Responsive Spalten: Mindestens 180px, maximal 1fr. 
-     Passt sich gut an verschiedene Bildschirmgrößen an. */
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem; /* Abstand zwischen den Bildern */
-  margin-top: 2.5rem; /* Abstand über der Galerie */
-  margin-bottom: 2.5rem; /* Abstand unter der Galerie */
+  gap: 1rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .image-gallery__image-box .image-gallery__layover {
@@ -111,11 +85,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(
-    var(--text-rgb),
-    0.6
-  ); /* Definiere --text-rgb in :root oder nutze feste RGBA-Werte */
-  /* z.B. background-color: rgba(42, 71, 89, 0.6); */
+  background-color: rgba(var(--text-rgb), 0.6);
+
   color: white;
   display: flex;
   flex-direction: column;
@@ -123,13 +94,13 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  z-index: 5; /* Zwischen Bild und potentiellem Zoom-Effekt Overlay, falls anders gelöst */
-  pointer-events: none; /* Damit Klicks/Hovers immer noch zum Bild durchgehen, falls gewünscht */
+  z-index: 5;
+  pointer-events: none;
 }
 
 .image-gallery__image-box:hover .image-gallery__layover {
   opacity: 1;
-  pointer-events: auto; /* Layover wird interaktiv beim Hover */
+  pointer-events: auto;
 }
 
 .image-gallery__layover-text {
@@ -137,11 +108,3 @@
   padding: 0.5em;
   text-align: center;
 }
-
-/* Wichtig: Die globalen Styles für .page-main-header h1 und .page-subtitle 
-   sollten aus deiner base.css greifen. */
-
-/* Die hr.section-divider werden für die Haupt-Trennungen zwischen
-   Intro-Block, Kategorie-Block, Galerie-Block und Outro-Block verwendet.
-   Innerhalb des Kategorie-Blocks (zwischen den einzelnen .art-category)
-   nutzen wir nur den margin-bottom von .art-category für die Trennung. */

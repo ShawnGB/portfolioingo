@@ -1,18 +1,15 @@
 footer {
-  /* position: fixed; und bottom:0 entfernt! */
   width: 100%;
-  height: 16rem; /* oder min-height, oder padding für Inhaltshöhe */
+  height: 16rem;
   background-color: var(--secondary);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: auto; /* DAS IST DER SCHLÜSSEL für den Sticky Footer */
-  /* z-index nicht mehr nötig, da im normalen Fluss */
+  margin-top: auto;
 }
 
 footer section {
-  /* Annahme: Du möchtest immer noch eine section im footer */
   display: flex;
   justify-content: space-between;
   margin: 0;
