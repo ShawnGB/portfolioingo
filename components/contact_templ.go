@@ -453,7 +453,7 @@ func Contact(data ContactFormData, pCtx i18n.PageContext) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</textarea></div><div class=\"form-group\"><script src=\"https://hcaptcha.com/1/api.js\" async defer></script><div class=\"h-captcha\" data-sitekey=\"66f63f0e-f6b6-4fd4-9658-868291dca84a\"></div></div><div class=\"form-actions\"><button type=\"submit\" class=\"cta-link\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 34, "</textarea></div><div class=\"form-group\" style=\"width: 100%; display: flex; justify-content: center; align-items: center;\"><script src=\"https://hcaptcha.com/1/api.js\" async defer></script><div class=\"h-captcha\" data-sitekey=\"66f63f0e-f6b6-4fd4-9658-868291dca84a\"></div></div><div class=\"form-actions\"><button type=\"submit\" class=\"cta-link\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
