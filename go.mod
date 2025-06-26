@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/kataras/hcaptcha v0.0.2 // indirect
 	github.com/nicksnyder/go-i18n/v2 v2.6.0 // indirect
 	golang.org/x/text v0.25.0 // indirect
 )

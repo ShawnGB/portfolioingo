@@ -16,6 +16,7 @@ func main() {
 		log.Println("INFO: .env not found")
 	}
 
+	handlers.InitCaptchaClient()
 	i18n.Init("i18n/locales")
 
 	mux := http.NewServeMux()

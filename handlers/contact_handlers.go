@@ -7,7 +7,20 @@ import (
 	"mymodules/gofolio/utils"
 	"net/http"
 	"os"
+
+	"github.com/kataras/hcaptcha"
 )
+
+var captchaClient *hcaptcha.Client // Declare it, but don't initialize here
+
+func InitCaptchaClient() {
+	secret := os.Getenv("HCAPTCHA_SECRET_KEY")
+	if secret == "" {
+		log.Fatal("FATAL: HCAPTCHA_SECRET_KEY is not set. Cannot initialize hCaptcha client.")
+	}
+	captchaClient = hcaptcha.New(secret)
+	log.Println("INFO: hCaptcha client initialized successfully.")
+}
 
 func renderContact(w http.ResponseWriter, r *http.Request, data components.ContactFormData, statusCode int) {
 	pCtx := i18n.NewPageContext(r)
@@ -39,6 +52,14 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 
 		if formData.Website != "" {
 			log.Println("Handler: Honeypotfield filled, contactform submission cancelled")
+			return
+		}
+
+		captchaResp := captchaClient.VerifyToken(r.FormValue("h-captcha-response"))
+		if !captchaResp.Success {
+			log.Printf("hCaptcha verification failed: %+v", captchaResp)
+			formData.ErrorMessage = "Captcha verification failed. Please try again."
+			renderContact(w, r, formData, http.StatusBadRequest)
 			return
 		}
 
