@@ -15,7 +15,6 @@ nav {
     margin: 0;
     padding: 0;
     width: 60%;
-    height: 100%;
     display: flex;
     justify-content: space-evenly;
   }
@@ -72,7 +71,6 @@ nav {
     justify-content: space-between;
 
     ul {
-      margin-top: 4rem;
       li {
         background-color: var(--bg-color);
       }
