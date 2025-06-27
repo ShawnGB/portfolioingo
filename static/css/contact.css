@@ -13,6 +13,12 @@ form {
     input {
       width: 60%;
     }
+    select {
+      width: 60%;
+    }
+    textarea {
+      width: 60%;
+    }
   }
 }
 
