@@ -2,10 +2,13 @@ package main
 
 import (
 	"log"
-	"mymodules/gofolio/handlers"
-	"mymodules/gofolio/i18n"
 	"net/http"
 	"os"
+
+	"mymodules/gofolio/handlers"
+	"mymodules/gofolio/i18n"
+	"mymodules/gofolio/middleware"
+	"mymodules/gofolio/views/pages"
 
 	"github.com/joho/godotenv"
 )
@@ -16,8 +19,12 @@ func main() {
 		log.Println("INFO: .env not found")
 	}
 
+	// Initialize dependencies
 	handlers.InitCaptchaClient()
 	i18n.Init("i18n/locales")
+	if err := handlers.LoadImages(); err != nil {
+		log.Printf("WARN: Failed to load images: %v", err)
+	}
 
 	mux := http.NewServeMux()
 
@@ -34,12 +41,8 @@ func main() {
 		http.ServeFile(w, r, "./static/sitemap.xml")
 	})
 
-	mux.HandleFunc("/", handlers.IndexHandler)
-	mux.HandleFunc("/about", handlers.AboutHandler)
-	mux.HandleFunc("/services", handlers.ServiceHandler)
-	mux.HandleFunc("/projects", handlers.ProjectsHandler)
-	mux.HandleFunc("/arts", handlers.ArtsHandler)
-	mux.HandleFunc("/contact", handlers.ContactHandler)
+	// Page routes using handler factory pattern
+	registerPageRoutes(mux)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -48,10 +51,20 @@ func main() {
 
 	log.Printf("INFO: Starting server on :%s", port)
 
-	i18nedMux := i18n.MiddlewareI18n(mux)
+	// Apply middleware chain: Recovery -> Logging -> i18n -> Routes
+	handler := middleware.Recovery(middleware.Logging(i18n.MiddlewareI18n(mux)))
 
-	err = http.ListenAndServe(":"+port, i18nedMux)
+	err = http.ListenAndServe(":"+port, handler)
 	if err != nil {
 		log.Fatalf("FATAL: Server error: %v", err)
 	}
+}
+
+func registerPageRoutes(mux *http.ServeMux) {
+	mux.HandleFunc("/", handlers.NewPageHandler(pages.Home))
+	mux.HandleFunc("/about", handlers.NewPageHandler(pages.About))
+	mux.HandleFunc("/services", handlers.NewPageHandler(pages.Services))
+	mux.HandleFunc("/projects", handlers.NewPageHandler(pages.Projects))
+	mux.HandleFunc("/arts", handlers.ArtsHandler)
+	mux.HandleFunc("/contact", handlers.ContactHandler)
 }

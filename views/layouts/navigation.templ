@@ -1,0 +1,37 @@
+package layouts
+
+import "mymodules/gofolio/i18n"
+
+templ Navigation(pCtx i18n.PageContext) {
+	<nav>
+		<a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
+			<h3>SGB</h3>
+		</a>
+		<input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox"/>
+		@LanguageSwitcher(pCtx)
+		<label for="burger-toggle" class="burger-menu-label">
+			<span class="burger-bar"></span>
+			<span class="burger-bar"></span>
+			<span class="burger-bar"></span>
+		</label>
+		@NavigationLinks(pCtx)
+	</nav>
+}
+
+templ LanguageSwitcher(pCtx i18n.PageContext) {
+	<div class="language-switcher" style="margin: 0 1rem;">
+		<a href={ pCtx.LanguageSwitchURL("de") } style="padding: 0 5px; text-decoration: none; color: inherit;">de</a>
+		<span style="padding: 0 5px;">|</span>
+		<a href={ pCtx.LanguageSwitchURL("en") } style="padding: 0 5px; text-decoration: none; color: inherit;">en</a>
+	</div>
+}
+
+templ NavigationLinks(pCtx i18n.PageContext) {
+	<ul class="nav-links" id="nav-links-list">
+		<li><a href={ pCtx.CurrentLangLink("/about") }>{ pCtx.T("nav.about") }</a></li>
+		<li><a href={ pCtx.CurrentLangLink("/services") }>{ pCtx.T("nav.services") }</a></li>
+		<li><a href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("nav.projects") }</a></li>
+		<li><a href={ pCtx.CurrentLangLink("/arts") }>{ pCtx.T("nav.arts") }</a></li>
+		<li><a href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("nav.contact") }</a></li>
+	</ul>
+}

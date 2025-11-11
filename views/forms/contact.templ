@@ -1,6 +1,7 @@
-package components
+package forms
 
 import "mymodules/gofolio/i18n"
+import "mymodules/gofolio/views/layouts"
 
 // ContactFormData bleibt wie es ist.
 type ContactFormData struct {
@@ -16,16 +17,13 @@ type ContactFormData struct {
 }
 
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
-	@BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
-		<header class="page-main-header">
-			<h1>{ pCtx.T("contact.title") }</h1>
-			<p class="page-subtitle">{ pCtx.T("contact.subtitle") }</p>
-		</header>
-		<hr class="section-divider"/>
+	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
+		@layouts.PageHeader(pCtx.T("contact.title"), pCtx.T("contact.subtitle"))
+		@layouts.SectionDivider()
 		<p>{ pCtx.T("contact.intro.p1") }</p>
 		<p>{ pCtx.T("contact.intro.p2") }</p>
 		@ContactFormPartial(data, pCtx)
-		<hr class="section-divider"/>
+		@layouts.SectionDivider()
 		<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
 		<ul class="reach-out-list">
 			<li>{ pCtx.T("contact.reachOutIf.item1") }</li>

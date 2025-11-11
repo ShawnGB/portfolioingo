@@ -3,7 +3,8 @@ package utils
 import (
 	"fmt"
 	"log"
-	"mymodules/gofolio/components"
+
+	"mymodules/gofolio/views/forms"
 
 	"github.com/resend/resend-go/v2"
 )
@@ -14,7 +15,7 @@ type SendContactMailConfig struct {
 	RecipientEmail string
 }
 
-func SendContactMail(config SendContactMailConfig, data components.ContactFormData) (*resend.SendEmailResponse, error) {
+func SendContactMail(config SendContactMailConfig, data forms.ContactFormData) (*resend.SendEmailResponse, error) {
 	if config.ResendAPIKey == "" {
 		return nil, fmt.Errorf("resend API Key missing")
 	}

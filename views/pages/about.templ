@@ -1,0 +1,88 @@
+package pages
+
+import "mymodules/gofolio/i18n"
+import "mymodules/gofolio/views/layouts"
+
+templ About(pCtx i18n.PageContext) {
+	@layouts.BaseHtml(pCtx, pCtx.T("about.pageTitle"), pCtx.T("about.pageMetaDescription")) {
+		@layouts.PageHeader(pCtx.T("about.title"), pCtx.T("about.pageSubtitle"))
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.greeting.title") }</h2>
+			<p>{ pCtx.T("about.greeting.p1") }</p>
+			<p>{ pCtx.T("about.greeting.p2") }</p>
+			<p>{ pCtx.T("about.greeting.p3") }</p>
+		</section>
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.path.title") }</h2>
+			<p>{ pCtx.T("about.path.p1") }</p>
+			<p>{ pCtx.T("about.path.p2") }</p>
+		</section>
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
+			<ul class="drives-me-list">
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item1.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item2.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item3.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
+				</li>
+				<li>
+					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item4.title") }</h4>
+					<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
+				</li>
+			</ul>
+		</section>
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.skillset.title") }</h2>
+			<h3>{ pCtx.T("about.skillset.devFullstack.title") }</h3>
+			<div class="skill-list">
+				<span class="tech-label">JavaScript/TypeScript</span>
+				<span class="tech-label">React</span>
+				<span class="tech-label">Node.js</span>
+				<span class="tech-label">Go</span>
+				<span class="tech-label">HTML5</span>
+				<span class="tech-label">CSS3</span>
+				<span class="tech-label">API Development</span>
+				<span class="tech-label">Databases (MySQL, MongoDB)</span>
+				<span class="tech-label">CMS (WordPress, Headless CMS)</span>
+			</div>
+			<h3>{ pCtx.T("about.skillset.productStrategy.title") }</h3>
+			<div class="skill-list">
+				<p>{ pCtx.T("about.skillset.productStrategy.skills") }</p>
+			</div>
+			<h3>{ pCtx.T("about.skillset.ethicalConsulting.title") }</h3>
+			<div class="skill-list">
+				<p>{ pCtx.T("about.skillset.ethicalConsulting.skills") }</p>
+			</div>
+		</section>
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.outsideScreen.title") }</h2>
+			<p>{ pCtx.T("about.outsideScreen.p1") }</p>
+			<p>{ pCtx.T("about.outsideScreen.p2") }</p>
+		</section>
+		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("about.connect.title") }</h2>
+			<p>{ pCtx.T("about.connect.p1") }</p>
+			<p>
+				<a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
+			</p>
+			<p>
+				<a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer">
+					→ { pCtx.T("about.connect.githubLinkText") }
+				</a>
+			</p>
+		</section>
+	}
+}

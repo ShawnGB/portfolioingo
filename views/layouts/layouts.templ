@@ -1,0 +1,14 @@
+package layouts
+
+// PageHeader renders a standard page header with title and subtitle
+templ PageHeader(title string, subtitle string) {
+	<header class="page-main-header">
+		<h1>{ title }</h1>
+		<p class="page-subtitle">{ subtitle }</p>
+	</header>
+}
+
+// SectionDivider renders the standard horizontal divider
+templ SectionDivider() {
+	<hr class="section-divider"/>
+}

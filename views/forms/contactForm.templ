@@ -1,4 +1,4 @@
-package components
+package forms
 
 import "mymodules/gofolio/i18n"
 
@@ -67,13 +67,15 @@ templ ContactFormPartial(data ContactFormData, pCtx i18n.PageContext) {
 				<div id="form-feedback-error" style="color: red;">{ data.ErrorMessage }</div>
 			}
 			<script>
-      function enableSubmitButton() {
-        const submitButton = document.getElementById('submit-contact-form-button');
-        if (submitButton) {
-          submitButton.disabled = false;
-        }
-      }
-    </script>
+				function enableSubmitButton() {
+					const submitButton = document.getElementById(
+						"submit-contact-form-button",
+					);
+					if (submitButton) {
+						submitButton.disabled = false;
+					}
+				}
+			</script>
 		</form>
 	</div>
 }

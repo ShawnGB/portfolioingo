@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"log"
-	"mymodules/gofolio/components"
-	"mymodules/gofolio/i18n"
-	"mymodules/gofolio/utils"
 	"net/http"
 	"os"
+
+	"mymodules/gofolio/i18n"
+	"mymodules/gofolio/utils"
+	"mymodules/gofolio/views/forms"
 
 	"github.com/kataras/hcaptcha"
 )
@@ -22,24 +23,24 @@ func InitCaptchaClient() {
 	log.Println("INFO: hCaptcha client initialized successfully.")
 }
 
-func renderContactFull(w http.ResponseWriter, r *http.Request, data components.ContactFormData, statusCode int) {
+func renderContactFull(w http.ResponseWriter, r *http.Request, data forms.ContactFormData, statusCode int) {
 	pCtx := i18n.NewPageContext(r)
 	w.WriteHeader(statusCode)
-	if err := components.Contact(data, pCtx).Render(r.Context(), w); err != nil {
-		log.Printf("ERROR: Error rendering 'components.Contact' component: %v. Status Code: %d. Form ErrorMessage: '%s', Form SuccessMessage: '%s'", err, statusCode, data.ErrorMessage, data.SuccessMessage)
+	if err := forms.Contact(data, pCtx).Render(r.Context(), w); err != nil {
+		log.Printf("ERROR: Error rendering 'forms.Contact' component: %v. Status Code: %d. Form ErrorMessage: '%s', Form SuccessMessage: '%s'", err, statusCode, data.ErrorMessage, data.SuccessMessage)
 	}
 }
 
-func renderContactPartial(w http.ResponseWriter, r *http.Request, data components.ContactFormData, statusCode int) {
+func renderContactPartial(w http.ResponseWriter, r *http.Request, data forms.ContactFormData, statusCode int) {
 	pCtx := i18n.NewPageContext(r)
 	w.WriteHeader(statusCode)
-	if err := components.ContactFormPartial(data, pCtx).Render(r.Context(), w); err != nil {
-		log.Printf("ERROR: Error rendering 'components.ContactFormPartial' component: %v. Status Code: %d. Form ErrorMessage: '%s', Form SuccessMessage: '%s'", err, statusCode, data.ErrorMessage, data.SuccessMessage)
+	if err := forms.ContactFormPartial(data, pCtx).Render(r.Context(), w); err != nil {
+		log.Printf("ERROR: Error rendering 'forms.ContactFormPartial' component: %v. Status Code: %d. Form ErrorMessage: '%s', Form SuccessMessage: '%s'", err, statusCode, data.ErrorMessage, data.SuccessMessage)
 	}
 }
 
 func ContactHandler(w http.ResponseWriter, r *http.Request) {
-	var formData components.ContactFormData
+	var formData forms.ContactFormData
 
 	if r.Method == http.MethodPost {
 		if err := r.ParseForm(); err != nil {
@@ -59,7 +60,7 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 
 		if formData.Website != "" {
 			log.Println("INFO: Honeypot field filled, contact form submission cancelled.")
-			successFormData := components.ContactFormData{
+			successFormData := forms.ContactFormData{
 				SuccessMessage: "Your message was sent successfully! (Honeypot triggered)",
 			}
 			renderContactPartial(w, r, successFormData, http.StatusOK)
@@ -106,7 +107,7 @@ func ContactHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		log.Printf("INFO: Email successfully processed for %s %s (%s) and dispatch initiated.\n", formData.FirstName, formData.LastName, formData.Email)
-		successFormData := components.ContactFormData{
+		successFormData := forms.ContactFormData{
 			SuccessMessage: "Your message was sent successfully! I will get back to you as soon as possible.",
 		}
 		renderContactPartial(w, r, successFormData, http.StatusOK)

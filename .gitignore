@@ -2,8 +2,8 @@
 tmp/
 *.log
 
-tmp/
-*.log
-
 .env
+
+# Templ generated files (auto-generated, not version controlled)
+*_templ.go
 
