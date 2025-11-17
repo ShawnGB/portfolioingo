@@ -4,9 +4,7 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
 templ Projects(pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("projects.pageTitle"), pCtx.T("projects.pageMetaDescription")) {
-		@layouts.PageHeader(pCtx.T("projects.title"), pCtx.T("projects.pageSubtitle"))
-		@layouts.SectionDivider()
+	@layouts.SubpageTemplate(pCtx, "projects.title", "projects.pageSubtitle", "projects.pageTitle", "projects.pageMetaDescription") {
 		<section>
 			<h2>{ pCtx.T("projects.introduction.title") }</h2>
 			<p>{ pCtx.T("projects.introduction.p1") }</p>
