@@ -22,6 +22,7 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 		@layouts.SectionDivider()
 		<p>{ pCtx.T("contact.intro.p1") }</p>
 		<p>{ pCtx.T("contact.intro.p2") }</p>
+		<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
 		@ContactFormPartial(data, pCtx)
 		@layouts.SectionDivider()
 		<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
@@ -30,6 +31,7 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 			<li>{ pCtx.T("contact.reachOutIf.item2") }</li>
 			<li>{ pCtx.T("contact.reachOutIf.item3") }</li>
 			<li>{ pCtx.T("contact.reachOutIf.item4") }</li>
+			<li>{ pCtx.T("contact.reachOutIf.item5") }</li>
 		</ul>
 		<p>{ pCtx.T("contact.outro.p1") }</p>
 	}

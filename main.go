@@ -63,7 +63,7 @@ func main() {
 func registerPageRoutes(mux *http.ServeMux) {
 	mux.HandleFunc("/", handlers.NewPageHandler(pages.Home))
 	mux.HandleFunc("/about", handlers.NewPageHandler(pages.About))
-	mux.HandleFunc("/services", handlers.NewPageHandler(pages.Services))
+	mux.HandleFunc("/experience", handlers.NewPageHandler(pages.Experience))
 	mux.HandleFunc("/projects", handlers.NewPageHandler(pages.Projects))
 	mux.HandleFunc("/arts", handlers.ArtsHandler)
 	mux.HandleFunc("/contact", handlers.ContactHandler)

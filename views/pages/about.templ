@@ -71,6 +71,25 @@ templ About(pCtx i18n.PageContext) {
 		</section>
 		@layouts.SectionDivider()
 		<section>
+			<h2>{ pCtx.T("about.lookingFor.title") }</h2>
+			<p>{ pCtx.T("about.lookingFor.p1") }</p>
+			<ul>
+				<li>{ pCtx.T("about.lookingFor.item1") }</li>
+				<li>{ pCtx.T("about.lookingFor.item2") }</li>
+				<li>{ pCtx.T("about.lookingFor.item3") }</li>
+				<li>{ pCtx.T("about.lookingFor.item4") }</li>
+			</ul>
+			<p>{ pCtx.T("about.lookingFor.p2") }</p>
+			<p>{ pCtx.T("about.lookingFor.p3") }</p>
+			<p><em>{ pCtx.T("about.lookingFor.availability") }</em></p>
+			<p>
+				<a href="/static/ShawnBeckerResume.pdf" class="cta-link" target="_blank" rel="noopener noreferrer">
+					{ pCtx.T("about.lookingFor.ctaDownload") }
+				</a>
+			</p>
+		</section>
+		@layouts.SectionDivider()
+		<section>
 			<h2>{ pCtx.T("about.connect.title") }</h2>
 			<p>{ pCtx.T("about.connect.p1") }</p>
 			<p>
