@@ -3,14 +3,14 @@ package forms
 import "mymodules/gofolio/i18n"
 
 templ ContactFormPartial(data ContactFormData, pCtx i18n.PageContext) {
-	<div id="contact-form-container" style="width: 100%; display: flex; justify-content: center; align-items: center;">
+	<div id="contact-form-container" class="flex-center-full">
 		<form
 			hx-post={ pCtx.CurrentLangLink("/contact") }
 			hx-target="#contact-form-container"
 			hx-swap="innerHTML"
 			hx-indicator="#loading-indicator"
 		>
-			<label for="website" style="display: none;">
+			<label for="website" class="hidden">
 				Website
 				<input type="text" name="website" value={ data.Website }/>
 			</label>
@@ -61,10 +61,10 @@ templ ContactFormPartial(data ContactFormData, pCtx i18n.PageContext) {
 				{ pCtx.T("contact.form.loadingIndicator") }
 			</span>
 			if data.SuccessMessage != "" {
-				<div id="form-feedback-success" style="color: green">{ data.SuccessMessage }</div>
+				<div id="form-feedback-success" class="text-success">{ data.SuccessMessage }</div>
 			}
 			if data.ErrorMessage != "" {
-				<div id="form-feedback-error" style="color: red;">{ data.ErrorMessage }</div>
+				<div id="form-feedback-error" class="text-error">{ data.ErrorMessage }</div>
 			}
 			<script>
 				function enableSubmitButton() {

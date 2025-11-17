@@ -19,10 +19,10 @@ templ Navigation(pCtx i18n.PageContext) {
 }
 
 templ LanguageSwitcher(pCtx i18n.PageContext) {
-	<div class="language-switcher" style="margin: 0 1rem;">
-		<a href={ pCtx.LanguageSwitchURL("de") } style="padding: 0 5px; text-decoration: none; color: inherit;">de</a>
-		<span style="padding: 0 5px;">|</span>
-		<a href={ pCtx.LanguageSwitchURL("en") } style="padding: 0 5px; text-decoration: none; color: inherit;">en</a>
+	<div class="language-switcher mx-md">
+		<a href={ pCtx.LanguageSwitchURL("de") } class="lang-link">de</a>
+		<span class="lang-separator">|</span>
+		<a href={ pCtx.LanguageSwitchURL("en") } class="lang-link">en</a>
 	</div>
 }
 

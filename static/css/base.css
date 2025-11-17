@@ -1,20 +1,52 @@
-:root {
-  --bg-color: #eeeeee; /* Dein heller Seitenhintergrund */
-  --primary: #f79b72; /* Orange */
-  --text: #2a4759; /* Dunkles Blau-Grau */
-  --secondary: #dddddd;
-  --nav-height: 4rem;
-  --text-muted: #5c7080;
-  --primary-rgb: 247, 155, 114;
+/* =================================
+   1. CSS Variables & Design Tokens
+   ================================= */
 
+:root {
+  /* Colors */
+  --bg-color: #eeeeee;
+  --primary: #f79b72;
+  --text: #2a4759;
+  --secondary: #dddddd;
+  --text-muted: #5c7080;
+
+  /* RGB values for colors needing alpha transparency */
+  --primary-rgb: 247, 155, 114;
+  --text-rgb: 42, 71, 89;
   --accent-neon-pink-rgb: 255, 60, 172;
+
+  /* Typography */
+  --font-body: "Inter", sans-serif;
+  --font-display: "Overpass", sans-serif;
+  --font-mono: "Overpass Mono", monospace;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 2.5rem;   /* 40px */
+  --space-3xl: 3.5rem;   /* 56px */
+  --space-4xl: 4rem;     /* 64px */
+
+  /* Layout */
+  --nav-height: 4rem;
+  --container-max: 1200px;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 767.98px;
 }
+
+/* =================================
+   2. Reset & Base Styles
+   ================================= */
 
 body {
   margin: 0;
   background-color: var(--bg-color);
   color: var(--text);
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.65;
   font-weight: 400;
@@ -25,6 +57,10 @@ body {
   padding-top: var(--nav-height);
   min-height: 100vh;
 }
+
+/* =================================
+   3. Typography
+   ================================= */
 
 a {
   all: unset;
@@ -48,45 +84,43 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Overpass", sans-serif;
+  font-family: var(--font-display);
   padding: 0;
   color: var(--primary);
 }
 
 h1 {
   font-size: 2.8rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
   font-weight: 500;
 }
 
 h2 {
-  font-family: "Overpass", sans-serif;
+  font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 500;
   color: var(--text);
-  margin-top: 2.5rem;
+  margin-top: var(--space-2xl);
   margin-bottom: 0.9rem;
   background-color: var(--accent-neon-pink-rgb);
 }
 
 h3 {
-  font-family: "Overpass", sans-serif;
+  font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 500;
-
   color: var(--text);
-  margin-top: 2rem;
+  margin-top: var(--space-xl);
   margin-bottom: 0.75rem;
 }
 
 h4 {
-  /* Normale h4, nicht die .drives-me-item-title */
-  font-family: "Overpass", sans-serif; /* Beibehalten oder siehe Option 2 */
-  font-size: 1.2rem; /* Größe erstmal beibehalten */
-  font-weight: 500; /* Von 600 auf 500, oder 600 beibehalten, wenn h3 auf 500 geht */
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
   color: var(--text);
-  margin-top: 1.5rem;
+  margin-top: var(--space-lg);
   margin-bottom: 0.6rem;
 }
 
@@ -99,119 +133,159 @@ p {
 
 p strong,
 strong {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-weight: 700;
   color: var(--text);
 }
 
-/* Optional: Nutzung von Overpass Mono für spezifische Elemente */
+/* Code and technical elements */
 .tech-label,
 .metadata,
 code,
 kbd,
 samp {
-  /* code, kbd, samp sind semantische HTML-Tags für Code/Eingaben */
-  font-family: "Overpass Mono", monospace;
+  font-family: var(--font-mono);
   font-size: 0.9em;
-  color: #4a6a79;
-  background-color: rgba(221, 221, 221, 0.5);
-  padding: 0.1em 0.3em;
+  color: var(--text-muted);
+  background-color: rgba(221, 221, 221, 0.4);
+  padding: 0.15em 0.4em;
   border-radius: 3px;
+  white-space: nowrap;
 }
 
-/* Beispiel für die optionale Nutzung von Overpass Mono */
-.tech-label,
-.metadata {
-  /* Beispielklassen */
-  font-family: "Overpass Mono", monospace;
-  font-size: 0.9em;
-  color: #555;
-}
+/* Definition lists */
 dl dt {
-  /* Gilt für alle dt, es sei denn, du hast spezifischere Klassen wie .service-details oder .project-details-list */
-  font-family: "Overpass Mono", monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
   color: var(--text-muted);
-  margin-top: 1rem;
+  margin-top: var(--space-md);
   font-size: 0.95em;
-  margin-bottom: 0.25rem;
+  margin-bottom: var(--space-xs);
 }
 
-/* Styling für Definitions-Beschreibungen (dd) - wenn du sie generell so haben willst */
 dl dd {
-  margin-inline-start: 0; /* Standard-Einrückung entfernen, falls du das immer willst */
-  margin-bottom: 1rem;
-  padding-inline-start: 1rem; /* Leichte Einrückung, anpassbar */
+  margin-inline-start: 0;
+  margin-bottom: var(--space-md);
+  padding-inline-start: var(--space-md);
 }
 
-/* Styling für ULs innerhalb von DDs in Definitionslisten */
 dl dd ul {
   list-style-type: disc;
   margin-block-start: 0.25em;
   margin-block-end: 0;
-  padding-inline-start: 20px; /* Browsereinzug für Listenpunkte innerhalb der dd */
+  padding-inline-start: 20px;
 }
 
 dl dd ul li {
   margin-bottom: 0.25em;
 }
 
-/* Für Sub-Beschreibungen (wenn du diese Klasse .service-sub-description seitenübergreifend nutzen willst) */
+/* =================================
+   4. Utility Classes
+   ================================= */
+
+/* Spacing utilities */
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mx-sm { margin-left: var(--space-sm); margin-right: var(--space-sm); }
+.mx-md { margin-left: var(--space-md); margin-right: var(--space-md); }
+.mx-lg { margin-left: var(--space-lg); margin-right: var(--space-lg); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+
+/* Layout utilities */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center-full {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Visibility utilities */
+.hidden {
+  display: none;
+}
+
+/* Typography utilities */
+.font-mono { font-family: var(--font-mono); }
+.font-display { font-family: var(--font-display); }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+
+/* Color utilities */
+.text-success { color: green; }
+.text-error { color: red; }
+
+/* Link utilities - no underline */
+.link-plain {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-plain:hover,
+.link-plain:focus {
+  color: var(--primary);
+}
+
+/* Spacing for language switcher */
+.lang-separator {
+  padding: 0 5px;
+}
+
+.lang-link {
+  padding: 0 5px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =================================
+   5. Common Components
+   ================================= */
+
+/* Sub-description text */
 .service-sub-description {
-  /* Beachte: Der Name ist spezifisch für "Service". Evtl. eine generischere Klasse wie .page-intro-subtitle? */
   font-style: italic;
   color: var(--text-muted);
-  margin-bottom: 1.5rem; /* Oder var(--spacing-l) */
+  margin-bottom: var(--space-lg);
   font-size: 1.05em;
 }
 
-/* Für Meta-Texte (z.B. "(WIP)", Jahreszahlen) - das ist eine gute generische Klasse */
+/* Meta text (e.g., "(WIP)", years) */
 .meta-text {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-body);
   font-size: 0.85em;
   font-weight: 400;
   color: var(--text-muted);
-  margin-left: 0.5em;
+  margin-left: var(--space-sm);
 }
 
-/* Konsolidiertes Styling für Code-ähnliche Elemente und Labels */
-.tech-label, /* Für explizite Labels */
-.metadata,   /* Für andere Metadaten */
-code,        /* Für HTML <code> Tags */
-kbd,         /* Für HTML <kbd> Tags */
-samp {
-  /* Für HTML <samp> Tags */
-  font-family: "Overpass Mono", monospace;
-  font-size: 0.9em;
-  color: var(--text-muted);
-  background-color: rgba(
-    221,
-    221,
-    221,
-    0.4
-  ); /* var(--secondary) mit Transparenz */
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
-  white-space: nowrap;
-}
-
-/* Call-to-Action Links (cta-link) - das ist auch eine gute generische Klasse */
+/* Call-to-Action Links */
 a.cta-link {
   display: inline-block;
-  padding: 0.8em 1.8em; /* Mehr Padding */
+  padding: 0.8em 1.8em;
   background-color: var(--primary);
-  /* Optional: Subtiler Gradient */
-  /* background-image: linear-gradient(to right, var(--primary) 0%, color-mix(in srgb, var(--primary) 80%, black) 100%); */
   color: white;
   text-decoration: none;
-  border-radius: 4px; /* Oder 0px für kantiger */
-  font-family: "Overpass Mono", monospace; /* Hero-Schrift */
-  font-weight: 700; /* Oder dein Standard-Mono-Gewicht */
-  text-transform: uppercase; /* Großbuchstaben */
-  letter-spacing: 0.075em; /* Etwas mehr Abstand */
-  margin-top: 1rem;
-  transition: all 0.25s ease-out; /* 'all' für mehrere Eigenschaften, 'ease-out' für sanfteres Ausklingen */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiler Basisschatten */
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  margin-top: var(--space-md);
+  transition: all 0.25s ease-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 a.cta-link:hover,
@@ -219,24 +293,23 @@ a.cta-link:focus {
   background-color: color-mix(in srgb, var(--primary) 85%, black);
   color: white;
   transform: translateY(-3px);
-  /* Neuer Akzent: Pinker Schatten oder Rand */
-  box-shadow: 0 6px 12px rgba(var(--accent-neon-pink-rgb), 0.25); /* Pinker Glow */
-  /* Oder ein feiner pinker Rand beim Hover */
-  /* border: 1px solid rgb(var(--accent-neon-pink-rgb)); */
+  box-shadow: 0 6px 12px rgba(var(--accent-neon-pink-rgb), 0.25);
 }
 
+/* Horizontal rule */
 hr {
   border: none;
   border-top: 1px solid var(--secondary);
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
   width: 100%;
 }
 
+/* Page container */
 .page-container {
   width: 60%;
   min-height: calc(100vh - 24rem);
-  margin: 4rem 8rem;
+  margin: var(--space-4xl) 8rem;
 }
 
 .page-container ul {
@@ -261,7 +334,7 @@ hr {
   display: flex;
   align-items: stretch;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-md);
   padding-inline-start: 0;
   list-style-type: none;
 }
@@ -270,54 +343,57 @@ hr {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 0;
   box-sizing: border-box;
-  padding: 1.5rem;
-  flex-basis: calc((100% - 2 * 1rem) / 3);
+  padding: var(--space-lg);
+  flex-basis: calc((100% - 2 * var(--space-md)) / 3);
   flex-grow: 1;
   flex-shrink: 1;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
 }
+
 .page-container ul:not(.is-grid):not(.nav-links) {
-  list-style-type: none; /* Entfernt die Punkte */
-  padding-inline-start: 0; /* Entfernt die Standard-Einrückung der Liste */
+  list-style-type: none;
+  padding-inline-start: 0;
 }
 
 .page-container ul:not(.is-grid):not(.nav-links) li {
-  /* Optional: Wenn du möchtest, dass die Listenelemente ohne Punkte trotzdem leicht eingerückt sind */
-  /* padding-inline-start: 1em; */
-  margin-bottom: 0.5em; /* Beibehaltung des Abstands zwischen den li-Elementen */
-} /* Wenn du die Klasse .page-main-header verwendest */
+  margin-bottom: 0.5em;
+}
 
+/* Page main header */
 .page-main-header {
-  text-align: left; /* Standard im .page-container ist schon links, aber zur Sicherheit */
-  margin-bottom: 2.5rem; /* Abstand zum ersten section-divider */
+  text-align: left;
+  margin-bottom: var(--space-2xl);
 }
 
 .page-main-header h1 {
-  font-family: "Overpass Mono", monospace; /* Für stärkere Hero-Anlehnung */
-  font-size: 3.2rem; /* Deutlich größer als Standard H1 (2.8rem) */
-  /* color: var(--primary); // Ist schon in base.css für h1 */
-  font-weight: 700; /* Falls Overpass Mono verschiedene Schnitte hat, sonst Standard */
+  font-family: var(--font-mono);
+  font-size: 3.2rem;
+  font-weight: 700;
   line-height: 1.1;
-  margin-bottom: 0.5rem; /* Weniger Abstand zum Untertitel */
-  text-transform: uppercase; /* Optional, wie beim Hero */
-  letter-spacing: -0.03em; /* Optional, für engeren Satz wie beim Hero */
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
 .page-subtitle {
-  font-size: 1.2rem; /* Etwas größer als Standard-Fließtext */
+  font-size: 1.2rem;
   color: var(--text-muted);
   font-style: italic;
   line-height: 1.6;
-  max-width: 65ch; /* Maximale Breite für Lesbarkeit */
+  max-width: 65ch;
 }
+
+/* =================================
+   6. Responsive Design
+   ================================= */
 
 @media (max-width: 767.98px) {
   .page-container {
     width: 90%;
-    margin: 2rem 1rem;
+    margin: var(--space-xl) var(--space-md);
   }
 
   .page-container ul li {
-    flex-basis: calc((100% - 1rem) / 2);
+    flex-basis: calc((100% - var(--space-md)) / 2);
   }
 }
