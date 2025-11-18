@@ -74,7 +74,8 @@
 
   "arts.title": "Arts",
   "arts.subtitle": "Beyond Code: Creative Work & Photography – Exploration without outcome, just presence, practice, and play.",
-  "arts.intro.p1": "Before I wrote code, I made music. Before I designed interfaces, I followed light through a lens. Art, for me, is not a separate category – it’s another way of listening to the world.",
+  "arts.intro.title": "Creative Background",
+  "arts.intro.p1": "Before I wrote code, I made music. Before I designed interfaces, I followed light through a lens. Art, for me, is not a separate category – it's another way of listening to the world.",
   "arts.intro.p2": "This section is a window into the creative side of my life:",
   "arts.photography.title": "Photography:",
   "arts.photography.text": "fragments of light, architecture, mood, and movement",
@@ -266,6 +267,7 @@
   "contact.title": "Contact",
   "contact.subtitle": "Reach out – with an idea, a question, or just curiosity.",
   "contact.details.title": "Contact Information",
+  "contact.intro.title": "Let's Connect",
   "contact.intro.p1": "I'm always open to conversation – whether you're looking to collaborate, need support for a digital project, or just feel drawn to something you've seen here.",
   "contact.intro.p2": "You don't need a polished pitch. A simple message is enough. I value real human connection, and I do my best to respond personally to every inquiry.",
   "contact.intro.availability": "Open to permanent positions (sozialversicherungspflichtig) in Berlin and interesting remote opportunities.",

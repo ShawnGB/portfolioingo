@@ -5,13 +5,7 @@ import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
 templ Projects(pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "projects.title", "projects.pageSubtitle", "projects.pageTitle", "projects.pageMetaDescription") {
-		<section>
-			<h2>{ pCtx.T("projects.introduction.title") }</h2>
-			<p>{ pCtx.T("projects.introduction.p1") }</p>
-			<p>{ pCtx.T("projects.introduction.p2") }</p>
-		</section>
-		@layouts.SectionDivider()
+	@layouts.SubpageTemplate(pCtx, "projects.title", "projects.pageSubtitle", "projects.introduction.title", "projects.introduction.p1", "projects.pageTitle", "projects.pageMetaDescription") {
 		<section>
 			<h2>{ pCtx.T("projects.currentProject.title") }</h2>
 			<p>{ pCtx.T("projects.currentProject.description") }</p>

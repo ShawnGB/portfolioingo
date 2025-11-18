@@ -257,3 +257,274 @@
     display: none;
   }
 }
+
+/* ==========================================
+   INTERACTIVE TIMELINE STYLES
+   ========================================== */
+
+.experience-timeline-interactive {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: var(--space-4xl);
+  margin-top: var(--space-2xl);
+  min-height: 600px;
+  position: relative;
+}
+
+/* === Timeline Track Container (Left Side) === */
+.timeline-track-container {
+  position: relative;
+  height: 100%;
+}
+
+/* Timeline Track - Vertical line with cylindrical effect */
+.timeline-track {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  bottom: 0;
+  width: 6px;
+
+  /* Cylindrical gradient like the old timeline */
+  background: linear-gradient(
+    to right,
+    hsl(18, 65%, 78%) 0%,
+    hsl(18, 65%, 71%) 50%,
+    hsl(18, 65%, 60%) 100%
+  );
+
+  border-radius: 3px;
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  border-right: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+/* === Timeline Markers (Dots + Labels) === */
+.timeline-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+/* Position markers evenly */
+.timeline-marker[data-index="0"] { top: 0%; }
+.timeline-marker[data-index="1"] { top: 16.67%; }
+.timeline-marker[data-index="2"] { top: 33.33%; }
+.timeline-marker[data-index="3"] { top: 50%; }
+.timeline-marker[data-index="4"] { top: 66.67%; }
+.timeline-marker[data-index="5"] { top: 83.33%; }
+.timeline-marker[data-index="6"] { top: 100%; }
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border: 3px solid var(--bg-base);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px hsla(18, 89%, 71%, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.timeline-marker:hover .timeline-dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 3px hsla(18, 89%, 71%, 0.5);
+}
+
+/* Active marker */
+.timeline-marker.active .timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  box-shadow:
+    0 0 0 3px var(--primary-light),
+    0 0 12px hsla(18, 89%, 71%, 0.4);
+}
+
+.timeline-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  white-space: nowrap;
+  position: absolute;
+  left: 100%;
+  margin-left: var(--space-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-marker.active .timeline-label {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+/* === Draggable Knob === */
+.timeline-knob {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border: 4px solid var(--bg-surface);
+  border-radius: 50%;
+  cursor: grab;
+  z-index: 10;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    0 0 0 4px hsla(18, 89%, 71%, 0.2);
+}
+
+.timeline-knob:hover {
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 0 0 6px hsla(18, 89%, 71%, 0.3);
+}
+
+.timeline-knob:active,
+.timeline-knob.dragging {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    0 0 0 8px hsla(18, 89%, 71%, 0.4);
+}
+
+/* === Experience Cards Container (Right Side) === */
+.experience-cards-container {
+  position: relative;
+  min-height: 500px;
+}
+
+/* Experience Card - Only one visible at a time */
+.experience-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(30px);
+  transition:
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.4s;
+
+  /* Card styling */
+  background: var(--bg-surface);
+  padding: var(--space-3xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-polished);
+}
+
+.experience-card.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  position: relative;
+}
+
+/* Card Header */
+.experience-card .experience-header {
+  margin-bottom: var(--space-lg);
+}
+
+.experience-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.2;
+}
+
+.experience-card .company {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.experience-card .meta {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin: 0;
+}
+
+/* Card List */
+.experience-card ul {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-lg) 0 0 0;
+}
+
+.experience-card ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.experience-card ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .experience-timeline-interactive {
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .timeline-label {
+    font-size: 0.7rem;
+    margin-left: var(--space-md);
+  }
+}
+
+@media (max-width: 767px) {
+  /* Stack vertically on mobile */
+  .experience-timeline-interactive {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .timeline-track-container {
+    display: none; /* Hide timeline on mobile */
+  }
+
+  .experience-cards-container {
+    min-height: auto;
+  }
+
+  .experience-card {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-bottom: var(--space-xl);
+  }
+
+  .experience-card.active {
+    display: block;
+  }
+
+  .experience-card:not(.active) {
+    display: none;
+  }
+}

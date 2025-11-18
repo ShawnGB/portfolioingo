@@ -4,12 +4,12 @@ import "mymodules/gofolio/i18n"
 
 // SubpageTemplate wraps the common subpage structure:
 // - BaseHtml with navigation and footer
-// - PageHeader with title and subtitle
+// - IntegratedHeader with title, subtitle, and content
 // - Initial SectionDivider
 // - Children content injected here
-templ SubpageTemplate(pCtx i18n.PageContext, titleKey, subtitleKey, metaTitleKey, metaDescKey string) {
+templ SubpageTemplate(pCtx i18n.PageContext, titleKey, subtitleKey, contentLabelKey, contentTextKey, metaTitleKey, metaDescKey string) {
 	@BaseHtml(pCtx, pCtx.T(metaTitleKey), pCtx.T(metaDescKey)) {
-		@PageHeader(pCtx.T(titleKey), pCtx.T(subtitleKey))
+		@IntegratedHeader(pCtx.T(titleKey), pCtx.T(subtitleKey), pCtx.T(contentLabelKey), pCtx.T(contentTextKey))
 		@SectionDivider()
 		{ children... }
 	}

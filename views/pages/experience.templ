@@ -5,12 +5,13 @@ import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
 templ Experience(pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "experience.title", "experience.pageSubtitle", "experience.pageTitle", "experience.pageMetaDescription") {
-		<!-- Professional Profile Introduction -->
-		<section>
-			<h2>{ pCtx.T("experience.introduction.title") }</h2>
-			<p>{ pCtx.T("experience.introduction.p1") }</p>
-		</section>
+	@layouts.BaseHtml(pCtx, pCtx.T("experience.pageTitle"), pCtx.T("experience.pageMetaDescription")) {
+		@layouts.IntegratedHeader(
+			pCtx.T("experience.title"),
+			pCtx.T("experience.pageSubtitle"),
+			pCtx.T("experience.introduction.title"),
+			pCtx.T("experience.introduction.p1"),
+		)
 		@layouts.SectionDivider()
 		<!-- Technical Expertise - What I Can Do -->
 		<section>
@@ -73,97 +74,138 @@ templ Experience(pCtx i18n.PageContext) {
 		<!-- Career Journey - Where I've Worked -->
 		<section>
 			<h2>{ pCtx.T("experience.timeline.title") }</h2>
-			<div class="experience-timeline">
-			<!-- Current Role: Freelance -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.freelance.title") }</h3>
-					<p class="company">{ pCtx.T("experience.freelance.company") }</p>
-					<p class="meta">{ pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
+			<div class="experience-timeline-interactive">
+				<!-- Timeline Track (Left Side) -->
+				<div class="timeline-track-container">
+					<div class="timeline-track"></div>
+
+					<!-- Timeline Markers -->
+					<div class="timeline-marker" data-index="0" data-year="2023">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2023</span>
+					</div>
+					<div class="timeline-marker" data-index="1" data-year="2021">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2021</span>
+					</div>
+					<div class="timeline-marker" data-index="2" data-year="2021">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2021</span>
+					</div>
+					<div class="timeline-marker" data-index="3" data-year="2018">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2018</span>
+					</div>
+					<div class="timeline-marker" data-index="4" data-year="2017">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2017</span>
+					</div>
+					<div class="timeline-marker" data-index="5" data-year="2016">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2016</span>
+					</div>
+					<div class="timeline-marker" data-index="6" data-year="2011">
+						<div class="timeline-dot"></div>
+						<span class="timeline-label">2011</span>
+					</div>
+
+					<!-- Draggable Knob -->
+					<div class="timeline-knob" id="timeline-knob"></div>
 				</div>
-				<ul>
-					<li>{ pCtx.T("experience.freelance.item1") }</li>
-					<li>{ pCtx.T("experience.freelance.item2") }</li>
-					<li>{ pCtx.T("experience.freelance.item3") }</li>
-					<li>{ pCtx.T("experience.freelance.item4") }</li>
-				</ul>
-			</div>
-			<!-- Freiheit.software -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.freiheit.title") }</h3>
-					<p class="company">{ pCtx.T("experience.freiheit.company") }</p>
-					<p class="meta">{ pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }</p>
+
+				<!-- Experience Cards (Right Side) -->
+				<div class="experience-cards-container">
+					<!-- Current Role: Freelance -->
+					<div class="experience-card active" data-index="0">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.freelance.title") }</h3>
+							<p class="company">{ pCtx.T("experience.freelance.company") }</p>
+							<p class="meta">{ pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.freelance.item1") }</li>
+							<li>{ pCtx.T("experience.freelance.item2") }</li>
+							<li>{ pCtx.T("experience.freelance.item3") }</li>
+							<li>{ pCtx.T("experience.freelance.item4") }</li>
+						</ul>
+					</div>
+					<!-- Freiheit.software -->
+					<div class="experience-card" data-index="1">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.freiheit.title") }</h3>
+							<p class="company">{ pCtx.T("experience.freiheit.company") }</p>
+							<p class="meta">{ pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.freiheit.item1") }</li>
+							<li>{ pCtx.T("experience.freiheit.item2") }</li>
+							<li>{ pCtx.T("experience.freiheit.item3") }</li>
+							<li>{ pCtx.T("experience.freiheit.item4") }</li>
+						</ul>
+					</div>
+					<!-- Data4Life -->
+					<div class="experience-card" data-index="2">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.data4life.title") }</h3>
+							<p class="company">{ pCtx.T("experience.data4life.company") }</p>
+							<p class="meta">{ pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.data4life.item1") }</li>
+							<li>{ pCtx.T("experience.data4life.item2") }</li>
+							<li>{ pCtx.T("experience.data4life.item3") }</li>
+							<li>{ pCtx.T("experience.data4life.item4") }</li>
+						</ul>
+					</div>
+					<!-- Yptokey -->
+					<div class="experience-card" data-index="3">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.yptokey.title") }</h3>
+							<p class="company">{ pCtx.T("experience.yptokey.company") }</p>
+							<p class="meta">{ pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.yptokey.item1") }</li>
+							<li>{ pCtx.T("experience.yptokey.item2") }</li>
+							<li>{ pCtx.T("experience.yptokey.item3") }</li>
+							<li>{ pCtx.T("experience.yptokey.item4") }</li>
+						</ul>
+					</div>
+					<!-- Refund.me -->
+					<div class="experience-card" data-index="4">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.refund.title") }</h3>
+							<p class="company">{ pCtx.T("experience.refund.company") }</p>
+							<p class="meta">{ pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.refund.item1") }</li>
+						</ul>
+					</div>
+					<!-- U/skillity -->
+					<div class="experience-card" data-index="5">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.uskillity.title") }</h3>
+							<p class="company">{ pCtx.T("experience.uskillity.company") }</p>
+							<p class="meta">{ pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.uskillity.item1") }</li>
+							<li>{ pCtx.T("experience.uskillity.item2") }</li>
+						</ul>
+					</div>
+					<!-- Kultstätte Keller -->
+					<div class="experience-card" data-index="6">
+						<div class="experience-header">
+							<h3>{ pCtx.T("experience.kultstaette.title") }</h3>
+							<p class="company">{ pCtx.T("experience.kultstaette.company") }</p>
+							<p class="meta">{ pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
+						</div>
+						<ul>
+							<li>{ pCtx.T("experience.kultstaette.item1") }</li>
+						</ul>
+					</div>
 				</div>
-				<ul>
-					<li>{ pCtx.T("experience.freiheit.item1") }</li>
-					<li>{ pCtx.T("experience.freiheit.item2") }</li>
-					<li>{ pCtx.T("experience.freiheit.item3") }</li>
-					<li>{ pCtx.T("experience.freiheit.item4") }</li>
-				</ul>
-			</div>
-			<!-- Data4Life -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.data4life.title") }</h3>
-					<p class="company">{ pCtx.T("experience.data4life.company") }</p>
-					<p class="meta">{ pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }</p>
-				</div>
-				<ul>
-					<li>{ pCtx.T("experience.data4life.item1") }</li>
-					<li>{ pCtx.T("experience.data4life.item2") }</li>
-					<li>{ pCtx.T("experience.data4life.item3") }</li>
-					<li>{ pCtx.T("experience.data4life.item4") }</li>
-				</ul>
-			</div>
-			<!-- Yptokey -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.yptokey.title") }</h3>
-					<p class="company">{ pCtx.T("experience.yptokey.company") }</p>
-					<p class="meta">{ pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }</p>
-				</div>
-				<ul>
-					<li>{ pCtx.T("experience.yptokey.item1") }</li>
-					<li>{ pCtx.T("experience.yptokey.item2") }</li>
-					<li>{ pCtx.T("experience.yptokey.item3") }</li>
-					<li>{ pCtx.T("experience.yptokey.item4") }</li>
-				</ul>
-			</div>
-			<!-- Refund.me -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.refund.title") }</h3>
-					<p class="company">{ pCtx.T("experience.refund.company") }</p>
-					<p class="meta">{ pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }</p>
-				</div>
-				<ul>
-					<li>{ pCtx.T("experience.refund.item1") }</li>
-				</ul>
-			</div>
-			<!-- U/skillity -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.uskillity.title") }</h3>
-					<p class="company">{ pCtx.T("experience.uskillity.company") }</p>
-					<p class="meta">{ pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
-				</div>
-				<ul>
-					<li>{ pCtx.T("experience.uskillity.item1") }</li>
-					<li>{ pCtx.T("experience.uskillity.item2") }</li>
-				</ul>
-			</div>
-			<!-- Kultstätte Keller -->
-			<div class="experience-entry">
-				<div class="experience-header">
-					<h3>{ pCtx.T("experience.kultstaette.title") }</h3>
-					<p class="company">{ pCtx.T("experience.kultstaette.company") }</p>
-					<p class="meta">{ pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
-				</div>
-				<ul>
-					<li>{ pCtx.T("experience.kultstaette.item1") }</li>
-				</ul>
-			</div>
 			</div>
 		</section>
 		@layouts.SectionDivider()

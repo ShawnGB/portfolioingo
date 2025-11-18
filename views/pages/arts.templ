@@ -4,18 +4,7 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
 templ Arts(images []string, pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "arts.title", "arts.subtitle", "arts.pageTitle", "arts.pageMetaDescription") {
-		<section class="page-intro-text">
-			<p class="lead">
-				{ 
-    pCtx.T("arts.intro.p1") }
-			</p>
-			<p>
-				{ 
-    pCtx.T("arts.intro.p2") }
-			</p>
-		</section>
-		@layouts.SectionDivider()
+	@layouts.SubpageTemplate(pCtx, "arts.title", "arts.subtitle", "arts.intro.title", "arts.intro.p1", "arts.pageTitle", "arts.pageMetaDescription") {
 		<section id="photography" class="art-category">
 			<h2>
 				{ 

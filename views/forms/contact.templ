@@ -17,9 +17,7 @@ type ContactFormData struct {
 }
 
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
-		@layouts.PageHeader(pCtx.T("contact.title"), pCtx.T("contact.subtitle"))
-		@layouts.SectionDivider()
+	@layouts.SubpageTemplate(pCtx, "contact.title", "contact.subtitle", "contact.intro.title", "contact.intro.p1", "contact.pageTitle", "contact.pageMetaDescription") {
 		<section>
 			<h2>{ pCtx.T("contact.details.title") }</h2>
 			<div class="contact-details">
@@ -40,7 +38,6 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 			</div>
 		</section>
 		@layouts.SectionDivider()
-		<p>{ pCtx.T("contact.intro.p1") }</p>
 		<p>{ pCtx.T("contact.intro.p2") }</p>
 		<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
 		@ContactFormPartial(data, pCtx)
