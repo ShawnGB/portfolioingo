@@ -192,4 +192,115 @@ document.addEventListener('DOMContentLoaded', function() {
       trackRect = trackContainer.getBoundingClientRect();
     }
   });
+
+  // ==========================================
+  // SKILLS CAROUSEL
+  // ==========================================
+  const carouselTrack = document.getElementById('skills-carousel-track');
+  const carouselDots = document.getElementById('skills-carousel-dots');
+
+  if (carouselTrack && carouselDots) {
+    const carouselItems = Array.from(carouselTrack.querySelectorAll('.carousel-item'));
+    const totalItems = carouselItems.length;
+    let currentIndex = 0;
+
+    // Create dots
+    carouselItems.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      carouselDots.appendChild(dot);
+    });
+
+    const dots = Array.from(carouselDots.querySelectorAll('.carousel-dot'));
+
+    // Position cards based on current index
+    function updateCarousel() {
+      carouselItems.forEach((item, index) => {
+        // Remove all position classes
+        item.classList.remove('center', 'left', 'right', 'hidden');
+
+        const diff = index - currentIndex;
+
+        if (diff === 0) {
+          // Center card
+          item.classList.add('center');
+        } else if (diff === -1 || (currentIndex === 0 && index === totalItems - 1)) {
+          // Left card (or wrap around from first to last)
+          item.classList.add('left');
+        } else if (diff === 1 || (currentIndex === totalItems - 1 && index === 0)) {
+          // Right card (or wrap around from last to first)
+          item.classList.add('right');
+        } else {
+          // Hidden cards
+          item.classList.add('hidden');
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    // Navigate to specific slide
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+    }
+
+    // Navigate to next slide (infinite loop)
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      updateCarousel();
+    }
+
+    // Navigate to previous slide (infinite loop)
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      updateCarousel();
+    }
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carouselTrack.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swiped left - go to next
+          nextSlide();
+        } else {
+          // Swiped right - go to previous
+          prevSlide();
+        }
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    });
+
+    // Initialize carousel
+    updateCarousel();
+  }
 });

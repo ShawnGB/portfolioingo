@@ -13,61 +13,64 @@ templ Experience(pCtx i18n.PageContext) {
 			pCtx.T("experience.introduction.p1"),
 		)
 		@layouts.SectionDivider()
-		<!-- Technical Expertise - What I Can Do -->
+		<!-- Technical Expertise Carousel -->
 		<section>
-			<h2>{ pCtx.T("experience.skills.title") }</h2>
 			<p class="skills-intro">{ pCtx.T("experience.skills.intro") }</p>
-			<div class="badges-container skills-badges">
-				<!-- Development & Programming -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("code", "48", "")
+			<div class="skills-carousel">
+				<div class="carousel-track" id="skills-carousel-track">
+					<!-- Development & Programming -->
+					<div class="badge carousel-item" data-carousel-index="0">
+						<div class="badge-icon">
+							@components.Icon("code", "48", "")
+						</div>
+						<div class="badge-content">
+							<h3>{ pCtx.T("experience.skills.development.title") }</h3>
+							<p>{ pCtx.T("experience.skills.development.list") }</p>
+						</div>
 					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.development.title") }</h3>
-						<p>{ pCtx.T("experience.skills.development.list") }</p>
+					<!-- Tools & Platforms -->
+					<div class="badge carousel-item" data-carousel-index="1">
+						<div class="badge-icon">
+							@components.Icon("tool", "48", "")
+						</div>
+						<div class="badge-content">
+							<h3>{ pCtx.T("experience.skills.tooling.title") }</h3>
+							<p>{ pCtx.T("experience.skills.tooling.list") }</p>
+						</div>
+					</div>
+					<!-- Creative & Multimedia -->
+					<div class="badge carousel-item" data-carousel-index="2">
+						<div class="badge-icon">
+							@components.Icon("palette", "48", "")
+						</div>
+						<div class="badge-content">
+							<h3>{ pCtx.T("experience.skills.creative.title") }</h3>
+							<p>{ pCtx.T("experience.skills.creative.list") }</p>
+						</div>
+					</div>
+					<!-- Emerging Tech & Methodologies -->
+					<div class="badge carousel-item" data-carousel-index="3">
+						<div class="badge-icon">
+							@components.Icon("zap", "48", "")
+						</div>
+						<div class="badge-content">
+							<h3>{ pCtx.T("experience.skills.emerging.title") }</h3>
+							<p>{ pCtx.T("experience.skills.emerging.list") }</p>
+						</div>
+					</div>
+					<!-- Professional Skills -->
+					<div class="badge carousel-item" data-carousel-index="4">
+						<div class="badge-icon">
+							@components.Icon("heart", "48", "")
+						</div>
+						<div class="badge-content">
+							<h3>{ pCtx.T("experience.skills.soft.title") }</h3>
+							<p>{ pCtx.T("experience.skills.soft.list") }</p>
+						</div>
 					</div>
 				</div>
-				<!-- Tools & Platforms -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("tool", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.tooling.title") }</h3>
-						<p>{ pCtx.T("experience.skills.tooling.list") }</p>
-					</div>
-				</div>
-				<!-- Creative & Multimedia -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("palette", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.creative.title") }</h3>
-						<p>{ pCtx.T("experience.skills.creative.list") }</p>
-					</div>
-				</div>
-				<!-- Emerging Tech & Methodologies -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("zap", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.emerging.title") }</h3>
-						<p>{ pCtx.T("experience.skills.emerging.list") }</p>
-					</div>
-				</div>
-				<!-- Professional Skills -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("heart", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.soft.title") }</h3>
-						<p>{ pCtx.T("experience.skills.soft.list") }</p>
-					</div>
-				</div>
+				<!-- Carousel Dots -->
+				<div class="carousel-dots" id="skills-carousel-dots"></div>
 			</div>
 		</section>
 		@layouts.SectionDivider()

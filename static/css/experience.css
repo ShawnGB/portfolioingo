@@ -16,6 +16,114 @@
   margin-right: auto;
 }
 
+/* === Skills Carousel === */
+.skills-carousel {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  padding: var(--space-3xl) 0;
+}
+
+.carousel-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 0 var(--space-xl);
+}
+
+.carousel-item {
+  position: absolute;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  max-width: 500px;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85) translateX(0);
+}
+
+/* Center card - fully visible and in focus */
+.carousel-item.center {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateX(0);
+  z-index: 3;
+}
+
+/* Left card - visible but smaller, overlapped */
+.carousel-item.left {
+  opacity: 0.6;
+  pointer-events: auto;
+  transform: scale(0.85) translateX(-80%);
+  z-index: 1;
+}
+
+/* Right card - visible but smaller, overlapped */
+.carousel-item.right {
+  opacity: 0.6;
+  pointer-events: auto;
+  transform: scale(0.85) translateX(80%);
+  z-index: 1;
+}
+
+/* Cards further out - completely hidden */
+.carousel-item.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.7) translateX(0);
+  z-index: 0;
+}
+
+/* Carousel Dots Navigation */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-3xl);
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 2px solid var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  background: hsla(18, 89%, 71%, 0.3);
+  transform: scale(1.15);
+}
+
+.carousel-dot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-item {
+    max-width: 90%;
+  }
+
+  .carousel-item.left {
+    transform: scale(0.75) translateX(-60%);
+    opacity: 0.4;
+  }
+
+  .carousel-item.right {
+    transform: scale(0.75) translateX(60%);
+    opacity: 0.4;
+  }
+
+  .carousel-track {
+    padding: 0 var(--space-sm);
+  }
+}
+
 /* === Education Badges - Special Styling for Current === */
 .badge.current-education {
   border: 2px solid var(--primary);
