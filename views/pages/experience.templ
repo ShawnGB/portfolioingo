@@ -17,50 +17,47 @@ templ Experience(pCtx i18n.PageContext) {
 			<h2>{ pCtx.T("experience.skills.title") }</h2>
 			<p class="skills-intro">{ pCtx.T("experience.skills.intro") }</p>
 			<div class="badges-container skills-badges">
-				<!-- Frontend Development -->
+				<!-- Development & Programming -->
 				<div class="badge">
 					<div class="badge-icon">
 						@components.Icon("code", "48", "")
 					</div>
 					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.frontend.title") }</h3>
-						<p><strong>{ pCtx.T("experience.skills.frontend.expert") }</strong> { pCtx.T("experience.skills.frontend.expertList") }</p>
-						<p><strong>{ pCtx.T("experience.skills.frontend.proficient") }</strong> { pCtx.T("experience.skills.frontend.proficientList") }</p>
-					</div>
-				</div>
-				<!-- Backend Development -->
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("briefcase", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.backend.title") }</h3>
-						<p><strong>{ pCtx.T("experience.skills.backend.expert") }</strong> { pCtx.T("experience.skills.backend.expertList") }</p>
-						<p><strong>{ pCtx.T("experience.skills.backend.proficient") }</strong> { pCtx.T("experience.skills.backend.proficientList") }</p>
+						<h3>{ pCtx.T("experience.skills.development.title") }</h3>
+						<p>{ pCtx.T("experience.skills.development.list") }</p>
 					</div>
 				</div>
 				<!-- Tools & Platforms -->
 				<div class="badge">
 					<div class="badge-icon">
-						@components.Icon("award", "48", "")
+						@components.Icon("tool", "48", "")
 					</div>
 					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.tools.title") }</h3>
-						<p><strong>{ pCtx.T("experience.skills.tools.expert") }</strong> { pCtx.T("experience.skills.tools.expertList") }</p>
-						<p><strong>{ pCtx.T("experience.skills.tools.proficient") }</strong> { pCtx.T("experience.skills.tools.proficientList") }</p>
+						<h3>{ pCtx.T("experience.skills.tooling.title") }</h3>
+						<p>{ pCtx.T("experience.skills.tooling.list") }</p>
 					</div>
 				</div>
-				<!-- Product & Strategy -->
+				<!-- Creative & Multimedia -->
 				<div class="badge">
 					<div class="badge-icon">
-						@components.Icon("compass", "48", "")
+						@components.Icon("palette", "48", "")
 					</div>
 					<div class="badge-content">
-						<h3>{ pCtx.T("experience.skills.product.title") }</h3>
-						<p>{ pCtx.T("experience.skills.product.list") }</p>
+						<h3>{ pCtx.T("experience.skills.creative.title") }</h3>
+						<p>{ pCtx.T("experience.skills.creative.list") }</p>
 					</div>
 				</div>
-				<!-- Professional Competencies -->
+				<!-- Emerging Tech & Methodologies -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("zap", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.emerging.title") }</h3>
+						<p>{ pCtx.T("experience.skills.emerging.list") }</p>
+					</div>
+				</div>
+				<!-- Professional Skills -->
 				<div class="badge">
 					<div class="badge-icon">
 						@components.Icon("heart", "48", "")
@@ -142,9 +139,6 @@ templ Experience(pCtx i18n.PageContext) {
 				</div>
 				<ul>
 					<li>{ pCtx.T("experience.refund.item1") }</li>
-					<li>{ pCtx.T("experience.refund.item2") }</li>
-					<li>{ pCtx.T("experience.refund.item3") }</li>
-					<li>{ pCtx.T("experience.refund.item4") }</li>
 				</ul>
 			</div>
 			<!-- U/skillity -->
@@ -157,8 +151,6 @@ templ Experience(pCtx i18n.PageContext) {
 				<ul>
 					<li>{ pCtx.T("experience.uskillity.item1") }</li>
 					<li>{ pCtx.T("experience.uskillity.item2") }</li>
-					<li>{ pCtx.T("experience.uskillity.item3") }</li>
-					<li>{ pCtx.T("experience.uskillity.item4") }</li>
 				</ul>
 			</div>
 			<!-- Kultstätte Keller -->
@@ -170,9 +162,6 @@ templ Experience(pCtx i18n.PageContext) {
 				</div>
 				<ul>
 					<li>{ pCtx.T("experience.kultstaette.item1") }</li>
-					<li>{ pCtx.T("experience.kultstaette.item2") }</li>
-					<li>{ pCtx.T("experience.kultstaette.item3") }</li>
-					<li>{ pCtx.T("experience.kultstaette.item4") }</li>
 				</ul>
 			</div>
 			</div>
@@ -206,16 +195,40 @@ templ Experience(pCtx i18n.PageContext) {
 						<p>{ pCtx.T("experience.education.code.description") }</p>
 					</div>
 				</div>
-				<!-- MCI -->
+				<!-- Ireland -->
 				<div class="badge">
 					<div class="badge-icon">
-						@components.Icon("sparkles", "48", "")
+						@components.Icon("map", "48", "")
 					</div>
 					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.mci.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.mci.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.mci.period") }</p>
-						<p>{ pCtx.T("experience.education.mci.description") }</p>
+						<h3>{ pCtx.T("experience.education.ireland.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.ireland.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.ireland.period") }</p>
+						<p>{ pCtx.T("experience.education.ireland.description") }</p>
+					</div>
+				</div>
+				<!-- IHK -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("award", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.education.ihk.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.ihk.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.ihk.period") }</p>
+						<p>{ pCtx.T("experience.education.ihk.description") }</p>
+					</div>
+				</div>
+				<!-- SAE Institute -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("music", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.education.sae.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.sae.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.sae.period") }</p>
+						<p>{ pCtx.T("experience.education.sae.description") }</p>
 					</div>
 				</div>
 			</div>
