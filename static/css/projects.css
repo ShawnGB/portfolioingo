@@ -1,24 +1,21 @@
-/* In deiner projektspezifischen CSS oder einer globalen Komponenten-CSS */
+/* Project Details Lists */
 .project-details-list dt {
   font-family: "Overpass Mono", monospace;
   font-weight: 600;
-  color: var(--primary); /* Geändert von var(--text) zu var(--primary) */
+  color: var(--primary);
   margin-top: 1rem;
   font-size: 1em;
-  margin-bottom: 0.35rem; /* Angepasst für besseren Abstand zum DD */
+  margin-bottom: 0.35rem;
 }
 
 .project-details-list dd {
   margin-inline-start: 0;
   margin-bottom: 1rem;
-  padding-inline-start: 0; /* Entfernt, wenn .skill-list direkt im dd ist und gap nutzt */
-  /* oder behalte es für normale Text-dd und überschreibe es für .skill-list-dd */
+  padding-inline-start: 0;
 }
 
-/* Stelle sicher, dass .skill-list und .tech-label global definiert sind (in base.css) */
 .skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
-  /* Ggf. margin-top hinzufügen, wenn es direkt nach dt kommt */
 }

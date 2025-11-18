@@ -58,20 +58,31 @@
   margin-top: var(--space-2xl); /* Proper spacing after h2 */
 }
 
-/* Vertical timeline line */
+/* Vertical timeline line - POLISHED Cylindrical Pipe Effect
+   6px width with desaturated orange to let content be the focus
+   Subtle 3D effect without drawing too much attention */
 .experience-timeline::before {
   content: '';
   position: absolute;
   left: 0;
   top: 0.5rem;
   bottom: 3rem;
-  width: 2px;
+  width: 6px;
+
+  /* Desaturated cylinder gradient: Reduces visual intensity (89% → 65% saturation)
+     Light on left (catching light) -> Dark on right (shadow side) */
   background: linear-gradient(
-    to bottom,
-    var(--primary) 0%,
-    var(--primary-light) 50%,
-    var(--border-medium) 100%
+    to right,
+    hsl(18, 65%, 78%) 0%,           /* Desaturated light orange on left */
+    hsl(18, 65%, 71%) 50%,          /* Desaturated base color in center */
+    hsl(18, 65%, 60%) 100%          /* Desaturated darker orange on right */
   );
+
+  border-radius: 3px;
+
+  /* Subtle pipe borders - light catch and shadow edge */
+  border-left: 1px solid rgba(255, 255, 255, 0.35);   /* Subtle light highlight */
+  border-right: 1px solid rgba(0, 0, 0, 0.10);        /* Subtle dark shadow */
 }
 
 /* === Experience Entry List === */

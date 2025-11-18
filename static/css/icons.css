@@ -99,305 +99,6 @@
   transform: scale(1.05);
 }
 
-/* === Featured Skills Row - Core Competencies === */
-.tech-stack-featured {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: var(--space-xl);
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-3xl);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.tech-item-featured {
-  /* Larger, more prominent tiles for core skills */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-lg);
-  padding: var(--space-2xl) var(--space-xl);
-  background: var(--bg-surface);
-  border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid hsla(0, 0%, 0%, 0.06);
-  border-left: 4px solid var(--primary);  /* Stronger accent */
-  min-height: 140px;
-  box-shadow: var(--shadow-md);
-  cursor: pointer;
-  position: relative;
-}
-
-.tech-item-featured:hover {
-  transform: translateY(-12px) scale(1.05);  /* More dramatic for featured */
-  box-shadow: var(--shadow-xl);
-  border-color: hsla(18, 89%, 71%, 0.3);
-}
-
-.tech-item-featured .icon {
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tech-item-featured:hover .icon {
-  transform: translateY(-6px) scale(1.1);  /* More pronounced lift */
-}
-
-/* === Tech Stack Icons - Standard Grid === */
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-lg);
-}
-
-.tech-item {
-  /* Perfect centering with Flexbox */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-  padding: var(--space-xl) var(--space-lg);
-  background: var(--bg-surface);
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid hsla(0, 0%, 0%, 0.04);
-  border-left: 3px solid hsla(0, 0%, 0%, 0.08);  /* Accent border for brand tint */
-  min-width: 110px;
-  min-height: 110px;
-
-  /* Rule 3.3: Raised Element - Top highlight + elevation */
-  box-shadow:
-    inset 0 1px 0 var(--highlight-top),
-    var(--shadow-sm);
-
-  cursor: pointer;
-  position: relative;
-}
-
-.tech-item:hover {
-  transform: translateY(-8px) scale(1.03);  /* Dramatic lift + scale for engagement */
-
-  /* Maintain top highlight on hover */
-  box-shadow:
-    inset 0 1px 0 var(--highlight-top),
-    var(--shadow-xl);    /* Maximum elevation */
-}
-
-.tech-item .icon {
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tech-item:hover .icon {
-  transform: translateY(-4px);  /* Icon lifts off tile - playful motion */
-}
-
-/* Contextual Tooltips for Skills */
-.tech-item[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%);
-
-  /* Tooltip styling */
-  background: var(--text-primary);
-  color: white;
-  padding: var(--space-sm) var(--space-md);
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  line-height: 1.4;
-  white-space: nowrap;
-  max-width: 200px;
-  text-align: center;
-
-  /* Shadow for elevation */
-  box-shadow: var(--shadow-lg);
-
-  /* Hidden by default */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 100;
-}
-
-/* Tooltip arrow */
-.tech-item[data-tooltip]::before {
-  content: '';
-  position: absolute;
-  bottom: calc(100% + 4px);
-  left: 50%;
-  transform: translateX(-50%);
-
-  border: 6px solid transparent;
-  border-top-color: var(--text-primary);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 100;
-}
-
-.tech-item[data-tooltip]:hover::after,
-.tech-item[data-tooltip]:hover::before {
-  opacity: 1;
-}
-
-.tech-item[data-tooltip]:hover::after {
-  transform: translateX(-50%) translateY(-4px);
-}
-
-/* Brand-Specific Tints (Desaturated, Very Light) */
-
-/* React - Light Blue */
-.tech-item[data-tech="react"] {
-  background: linear-gradient(135deg, hsla(193, 95%, 68%, 0.04) 0%, hsla(193, 95%, 68%, 0.02) 100%);
-  border-left-color: hsla(193, 95%, 68%, 0.3);
-}
-
-/* Node.js - Light Green */
-.tech-item[data-tech="nodejs"] {
-  background: linear-gradient(135deg, hsla(110, 25%, 51%, 0.04) 0%, hsla(110, 25%, 51%, 0.02) 100%);
-  border-left-color: hsla(110, 25%, 51%, 0.3);
-}
-
-/* TypeScript - Light Blue */
-.tech-item[data-tech="typescript"] {
-  background: linear-gradient(135deg, hsla(211, 60%, 48%, 0.04) 0%, hsla(211, 60%, 48%, 0.02) 100%);
-  border-left-color: hsla(211, 60%, 48%, 0.3);
-}
-
-/* JavaScript - Light Yellow */
-.tech-item[data-tech="javascript"] {
-  background: linear-gradient(135deg, hsla(53, 93%, 54%, 0.04) 0%, hsla(53, 93%, 54%, 0.02) 100%);
-  border-left-color: hsla(53, 93%, 54%, 0.3);
-}
-
-/* Go - Light Cyan */
-.tech-item[data-tech="go"] {
-  background: linear-gradient(135deg, hsla(191, 100%, 42%, 0.04) 0%, hsla(191, 100%, 42%, 0.02) 100%);
-  border-left-color: hsla(191, 100%, 42%, 0.3);
-}
-
-/* HTML5 - Light Orange/Red */
-.tech-item[data-tech="html5"] {
-  background: linear-gradient(135deg, hsla(12, 83%, 53%, 0.04) 0%, hsla(12, 83%, 53%, 0.02) 100%);
-  border-left-color: hsla(12, 83%, 53%, 0.3);
-}
-
-/* CSS3 - Light Blue */
-.tech-item[data-tech="css3"] {
-  background: linear-gradient(135deg, hsla(228, 77%, 58%, 0.04) 0%, hsla(228, 77%, 58%, 0.02) 100%);
-  border-left-color: hsla(228, 77%, 58%, 0.3);
-}
-
-/* MySQL - Light Blue/Orange */
-.tech-item[data-tech="mysql"] {
-  background: linear-gradient(135deg, hsla(204, 71%, 39%, 0.04) 0%, hsla(204, 71%, 39%, 0.02) 100%);
-  border-left-color: hsla(204, 71%, 39%, 0.3);
-}
-
-/* MongoDB - Light Green */
-.tech-item[data-tech="mongodb"] {
-  background: linear-gradient(135deg, hsla(145, 63%, 42%, 0.04) 0%, hsla(145, 63%, 42%, 0.02) 100%);
-  border-left-color: hsla(145, 63%, 42%, 0.3);
-}
-
-/* Python - Light Blue/Yellow */
-.tech-item[data-tech="python"] {
-  background: linear-gradient(135deg, hsla(204, 75%, 52%, 0.04) 0%, hsla(204, 75%, 52%, 0.02) 100%);
-  border-left-color: hsla(204, 75%, 52%, 0.3);
-}
-
-/* PostgreSQL - Light Blue */
-.tech-item[data-tech="postgresql"] {
-  background: linear-gradient(135deg, hsla(210, 75%, 48%, 0.04) 0%, hsla(210, 75%, 48%, 0.02) 100%);
-  border-left-color: hsla(210, 75%, 48%, 0.3);
-}
-
-/* Git - Light Orange */
-.tech-item[data-tech="git"] {
-  background: linear-gradient(135deg, hsla(10, 78%, 54%, 0.04) 0%, hsla(10, 78%, 54%, 0.02) 100%);
-  border-left-color: hsla(10, 78%, 54%, 0.3);
-}
-
-/* Docker - Light Blue */
-.tech-item[data-tech="docker"] {
-  background: linear-gradient(135deg, hsla(197, 100%, 45%, 0.04) 0%, hsla(197, 100%, 45%, 0.02) 100%);
-  border-left-color: hsla(197, 100%, 45%, 0.3);
-}
-
-/* AWS - Light Orange */
-.tech-item[data-tech="aws"] {
-  background: linear-gradient(135deg, hsla(26, 100%, 50%, 0.04) 0%, hsla(26, 100%, 50%, 0.02) 100%);
-  border-left-color: hsla(26, 100%, 50%, 0.3);
-}
-
-/* Figma - Light Purple/Pink */
-.tech-item[data-tech="figma"] {
-  background: linear-gradient(135deg, hsla(330, 78%, 58%, 0.04) 0%, hsla(330, 78%, 58%, 0.02) 100%);
-  border-left-color: hsla(330, 78%, 58%, 0.3);
-}
-
-/* Skill Levels */
-.skill-level {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.skill-name {
-  min-width: 120px;
-  font-weight: 500;
-}
-
-.skill-bar {
-  flex: 1;
-  height: 8px;
-  background-color: rgba(var(--text-rgb), 0.1);
-  border-radius: 4px;
-  overflow: hidden;
-  position: relative;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--accent-alt, var(--accent)));
-  border-radius: 4px;
-  transition: width 0.6s ease;
-}
-
-.skill-bar-fill[data-level="expert"] {
-  width: 90%;
-}
-
-.skill-bar-fill[data-level="advanced"] {
-  width: 75%;
-}
-
-.skill-bar-fill[data-level="intermediate"] {
-  width: 60%;
-}
-
-.skill-bar-fill[data-level="beginner"] {
-  width: 40%;
-}
-
 /* === Achievement Badges - Refined 2x2 Grid === */
 .badges-container {
   display: flex;
@@ -425,16 +126,14 @@
     hsla(18, 89%, 71%, 0.02) 100%
   );
 
-  border-radius: 16px;
-  border: 1px solid hsla(0, 0%, 0%, 0.06);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(0, 0, 0, 0.05);          /* Subtle border for definition */
+  transition: var(--transition-smooth);
   position: relative;
   overflow: hidden;
 
-  /* Rule 3.3: Raised Element - Top highlight + elevation */
-  box-shadow:
-    inset 0 1px 0 var(--highlight-top),
-    var(--shadow-md);
+  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
+  box-shadow: var(--shadow-polished);
 }
 
 /* More subtle hover - no action required */
@@ -448,10 +147,8 @@
     hsla(18, 89%, 71%, 0.03) 100%
   );
 
-  /* Maintain top highlight on hover */
-  box-shadow:
-    inset 0 1px 0 var(--highlight-top),
-    var(--shadow-lg);
+  /* Subtle hover lift - maintains polished feel */
+  box-shadow: var(--shadow-polished-hover);
 }
 
 .badge-icon {
@@ -760,8 +457,8 @@ footer .social-icons {
 footer .social-icon-link {
   /* Clean icon-only buttons */
   background: var(--bg-surface);
-  border: 1px solid hsla(0, 0%, 0%, 0.08);
-  border-radius: 8px;
+  border: 1px solid hsla(0, 0%, 0%, 0.05);
+  border-radius: var(--radius-md);
   padding: var(--space-sm);
 
   /* Simple, clean style */
@@ -769,19 +466,21 @@ footer .social-icon-link {
   text-decoration: none;
 
   /* Engaging interaction */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--transition-smooth);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  box-shadow: var(--shadow-sm);
+
+  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
+  box-shadow: var(--shadow-polished);
 }
 
 footer .social-icon-link:hover {
   color: var(--primary);
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
   border-color: hsla(18, 89%, 71%, 0.3);
+  box-shadow: var(--shadow-polished-hover);
   background: var(--bg-surface);
 }
 

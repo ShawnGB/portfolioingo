@@ -2,6 +2,7 @@ package pages
 
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
+import "mymodules/gofolio/views/components"
 
 templ About(pCtx i18n.PageContext) {
 	@layouts.SubpageTemplate(pCtx, "about.title", "about.pageSubtitle", "about.pageTitle", "about.pageMetaDescription") {
@@ -13,55 +14,51 @@ templ About(pCtx i18n.PageContext) {
 		</section>
 		@layouts.SectionDivider()
 		<section>
+			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
+			<div class="badges-container">
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("sparkles", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("about.drivesMe.item1.title") }</h3>
+						<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
+					</div>
+				</div>
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("heart", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("about.drivesMe.item2.title") }</h3>
+						<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
+					</div>
+				</div>
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("compass", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("about.drivesMe.item3.title") }</h3>
+						<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
+					</div>
+				</div>
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("award", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("about.drivesMe.item4.title") }</h3>
+						<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		@layouts.SectionDivider()
+		<section>
 			<h2>{ pCtx.T("about.path.title") }</h2>
 			<p>{ pCtx.T("about.path.p1") }</p>
 			<p>{ pCtx.T("about.path.p2") }</p>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
-			<ul class="drives-me-list">
-				<li>
-					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item1.title") }</h4>
-					<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
-				</li>
-				<li>
-					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item2.title") }</h4>
-					<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
-				</li>
-				<li>
-					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item3.title") }</h4>
-					<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
-				</li>
-				<li>
-					<h4 class="drives-me-item-title">{ pCtx.T("about.drivesMe.item4.title") }</h4>
-					<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
-				</li>
-			</ul>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.skillset.title") }</h2>
-			<h3>{ pCtx.T("about.skillset.devFullstack.title") }</h3>
-			<div class="skill-list">
-				<span class="tech-label">JavaScript/TypeScript</span>
-				<span class="tech-label">React</span>
-				<span class="tech-label">Node.js</span>
-				<span class="tech-label">Go</span>
-				<span class="tech-label">HTML5</span>
-				<span class="tech-label">CSS3</span>
-				<span class="tech-label">API Development</span>
-				<span class="tech-label">Databases (MySQL, MongoDB)</span>
-				<span class="tech-label">CMS (WordPress, Headless CMS)</span>
-			</div>
-			<h3>{ pCtx.T("about.skillset.productStrategy.title") }</h3>
-			<div class="skill-list">
-				<p>{ pCtx.T("about.skillset.productStrategy.skills") }</p>
-			</div>
-			<h3>{ pCtx.T("about.skillset.ethicalConsulting.title") }</h3>
-			<div class="skill-list">
-				<p>{ pCtx.T("about.skillset.ethicalConsulting.skills") }</p>
-			</div>
 		</section>
 		@layouts.SectionDivider()
 		<section>
@@ -83,7 +80,8 @@ templ About(pCtx i18n.PageContext) {
 			<p>{ pCtx.T("about.lookingFor.p3") }</p>
 			<p><em>{ pCtx.T("about.lookingFor.availability") }</em></p>
 			<p>
-				<a href="/static/ShawnBeckerResume.pdf" class="cta-link" target="_blank" rel="noopener noreferrer">
+				<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
+					@components.Icon("download", "24", "")
 					{ pCtx.T("about.lookingFor.ctaDownload") }
 				</a>
 			</p>
@@ -96,8 +94,9 @@ templ About(pCtx i18n.PageContext) {
 				<a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
 			</p>
 			<p>
-				<a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer">
-					→ { pCtx.T("about.connect.githubLinkText") }
+				<a href="https://github.com/ShawnGB" class="icon-link" target="_blank" rel="noopener noreferrer">
+					@components.Icon("github", "24", "")
+					{ pCtx.T("about.connect.githubLinkText") }
 				</a>
 			</p>
 		</section>

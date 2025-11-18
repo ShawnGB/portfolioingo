@@ -24,6 +24,45 @@ nav {
   }
   a {
     text-decoration: none;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Active navigation item - Gradient accent */
+  a.active,
+  a[aria-current="page"] {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* Gradient underline for active nav item */
+  a.active::after,
+  a[aria-current="page"]::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--primary) 20%,
+      rgba(255, 60, 172, 0.8) 80%,
+      transparent 100%
+    );
+    border-radius: 2px;
+    box-shadow: 0 2px 8px hsla(18, 89%, 71%, 0.4);
+  }
+
+  /* Hover effect for non-active items */
+  a:not(.active):not([aria-current="page"]):hover {
+    color: var(--primary);
+    transform: translateY(-2px);
   }
 }
 /* Versteckte Checkbox */

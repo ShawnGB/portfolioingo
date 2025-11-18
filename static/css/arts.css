@@ -37,6 +37,11 @@
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);  /* Rounded corners for modern feel */
+
+  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
+  box-shadow: var(--shadow-polished);
+
   transition:
     transform 0.3s ease-out,
     opacity 0.3s ease-out,
@@ -61,8 +66,8 @@
   opacity: 1;
   transform: scale(1.25);
 
-  z-index: 10; /* Bild kommt nach vorne */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  z-index: 10;  /* Bring image to front */
+  box-shadow: var(--shadow-polished-hover);
   transition-delay: 0s, 0s, 0s, 0s;
 }
 

@@ -2,6 +2,7 @@ package pages
 
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
+import "mymodules/gofolio/views/components"
 
 templ Projects(pCtx i18n.PageContext) {
 	@layouts.SubpageTemplate(pCtx, "projects.title", "projects.pageSubtitle", "projects.pageTitle", "projects.pageMetaDescription") {
@@ -29,8 +30,9 @@ templ Projects(pCtx i18n.PageContext) {
 				</dd>
 			</dl>
 			<p>
-				<a href="https://github.com/ShawnGB/portfolioingo" target="_blank" rel="noopener noreferrer">
-					→ { pCtx.T("projects.currentProject.linkGithubText") }
+				<a href="https://github.com/ShawnGB/portfolioingo" class="icon-link" target="_blank" rel="noopener noreferrer">
+					@components.Icon("github", "24", "")
+					{ pCtx.T("projects.currentProject.linkGithubText") }
 				</a>
 			</p>
 		</section>
@@ -43,8 +45,8 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.jessebecker.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.jessebecker.description") }</p>
 						<p class="project-links">
-							<a href="http://www.jessebecker.com/" target="_blank" rel="noopener noreferrer">
-								→
+							<a href="http://www.jessebecker.com/" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("external", "24", "")
 								www.jessebecker.com
 							</a>
 						</p>
@@ -55,8 +57,8 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.arinashanzev.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.arinashanzev.description") }</p>
 						<p class="project-links">
-							<a href="https://arinashanzev.com" target="_blank" rel="noopener noreferrer">
-								→
+							<a href="https://arinashanzev.com" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("external", "24", "")
 								arinashanzev.com
 							</a>
 						</p>
@@ -67,8 +69,8 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.berndwolf.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.berndwolf.description") }</p>
 						<p class="project-links">
-							<a href="https://berndwolf.net/en/home" target="_blank" rel="noopener noreferrer">
-								→
+							<a href="https://berndwolf.net/en/home" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("external", "24", "")
 								berndwolf.net
 							</a>
 						</p>
@@ -79,8 +81,9 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.description") }</p>
 						<p class="project-links">
-							<a href="https://www.evolve-festival.com/" target="_blank" rel="noopener noreferrer">
-								→ www.evolve-festival.com
+							<a href="https://www.evolve-festival.com/" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("external", "24", "")
+								www.evolve-festival.com
 							</a>
 						</p>
 					</article>
@@ -90,8 +93,9 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.oldPortfolio.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.oldPortfolio.description") }</p>
 						<p class="project-links">
-							<a href="https://github.com/ShawnGB/my-portfolio" target="_blank" rel="noopener noreferrer">
-								→ { pCtx.T("projects.currentProject.linkGithubText") }
+							<a href="https://github.com/ShawnGB/my-portfolio" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("github", "24", "")
+								{ pCtx.T("projects.currentProject.linkGithubText") }
 							</a>
 						</p>
 					</article>
@@ -101,14 +105,17 @@ templ Projects(pCtx i18n.PageContext) {
 						<h3>{ pCtx.T("projects.websitesBuilt.uskillity.name") }</h3>
 						<p>{ pCtx.T("projects.websitesBuilt.uskillity.description") }</p>
 						<div class="project-links">
-							<a href="https://www.instagram.com/uskillity/" target="_blank" rel="noopener noreferrer">
-								→ { pCtx.T("projects.websitesBuilt.uskillity.linkInstagramText") }
+							<a href="https://www.instagram.com/uskillity/" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("external", "24", "")
+								{ pCtx.T("projects.websitesBuilt.uskillity.linkInstagramText") }
 							</a>
-							<a href="https://github.com/ShawnGB/uskillity-frontend" target="_blank" rel="noopener noreferrer">
-								→ { pCtx.T("projects.websitesBuilt.uskillity.linkFrontendRepoText") }
+							<a href="https://github.com/ShawnGB/uskillity-frontend" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("github", "24", "")
+								{ pCtx.T("projects.websitesBuilt.uskillity.linkFrontendRepoText") }
 							</a>
-							<a href="https://github.com/ShawnGB/uskillity-backend" target="_blank" rel="noopener noreferrer">
-								→ { pCtx.T("projects.websitesBuilt.uskillity.linkBackendRepoText") }
+							<a href="https://github.com/ShawnGB/uskillity-backend" class="icon-link" target="_blank" rel="noopener noreferrer">
+								@components.Icon("github", "24", "")
+								{ pCtx.T("projects.websitesBuilt.uskillity.linkBackendRepoText") }
 							</a>
 						</div>
 					</article>
@@ -145,8 +152,9 @@ templ Projects(pCtx i18n.PageContext) {
 			<h2>{ pCtx.T("projects.film.title") }</h2>
 			<p>{ pCtx.T("projects.film.description") }</p>
 			<p>
-				<a href="https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html" target="_blank" rel="noopener noreferrer">
-					→ { pCtx.T("projects.film.linkCrewUnitedText") }
+				<a href="https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html" class="icon-link" target="_blank" rel="noopener noreferrer">
+					@components.Icon("external", "24", "")
+					{ pCtx.T("projects.film.linkCrewUnitedText") }
 				</a>
 			</p>
 		</section>

@@ -3,14 +3,48 @@
    ================================= */
 
 :root {
-  /* Colors */
-  --bg-color: #eeeeee;
-  --primary: #f79b72;
-  --text: #2a4759;
-  --secondary: #dddddd;
-  --text-muted: #5c7080;
+  /* === Module 1: Depth & Realism - HSL Color System === */
 
-  /* RGB values for colors needing alpha transparency */
+  /* Background Layers (3-tier elevation system) */
+  --bg-base: #F4F6F9;                /* Page background - soft, warm gray for subtle contrast */
+  --bg-surface: #FAFAFA;             /* Cards, containers - off-white so highlights show */
+  --bg-active: hsl(0, 0%, 98%);      /* Hover/active states - subtle highlight */
+
+  /* Primary Brand Color */
+  --primary: hsl(18, 89%, 71%);      /* Peach/orange #f79b72 */
+  --primary-dark: hsl(18, 89%, 60%); /* Darker variant for hover */
+  --primary-light: hsl(18, 89%, 80%); /* Lighter variant for highlights */
+
+  /* Semantic Colors (System States) */
+  --success: hsl(142, 71%, 45%);     /* Green for success states */
+  --success-light: hsl(142, 71%, 55%);
+  --error: hsl(0, 72%, 51%);         /* Red for error states */
+  --error-light: hsl(0, 72%, 61%);
+  --warning: hsl(38, 92%, 50%);      /* Orange/yellow for warnings */
+  --warning-light: hsl(38, 92%, 60%);
+  --info: hsl(199, 89%, 48%);        /* Blue for informational */
+  --info-light: hsl(199, 89%, 58%);
+
+  /* Text Hierarchy (contrast levels) */
+  --text-primary: hsl(203, 36%, 26%);    /* High contrast - headings, critical text */
+  --text-secondary: hsl(0, 0%, 35%);     /* Medium contrast - body text (muted gray #555) */
+  --text-tertiary: hsl(203, 16%, 55%);   /* Low contrast - metadata, captions */
+
+  /* Borders & Dividers */
+  --border-subtle: hsl(0, 0%, 88%);      /* Subtle borders */
+  --border-medium: hsl(0, 0%, 82%);      /* Standard borders */
+
+  /* Top-down Light Simulation */
+  --highlight-top: hsla(0, 0%, 100%, 0.8);  /* 1px top highlight for raised elements */
+  --shadow-inset-dark: hsla(0, 0%, 0%, 0.1); /* Dark shadow for sunken elements */
+
+  /* Legacy support (keeping for backward compatibility) */
+  --bg-color: var(--bg-base);
+  --text: var(--text-primary);
+  --text-muted: var(--text-tertiary);
+  --secondary: var(--border-subtle);
+
+  /* RGB values for alpha transparency */
   --primary-rgb: 247, 155, 114;
   --text-rgb: 42, 71, 89;
   --accent-neon-pink-rgb: 255, 60, 172;
@@ -30,6 +64,45 @@
   --space-3xl: 3.5rem;   /* 56px */
   --space-4xl: 4rem;     /* 64px */
 
+  /* === Polished Shadow System (Refined & Subtle) === */
+
+  /* Polished Elevation - Base state (1-2mm lift) */
+  --shadow-polished:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),  /* Top highlight */
+    0 1px 3px hsla(203, 36%, 26%, 0.07),     /* Contact shadow */
+    0 8px 24px hsla(203, 36%, 26%, 0.03);    /* Ambient shadow */
+
+  /* Polished Elevation - Hover state */
+  --shadow-polished-hover:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),  /* Top highlight */
+    0 2px 4px hsla(203, 36%, 26%, 0.09),     /* Contact shadow: stronger */
+    0 12px 32px hsla(203, 36%, 26%, 0.05);   /* Ambient shadow: diffuse */
+
+  /* CTA-specific shadow with brand color glow */
+  --shadow-cta:
+    0 2px 4px hsla(203, 36%, 26%, 0.06),
+    0 12px 24px hsla(18, 89%, 71%, 0.3);
+
+  --shadow-cta-hover:
+    0 4px 8px hsla(203, 36%, 26%, 0.08),
+    0 16px 32px hsla(18, 89%, 71%, 0.35);
+
+  /* Recessed/Inset shadow (for inputs, progress bars) */
+  --shadow-inset:
+    inset 0 2px 4px hsla(203, 36%, 26%, 0.08),  /* Dark on top */
+    inset 0 -1px 2px hsla(0, 0%, 100%, 0.5);    /* Light on bottom */
+
+  /* === Animation & Interaction === */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Border Radius === */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
   /* Layout */
   --nav-height: 4rem;
   --container-max: 1200px;
@@ -48,7 +121,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 1.1rem;
-  line-height: 1.65;
+  line-height: 1.7;
   font-weight: 400;
   display: flex;
   flex-direction: column;
@@ -59,13 +132,17 @@ body {
 }
 
 /* =================================
-   3. Typography
+   3. Typography - Module 3: Hierarchy via Weight & Color
    ================================= */
+
+/* === Base Typography: 2-Pixel Rule === */
+/* Base: 1.125rem (18px) */
+/* Only increment/decrement by 0.125rem (2px) when necessary */
 
 a {
   all: unset;
   cursor: pointer;
-  color: var(--text);
+  color: var(--text-primary);
   text-decoration: underline;
   text-decoration-color: var(--primary);
   text-underline-offset: 0.2em;
@@ -77,79 +154,88 @@ a {
 a:hover,
 a:focus {
   color: var(--primary);
-  text-decoration-color: var(--text);
+  text-decoration-color: var(--text-primary);
 }
 
+/* Heading Foundations */
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--font-display);
   padding: 0;
-  color: var(--primary);
+  line-height: 1.2;  /* Tight line-height for headings */
 }
 
+/* H1: Page Titles - Maximum Hierarchy (Accent Color) */
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.75rem;      /* 44px - large but not excessive */
+  font-weight: 700;        /* Maximum weight */
+  color: var(--primary);   /* Accent color for page titles */
   margin-top: var(--space-xl);
-  margin-bottom: var(--space-md);
-  font-weight: 500;
+  margin-bottom: 0;        /* Line-height acts as margin */
+  letter-spacing: -0.02em;
 }
 
+/* H2: Section Titles - High Hierarchy (Accent Color) */
 h2 {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-top: var(--space-2xl);
-  margin-bottom: 0.9rem;
-  background-color: var(--accent-neon-pink-rgb);
+  font-size: 2rem;         /* 32px - clear hierarchy */
+  font-weight: 700;        /* Bold weight */
+  color: var(--primary);   /* Accent color guides navigation */
+  margin-top: var(--space-3xl);
+  margin-bottom: 0;        /* Line-height acts as margin */
+  letter-spacing: -0.01em;
 }
 
+/* H3: Subsection Titles - Medium Hierarchy (NO Accent Color) */
 h3 {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-top: var(--space-xl);
-  margin-bottom: 0.75rem;
+  font-size: 1.375rem;     /* 22px - only 4px larger than base */
+  font-weight: 600;        /* Semibold - lighter than H2 */
+  color: var(--text-primary);  /* Dark gray - subordinate to H2 */
+  margin-top: var(--space-2xl);
+  margin-bottom: 0;        /* Line-height acts as margin */
+  line-height: 1.3;
 }
 
+/* H4: Minor Titles - Subtle Hierarchy (NO Accent Color) */
 h4 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text);
-  margin-top: var(--space-lg);
-  margin-bottom: 0.6rem;
+  font-size: 1.125rem;     /* 18px - same as body, differentiated by weight */
+  font-weight: 600;        /* Semibold */
+  color: var(--text-primary);  /* Dark gray */
+  margin-top: var(--space-xl);
+  margin-bottom: 0;        /* Line-height acts as margin */
+  line-height: 1.4;
 }
 
+/* Body Text: Readable & Comfortable */
 p {
   margin-top: 0;
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-lg);
   max-width: 75ch;
   font-weight: 400;
+  color: var(--text-secondary);    /* Muted for reduced eye strain */
+  line-height: 1.7;                /* Generous reading line-height */
 }
 
+/* Strong Emphasis: Use weight, not color change */
 p strong,
 strong {
   font-family: var(--font-body);
   font-weight: 700;
-  color: var(--text);
+  color: var(--text-primary);  /* Slightly darker for emphasis */
 }
 
-/* Code and technical elements */
-.tech-label,
-.metadata,
+/* Code and technical elements - Scannable data points */
 code,
 kbd,
 samp {
   font-family: var(--font-mono);
-  font-size: 0.9em;
-  color: var(--text-muted);
-  background-color: rgba(221, 221, 221, 0.4);
-  padding: 0.15em 0.4em;
-  border-radius: 3px;
+  font-size: 0.875rem;                     /* 14px - slightly smaller */
+  font-weight: 600;                        /* Medium weight for scannability */
+  color: var(--primary);                   /* Accent color for key info */
+  background-color: hsla(18, 89%, 71%, 0.08);  /* Subtle peach tint */
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
   white-space: nowrap;
 }
 
@@ -184,28 +270,7 @@ dl dd ul li {
    4. Utility Classes
    ================================= */
 
-/* Spacing utilities */
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-.mx-sm { margin-left: var(--space-sm); margin-right: var(--space-sm); }
-.mx-md { margin-left: var(--space-md); margin-right: var(--space-md); }
-.mx-lg { margin-left: var(--space-lg); margin-right: var(--space-lg); }
-.p-md { padding: var(--space-md); }
-.p-lg { padding: var(--space-lg); }
-
-/* Layout utilities */
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
+/* Layout utilities - actually used */
 .flex-center-full {
   width: 100%;
   display: flex;
@@ -213,33 +278,16 @@ dl dd ul li {
   align-items: center;
 }
 
-/* Visibility utilities */
+/* Visibility utilities - actually used */
 .hidden {
   display: none;
 }
 
-/* Typography utilities */
-.font-mono { font-family: var(--font-mono); }
-.font-display { font-family: var(--font-display); }
-.text-muted { color: var(--text-muted); }
-.text-center { text-align: center; }
-
-/* Color utilities */
+/* Color utilities - used in contact form */
 .text-success { color: green; }
 .text-error { color: red; }
 
-/* Link utilities - no underline */
-.link-plain {
-  text-decoration: none;
-  color: inherit;
-}
-
-.link-plain:hover,
-.link-plain:focus {
-  color: var(--primary);
-}
-
-/* Spacing for language switcher */
+/* Language switcher - actually used */
 .lang-separator {
   padding: 0 5px;
 }
@@ -250,66 +298,146 @@ dl dd ul li {
   color: inherit;
 }
 
+/* Section spacing - consistent rhythm */
+section {
+  margin-bottom: var(--space-4xl);
+}
+
+section:last-child {
+  margin-bottom: var(--space-3xl);
+}
+
 /* =================================
    5. Common Components
    ================================= */
 
-/* Sub-description text */
-.service-sub-description {
-  font-style: italic;
-  color: var(--text-muted);
-  margin-bottom: var(--space-lg);
-  font-size: 1.05em;
-}
+/* === Call-to-Action Buttons - Globally Standardized === */
 
-/* Meta text (e.g., "(WIP)", years) */
-.meta-text {
-  font-family: var(--font-body);
-  font-size: 0.85em;
-  font-weight: 400;
-  color: var(--text-muted);
-  margin-left: var(--space-sm);
-}
+/* Primary CTA: High-emphasis actions (Contact, Submit) */
+a.cta-link,
+button.cta-link {
+  /* Consistent dimensions */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;                 /* Consistent minimum width */
+  height: 48px;                     /* Standardized height */
+  padding: 0 2rem;
+  box-sizing: border-box;            /* Include padding and border in height */
 
-/* Call-to-Action Links */
-a.cta-link {
-  display: inline-block;
-  padding: 0.8em 1.8em;
-  background-color: var(--primary);
+  /* POLISHED: Subtle Shiny/Beveled Effect - Smooth 10% Gradient
+     Professional depth without looking plastic */
+  background: linear-gradient(
+    180deg,
+    hsl(18, 89%, 78%) 0%,           /* Light at top */
+    var(--primary) 50%,             /* Base color in middle */
+    hsl(18, 89%, 68%) 100%          /* Darker at bottom - 10% range */
+  );
+
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border: none;
+  border-radius: var(--radius-md);
+
+  /* Rule 3.3: 1px Top Highlight for Raised Effect */
+  box-shadow:
+    inset 0 1px 0 var(--highlight-top),  /* Light highlight on top edge */
+    var(--shadow-cta);                     /* Elevation shadow below */
+
+  /* Typography with subtle text shadow for legibility */
   font-family: var(--font-mono);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.075em;
-  margin-top: var(--space-md);
-  transition: all 0.25s ease-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 0.875rem;              /* 14px */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);  /* Subtle shadow for readability */
+
+  /* Smooth interaction */
+  transition: var(--transition-fast);
+  cursor: pointer;
+  position: relative;
 }
 
 a.cta-link:hover,
-a.cta-link:focus {
-  background-color: color-mix(in srgb, var(--primary) 85%, black);
+a.cta-link:focus,
+button.cta-link:hover,
+button.cta-link:focus {
+  /* Subtle gradient shift on hover - maintains polish */
+  background: linear-gradient(
+    180deg,
+    hsl(18, 89%, 75%) 0%,           /* Slightly brighter at top */
+    var(--primary-dark) 50%,
+    hsl(18, 89%, 63%) 100%          /* Darker at bottom - smooth range */
+  );
   color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);  /* Subtle text shadow */
+  transform: translateY(-3px);      /* Lift */
+  box-shadow:
+    inset 0 1px 0 var(--highlight-top),
+    var(--shadow-cta-hover);  /* Increased shadow */
+}
+
+/* Secondary CTA: Lower-emphasis (Download, View, Links with icons) */
+a.cta-link.secondary,
+a.cta-link.with-icon,
+button.cta-link.secondary,
+button.cta-link.with-icon {
+  /* Same dimensions */
+  min-width: 180px;
+  height: 48px;
+  box-sizing: border-box;  /* Include padding and border in height */
+
+  /* Outline style */
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+
+  /* Subtle shadow for outline style */
+  box-shadow:
+    0 1px 3px hsla(203, 36%, 26%, 0.05),     /* Very subtle contact shadow */
+    0 4px 12px hsla(203, 36%, 26%, 0.02);    /* Very subtle ambient shadow */
+}
+
+a.cta-link.secondary:hover,
+a.cta-link.with-icon:hover,
+button.cta-link.secondary:hover,
+button.cta-link.with-icon:hover {
+  background: var(--primary);       /* Fill with accent on hover */
+  border-color: var(--primary);
+  color: white;                      /* White text on fill */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);  /* Subtle text shadow */
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(var(--accent-neon-pink-rgb), 0.25);
+  box-shadow: var(--shadow-cta);     /* Match primary shadow */
 }
 
 /* Horizontal rule */
 hr {
   border: none;
-  border-top: 1px solid var(--secondary);
+  height: 2px;
+  background: transparent;
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-2xl);
   width: 100%;
+
+  /* Rule 3.4: Sunken Effect - Inset shadows create grooved line */
+  box-shadow:
+    inset 0 1px 1px hsla(0, 0%, 0%, 0.12),   /* Dark shadow at top */
+    inset 0 -1px 1px hsla(0, 0%, 100%, 0.8);  /* Light highlight at bottom */
 }
 
-/* Page container */
+/* === Page container - Elevated Surface === */
 .page-container {
   width: 60%;
   min-height: calc(100vh - 24rem);
   margin: var(--space-4xl) 8rem;
+
+  /* Surface layer - floats above page background */
+  background: var(--bg-surface);
+  padding: var(--space-3xl);
+  border-radius: var(--radius-lg);
+
+  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
+  box-shadow: var(--shadow-polished);
 }
 
 .page-container ul {
@@ -340,7 +468,7 @@ hr {
 }
 
 .page-container ul.is-grid li {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background: var(--bg-surface);   /* Surface layer */
   margin: 0;
   box-sizing: border-box;
   padding: var(--space-lg);
@@ -348,6 +476,17 @@ hr {
   flex-grow: 1;
   flex-shrink: 1;
   margin-bottom: var(--space-md);
+  border-radius: var(--radius-lg);
+  transition: var(--transition-smooth);
+  cursor: pointer;
+
+  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
+  box-shadow: var(--shadow-polished);
+}
+
+.page-container ul.is-grid li:hover {
+  transform: translateY(-8px) scale(1.02);  /* Dramatic lift + subtle scale */
+  box-shadow: var(--shadow-polished-hover);
 }
 
 .page-container ul:not(.is-grid):not(.nav-links) {

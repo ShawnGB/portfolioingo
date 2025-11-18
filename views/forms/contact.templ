@@ -20,6 +20,26 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
 		@layouts.PageHeader(pCtx.T("contact.title"), pCtx.T("contact.subtitle"))
 		@layouts.SectionDivider()
+		<section>
+			<h2>{ pCtx.T("contact.details.title") }</h2>
+			<div class="contact-details">
+				<div class="contact-detail-item">
+					<h3>Address</h3>
+					<p>Shawn Gordon Becker</p>
+					<p>Baseler Str 38</p>
+					<p>12205 Berlin, Germany</p>
+				</div>
+				<div class="contact-detail-item">
+					<h3>Phone</h3>
+					<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
+				</div>
+				<div class="contact-detail-item">
+					<h3>Email</h3>
+					<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
+				</div>
+			</div>
+		</section>
+		@layouts.SectionDivider()
 		<p>{ pCtx.T("contact.intro.p1") }</p>
 		<p>{ pCtx.T("contact.intro.p2") }</p>
 		<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
