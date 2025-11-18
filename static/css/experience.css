@@ -1,0 +1,248 @@
+/* ==========================================
+   EXPERIENCE PAGE STYLES
+   Clean, badge-based design matching About page
+   ========================================== */
+
+/* === Skills Introduction === */
+.skills-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  font-style: italic;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === Education Badges - Special Styling for Current === */
+.badge.current-education {
+  border: 2px solid var(--primary);
+  position: relative;
+}
+
+.badge.current-education::after {
+  content: 'Current';
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background-color: var(--primary);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge .institution {
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 var(--space-xs) 0;
+  font-size: 0.95rem;
+}
+
+.badge .period {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* === Timeline Container === */
+.experience-timeline {
+  position: relative;
+  padding-left: 3rem;
+  margin-top: var(--space-2xl); /* Proper spacing after h2 */
+}
+
+/* Vertical timeline line */
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 3rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--primary) 0%,
+    var(--primary-light) 50%,
+    var(--border-medium) 100%
+  );
+}
+
+/* === Experience Entry List === */
+.experience-entry {
+  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+/* Timeline dot for each entry */
+.experience-entry::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border: 3px solid var(--bg-base);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--primary-light);
+  z-index: 1;
+}
+
+/* Highlight first (current) role */
+.experience-entry:first-child::before {
+  width: 16px;
+  height: 16px;
+  left: calc(-3rem - 2px);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  box-shadow:
+    0 0 0 3px var(--primary-light),
+    0 0 12px hsla(18, 89%, 71%, 0.4);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.experience-entry:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.experience-header {
+  margin-bottom: var(--space-lg);
+  position: relative;
+  cursor: pointer;
+}
+
+/* Toggle button */
+.experience-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: var(--space-sm);
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-toggle:hover {
+  color: var(--primary-dark);
+}
+
+.experience-toggle .toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.experience-entry.collapsed .experience-toggle .toggle-icon {
+  transform: rotate(-90deg);
+}
+
+.experience-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 0; /* Typography guideline: line-height acts as margin */
+  line-height: 1.2;
+  padding-right: var(--space-3xl); /* Space for toggle button */
+}
+
+.experience-header .company {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-xs);
+}
+
+.experience-header .meta {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-xs);
+  margin-bottom: 0;
+}
+
+.experience-entry ul {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-lg); /* Proper spacing after header */
+  margin-bottom: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+  max-height: 1000px; /* Large enough for content */
+  opacity: 1;
+}
+
+.experience-entry ul li {
+  position: relative;
+  padding-left: 1.75rem;
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.experience-entry ul li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* === Skills Badges Grid - Allow more badges === */
+.skills-badges {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 767px) {
+  .badge.current-education::after {
+    position: static;
+    display: inline-block;
+    margin-bottom: var(--space-md);
+  }
+
+  .experience-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .skills-intro {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  /* Hide timeline on mobile */
+  .experience-timeline {
+    padding-left: 0;
+  }
+
+  .experience-timeline::before {
+    display: none;
+  }
+
+  .experience-entry::before {
+    display: none;
+  }
+}

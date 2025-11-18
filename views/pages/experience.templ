@@ -2,115 +2,239 @@ package pages
 
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
+import "mymodules/gofolio/views/components"
 
 templ Experience(pCtx i18n.PageContext) {
 	@layouts.SubpageTemplate(pCtx, "experience.title", "experience.pageSubtitle", "experience.pageTitle", "experience.pageMetaDescription") {
+		<!-- Professional Profile Introduction -->
 		<section>
 			<h2>{ pCtx.T("experience.introduction.title") }</h2>
 			<p>{ pCtx.T("experience.introduction.p1") }</p>
-			<p>{ pCtx.T("experience.introduction.p2") }</p>
-			<p>
-				<a href="/static/ShawnBeckerResume.pdf" class="cta-link" target="_blank" rel="noopener noreferrer">
-					{ pCtx.T("common.downloadCV") }
-				</a>
-			</p>
 		</section>
 		@layouts.SectionDivider()
-		<div class="services-grid-container">
-			<section class="service-card">
-				<h2>{ pCtx.T("experience.freiheit.title") }</h2>
-				<p class="service-sub-description">
-					<strong>{ pCtx.T("experience.freiheit.company") }</strong>
-					{ " | " }
-					{ pCtx.T("experience.freiheit.period") }
-				</p>
-				<p class="text-muted">{ pCtx.T("experience.freiheit.location") }</p>
+		<!-- Technical Expertise - What I Can Do -->
+		<section>
+			<h2>{ pCtx.T("experience.skills.title") }</h2>
+			<p class="skills-intro">{ pCtx.T("experience.skills.intro") }</p>
+			<div class="badges-container skills-badges">
+				<!-- Frontend Development -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("code", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.frontend.title") }</h3>
+						<p><strong>{ pCtx.T("experience.skills.frontend.expert") }</strong> { pCtx.T("experience.skills.frontend.expertList") }</p>
+						<p><strong>{ pCtx.T("experience.skills.frontend.proficient") }</strong> { pCtx.T("experience.skills.frontend.proficientList") }</p>
+					</div>
+				</div>
+				<!-- Backend Development -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("briefcase", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.backend.title") }</h3>
+						<p><strong>{ pCtx.T("experience.skills.backend.expert") }</strong> { pCtx.T("experience.skills.backend.expertList") }</p>
+						<p><strong>{ pCtx.T("experience.skills.backend.proficient") }</strong> { pCtx.T("experience.skills.backend.proficientList") }</p>
+					</div>
+				</div>
+				<!-- Tools & Platforms -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("award", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.tools.title") }</h3>
+						<p><strong>{ pCtx.T("experience.skills.tools.expert") }</strong> { pCtx.T("experience.skills.tools.expertList") }</p>
+						<p><strong>{ pCtx.T("experience.skills.tools.proficient") }</strong> { pCtx.T("experience.skills.tools.proficientList") }</p>
+					</div>
+				</div>
+				<!-- Product & Strategy -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("compass", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.product.title") }</h3>
+						<p>{ pCtx.T("experience.skills.product.list") }</p>
+					</div>
+				</div>
+				<!-- Professional Competencies -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("heart", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.skills.soft.title") }</h3>
+						<p>{ pCtx.T("experience.skills.soft.list") }</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		@layouts.SectionDivider()
+		<!-- Career Journey - Where I've Worked -->
+		<section>
+			<h2>{ pCtx.T("experience.timeline.title") }</h2>
+			<div class="experience-timeline">
+			<!-- Current Role: Freelance -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.freelance.title") }</h3>
+					<p class="company">{ pCtx.T("experience.freelance.company") }</p>
+					<p class="meta">{ pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
+				</div>
+				<ul>
+					<li>{ pCtx.T("experience.freelance.item1") }</li>
+					<li>{ pCtx.T("experience.freelance.item2") }</li>
+					<li>{ pCtx.T("experience.freelance.item3") }</li>
+					<li>{ pCtx.T("experience.freelance.item4") }</li>
+				</ul>
+			</div>
+			<!-- Freiheit.software -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.freiheit.title") }</h3>
+					<p class="company">{ pCtx.T("experience.freiheit.company") }</p>
+					<p class="meta">{ pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }</p>
+				</div>
 				<ul>
 					<li>{ pCtx.T("experience.freiheit.item1") }</li>
 					<li>{ pCtx.T("experience.freiheit.item2") }</li>
 					<li>{ pCtx.T("experience.freiheit.item3") }</li>
 					<li>{ pCtx.T("experience.freiheit.item4") }</li>
 				</ul>
-				<dl class="service-details">
-					<dt>Tech Stack:</dt>
-					<dd>
-						<p class="tech-label">{ pCtx.T("experience.freiheit.tech") }</p>
-					</dd>
-				</dl>
-			</section>
-			<section class="service-card">
-				<h2>{ pCtx.T("experience.data4life.title") }</h2>
-				<p class="service-sub-description">
-					<strong>{ pCtx.T("experience.data4life.company") }</strong>
-					{ " | " }
-					{ pCtx.T("experience.data4life.period") }
-				</p>
-				<p class="text-muted">{ pCtx.T("experience.data4life.location") }</p>
+			</div>
+			<!-- Data4Life -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.data4life.title") }</h3>
+					<p class="company">{ pCtx.T("experience.data4life.company") }</p>
+					<p class="meta">{ pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }</p>
+				</div>
 				<ul>
 					<li>{ pCtx.T("experience.data4life.item1") }</li>
 					<li>{ pCtx.T("experience.data4life.item2") }</li>
 					<li>{ pCtx.T("experience.data4life.item3") }</li>
+					<li>{ pCtx.T("experience.data4life.item4") }</li>
 				</ul>
-				<dl class="service-details">
-					<dt>Focus:</dt>
-					<dd>
-						<p class="tech-label">{ pCtx.T("experience.data4life.tech") }</p>
-					</dd>
-				</dl>
-			</section>
-			<section class="service-card">
-				<h2>{ pCtx.T("experience.yptokey.title") }</h2>
-				<p class="service-sub-description">
-					<strong>{ pCtx.T("experience.yptokey.company") }</strong>
-					{ " | " }
-					{ pCtx.T("experience.yptokey.period") }
-				</p>
-				<p class="text-muted">{ pCtx.T("experience.yptokey.location") }</p>
+			</div>
+			<!-- Yptokey -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.yptokey.title") }</h3>
+					<p class="company">{ pCtx.T("experience.yptokey.company") }</p>
+					<p class="meta">{ pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }</p>
+				</div>
 				<ul>
 					<li>{ pCtx.T("experience.yptokey.item1") }</li>
 					<li>{ pCtx.T("experience.yptokey.item2") }</li>
 					<li>{ pCtx.T("experience.yptokey.item3") }</li>
+					<li>{ pCtx.T("experience.yptokey.item4") }</li>
 				</ul>
-				<dl class="service-details">
-					<dt>Tech Stack:</dt>
-					<dd>
-						<p class="tech-label">{ pCtx.T("experience.yptokey.tech") }</p>
-					</dd>
-				</dl>
-			</section>
-		</div>
+			</div>
+			<!-- Refund.me -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.refund.title") }</h3>
+					<p class="company">{ pCtx.T("experience.refund.company") }</p>
+					<p class="meta">{ pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }</p>
+				</div>
+				<ul>
+					<li>{ pCtx.T("experience.refund.item1") }</li>
+					<li>{ pCtx.T("experience.refund.item2") }</li>
+					<li>{ pCtx.T("experience.refund.item3") }</li>
+					<li>{ pCtx.T("experience.refund.item4") }</li>
+				</ul>
+			</div>
+			<!-- U/skillity -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.uskillity.title") }</h3>
+					<p class="company">{ pCtx.T("experience.uskillity.company") }</p>
+					<p class="meta">{ pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
+				</div>
+				<ul>
+					<li>{ pCtx.T("experience.uskillity.item1") }</li>
+					<li>{ pCtx.T("experience.uskillity.item2") }</li>
+					<li>{ pCtx.T("experience.uskillity.item3") }</li>
+					<li>{ pCtx.T("experience.uskillity.item4") }</li>
+				</ul>
+			</div>
+			<!-- Kultstätte Keller -->
+			<div class="experience-entry">
+				<div class="experience-header">
+					<h3>{ pCtx.T("experience.kultstaette.title") }</h3>
+					<p class="company">{ pCtx.T("experience.kultstaette.company") }</p>
+					<p class="meta">{ pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
+				</div>
+				<ul>
+					<li>{ pCtx.T("experience.kultstaette.item1") }</li>
+					<li>{ pCtx.T("experience.kultstaette.item2") }</li>
+					<li>{ pCtx.T("experience.kultstaette.item3") }</li>
+					<li>{ pCtx.T("experience.kultstaette.item4") }</li>
+				</ul>
+			</div>
+			</div>
+		</section>
 		@layouts.SectionDivider()
+		<!-- Education & Continuous Learning - Where I Learned It -->
 		<section>
-			<h2>{ pCtx.T("experience.skills.title") }</h2>
-			<h3>{ pCtx.T("experience.skills.frontend") }</h3>
-			<div class="skill-list">
-				<span class="tech-label">React</span>
-				<span class="tech-label">TypeScript</span>
-				<span class="tech-label">JavaScript</span>
-				<span class="tech-label">HTML5</span>
-				<span class="tech-label">CSS3</span>
+			<h2>{ pCtx.T("experience.education.title") }</h2>
+			<div class="badges-container">
+				<!-- Neue Fische - Current -->
+				<div class="badge current-education">
+					<div class="badge-icon">
+						@components.Icon("book-open", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.education.neueFische.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.neueFische.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.neueFische.period") }</p>
+						<p>{ pCtx.T("experience.education.neueFische.description") }</p>
+					</div>
+				</div>
+				<!-- CODE University -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("users", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.education.code.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.code.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.code.period") }</p>
+						<p>{ pCtx.T("experience.education.code.description") }</p>
+					</div>
+				</div>
+				<!-- MCI -->
+				<div class="badge">
+					<div class="badge-icon">
+						@components.Icon("sparkles", "48", "")
+					</div>
+					<div class="badge-content">
+						<h3>{ pCtx.T("experience.education.mci.title") }</h3>
+						<p class="institution">{ pCtx.T("experience.education.mci.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.mci.period") }</p>
+						<p>{ pCtx.T("experience.education.mci.description") }</p>
+					</div>
+				</div>
 			</div>
-			<h3>{ pCtx.T("experience.skills.backend") }</h3>
-			<div class="skill-list">
-				<span class="tech-label">Node.js</span>
-				<span class="tech-label">Go</span>
-				<span class="tech-label">Python</span>
-				<span class="tech-label">PostgreSQL</span>
-				<span class="tech-label">MongoDB</span>
-			</div>
-			<h3>{ pCtx.T("experience.skills.tools") }</h3>
-			<div class="skill-list">
-				<span class="tech-label">Git</span>
-				<span class="tech-label">Docker</span>
-				<span class="tech-label">AWS</span>
-				<span class="tech-label">Figma</span>
-				<span class="tech-label">Agile/Scrum</span>
-			</div>
+		</section>
+		@layouts.SectionDivider()
+		<!-- Call to Action -->
+		<section>
+			<h2>Ready to Collaborate?</h2>
+			<p>Download my complete CV or explore my project portfolio to see my work in action.</p>
 			<p>
-				<a href="/static/ShawnBeckerResume.pdf" class="cta-link" target="_blank" rel="noopener noreferrer">
+				<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
+					@components.Icon("download", "24", "")
 					{ pCtx.T("experience.cta.downloadCV") }
 				</a>
-				<a href={ pCtx.CurrentLangLink("/projects") } class="cta-link">{ pCtx.T("experience.cta.viewProjects") }</a>
+			</p>
+			<p>
+				<a href={ pCtx.CurrentLangLink("/projects") } class="cta-link">
+					{ pCtx.T("experience.cta.viewProjects") }
+				</a>
 			</p>
 		</section>
 	}

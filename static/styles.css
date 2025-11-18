@@ -1,9 +1,12 @@
 @import "./css/base.css";
 @import "./css/nav.css";
+@import "./css/side-nav.css";
 @import "./css/footer.css";
+@import "./css/icons.css";
 @import "./css/arts.css";
 @import "./css/services.css";
 @import "./css/projects.css";
 @import "./css/home.css";
 @import "./css/about.css";
 @import "./css/contact.css";
+@import "./css/experience.css";
