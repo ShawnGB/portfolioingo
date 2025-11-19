@@ -42,8 +42,8 @@
   opacity: 0;
   pointer-events: none;
   transform: scale(0.85) translateX(0);
-  background: linear-gradient(135deg, var(--bg-surface) 0%, hsla(18, 89%, 71%, 0.03) 100%);
-  box-shadow: var(--shadow-polished);
+  background: linear-gradient(135deg, var(--bg-surface) 0%, hsla(18, 89%, 71%, 0.03) 100%) !important;
+  box-shadow: var(--shadow-polished) !important;
 }
 
 /* Center card - fully visible and in focus */
@@ -54,19 +54,19 @@
   z-index: 3;
 }
 
-/* Left card - visible but smaller, overlapped */
+/* Left card - visible but smaller, overlapped more */
 .carousel-item.left {
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: auto;
-  transform: scale(0.85) translateX(-80%);
+  transform: scale(0.85) translateX(-65%);
   z-index: 1;
 }
 
-/* Right card - visible but smaller, overlapped */
+/* Right card - visible but smaller, overlapped more */
 .carousel-item.right {
-  opacity: 0.6;
+  opacity: 0.5;
   pointer-events: auto;
-  transform: scale(0.85) translateX(80%);
+  transform: scale(0.85) translateX(65%);
   z-index: 1;
 }
 
@@ -113,13 +113,13 @@
   }
 
   .carousel-item.left {
-    transform: scale(0.75) translateX(-60%);
-    opacity: 0.4;
+    transform: scale(0.75) translateX(-50%);
+    opacity: 0.3;
   }
 
   .carousel-item.right {
-    transform: scale(0.75) translateX(60%);
-    opacity: 0.4;
+    transform: scale(0.75) translateX(50%);
+    opacity: 0.3;
   }
 
   .carousel-track {
