@@ -195,6 +195,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Keyboard navigation for experience timeline (Up/Down arrows)
+  document.addEventListener('keydown', (e) => {
+    // Only handle arrow keys when timeline section is in view or focused
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      // Check if we're in the experience section
+      const experienceSection = document.querySelector('.experience-timeline-interactive');
+      if (!experienceSection) return;
+
+      // Check if section is visible in viewport
+      const rect = experienceSection.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+      if (isVisible) {
+        e.preventDefault(); // Prevent page scroll
+
+        if (e.key === 'ArrowUp') {
+          // Navigate to previous card
+          const newIndex = Math.max(0, currentIndex - 1);
+          if (newIndex !== currentIndex) {
+            const percent = (newIndex / (markers.length - 1)) * 100;
+            updateKnobPosition(percent);
+            setActiveExperience(newIndex);
+          }
+        } else if (e.key === 'ArrowDown') {
+          // Navigate to next card
+          const newIndex = Math.min(markers.length - 1, currentIndex + 1);
+          if (newIndex !== currentIndex) {
+            const percent = (newIndex / (markers.length - 1)) * 100;
+            updateKnobPosition(percent);
+            setActiveExperience(newIndex);
+          }
+        }
+      }
+    }
+  });
+
   // Update track rect on resize
   window.addEventListener('resize', () => {
     if (trackContainer) {
