@@ -358,7 +358,8 @@
   grid-template-columns: 120px 1fr;
   gap: var(--space-4xl);
   margin-top: var(--space-2xl);
-  min-height: 600px;
+  margin-bottom: var(--space-4xl);
+  min-height: 900px;
   position: relative;
 }
 
@@ -492,36 +493,68 @@
 /* === Experience Cards Container (Right Side) === */
 .experience-cards-container {
   position: relative;
-  min-height: 500px;
+  min-height: 900px; /* Increased to accommodate vertically distributed cards */
+  perspective: 1200px; /* Enable 3D perspective */
+  transform-style: preserve-3d; /* Preserve 3D transforms for children */
 }
 
-/* Experience Card - Only one visible at a time */
+/* Experience Card - Rolodex style with all background cards at same depth */
 .experience-card {
   position: absolute;
-  top: 0;
   left: 0;
   width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateX(30px);
+  opacity: 1;
+  transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
   transition:
-    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 0.4s;
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
 
   /* Card styling */
   background: var(--bg-surface);
   padding: var(--space-3xl);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: var(--shadow-polished);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* Stack positioning */
+  z-index: 1;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
+/* Active card - flips to the front */
 .experience-card.active {
   opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-  position: relative;
+  transform: scale(1) translateZ(0) rotateX(0deg);
+  z-index: 10;
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.12),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Individual card positioning - aligned with timeline markers */
+.experience-card[data-index="0"] { top: 0%; }
+.experience-card[data-index="1"] { top: 16.67%; }
+.experience-card[data-index="2"] { top: 33.33%; }
+.experience-card[data-index="3"] { top: 50%; }
+.experience-card[data-index="4"] { top: 66.67%; }
+.experience-card[data-index="5"] { top: 83.33%; }
+.experience-card[data-index="6"] { top: 100%; }
+
+/* All non-active cards at same depth (rolodex effect) */
+.experience-card:not(.active) {
+  transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
+  z-index: 1;
+  pointer-events: auto; /* Allow clicking to activate */
+}
+
+/* Hover effect for non-active cards - slight forward movement */
+.experience-card:not(.active):hover {
+  opacity: 1;
+  transform: scale(0.88) translateZ(-180px) translateY(-55px) rotateX(-25deg);
+  z-index: 2;
 }
 
 /* Card Header */
@@ -600,22 +633,15 @@
   }
 
   .experience-cards-container {
-    min-height: auto;
+    min-height: 900px; /* Maintain space for vertically distributed cards */
   }
 
-  .experience-card {
-    position: static;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    margin-bottom: var(--space-xl);
-  }
-
-  .experience-card.active {
-    display: block;
-  }
-
+  /* Rolodex effect on mobile - all background cards at same depth */
   .experience-card:not(.active) {
-    display: none;
+    transform: scale(0.85) translateZ(-180px) translateY(-60px) rotateX(-35deg);
+  }
+
+  .experience-card:not(.active):hover {
+    transform: scale(0.87) translateZ(-160px) translateY(-55px) rotateX(-25deg);
   }
 }

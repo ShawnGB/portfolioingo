@@ -186,6 +186,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Click on cards to activate them
+  cards.forEach((card, index) => {
+    card.addEventListener('click', () => {
+      const percent = (index / (markers.length - 1)) * 100;
+      updateKnobPosition(percent);
+      setActiveExperience(index);
+    });
+  });
+
   // Update track rect on resize
   window.addEventListener('resize', () => {
     if (trackContainer) {
