@@ -577,6 +577,22 @@ hr {
   margin: 0;
 }
 
+/* Header CTA Section */
+.header-cta {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  margin-bottom: var(--space-lg);
+}
+
+.header-cta .cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 /* =================================
    6. Responsive Design
    ================================= */

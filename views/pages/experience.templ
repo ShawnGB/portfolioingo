@@ -77,7 +77,60 @@ templ Experience(pCtx i18n.PageContext) {
 		<section>
 			<h2>{ pCtx.T("experience.timeline.title") }</h2>
 			<div class="experience-timeline-interactive">
-				<!-- Timeline Track (Left Side) -->
+				<!-- Education Cards (Left Side) -->
+				<div class="education-cards-container">
+					<!-- Neue Fische - Current (2025) -->
+					<div class="education-card" data-index="0">
+						<a href="https://www.neuefische.de" target="_blank" rel="noopener noreferrer" class="card-icon-link">
+							@components.Icon("graduation", "32", "")
+						</a>
+						<h4>{ pCtx.T("experience.education.neueFische.title") }</h4>
+						<p class="institution">{ pCtx.T("experience.education.neueFische.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.neueFische.period") }</p>
+						<p class="description">{ pCtx.T("experience.education.neueFische.description") }</p>
+					</div>
+					<!-- CODE University (2018-2023) -->
+					<div class="education-card" data-index="3">
+						<a href="https://code.berlin" target="_blank" rel="noopener noreferrer" class="card-icon-link">
+							@components.Icon("code-university", "32", "")
+						</a>
+						<h4>{ pCtx.T("experience.education.code.title") }</h4>
+						<p class="institution">{ pCtx.T("experience.education.code.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.code.period") }</p>
+						<p class="description">{ pCtx.T("experience.education.code.description") }</p>
+					</div>
+					<!-- Ireland (2017-2018) -->
+					<div class="education-card" data-index="4">
+						<a href="https://www.maynoothuniversity.ie" target="_blank" rel="noopener noreferrer" class="card-icon-link">
+							@components.Icon("maynooth", "32", "")
+						</a>
+						<h4>{ pCtx.T("experience.education.ireland.title") }</h4>
+						<p class="institution">{ pCtx.T("experience.education.ireland.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.ireland.period") }</p>
+						<p class="description">{ pCtx.T("experience.education.ireland.description") }</p>
+					</div>
+					<!-- IHK (2016) -->
+					<div class="education-card" data-index="5">
+						<a href="https://www.ihk.de" target="_blank" rel="noopener noreferrer" class="card-icon-link">
+							@components.Icon("ihk", "32", "")
+						</a>
+						<h4>{ pCtx.T("experience.education.ihk.title") }</h4>
+						<p class="institution">{ pCtx.T("experience.education.ihk.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.ihk.period") }</p>
+						<p class="description">{ pCtx.T("experience.education.ihk.description") }</p>
+					</div>
+					<!-- SAE Institute (2006) -->
+					<div class="education-card" data-index="6">
+						<a href="https://www.sae.edu/deu/de" target="_blank" rel="noopener noreferrer" class="card-icon-link">
+							@components.Icon("sae", "32", "")
+						</a>
+						<h4>{ pCtx.T("experience.education.sae.title") }</h4>
+						<p class="institution">{ pCtx.T("experience.education.sae.institution") }</p>
+						<p class="period">{ pCtx.T("experience.education.sae.period") }</p>
+						<p class="description">{ pCtx.T("experience.education.sae.description") }</p>
+					</div>
+				</div>
+				<!-- Timeline Track (Center) -->
 				<div class="timeline-track-container">
 					<div class="timeline-track"></div>
 
@@ -210,99 +263,15 @@ templ Experience(pCtx i18n.PageContext) {
 				</div>
 			</div>
 		</section>
-		@layouts.SectionDivider()
-		<!-- Education & Continuous Learning - Where I Learned It -->
-		<section>
-			<h2>{ pCtx.T("experience.education.title") }</h2>
-			<div class="badges-container">
-				<!-- Neue Fische - Current -->
-				<div class="badge current-education">
-					<a href="https://www.neuefische.de" target="_blank" rel="noopener noreferrer" class="badge-icon-link">
-						<div class="badge-icon">
-							@components.Icon("graduation", "48", "")
-						</div>
-					</a>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.neueFische.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.neueFische.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.neueFische.period") }</p>
-						<p>{ pCtx.T("experience.education.neueFische.description") }</p>
-					</div>
-				</div>
-				<!-- CODE University -->
-				<div class="badge">
-					<a href="https://code.berlin" target="_blank" rel="noopener noreferrer" class="badge-icon-link">
-						<div class="badge-icon">
-							@components.Icon("code-university", "48", "")
-						</div>
-					</a>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.code.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.code.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.code.period") }</p>
-						<p>{ pCtx.T("experience.education.code.description") }</p>
-					</div>
-				</div>
-				<!-- Ireland -->
-				<div class="badge">
-					<a href="https://www.maynoothuniversity.ie" target="_blank" rel="noopener noreferrer" class="badge-icon-link">
-						<div class="badge-icon">
-							@components.Icon("maynooth", "48", "")
-						</div>
-					</a>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.ireland.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.ireland.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.ireland.period") }</p>
-						<p>{ pCtx.T("experience.education.ireland.description") }</p>
-					</div>
-				</div>
-				<!-- IHK -->
-				<div class="badge">
-					<a href="https://www.ihk.de" target="_blank" rel="noopener noreferrer" class="badge-icon-link">
-						<div class="badge-icon">
-							@components.Icon("ihk", "48", "")
-						</div>
-					</a>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.ihk.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.ihk.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.ihk.period") }</p>
-						<p>{ pCtx.T("experience.education.ihk.description") }</p>
-					</div>
-				</div>
-				<!-- SAE Institute -->
-				<div class="badge">
-					<a href="https://www.sae.edu/deu/de" target="_blank" rel="noopener noreferrer" class="badge-icon-link">
-						<div class="badge-icon">
-							@components.Icon("sae", "48", "")
-						</div>
-					</a>
-					<div class="badge-content">
-						<h3>{ pCtx.T("experience.education.sae.title") }</h3>
-						<p class="institution">{ pCtx.T("experience.education.sae.institution") }</p>
-						<p class="period">{ pCtx.T("experience.education.sae.period") }</p>
-						<p>{ pCtx.T("experience.education.sae.description") }</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		@layouts.SectionDivider()
 		<!-- Call to Action -->
-		<section>
-			<h2>Ready to Collaborate?</h2>
-			<p>Download my complete CV or explore my project portfolio to see my work in action.</p>
-			<p>
-				<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
-					@components.Icon("download", "24", "")
-					{ pCtx.T("experience.cta.downloadCV") }
-				</a>
-			</p>
-			<p>
-				<a href={ pCtx.CurrentLangLink("/projects") } class="cta-link">
-					{ pCtx.T("experience.cta.viewProjects") }
-				</a>
-			</p>
+		<section class="cta-section">
+			<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
+				@components.Icon("download", "24", "")
+				{ pCtx.T("experience.cta.downloadCV") }
+			</a>
+			<a href={ pCtx.CurrentLangLink("/projects") } class="cta-link">
+				{ pCtx.T("experience.cta.viewProjects") }
+			</a>
 		</section>
 	}
 }

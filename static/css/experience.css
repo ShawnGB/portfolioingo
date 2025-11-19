@@ -355,18 +355,19 @@
 
 .experience-timeline-interactive {
   display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: var(--space-4xl);
+  grid-template-columns: 1fr 120px 1fr;
+  gap: var(--space-3xl);
   margin-top: var(--space-2xl);
   margin-bottom: var(--space-4xl);
   min-height: 900px;
   position: relative;
 }
 
-/* === Timeline Track Container (Left Side) === */
+/* === Timeline Track Container (Center) === */
 .timeline-track-container {
   position: relative;
   height: 100%;
+  grid-column: 2;
 }
 
 /* Timeline Track - Vertical line with cylindrical effect */
@@ -490,19 +491,30 @@
     0 0 0 8px hsla(18, 89%, 71%, 0.4);
 }
 
+/* === Education Cards Container (Left Side) === */
+.education-cards-container {
+  position: relative;
+  min-height: 900px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  grid-column: 1;
+}
+
 /* === Experience Cards Container (Right Side) === */
 .experience-cards-container {
   position: relative;
-  min-height: 900px; /* Increased to accommodate vertically distributed cards */
-  perspective: 1200px; /* Enable 3D perspective */
-  transform-style: preserve-3d; /* Preserve 3D transforms for children */
+  min-height: 900px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  grid-column: 3;
 }
 
-/* Experience Card - Rolodex style with all background cards at same depth */
+/* Shared Card Styles - Rolodex effect for both education and experience */
+.education-card,
 .experience-card {
   position: absolute;
-  left: 0;
   width: 100%;
+  max-width: 420px;
   opacity: 1;
   transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
   transition:
@@ -513,7 +525,7 @@
 
   /* Card styling */
   background: var(--bg-surface);
-  padding: var(--space-3xl);
+  padding: var(--space-2xl);
   border-radius: var(--radius-lg);
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -524,7 +536,20 @@
   cursor: pointer;
 }
 
-/* Active card - flips to the front */
+/* Education cards positioned on left */
+.education-card {
+  left: auto;
+  right: 0;
+}
+
+/* Experience cards positioned on right */
+.experience-card {
+  left: 0;
+  right: auto;
+}
+
+/* Active card - flips to the front (works for both types) */
+.education-card.active,
 .experience-card.active {
   opacity: 1;
   transform: scale(1) translateZ(0) rotateX(0deg);
@@ -535,15 +560,23 @@
 }
 
 /* Individual card positioning - aligned with timeline markers */
+.education-card[data-index="0"],
 .experience-card[data-index="0"] { top: 0%; }
+.education-card[data-index="1"],
 .experience-card[data-index="1"] { top: 16.67%; }
+.education-card[data-index="2"],
 .experience-card[data-index="2"] { top: 33.33%; }
+.education-card[data-index="3"],
 .experience-card[data-index="3"] { top: 50%; }
+.education-card[data-index="4"],
 .experience-card[data-index="4"] { top: 66.67%; }
+.education-card[data-index="5"],
 .experience-card[data-index="5"] { top: 83.33%; }
+.education-card[data-index="6"],
 .experience-card[data-index="6"] { top: 100%; }
 
 /* All non-active cards at same depth (rolodex effect) */
+.education-card:not(.active),
 .experience-card:not(.active) {
   transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
   z-index: 1;
@@ -551,61 +584,90 @@
 }
 
 /* Hover effect for non-active cards - slight forward movement */
+.education-card:not(.active):hover,
 .experience-card:not(.active):hover {
   opacity: 1;
   transform: scale(0.88) translateZ(-180px) translateY(-55px) rotateX(-25deg);
   z-index: 2;
 }
 
-/* Card Header */
+/* Card Header - works for both education and experience */
+.education-card .card-header,
 .experience-card .experience-header {
   margin-bottom: var(--space-lg);
 }
 
+.education-card h3,
+.education-card h4,
 .experience-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
+  margin: 0 0 var(--space-sm) 0;
   line-height: 1.2;
 }
 
+.education-card .institution,
 .experience-card .company {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--primary);
   margin: 0 0 var(--space-xs) 0;
 }
 
+.education-card .period,
 .experience-card .meta {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-tertiary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.education-card .description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
   margin: 0;
 }
 
 /* Card List */
+.education-card ul,
 .experience-card ul {
   list-style: none;
   padding: 0;
-  margin: var(--space-lg) 0 0 0;
+  margin: var(--space-md) 0 0 0;
 }
 
+.education-card ul li,
 .experience-card ul li {
   position: relative;
-  padding-left: 1.75rem;
-  margin-bottom: var(--space-md);
-  line-height: 1.7;
+  padding-left: 1.5rem;
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
   color: var(--text-secondary);
+  font-size: 0.9rem;
 }
 
+.education-card ul li::before,
 .experience-card ul li::before {
   content: '▸';
   position: absolute;
   left: 0;
   color: var(--primary);
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 1.1em;
+}
+
+/* Icon link for education cards */
+.education-card .card-icon-link {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  color: var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.education-card .card-icon-link:hover {
+  transform: scale(1.1);
 }
 
 /* === Responsive === */
@@ -643,5 +705,25 @@
 
   .experience-card:not(.active):hover {
     transform: scale(0.87) translateZ(-160px) translateY(-55px) rotateX(-25deg);
+  }
+}
+
+/* ==========================================
+   CTA SECTION (STANDALONE)
+   ========================================== */
+
+.cta-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-4xl) 0;
+  margin-top: var(--space-4xl);
+}
+
+@media (max-width: 767px) {
+  .cta-section {
+    flex-direction: column;
+    gap: var(--space-md);
   }
 }

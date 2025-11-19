@@ -65,6 +65,7 @@ nav {
     transform: translateY(-2px);
   }
 }
+
 /* Versteckte Checkbox */
 .burger-toggle-checkbox {
   display: none;

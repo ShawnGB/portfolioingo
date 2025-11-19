@@ -51,9 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const knob = document.getElementById('timeline-knob');
   const trackContainer = document.querySelector('.timeline-track-container');
   const markers = document.querySelectorAll('.timeline-marker');
-  const cards = document.querySelectorAll('.experience-card');
+  const educationCards = document.querySelectorAll('.education-card');
+  const experienceCards = document.querySelectorAll('.experience-card');
 
-  if (!knob || !trackContainer || markers.length === 0 || cards.length === 0) {
+  if (!knob || !trackContainer || markers.length === 0) {
     return; // Exit if interactive timeline doesn't exist
   }
 
@@ -86,13 +87,20 @@ document.addEventListener('DOMContentLoaded', function() {
     knob.style.top = percent + '%';
   }
 
-  // Set active experience card and marker
+  // Set active card and marker (works for both education and experience)
   function setActiveExperience(index) {
     currentIndex = index;
 
-    // Update cards
-    cards.forEach((card, i) => {
-      card.classList.toggle('active', i === index);
+    // Update education cards - activate only the card with matching data-index
+    educationCards.forEach((card) => {
+      const cardIndex = parseInt(card.dataset.index);
+      card.classList.toggle('active', cardIndex === index);
+    });
+
+    // Update experience cards - activate only the card with matching data-index
+    experienceCards.forEach((card) => {
+      const cardIndex = parseInt(card.dataset.index);
+      card.classList.toggle('active', cardIndex === index);
     });
 
     // Update markers
@@ -186,12 +194,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Click on cards to activate them
-  cards.forEach((card, index) => {
+  // Click on education cards to activate them
+  educationCards.forEach((card) => {
     card.addEventListener('click', () => {
-      const percent = (index / (markers.length - 1)) * 100;
+      const cardIndex = parseInt(card.dataset.index);
+      const percent = (cardIndex / (markers.length - 1)) * 100;
       updateKnobPosition(percent);
-      setActiveExperience(index);
+      setActiveExperience(cardIndex);
+    });
+  });
+
+  // Click on experience cards to activate them
+  experienceCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const cardIndex = parseInt(card.dataset.index);
+      const percent = (cardIndex / (markers.length - 1)) * 100;
+      updateKnobPosition(percent);
+      setActiveExperience(cardIndex);
     });
   });
 
