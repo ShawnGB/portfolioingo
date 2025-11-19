@@ -58,6 +58,18 @@ document.addEventListener('DOMContentLoaded', function() {
     return; // Exit if interactive timeline doesn't exist
   }
 
+  // Check if mobile screen
+  function isMobile() {
+    return window.innerWidth <= 767;
+  }
+
+  // On mobile, show all cards and disable interactions
+  if (isMobile()) {
+    educationCards.forEach(card => card.classList.add('active'));
+    experienceCards.forEach(card => card.classList.add('active'));
+    return; // Exit - no interactive timeline on mobile
+  }
+
   // Configuration
   const SNAP_ENABLED = true; // Change to false for smooth dragging
   const SNAP_THRESHOLD = 30; // pixels
@@ -218,6 +230,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('keydown', (e) => {
     // Only handle arrow keys when timeline section is in view or focused
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+      // Disable on mobile
+      if (isMobile()) return;
+
       // Check if we're in the experience section
       const experienceSection = document.querySelector('.experience-timeline-interactive');
       if (!experienceSection) return;

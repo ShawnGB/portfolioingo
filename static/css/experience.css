@@ -88,22 +88,77 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .carousel-item {
-    max-width: 90%;
-  }
-
-  .carousel-item.left {
-    transform: scale(0.75) translateX(-50%);
-    opacity: 0.3;
-  }
-
-  .carousel-item.right {
-    transform: scale(0.75) translateX(50%);
-    opacity: 0.3;
+  .skills-carousel {
+    padding: var(--space-2xl) 0;
+    overflow: hidden; /* Prevent horizontal scroll */
   }
 
   .carousel-track {
-    padding: 0 var(--space-sm);
+    min-height: 450px; /* Maintain height for absolutely positioned items */
+    padding: 0 var(--space-md);
+  }
+
+  /* Mobile: Only show center card, hide left/right for cleaner view */
+  .badge.carousel-item {
+    max-width: calc(100% - 2rem);
+    min-height: 400px;
+    padding: var(--space-xl);
+  }
+
+  .badge.carousel-item.center {
+    opacity: 1 !important;
+    transform: scale(1) translateX(0) !important;
+    z-index: 3;
+  }
+
+  /* Hide left and right cards completely on mobile */
+  .badge.carousel-item.left,
+  .badge.carousel-item.right,
+  .badge.carousel-item.hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.85) translateX(0) !important;
+    z-index: 0;
+  }
+
+  /* Show carousel dots on mobile for navigation */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--border-subtle);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background-color: var(--primary);
+    transform: scale(1.2);
+  }
+
+  .carousel-dot:hover {
+    background-color: var(--primary-light);
+  }
+}
+
+/* Mobile landscape adjustments */
+@media (max-width: 768px) and (orientation: landscape) {
+  .carousel-track {
+    min-height: 350px;
+  }
+
+  .badge.carousel-item {
+    min-height: 300px;
   }
 }
 
@@ -684,27 +739,127 @@
 }
 
 @media (max-width: 767px) {
-  /* Stack vertically on mobile */
+  /* Mobile: Simple vertical chronological stack */
   .experience-timeline-interactive {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-height: auto;
+    margin-bottom: var(--space-2xl);
   }
 
   .timeline-track-container {
     display: none; /* Hide timeline on mobile */
   }
 
+  /* Both containers use flexbox for ordering */
+  .education-cards-container,
   .experience-cards-container {
-    min-height: 900px; /* Maintain space for vertically distributed cards */
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    min-height: auto;
+    perspective: none;
+    position: static;
+    width: 100%;
   }
 
-  /* Rolodex effect on mobile - all background cards at same depth */
-  .experience-card:not(.active) {
-    transform: scale(0.85) translateZ(-180px) translateY(-60px) rotateX(-35deg);
+  /* All cards: remove 3D effects and absolute positioning */
+  .education-card,
+  .experience-card {
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    width: 100%;
+    max-width: 100%;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    z-index: 1 !important;
+    pointer-events: auto !important;
+    cursor: default !important;
+    margin-bottom: 0;
   }
 
-  .experience-card:not(.active):hover {
-    transform: scale(0.87) translateZ(-160px) translateY(-55px) rotateX(-25deg);
+  /* Remove active state styling on mobile - all cards visible */
+  .education-card.active,
+  .experience-card.active {
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .education-card:hover,
+  .experience-card:hover {
+    transform: none !important;
+  }
+
+  /* Add visual separator between cards */
+  .education-card,
+  .experience-card {
+    border-left: 3px solid var(--primary-light);
+    padding-left: var(--space-xl);
+  }
+
+  /* Add section headers on mobile */
+  .education-cards-container::before {
+    content: 'Education';
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--primary);
+  }
+
+  .experience-cards-container::before {
+    content: 'Experience';
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--primary);
+  }
+
+  /* Chronological order within each section (newest first) */
+  .education-card[data-index="0"] { order: 1; } /* 2025 */
+  .education-card[data-index="3"] { order: 2; } /* 2018 */
+  .education-card[data-index="4"] { order: 3; } /* 2017 */
+  .education-card[data-index="5"] { order: 4; } /* 2016 */
+  .education-card[data-index="6"] { order: 5; } /* 2006 */
+
+  .experience-card[data-index="0"] { order: 1; } /* 2023 */
+  .experience-card[data-index="1"] { order: 2; } /* 2021 */
+  .experience-card[data-index="2"] { order: 3; } /* 2021 */
+  .experience-card[data-index="3"] { order: 4; } /* 2018 */
+  .experience-card[data-index="4"] { order: 5; } /* 2017 */
+  .experience-card[data-index="5"] { order: 6; } /* 2016 */
+  .experience-card[data-index="6"] { order: 7; } /* 2011 */
+}
+
+/* Mobile landscape adjustments for timeline */
+@media (max-width: 767px) and (orientation: landscape) {
+  /* Reduce padding in landscape to maximize content space */
+  .education-card,
+  .experience-card {
+    padding: var(--space-lg) !important;
+  }
+
+  /* Smaller section headers in landscape */
+  .education-cards-container::before,
+  .experience-cards-container::before {
+    font-size: 1.25rem;
+    padding-bottom: var(--space-sm);
+  }
+
+  /* Reduce gap between cards */
+  .education-cards-container,
+  .experience-cards-container {
+    gap: var(--space-md);
+  }
+
+  .experience-timeline-interactive {
+    gap: var(--space-md);
   }
 }
 
