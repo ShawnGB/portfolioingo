@@ -43,8 +43,8 @@
   opacity: 0;
   pointer-events: none;
   transform: scale(0.85) translateX(0);
-  /* Force opaque background */
-  background: linear-gradient(135deg, var(--bg-surface) 0%, hsla(18, 89%, 71%, 0.05) 100%) !important;
+  /* Force fully opaque solid background */
+  background: hsl(30, 8%, 20%) !important;
   box-shadow: var(--shadow-polished) !important;
   border-radius: var(--radius-lg) !important;
 }
