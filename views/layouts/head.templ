@@ -1,11 +1,40 @@
 package layouts
 
-templ Head(pagetitle string, pagedescription string) {
+import "mymodules/gofolio/i18n"
+
+templ Head(pCtx i18n.PageContext, pagetitle string, pagedescription string) {
 	<head>
-		<title>{ pagetitle }</title>
+		<!-- Basic Meta Tags -->
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>{ pagetitle }</title>
 		<meta name="description" content={ pagedescription }/>
+		<meta name="author" content="Shawn Becker"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="theme-color" content="#1a1a1a"/>
+		<!-- Canonical URL -->
+		<link rel="canonical" href={ string("https://shawnbecker.de" + string(pCtx.CurrentLangLink(pCtx.BasePath))) }/>
+		<!-- Hreflang for Language Alternates -->
+		<link rel="alternate" hreflang="en" href={ string("https://shawnbecker.de/en" + pCtx.BasePath) }/>
+		<link rel="alternate" hreflang="de" href={ string("https://shawnbecker.de/de" + pCtx.BasePath) }/>
+		<link rel="alternate" hreflang="x-default" href={ string("https://shawnbecker.de/en" + pCtx.BasePath) }/>
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content={ string("https://shawnbecker.de" + string(pCtx.CurrentLangLink(pCtx.BasePath))) }/>
+		<meta property="og:title" content={ pagetitle }/>
+		<meta property="og:description" content={ pagedescription }/>
+		<meta property="og:image" content="https://shawnbecker.de/static/images/DSC01149.jpeg"/>
+		<meta property="og:locale" content={ pCtx.ActiveLang == "en" ? "en_US" : "de_DE" }/>
+		<meta property="og:locale:alternate" content={ pCtx.ActiveLang == "en" ? "de_DE" : "en_US" }/>
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image"/>
+		<meta property="twitter:url" content={ string("https://shawnbecker.de" + string(pCtx.CurrentLangLink(pCtx.BasePath))) }/>
+		<meta property="twitter:title" content={ pagetitle }/>
+		<meta property="twitter:description" content={ pagedescription }/>
+		<meta property="twitter:image" content="https://shawnbecker.de/static/images/DSC01149.jpeg"/>
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/static/favicon.ico"/>
+		<!-- Stylesheets -->
 		<link rel="stylesheet" href="/static/styles.css"/>
 		<link rel="preconnect" href="https://fonts.googleapis.com"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -14,6 +43,7 @@ templ Head(pagetitle string, pagedescription string) {
 			rel="stylesheet"
 		/>
 		<link href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap" rel="stylesheet"/>
+		<!-- Scripts -->
 		<script src="https://unpkg.com/htmx.org@1.9.10/dist/htmx.min.js" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C24CERYFB"></script>
 		<script>
@@ -25,5 +55,20 @@ templ Head(pagetitle string, pagedescription string) {
 			gtag("config", "G-8C24CERYFB");
 		</script>
 		<script src="/static/js/experience.js" defer></script>
+		<!-- Structured Data (Schema.org JSON-LD) -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Shawn Becker",
+			"url": "https://shawnbecker.de",
+			"jobTitle": "Full-Stack Developer",
+			"description": "Full-Stack Developer specializing in TypeScript, Go, and modern web technologies",
+			"sameAs": [
+				"https://github.com/ShawnGB",
+				"https://www.linkedin.com/in/shawn-gordon-b-540076b3/"
+			]
+		}
+		</script>
 	</head>
 }

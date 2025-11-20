@@ -5,7 +5,7 @@ import "mymodules/gofolio/i18n"
 templ BaseHtml(pCtx i18n.PageContext, pagetitle string, pagedescription string) {
 	<!DOCTYPE html>
 	<html lang={ pCtx.ActiveLang }>
-		@Head(pagetitle, pagedescription)
+		@Head(pCtx, pagetitle, pagedescription)
 		@Navigation(pCtx)
 		<body>
 			<div class="page-container">
