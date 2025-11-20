@@ -44,10 +44,11 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  overflow: visible;
+  overflow: hidden;
   container-type: size;
   container-name: hero;
   contain: layout;
+  box-sizing: border-box;
 }
 
 h1.hero-main-visual-text {
@@ -107,11 +108,13 @@ h1.hero-main-visual-text {
 
   h1.hero-main-visual-text {
     font-size: 30vw;
+    max-width: 100%;
   }
 
   .hero-right-column {
     all: unset;
     margin-top: 1rem;
+    max-width: 100%;
   }
 
   .hero-right-bg-wrapper {

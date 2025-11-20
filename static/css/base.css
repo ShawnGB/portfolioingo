@@ -129,6 +129,7 @@ body {
   align-items: center;
   padding-top: var(--nav-height);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* =================================
