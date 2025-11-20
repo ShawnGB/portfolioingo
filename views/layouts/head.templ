@@ -24,8 +24,13 @@ templ Head(pCtx i18n.PageContext, pagetitle string, pagedescription string) {
 		<meta property="og:title" content={ pagetitle }/>
 		<meta property="og:description" content={ pagedescription }/>
 		<meta property="og:image" content="https://shawnbecker.de/static/images/DSC01149.jpeg"/>
-		<meta property="og:locale" content={ pCtx.ActiveLang == "en" ? "en_US" : "de_DE" }/>
-		<meta property="og:locale:alternate" content={ pCtx.ActiveLang == "en" ? "de_DE" : "en_US" }/>
+		if pCtx.ActiveLang == "en" {
+			<meta property="og:locale" content="en_US"/>
+			<meta property="og:locale:alternate" content="de_DE"/>
+		} else {
+			<meta property="og:locale" content="de_DE"/>
+			<meta property="og:locale:alternate" content="en_US"/>
+		}
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image"/>
 		<meta property="twitter:url" content={ string("https://shawnbecker.de" + string(pCtx.CurrentLangLink(pCtx.BasePath))) }/>
