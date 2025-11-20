@@ -65,14 +65,53 @@ templ Head(pCtx i18n.PageContext, pagetitle string, pagedescription string) {
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"name": "Shawn Becker",
+			"name": "Shawn Gordon Becker",
+			"alternateName": "Shawn Becker",
+			"givenName": "Shawn",
+			"additionalName": "Gordon",
+			"familyName": "Becker",
 			"url": "https://shawnbecker.de",
+			"image": "https://shawnbecker.de/static/images/DSC01149.jpeg",
 			"jobTitle": "Full-Stack Developer",
-			"description": "Full-Stack Developer specializing in TypeScript, Go, and modern web technologies",
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Freelance"
+			},
+			"description": "Full-Stack Developer specializing in TypeScript, Go, React, and modern web technologies. Product thinker with 7+ years of experience building scalable applications.",
+			"knowsAbout": [
+				"Full-Stack Development",
+				"TypeScript",
+				"Go",
+				"React",
+				"Product Management",
+				"Web Development",
+				"Node.js",
+				"Software Architecture"
+			],
 			"sameAs": [
 				"https://github.com/ShawnGB",
-				"https://www.linkedin.com/in/shawn-gordon-b-540076b3/"
-			]
+				"https://www.linkedin.com/in/shawn-gordon-b-540076b3/",
+				"https://shawnbecker.de"
+			],
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Berlin",
+				"addressCountry": "DE"
+			},
+			"alumniOf": [
+				{
+					"@type": "EducationalOrganization",
+					"name": "CODE University of Applied Sciences"
+				},
+				{
+					"@type": "EducationalOrganization",
+					"name": "National University of Ireland Maynooth"
+				}
+			],
+			"nationality": {
+				"@type": "Country",
+				"name": "Germany"
+			}
 		}
 		</script>
 	</head>

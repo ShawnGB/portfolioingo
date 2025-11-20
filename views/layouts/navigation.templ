@@ -3,13 +3,13 @@ package layouts
 import "mymodules/gofolio/i18n"
 
 templ Navigation(pCtx i18n.PageContext) {
-	<nav>
+	<nav aria-label="Main navigation">
 		<a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
 			<h3>SGB</h3>
 		</a>
 		<input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox"/>
 		@LanguageSwitcher(pCtx)
-		<label for="burger-toggle" class="burger-menu-label">
+		<label for="burger-toggle" class="burger-menu-label" aria-label="Toggle navigation menu">
 			<span class="burger-bar"></span>
 			<span class="burger-bar"></span>
 			<span class="burger-bar"></span>

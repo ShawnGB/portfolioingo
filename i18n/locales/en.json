@@ -299,21 +299,21 @@
   "contact.methodNotAllowed": "Method not allowed",
   "arts.error.loadImages": "Could not load images for the arts section.",
 
-  "home.pageTitle": "Shawn Gordon Becker - Fullstack Developer & Digital Product Thinker",
-  "home.pageMetaDescription": "Shawn Gordon Becker: Fullstack Web Developer & Digital Product Thinker. Explore meaningful digital solutions at the intersection of code, concept, and aesthetics.",
+  "home.pageTitle": "Shawn Becker – Fullstack Developer & Product Thinker",
+  "home.pageMetaDescription": "Fullstack Developer blending code, design & product thinking. TypeScript, Go, React. Building meaningful web solutions in Berlin.",
 
-  "about.pageTitle": "About Me - Shawn Gordon Becker",
-  "about.pageMetaDescription": "Meet Shawn Gordon Becker, a fullstack developer & digital product thinker. Discover his unique path, philosophy, and drive to build clear and purposeful digital solutions.",
+  "about.pageTitle": "Shawn Becker – About Me, Developer & Thinker",
+  "about.pageMetaDescription": "Fullstack developer with 7+ years experience. Bridging technical precision with product thinking. TypeScript, React, Go. Based in Berlin.",
 
-  "experience.pageTitle": "Professional Experience - Shawn Gordon Becker",
-  "experience.pageMetaDescription": "Explore Shawn Gordon Becker's professional experience: 5+ years of full-stack development for startups and enterprises, product management, and technical leadership.",
+  "experience.pageTitle": "Shawn Becker – 7+ Years Fullstack Development",
+  "experience.pageMetaDescription": "7+ years fullstack development: React, TypeScript, Go. Product management & technical leadership for startups. Based in Berlin.",
 
-  "projects.pageTitle": "Projects Showcase - Shawn Gordon Becker",
-  "projects.pageMetaDescription": "Explore selected digital and cultural projects by Shawn Gordon Becker. A showcase of fullstack web development, product thinking, and collaborative work.",
+  "projects.pageTitle": "Shawn Becker – Web Projects & Creative Work",
+  "projects.pageMetaDescription": "Portfolio of web development projects: Go SSR, React SPAs, WordPress sites. Cultural projects & collaborations in Berlin.",
 
-  "arts.pageTitle": "Creative Arts - Shawn Gordon Becker",
-  "arts.pageMetaDescription": "Delve into the creative works of Shawn Gordon Becker – explorations in photography, sound, and sketches reflecting a unique way of listening to the world.",
+  "arts.pageTitle": "Shawn Becker – Photography & Creative Arts",
+  "arts.pageMetaDescription": "Creative explorations beyond code: photography, sound design, visual experiments. A developer's artistic practice in Berlin.",
 
-  "contact.pageTitle": "Contact Shawn Gordon Becker",
-  "contact.pageMetaDescription": "Get in touch with Shawn Gordon Becker. Reach out to discuss a project, share an idea, or explore a potential collaboration in web development or digital strategy."
+  "contact.pageTitle": "Contact Shawn Becker – Developer in Berlin",
+  "contact.pageMetaDescription": "Hire a fullstack developer in Berlin. Available for permanent positions & collaborations. TypeScript, React, Go expertise."
 }
