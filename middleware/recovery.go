@@ -3,18 +3,7 @@ package middleware
 import (
 	"log"
 	"net/http"
-	"time"
 )
-
-// Logging logs each HTTP request with method, URI, and duration
-func Logging(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		start := time.Now()
-		next.ServeHTTP(w, r)
-		duration := time.Since(start)
-		log.Printf("INFO: %s %s - %v", r.Method, r.RequestURI, duration)
-	})
-}
 
 // Recovery recovers from panics and logs the error
 func Recovery(next http.Handler) http.Handler {

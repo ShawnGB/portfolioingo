@@ -41,6 +41,10 @@ func main() {
 		http.ServeFile(w, r, "./static/sitemap.xml")
 	})
 
+	mux.HandleFunc("/.well-known/security.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./static/.well-known/security.txt")
+	})
+
 	// Page routes using handler factory pattern
 	registerPageRoutes(mux)
 
@@ -51,8 +55,8 @@ func main() {
 
 	log.Printf("INFO: Starting server on :%s", port)
 
-	// Apply middleware chain: Recovery -> Logging -> i18n -> Routes
-	handler := middleware.Recovery(middleware.Logging(i18n.MiddlewareI18n(mux)))
+	// Apply middleware chain: Recovery -> Security -> Logging -> i18n -> Routes
+	handler := middleware.Recovery(middleware.Security(middleware.Logging(i18n.MiddlewareI18n(mux))))
 
 	err = http.ListenAndServe(":"+port, handler)
 	if err != nil {

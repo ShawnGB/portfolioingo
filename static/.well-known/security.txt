@@ -1,0 +1,4 @@
+Contact: mailto:god.shawn@gmail.com
+Expires: 2026-11-28T00:00:00.000Z
+Preferred-Languages: en, de
+Canonical: https://shawnbecker.de/.well-known/security.txt
