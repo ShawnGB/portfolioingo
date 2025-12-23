@@ -1,155 +1,425 @@
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
+/* ===================================================================
+   CONTACT PAGE — EDITORIAL MONOCHROME
+   Professional contact page with visual hierarchy
+   =================================================================== */
 
-  label {
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--font-body);
-    font-weight: 600;
-    color: var(--text-primary);
-    font-size: 0.95rem;
-
-    input {
-      width: 60%;
-    }
-    select {
-      width: 60%;
-    }
-    textarea {
-      width: 60%;
-    }
-  }
+/* --- 1. CLEAN INTRO SECTION (MATCH ABOUT/ARTS) --- */
+.contact-intro-header {
+  padding-top: 48px;
+  position: relative;
 }
 
-/* === Form Inputs - Sunken Effect (Rule 3.4) === */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select,
-textarea {
-  /* Base styling */
-  font-family: var(--font-body);
-  font-size: 1rem;
+.contact-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* Match About/Arts page H2 scale */
+  font-weight: 600; /* Match About/Arts page weight */
   color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  border: 1px solid hsla(0, 0%, 0%, 0.12);
-  box-sizing: border-box;  /* Include padding and border in height */
-
-  /* Rule 3.4: Sunken Effect - Inset shadows (dark top, light bottom) */
-  background: hsl(0, 0%, 97%);  /* Slightly darker than surface to appear recessed */
-  box-shadow:
-    inset 0 2px 4px var(--shadow-inset-dark),   /* Dark shadow at top */
-    inset 0 -1px 2px hsla(0, 0%, 100%, 0.3);    /* Light highlight at bottom */
-
-  transition: var(--transition-fast);
+  margin: 0;
 }
 
-/* Consistent height for inputs and select (match buttons at 48px) */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-select {
-  height: 48px;
-  padding: 0 var(--space-lg);  /* Horizontal padding only, vertical is auto-centered */
+.contact-intro-text {
+  border-left: 2px solid var(--ink-warm); /* Match About/Arts page style */
+  padding-left: var(--space-lg);
 }
 
-/* Focus state - Maintain sunken effect but add accent */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: var(--primary);
-
-  /* Maintain sunken effect with accent glow */
-  box-shadow:
-    inset 0 2px 4px var(--shadow-inset-dark),
-    inset 0 -1px 2px hsla(0, 0%, 100%, 0.3),
-    0 0 0 3px hsla(18, 89%, 71%, 0.15);  /* Subtle accent glow */
+.contact-intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 65ch;
 }
 
-/* Textarea specific */
-textarea {
-  resize: vertical;
-  min-height: 120px;
-  padding: var(--space-md) var(--space-lg);  /* Add padding for textarea */
+
+/* --- 2. CONTACT DETAILS SECTION --- */
+.contact-details-section {
+  position: relative;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
 }
 
-/* Select specific */
-select {
-  cursor: pointer;
-  appearance: none;  /* Remove default arrow */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--space-md) center;
-  padding-right: calc(var(--space-lg) + var(--space-xl));  /* Space for arrow */
+.section-header {
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2xl) 0;
+  line-height: 1.2;
 }
 
-/* === Contact Details Section === */
-.contact-details {
+/* Clean typographic contact list */
+.contact-details-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-2xl);
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-2xl);
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3xl) var(--space-2xl);
+  margin-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .contact-detail-item {
-  padding: var(--space-xl);
-  background: var(--bg-surface);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--primary);
-
-  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
-  box-shadow: var(--shadow-polished);
+  grid-column: span 4;
 }
 
-.contact-detail-item h3 {
+.contact-detail-label {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 0;
-  margin-bottom: var(--space-md);
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  margin: 0 0 var(--space-sm) 0;
 }
 
-.contact-detail-item p {
-  margin: 0;
+.contact-detail-content {
+  font-family: var(--font-body);
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--text-primary);
 }
 
-.contact-detail-item p + p {
-  margin-top: var(--space-xs);
+.contact-detail-content p {
+  margin: 0 0 var(--space-xs) 0;
+  max-width: none;
 }
 
-.contact-detail-item a {
-  color: var(--text-primary);
+.contact-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-detail-content a {
+  color: var(--ink-warm);
   text-decoration: none;
-  transition: color 0.2s ease;
+  border-bottom: 1px solid var(--ink-warm);
+  padding-bottom: 1px;
+  transition: opacity 0.2s ease;
 }
 
-.contact-detail-item a:hover {
-  color: var(--primary);
+.contact-detail-content a:hover {
+  opacity: 0.65;
 }
 
-@media (max-width: 767.98px) {
-  form {
-    label {
-      width: 100%;
-    }
+
+/* --- 3. CONTACT FORM SECTION - EDITORIAL LAYOUT --- */
+.contact-form-section {
+  position: relative;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
+  background: var(--paper-mid);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.form-section-label {
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: 1.2;
+}
+
+.form-section-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 65ch;
+}
+
+
+/* --- 4. FORM EDITORIAL DESIGN - SINGLE COLUMN --- */
+.contact-form-editorial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 600px; /* Comfortable reading width */
+  width: 100%;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-warm);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  background: var(--paper-warm);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--ink-warm);
+}
+
+.form-input,
+.form-select {
+  height: 52px; /* Increased from 48px for better touch targets */
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-submit-button {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--paper-warm);
+  background: var(--ink-warm);
+  border: none;
+  border-radius: 4px;
+  padding: var(--space-lg) var(--space-3xl); /* Increased padding for more presence */
+  cursor: pointer;
+  letter-spacing: 0.05em; /* Subtle letter-spacing for refinement */
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.form-submit-button:hover:not(:disabled) {
+  background: var(--ink-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.form-submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.loading-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loading-indicator.htmx-request {
+  opacity: 1;
+}
+
+/* hCaptcha widget styling */
+.h-captcha {
+  margin: var(--space-md) 0;
+}
+
+.form-error {
+  font-size: 0.9375rem;
+  color: var(--state-error);
+  background: var(--state-error-bg);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 3px solid var(--state-error);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-md);
+  font-weight: 600;
+}
+
+
+/* --- 5. SUCCESS STATE - HTMX SWAP --- */
+.contact-success-state {
+  text-align: center;
+  padding: var(--space-4xl) var(--space-2xl);
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--state-success);
+  margin-bottom: var(--space-lg);
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.success-message {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-2xl) 0;
+}
+
+.success-link {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--paper-warm);
+  background: var(--ink-warm);
+  padding: var(--space-md) var(--space-2xl);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.success-link:hover {
+  background: var(--ink-soft);
+}
+
+
+/* --- 6. REACH OUT IF SECTION --- */
+.contact-cta-section {
+  position: relative;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
+}
+
+/* Editorial hairline above section */
+.contact-cta-section::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--ink-warm);
+  opacity: 0.2;
+}
+
+.contact-cta-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2xl) 0;
+  line-height: 1.2;
+}
+
+.reach-out-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-3xl) 0;
+}
+
+.reach-out-list li {
+  font-size: 1.1875rem; /* Increased from 1.125rem */
+  line-height: 1.8;
+  color: var(--text-secondary);
+  padding-left: var(--space-xl);
+  margin-bottom: var(--space-lg); /* Increased from --space-md */
+  position: relative;
+}
+
+.reach-out-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--ink-warm);
+  font-size: 1rem;
+}
+
+.closing-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* --- 7. EDITORIAL DECORATIVE ELEMENTS --- */
+/* Section number background */
+.contact-form-section::before {
+  content: "03";
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 800;
+  color: var(--ink-warm);
+  opacity: var(--opacity-editorial-number);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* Vertical side label */
+.contact-page-label {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  /* Full-bleed sections */
+  .contact-form-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
-  .contact-details {
+  .contact-form-section,
+  .contact-details-section,
+  .contact-cta-section {
+    padding-top: 72px; /* Increased from 60px for better mobile spacing */
+    padding-bottom: 72px;
+  }
+
+  /* Contact details list */
+  .contact-details-list {
     grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .contact-detail-item {
+    grid-column: 1 / -1;
+  }
+
+  /* Hide vertical label on mobile */
+  .contact-page-label {
+    display: none;
+  }
+
+  /* Smaller section numbers on mobile */
+  .contact-form-section::before {
+    font-size: 6rem;
   }
 }

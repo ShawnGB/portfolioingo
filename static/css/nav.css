@@ -1,77 +1,180 @@
+/* =================================
+   Navigation - Editorial Monochrome
+   Sticky top bar, minimal styling
+   ================================= */
+
+/* NAVIGATION - Sticky top bar */
 nav {
   width: 100%;
-  height: 4rem;
-  position: fixed;
-  left: 0;
+  height: auto;
+  min-height: 3.5rem;
+  position: sticky;
   top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--bg-color);
-  z-index: 10;
-  ul {
-    align-items: center;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 60%;
-    display: flex;
-    justify-content: space-evenly;
-  }
-  h3 {
-    margin: 0;
-    color: var(--primary);
-  }
-  a {
-    text-decoration: none;
-    position: relative;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--text-primary);
-    font-weight: 500;
-  }
-
-  /* Active navigation item - Gradient accent */
-  a.active,
-  a[aria-current="page"] {
-    color: var(--primary);
-    font-weight: 600;
-  }
-
-  /* Gradient underline for active nav item */
-  a.active::after,
-  a[aria-current="page"]::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 3px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      var(--primary) 20%,
-      rgba(255, 60, 172, 0.8) 80%,
-      transparent 100%
-    );
-    border-radius: 2px;
-    box-shadow: 0 2px 8px hsla(18, 89%, 71%, 0.4);
-  }
-
-  /* Hover effect for non-active items */
-  a:not(.active):not([aria-current="page"]):hover {
-    color: var(--primary);
-    transform: translateY(-2px);
-  }
+  left: 0;
+  background: rgba(250, 250, 248, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-subtle);
+  z-index: 100;
+  padding: 0.6rem 0;
 }
 
-/* Versteckte Checkbox */
+/* Inner container - centered max-width */
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Navigation grouping */
+.nav-left-group,
+.nav-right-group {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-lg);
+}
+
+.nav-right-group {
+  gap: var(--space-2xl);
+}
+
+/* Logo - Simple text */
+#logo-link {
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  padding-bottom: calc(0.5rem - 1px);
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+}
+
+#logo-link h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+  color: var(--ink-warm);
+  transition: opacity 0.2s ease;
+}
+
+#logo-link:hover h3 {
+  opacity: 0.65;
+}
+
+/* Navigation Links */
+nav ul {
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-lg);
+}
+
+nav ul li {
+  margin: 0;
+}
+
+nav ul li a {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  padding-bottom: calc(0.5rem - 1px);
+  display: inline-block;
+  position: relative;
+  color: var(--text-secondary);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    opacity 0.2s ease,
+    border-bottom-color 0.2s ease;
+}
+
+/* Hover effect - Opacity fade */
+nav ul li a:hover {
+  opacity: 0.65;
+}
+
+/* Active navigation item - Subtle underline */
+nav ul li a.active,
+nav ul li a[aria-current="page"] {
+  color: var(--ink-warm);
+  border-bottom-color: var(--ink-warm);
+}
+
+/* Utility Icons - GitHub / LinkedIn */
+.nav-utility-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.nav-utility-icons a {
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding: 0.5rem 0.25rem;
+  padding-bottom: calc(0.5rem - 1px);
+}
+
+.nav-utility-icons a:hover {
+  opacity: 0.7;
+}
+
+.nav-utility-icons svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+}
+
+/* Language Switcher - Minimal */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.lang-link {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 0.5rem 0.25rem;
+  padding-bottom: calc(0.5rem - 1px);
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid transparent;
+  display: inline-block;
+  transition:
+    opacity 0.2s ease,
+    border-bottom-color 0.2s ease;
+}
+
+.lang-link:hover {
+  opacity: 0.65;
+}
+
+.lang-separator {
+  color: var(--text-tertiary);
+  opacity: 0.6;
+  padding: 0.5rem 0.25rem;
+}
+
+/* Burger Menu (hidden by default) */
 .burger-toggle-checkbox {
   display: none;
 }
 
-/* Burger-Icon (Label) */
 .burger-menu-label {
   display: none;
   flex-direction: column;
@@ -88,70 +191,78 @@ nav {
 .burger-bar {
   width: 2rem;
   height: 0.25rem;
-  background-color: var(--text);
-  border-radius: 10px;
+  background-color: var(--ink-warm);
+  border-radius: 2px;
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
 
-.image-gallery {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-auto-flow: row;
-  gap: 2rem;
+.burger-menu-label:hover .burger-bar {
+  opacity: 0.65;
 }
-@media (max-width: 767.98px) {
-  nav {
-    width: 100%;
-    padding: 1rem 5%;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
 
-    ul {
-      li {
-        background-color: var(--bg-color);
-      }
-    }
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  nav {
+    padding: 0.75rem 0;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    padding: 0 var(--space-lg);
+  }
+
+  .nav-left-group {
+    flex: 1;
+  }
+
+  .nav-right-group {
+    position: absolute;
+    top: calc(3.5rem + 1px);
+    left: 0;
+    width: 100%;
+    background-color: var(--paper-warm);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 8px 16px rgba(28, 28, 28, 0.06);
+    display: none;
+    flex-direction: column;
+    padding: var(--space-lg) 0;
   }
 
   .burger-menu-label {
     display: flex;
   }
 
-  .nav-links {
-    display: none;
+  nav ul {
     flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    background-color: var(--bg-color);
-    border-top: 1px solid #eee;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 0;
   }
 
-  .nav-links li {
-    margin-left: 0;
+  nav ul li {
     width: 100%;
     text-align: center;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
-  .nav-links a {
-    display: block;
-    padding: 1rem;
-    width: 100%;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  .nav-links li:last-child a {
+  nav ul li:last-child {
     border-bottom: none;
   }
 
-  .burger-toggle-checkbox:checked ~ .nav-links {
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: var(--space-lg);
+    border: none;
+  }
+
+  nav ul li a:hover,
+  nav ul li a.active {
+    opacity: 1;
+    background: var(--paper-mid);
+  }
+
+  .burger-toggle-checkbox:checked ~ .nav-right-group {
     display: flex;
   }
 
@@ -160,14 +271,20 @@ nav {
     .burger-bar:nth-child(1) {
     transform: translateY(0.65rem) rotate(45deg);
   }
+
   .burger-toggle-checkbox:checked
     ~ .burger-menu-label
     .burger-bar:nth-child(2) {
     opacity: 0;
   }
+
   .burger-toggle-checkbox:checked
     ~ .burger-menu-label
     .burger-bar:nth-child(3) {
     transform: translateY(-0.65rem) rotate(-45deg);
+  }
+
+  .nav-utility-icons {
+    display: none;
   }
 }

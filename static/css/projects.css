@@ -1,21 +1,503 @@
-/* Project Details Lists */
-.project-details-list dt {
-  font-family: "Overpass Mono", monospace;
+/* ===================================================================
+   PROJECTS PAGE — EDITORIAL MONOCHROME
+   Magazine-style project showcase with visual interest
+   =================================================================== */
+
+/* --- 1. HERO SECTION WITH IMAGE --- */
+.projects-hero-section {
+  position: relative;
+  min-height: 600px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 80px;
+}
+
+.projects-hero-section .grid-row {
+  position: relative;
+  align-items: stretch;
+  min-height: 600px;
+}
+
+/* Hero image */
+.hero-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-mid);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Editorial monochrome image treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
+}
+
+/* Hero content overlay */
+.projects-hero-section .hero-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--paper-warm);
+  padding: var(--space-3xl);
+}
+
+.hero-content-inner {
+  max-width: 100%;
+}
+
+.projects-hero-section .hero-content .section-label {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  line-height: 1.1;
+}
+
+.projects-hero-section .hero-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-2xl) 0;
+  line-height: 1.5;
+}
+
+.hero-intro {
+  border-top: 2px solid var(--ink-warm);
+  padding-top: var(--space-lg);
+}
+
+.intro-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
   font-weight: 600;
-  color: var(--primary);
-  margin-top: 1rem;
-  font-size: 1em;
-  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-warm);
+  margin: 0 0 var(--space-md) 0;
 }
 
-.project-details-list dd {
-  margin-inline-start: 0;
-  margin-bottom: 1rem;
-  padding-inline-start: 0;
+.hero-intro p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
-.skill-list {
+
+/* --- 2. CURRENT PROJECT (FEATURED) --- */
+.current-project-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.project-featured {
+  position: relative;
+  background: var(--paper-light);
+  padding: var(--space-3xl);
+  border-left: 4px solid var(--ink-warm);
+  border-radius: 4px;
+}
+
+.project-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-warm);
+  margin: 0 0 var(--space-md) 0;
+  opacity: 0.8;
+}
+
+.project-featured h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: 1.2;
+}
+
+.project-lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-2xl) 0;
+  max-width: 65ch;
+}
+
+.project-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.project-detail h3 {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.project-detail p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.tech-item {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  padding-left: var(--space-md);
+  position: relative;
+  line-height: 1.6;
+}
+
+.tech-item::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--ink-warm);
+  opacity: 0.5;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.project-link:hover {
+  border-bottom-color: var(--ink-warm);
+}
+
+
+/* --- 3. WEBSITES SECTION (ASYMMETRIC GRID) --- */
+.websites-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: var(--paper-mid);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.websites-section .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Project cards */
+.project-card {
+  position: relative;
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2xl);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(43, 43, 43, 0.12);
+}
+
+/* Cards with images */
+.project-card.with-image {
+  min-height: 400px;
+}
+
+.project-card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: var(--paper-light);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Editorial monochrome treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-image {
+  transform: scale(1.02);
+}
+
+/* Card content */
+.project-card-content {
+  padding: var(--space-2xl);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.3;
+}
+
+.project-card-content p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-lg) 0;
+  flex-grow: 1;
+}
+
+.project-card-content .project-link {
+  margin-top: auto;
+  font-size: 0.9375rem;
+}
+
+/* Compact cards */
+.project-card.compact {
+  min-height: 280px;
+}
+
+.project-card.compact .project-card-content {
+  padding: var(--space-xl);
+}
+
+.project-card.compact h3 {
+  font-size: 1.125rem;
+}
+
+.project-links-compact {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5em;
+  gap: var(--space-md);
+  margin-top: auto;
+}
+
+.project-link-small {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.project-link-small:hover {
+  border-bottom-color: var(--ink-warm);
+}
+
+
+/* --- 4. CULTURAL SECTION (TWO-COLUMN WITH IMAGE) --- */
+.cultural-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.cultural-section .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3xl) 0;
+  grid-column: 1 / -1;
+}
+
+.cultural-image-wrapper {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: var(--paper-mid);
+  border-radius: 4px;
+}
+
+.cultural-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Editorial monochrome treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
+}
+
+.cultural-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xl);
+}
+
+.cultural-project {
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cultural-project:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cultural-project h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.3;
+}
+
+.cultural-project p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.cultural-project p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* --- 5. FILM SECTION (COMPACT FOOTER) --- */
+.film-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: var(--paper-light);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.film-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: 1.2;
+}
+
+.film-content p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-xl) 0;
+  max-width: 65ch;
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  /* Hero section */
+  .projects-hero-section {
+    min-height: auto;
+  }
+
+  .projects-hero-section .grid-row {
+    min-height: auto;
+    flex-direction: column-reverse;
+  }
+
+  .hero-image-wrapper {
+    min-height: 300px;
+  }
+
+  .projects-hero-section .hero-content {
+    padding: var(--space-2xl);
+  }
+
+  /* Full-bleed sections */
+  .websites-section,
+  .film-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Project cards */
+  .project-card {
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-card.with-image {
+    min-height: auto;
+  }
+
+  .project-card-image {
+    height: 180px;
+  }
+
+  .project-card-content,
+  .project-card.compact .project-card-content {
+    padding: var(--space-xl);
+  }
+
+  /* Cultural section */
+  .cultural-image-wrapper {
+    height: 300px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .cultural-content {
+    gap: var(--space-2xl);
+  }
+
+  /* Project details grid */
+  .project-details-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  /* Featured project */
+  .project-featured {
+    padding: var(--space-2xl);
+  }
 }

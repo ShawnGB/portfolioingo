@@ -1,13 +1,5 @@
 package layouts
 
-// PageHeader renders a standard page header with title and subtitle
-templ PageHeader(title string, subtitle string) {
-	<header class="page-main-header">
-		<h1>{ title }</h1>
-		<p class="page-subtitle">{ subtitle }</p>
-	</header>
-}
-
 // IntegratedHeader renders a two-column header with title and additional content
 templ IntegratedHeader(title string, subtitle string, contentLabel string, contentText string) {
 	<header class="header-integrated">

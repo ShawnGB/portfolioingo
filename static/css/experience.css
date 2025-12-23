@@ -1,884 +1,453 @@
-/* ==========================================
-   EXPERIENCE PAGE STYLES
-   Clean, badge-based design matching About page
-   ========================================== */
+/* ===================================================================
+   EXPERIENCE PAGE — EDITORIAL MONOCHROME (COMPACT)
+   Tight, scannable, sophisticated
+   =================================================================== */
 
-/* === Skills Introduction === */
-.skills-intro {
-  text-align: center;
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-2xl);
-  font-style: italic;
-  max-width: 70ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* === Skills Carousel === */
-.skills-carousel {
+/* --- 1. INTRO SECTION --- */
+.experience-intro-section {
+  padding-top: 48px;
+  padding-bottom: 48px;
   position: relative;
-  width: 100%;
-  overflow: visible;
-  padding: var(--space-3xl) 0;
 }
 
-.carousel-track {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-  padding: 0 var(--space-xl);
-}
-
-/* Carousel items - override badge styles */
-.badge.carousel-item {
+.experience-intro-section::before {
+  content: "01";
   position: absolute;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  max-width: 500px;
-  min-height: 350px;
-  opacity: 0;
+  top: 0;
+  left: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.07;
   pointer-events: none;
-  transform: scale(0.85) translateX(0);
-  /* Force fully opaque solid background - matches other badges */
-  background: #FAFAFA !important;
-  box-shadow: var(--shadow-polished) !important;
-  border-radius: var(--radius-lg) !important;
-}
-
-/* Center card - fully visible and in focus */
-.carousel-item.center {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1) translateX(0);
-  z-index: 3;
-}
-
-/* Left card - visible but smaller, overlapped more */
-.carousel-item.left {
-  opacity: 0.5;
-  pointer-events: auto;
-  transform: scale(0.85) translateX(-65%);
-  z-index: 1;
-}
-
-/* Right card - visible but smaller, overlapped more */
-.carousel-item.right {
-  opacity: 0.5;
-  pointer-events: auto;
-  transform: scale(0.85) translateX(65%);
-  z-index: 1;
-}
-
-/* Cards further out - completely hidden */
-.carousel-item.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.7) translateX(0);
   z-index: 0;
 }
 
-/* Carousel Dots Navigation - Hidden */
-.carousel-dots {
-  display: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .skills-carousel {
-    padding: var(--space-2xl) 0;
-    overflow: hidden; /* Prevent horizontal scroll */
-  }
-
-  .carousel-track {
-    min-height: 450px; /* Maintain height for absolutely positioned items */
-    padding: 0 var(--space-md);
-  }
-
-  /* Mobile: Only show center card, hide left/right for cleaner view */
-  .badge.carousel-item {
-    max-width: calc(100% - 2rem);
-    min-height: 400px;
-    padding: var(--space-xl);
-  }
-
-  .badge.carousel-item.center {
-    opacity: 1 !important;
-    transform: scale(1) translateX(0) !important;
-    z-index: 3;
-  }
-
-  /* Hide left and right cards completely on mobile */
-  .badge.carousel-item.left,
-  .badge.carousel-item.right,
-  .badge.carousel-item.hidden {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    transform: scale(0.85) translateX(0) !important;
-    z-index: 0;
-  }
-
-  /* Show carousel dots on mobile for navigation */
-  .carousel-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-sm);
-    margin-top: var(--space-lg);
-  }
-
-  .carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: var(--border-subtle);
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .carousel-dot.active {
-    background-color: var(--primary);
-    transform: scale(1.2);
-  }
-
-  .carousel-dot:hover {
-    background-color: var(--primary-light);
-  }
-}
-
-/* Mobile landscape adjustments */
-@media (max-width: 768px) and (orientation: landscape) {
-  .carousel-track {
-    min-height: 350px;
-  }
-
-  .badge.carousel-item {
-    min-height: 300px;
-  }
-}
-
-/* === Education Badges - Special Styling for Current === */
-.badge.current-education {
-  border: 2px solid var(--primary);
-  position: relative;
-}
-
-.badge.current-education::after {
-  content: 'Current';
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  background-color: var(--primary);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: var(--space-xs) var(--space-sm);
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.badge .institution {
-  font-weight: 600;
-  color: var(--primary);
-  margin: 0 0 var(--space-xs) 0;
-  font-size: 0.95rem;
-}
-
-.badge .period {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  color: var(--text-tertiary);
-  margin: 0 0 var(--space-md) 0;
-}
-
-/* === Timeline Container === */
-.experience-timeline {
-  position: relative;
-  padding-left: 3rem;
-  margin-top: var(--space-2xl); /* Proper spacing after h2 */
-}
-
-/* Vertical timeline line - POLISHED Cylindrical Pipe Effect
-   6px width with desaturated orange to let content be the focus
-   Subtle 3D effect without drawing too much attention */
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  bottom: 3rem;
-  width: 6px;
-
-  /* Desaturated cylinder gradient: Reduces visual intensity (89% → 65% saturation)
-     Light on left (catching light) -> Dark on right (shadow side) */
-  background: linear-gradient(
-    to right,
-    hsl(18, 65%, 78%) 0%,           /* Desaturated light orange on left */
-    hsl(18, 65%, 71%) 50%,          /* Desaturated base color in center */
-    hsl(18, 65%, 60%) 100%          /* Desaturated darker orange on right */
-  );
-
-  border-radius: 3px;
-
-  /* Subtle pipe borders - light catch and shadow edge */
-  border-left: 1px solid rgba(255, 255, 255, 0.35);   /* Subtle light highlight */
-  border-right: 1px solid rgba(0, 0, 0, 0.10);        /* Subtle dark shadow */
-}
-
-/* === Experience Entry List === */
-.experience-entry {
-  margin-bottom: var(--space-3xl);
-  padding-bottom: var(--space-3xl);
-  border-bottom: 1px solid var(--border-subtle);
-  position: relative;
-}
-
-/* Timeline dot for each entry */
-.experience-entry::before {
-  content: '';
-  position: absolute;
-  left: -3rem;
-  top: 0.5rem;
-  width: 12px;
-  height: 12px;
-  background-color: var(--primary);
-  border: 3px solid var(--bg-base);
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--primary-light);
-  z-index: 1;
-}
-
-/* Highlight first (current) role */
-.experience-entry:first-child::before {
-  width: 16px;
-  height: 16px;
-  left: calc(-3rem - 2px);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  box-shadow:
-    0 0 0 3px var(--primary-light),
-    0 0 12px hsla(18, 89%, 71%, 0.4);
-  animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-}
-
-.experience-entry:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.experience-header {
-  margin-bottom: var(--space-lg);
-  position: relative;
-  cursor: pointer;
-}
-
-/* Toggle button */
-.experience-toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--primary);
-  cursor: pointer;
-  padding: var(--space-sm);
-  transition: transform 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.experience-toggle:hover {
-  color: var(--primary-dark);
-}
-
-.experience-toggle .toggle-icon {
-  transition: transform 0.3s ease;
-}
-
-.experience-entry.collapsed .experience-toggle .toggle-icon {
-  transform: rotate(-90deg);
-}
-
-.experience-header h3 {
+.experience-intro-section .section-label {
+  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
-  margin-top: 0;
-  margin-bottom: 0; /* Typography guideline: line-height acts as margin */
-  line-height: 1.2;
-  padding-right: var(--space-3xl); /* Space for toggle button */
-}
-
-.experience-header .company {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-xs);
-}
-
-.experience-header .meta {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  color: var(--text-tertiary);
-  margin-top: var(--space-xs);
-  margin-bottom: 0;
-}
-
-.experience-entry ul {
-  list-style: none;
-  padding: 0;
-  margin-top: var(--space-lg); /* Proper spacing after header */
-  margin-bottom: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-  max-height: 1000px; /* Large enough for content */
-  opacity: 1;
-}
-
-.experience-entry ul li {
-  position: relative;
-  padding-left: 1.75rem;
-  margin-bottom: var(--space-md);
-  line-height: 1.7;
-  color: var(--text-secondary);
-}
-
-.experience-entry ul li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.2em;
-}
-
-/* === Skills Badges Grid - Allow more badges === */
-.skills-badges {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-}
-
-/* === Responsive Adjustments === */
-@media (max-width: 767px) {
-  .badge.current-education::after {
-    position: static;
-    display: inline-block;
-    margin-bottom: var(--space-md);
-  }
-
-  .experience-header h3 {
-    font-size: 1.25rem;
-  }
-
-  .skills-intro {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  /* Hide timeline on mobile */
-  .experience-timeline {
-    padding-left: 0;
-  }
-
-  .experience-timeline::before {
-    display: none;
-  }
-
-  .experience-entry::before {
-    display: none;
-  }
-}
-
-/* ==========================================
-   INTERACTIVE TIMELINE STYLES
-   ========================================== */
-
-.experience-timeline-interactive {
-  display: grid;
-  grid-template-columns: 1fr 120px 1fr;
-  gap: var(--space-3xl);
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-4xl);
-  min-height: 900px;
-  position: relative;
-}
-
-/* === Timeline Track Container (Center) === */
-.timeline-track-container {
-  position: relative;
-  height: 100%;
-  grid-column: 2;
-}
-
-/* Timeline Track - Vertical line with cylindrical effect */
-.timeline-track {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-  bottom: 0;
-  width: 6px;
-
-  /* Cylindrical gradient like the old timeline */
-  background: linear-gradient(
-    to right,
-    hsl(18, 65%, 78%) 0%,
-    hsl(18, 65%, 71%) 50%,
-    hsl(18, 65%, 60%) 100%
-  );
-
-  border-radius: 3px;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
-  border-right: 1px solid rgba(0, 0, 0, 0.10);
-}
-
-/* === Timeline Markers (Dots + Labels) === */
-.timeline-marker {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-}
-
-/* Position markers evenly */
-.timeline-marker[data-index="0"] { top: 0%; }
-.timeline-marker[data-index="1"] { top: 16.67%; }
-.timeline-marker[data-index="2"] { top: 33.33%; }
-.timeline-marker[data-index="3"] { top: 50%; }
-.timeline-marker[data-index="4"] { top: 66.67%; }
-.timeline-marker[data-index="5"] { top: 83.33%; }
-.timeline-marker[data-index="6"] { top: 100%; }
-
-.timeline-dot {
-  width: 12px;
-  height: 12px;
-  background-color: var(--primary);
-  border: 3px solid var(--bg-base);
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px hsla(18, 89%, 71%, 0.3);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-
-.timeline-marker:hover .timeline-dot {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 3px hsla(18, 89%, 71%, 0.5);
-}
-
-/* Active marker */
-.timeline-marker.active .timeline-dot {
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  box-shadow:
-    0 0 0 3px var(--primary-light),
-    0 0 12px hsla(18, 89%, 71%, 0.4);
-}
-
-.timeline-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  font-weight: 600;
-  white-space: nowrap;
-  position: absolute;
-  left: 100%;
-  margin-left: var(--space-lg);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.timeline-marker.active .timeline-label {
-  color: var(--primary);
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
-/* === Draggable Knob === */
-.timeline-knob {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  border: 4px solid var(--bg-surface);
-  border-radius: 50%;
-  cursor: grab;
-  z-index: 10;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.15),
-    0 0 0 4px hsla(18, 89%, 71%, 0.2);
-}
-
-.timeline-knob:hover {
-  transform: translate(-50%, -50%) scale(1.15);
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.2),
-    0 0 0 6px hsla(18, 89%, 71%, 0.3);
-}
-
-.timeline-knob:active,
-.timeline-knob.dragging {
-  cursor: grabbing;
-  transform: translate(-50%, -50%) scale(1.1);
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    0 0 0 8px hsla(18, 89%, 71%, 0.4);
-}
-
-/* === Education Cards Container (Left Side) === */
-.education-cards-container {
-  position: relative;
-  min-height: 900px;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  grid-column: 1;
-}
-
-/* === Experience Cards Container (Right Side) === */
-.experience-cards-container {
-  position: relative;
-  min-height: 900px;
-  perspective: 1200px;
-  transform-style: preserve-3d;
-  grid-column: 3;
-}
-
-/* Shared Card Styles - Rolodex effect for both education and experience */
-.education-card,
-.experience-card {
-  position: absolute;
-  width: 100%;
-  max-width: 420px;
-  opacity: 1;
-  transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
-  transition:
-    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center center;
-
-  /* Card styling */
-  background: var(--bg-surface);
-  padding: var(--space-2xl);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-
-  /* Stack positioning */
-  z-index: 1;
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-/* Education cards positioned on left */
-.education-card {
-  left: auto;
-  right: 0;
-}
-
-/* Experience cards positioned on right */
-.experience-card {
-  left: 0;
-  right: auto;
-}
-
-/* Active card - flips to the front (works for both types) */
-.education-card.active,
-.experience-card.active {
-  opacity: 1;
-  transform: scale(1) translateZ(0) rotateX(0deg);
-  z-index: 10;
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.12),
-    0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Individual card positioning - aligned with timeline markers */
-.education-card[data-index="0"],
-.experience-card[data-index="0"] { top: 0%; }
-.education-card[data-index="1"],
-.experience-card[data-index="1"] { top: 16.67%; }
-.education-card[data-index="2"],
-.experience-card[data-index="2"] { top: 33.33%; }
-.education-card[data-index="3"],
-.experience-card[data-index="3"] { top: 50%; }
-.education-card[data-index="4"],
-.experience-card[data-index="4"] { top: 66.67%; }
-.education-card[data-index="5"],
-.experience-card[data-index="5"] { top: 83.33%; }
-.education-card[data-index="6"],
-.experience-card[data-index="6"] { top: 100%; }
-
-/* All non-active cards at same depth (rolodex effect) */
-.education-card:not(.active),
-.experience-card:not(.active) {
-  transform: scale(0.85) translateZ(-200px) translateY(-60px) rotateX(-35deg);
-  z-index: 1;
-  pointer-events: auto; /* Allow clicking to activate */
-}
-
-/* Hover effect for non-active cards - slight forward movement */
-.education-card:not(.active):hover,
-.experience-card:not(.active):hover {
-  opacity: 1;
-  transform: scale(0.88) translateZ(-180px) translateY(-55px) rotateX(-25deg);
-  z-index: 2;
-}
-
-/* Card Header - works for both education and experience */
-.education-card .card-header,
-.experience-card .experience-header {
-  margin-bottom: var(--space-lg);
-}
-
-.education-card h3,
-.education-card h4,
-.experience-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-sm) 0;
-  line-height: 1.2;
-}
-
-.education-card .institution,
-.experience-card .company {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin: 0 0 var(--space-xs) 0;
-}
-
-.education-card .period,
-.experience-card .meta {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  margin: 0 0 var(--space-md) 0;
-}
-
-.education-card .description {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
   margin: 0;
 }
 
-/* Card List */
-.education-card ul,
-.experience-card ul {
+.experience-intro-section .intro-content {
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+.experience-intro-section .vertical-rule {
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 2px;
+  height: 90%;
+  background-color: var(--ink-warm);
+  opacity: 0.15;
+}
+
+.experience-intro-section .body-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+
+/* --- 2. SKILLS SECTION (COMPACT 2-COLUMN) --- */
+.skills-section {
+  position: relative;
+  background: var(--paper-mid);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding: 48px 64px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.skills-section::before {
+  content: "02";
+  position: absolute;
+  top: -24px;
+  right: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.skills-section::after {
+  content: "";
+  position: absolute;
+  top: 48px;
+  left: 64px;
+  width: 6rem;
+  height: 2px;
+  background: rgba(43, 43, 43, 0.2);
+}
+
+.skills-section .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-2xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Left column - Category labels */
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.skill-category {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) 0;
+}
+
+.skill-category svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.skill-category h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Right column - Skills lists */
+.skills-lists {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.skill-list {
+  padding: var(--space-md) 0;
+  border-left: 2px solid var(--ink-warm);
+  padding-left: var(--space-lg);
+}
+
+.skill-list p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+
+/* --- 3. UNIFIED TIMELINE (Experience + Education) --- */
+.timeline-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 48px;
+}
+
+.timeline-section::before {
+  content: "03";
+  position: absolute;
+  top: 24px;
+  left: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.timeline-section::after {
+  content: "";
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 6rem;
+  height: 2px;
+  background: rgba(43, 43, 43, 0.2);
+}
+
+.timeline-section .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3xl) 0;
+  grid-column: 1 / -1;
+}
+
+/* Unified timeline container */
+.unified-timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+
+/* Vertical timeline line */
+.unified-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.125rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 43, 43, 0.25) 0%,
+    rgba(43, 43, 43, 0.1) 100%
+  );
+}
+
+/* Timeline items */
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-3xl);
+  padding-left: var(--space-2xl);
+}
+
+/* Timeline dot */
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: var(--ink-warm);
+  border: 2px solid var(--paper-warm);
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.timeline-dot.current {
+  width: 14px;
+  height: 14px;
+  opacity: 1;
+  box-shadow: 0 0 0 3px rgba(43, 43, 43, 0.1);
+}
+
+/* Timeline date */
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.timeline-item:has(.current) .timeline-date {
+  color: var(--ink-warm);
+  font-weight: 700;
+}
+
+/* Timeline label (Education/Experience) */
+.timeline-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-sm);
+  opacity: 0.7;
+}
+
+/* Timeline content */
+.timeline-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs) 0;
+  line-height: 1.3;
+}
+
+.timeline-content .company,
+.timeline-content .institution {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.timeline-content .company a,
+.timeline-content .institution a {
+  color: var(--ink-warm);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s ease;
+}
+
+.timeline-content .company a:hover,
+.timeline-content .institution a:hover {
+  border-bottom-color: var(--ink-warm);
+}
+
+.timeline-content .meta {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.timeline-content .description {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: var(--space-sm) 0 0 0;
+}
+
+.timeline-content ul {
   list-style: none;
   padding: 0;
   margin: var(--space-md) 0 0 0;
 }
 
-.education-card ul li,
-.experience-card ul li {
+.timeline-content ul li {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: var(--space-sm);
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
 }
 
-.education-card ul li::before,
-.experience-card ul li::before {
-  content: '▸';
+.timeline-content ul li::before {
+  content: "▸";
   position: absolute;
   left: 0;
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.1em;
+  color: var(--ink-warm);
+  opacity: 0.5;
+  font-size: 1em;
 }
 
-/* Icon link for education cards */
-.education-card .card-icon-link {
-  display: inline-block;
-  margin-bottom: var(--space-sm);
-  color: var(--primary);
-  transition: transform 0.2s ease;
+/* Education items - special styling */
+.education-item {
+  padding: var(--space-lg);
+  margin-left: -var(--space-lg);
+  margin-right: -var(--space-lg);
+  background: var(--paper-light);
+  border-radius: 4px;
+  border-left: 3px solid var(--ink-warm);
 }
 
-.education-card .card-icon-link:hover {
-  transform: scale(1.1);
+.education-item .timeline-dot {
+  left: var(--space-lg);
 }
 
-/* === Responsive === */
-@media (max-width: 900px) {
-  .experience-timeline-interactive {
-    grid-template-columns: 80px 1fr;
-    gap: var(--space-2xl);
-  }
 
-  .timeline-label {
-    font-size: 0.7rem;
-    margin-left: var(--space-md);
-  }
+/* --- 4. CTA SECTION --- */
+.cta-footer-section {
+  position: relative;
+  padding-top: 64px;
+  padding-bottom: 48px;
 }
 
-@media (max-width: 767px) {
-  /* Mobile: Simple vertical chronological stack */
-  .experience-timeline-interactive {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    min-height: auto;
-    margin-bottom: var(--space-2xl);
-  }
-
-  .timeline-track-container {
-    display: none; /* Hide timeline on mobile */
-  }
-
-  /* Both containers use flexbox for ordering */
-  .education-cards-container,
-  .experience-cards-container {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    min-height: auto;
-    perspective: none;
-    position: static;
-    width: 100%;
-  }
-
-  /* All cards: remove 3D effects and absolute positioning */
-  .education-card,
-  .experience-card {
-    position: relative !important;
-    transform: none !important;
-    opacity: 1 !important;
-    width: 100%;
-    max-width: 100%;
-    left: auto !important;
-    right: auto !important;
-    top: auto !important;
-    z-index: 1 !important;
-    pointer-events: auto !important;
-    cursor: default !important;
-    margin-bottom: 0;
-  }
-
-  /* Remove active state styling on mobile - all cards visible */
-  .education-card.active,
-  .experience-card.active {
-    transform: none !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .education-card:hover,
-  .experience-card:hover {
-    transform: none !important;
-  }
-
-  /* Add visual separator between cards */
-  .education-card,
-  .experience-card {
-    border-left: 3px solid var(--primary-light);
-    padding-left: var(--space-xl);
-  }
-
-  /* Add section headers on mobile */
-  .education-cards-container::before {
-    content: 'Education';
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-md);
-    border-bottom: 2px solid var(--primary);
-  }
-
-  .experience-cards-container::before {
-    content: 'Experience';
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-md);
-    border-bottom: 2px solid var(--primary);
-  }
-
-  /* Chronological order within each section (newest first) */
-  .education-card[data-index="0"] { order: 1; } /* 2025 */
-  .education-card[data-index="3"] { order: 2; } /* 2018 */
-  .education-card[data-index="4"] { order: 3; } /* 2017 */
-  .education-card[data-index="5"] { order: 4; } /* 2016 */
-  .education-card[data-index="6"] { order: 5; } /* 2006 */
-
-  .experience-card[data-index="0"] { order: 1; } /* 2023 */
-  .experience-card[data-index="1"] { order: 2; } /* 2021 */
-  .experience-card[data-index="2"] { order: 3; } /* 2021 */
-  .experience-card[data-index="3"] { order: 4; } /* 2018 */
-  .experience-card[data-index="4"] { order: 5; } /* 2017 */
-  .experience-card[data-index="5"] { order: 6; } /* 2016 */
-  .experience-card[data-index="6"] { order: 7; } /* 2011 */
-}
-
-/* Mobile landscape adjustments for timeline */
-@media (max-width: 767px) and (orientation: landscape) {
-  /* Reduce padding in landscape to maximize content space */
-  .education-card,
-  .experience-card {
-    padding: var(--space-lg) !important;
-  }
-
-  /* Smaller section headers in landscape */
-  .education-cards-container::before,
-  .experience-cards-container::before {
-    font-size: 1.25rem;
-    padding-bottom: var(--space-sm);
-  }
-
-  /* Reduce gap between cards */
-  .education-cards-container,
-  .experience-cards-container {
-    gap: var(--space-md);
-  }
-
-  .experience-timeline-interactive {
-    gap: var(--space-md);
-  }
-}
-
-/* ==========================================
-   CTA SECTION (STANDALONE)
-   ========================================== */
-
-.cta-section {
+.cta-footer-section .cta-wrapper {
+  grid-column: 5 / span 4;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
-  padding: var(--space-4xl) 0;
-  margin-top: var(--space-4xl);
 }
 
-@media (max-width: 767px) {
-  .cta-section {
-    flex-direction: column;
+.cta-footer-section .cta-link {
+  text-align: center;
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  .page-grid-container {
+    padding: 0 24px;
+  }
+
+  .grid-row {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg) 0;
+  }
+
+  [class^="grid-col-"] {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Hide decorative numbers on mobile */
+  .experience-intro-section::before,
+  .skills-section::before,
+  .timeline-section::before {
+    display: none;
+  }
+
+  /* Full-bleed sections mobile adjustments */
+  .skills-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Skills - stack categories and lists */
+  .skills-categories,
+  .skills-lists {
     gap: var(--space-md);
+  }
+
+  .skill-category {
+    padding: var(--space-sm) 0;
+  }
+
+  .skill-list {
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+  }
+
+  /* Timeline - reduce left padding */
+  .unified-timeline {
+    padding-left: 2rem;
+  }
+
+  .unified-timeline::before {
+    left: 0.625rem;
+  }
+
+  .timeline-item {
+    padding-left: var(--space-lg);
+  }
+
+  .timeline-content h3 {
+    font-size: 1.125rem;
+  }
+
+  /* Education items */
+  .education-item {
+    margin-left: -var(--space-md);
+    margin-right: 0;
+    padding: var(--space-md);
+  }
+
+  .education-item .timeline-dot {
+    left: var(--space-md);
+  }
+
+  /* CTA - full width on mobile */
+  .cta-footer-section .cta-wrapper {
+    grid-column: 1 / -1;
   }
 }

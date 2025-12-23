@@ -4,69 +4,135 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
 templ Arts(images []string, pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "arts.title", "arts.subtitle", "arts.intro.title", "arts.intro.p1", "arts.pageTitle", "arts.pageMetaDescription") {
-		<section id="photography" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.photography.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.photography.text") }
-			</p>
-			<div class="image-gallery">
-				for _,
-    image :=range images {
-					<div class="image-gallery__image-box">
-						<img
-							src={ "./" + image }
-							alt={ pCtx.T("arts.gallery.imageAlt") }
-							class="image-gallery__image"
-						/>
-						<div class="image-gallery__layover">
-							<p class="image-gallery__layover-text">
-								{ 
-          pCtx.T("arts.gallery.viewImageText") }
-							</p>
+	@layouts.BaseHtml(pCtx, pCtx.T("arts.pageTitle"), pCtx.T("arts.pageMetaDescription")) {
+		<!-- Vertical side label - Editorial element -->
+		<div class="arts-page-label">Photography / Berlin</div>
+		<div class="page-grid-container">
+			<!-- SECTION 01: INTRO (LIKE ABOUT PAGE) -->
+			<div class="grid-section arts-intro-header">
+				<div class="grid-row">
+					<div class="grid-col-4">
+						<h1 class="arts-title">{ pCtx.T("arts.title") }</h1>
+					</div>
+					<div class="grid-col-8">
+						<div class="arts-intro-text">
+							<p><em>{ pCtx.T("arts.subtitle") }</em></p>
+							<p>{ pCtx.T("arts.intro.p1") }</p>
 						</div>
 					</div>
-				}
+				</div>
 			</div>
-		</section>
-		@layouts.SectionDivider()
-		<section id="sound-music" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.sound.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.sound.text") }
-			</p>
-			<div class="media-content-area"></div>
-		</section>
-		@layouts.SectionDivider()
-		<section id="sketches-studies" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.sketches.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.sketches.text") }
-			</p>
-			<div class="visual-content-area"></div>
-		</section>
-		@layouts.SectionDivider()
-		<section class="page-outro-text">
-			<p>
-				{ 
-    pCtx.T("arts.outro.p1") }
-			</p>
-			<blockquote>
-				{ 
-    pCtx.T("arts.outro.p2") }
-			</blockquote>
-		</section>
+			<!-- SECTION 02: PHOTOGRAPHY - MAGAZINE SPREAD LAYOUTS -->
+			<div class="grid-section major-break photography-section">
+				<div class="grid-row">
+					<div class="grid-col-12">
+						<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
+						<p class="section-description">{ pCtx.T("arts.photography.text") }</p>
+					</div>
+					<div class="grid-col-12">
+						if len(images) >= 3 {
+							<!-- Spread 1: Large Left + Two Small Right -->
+							<div class="photo-row layout-large-left">
+								<div class="photo-item">
+									<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								<div class="photo-item">
+									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								if len(images) > 2 {
+									<div class="photo-item">
+										<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 6 {
+							<!-- Spread 2: Three Column Portrait -->
+							<div class="photo-row layout-three-portrait">
+								<div class="photo-item">
+									<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								<div class="photo-item">
+									<img src={ "./" + images[4] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								if len(images) > 5 {
+									<div class="photo-item">
+										<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 8 {
+							<!-- Spread 3: Asymmetric Split -->
+							<div class="photo-row layout-asymmetric">
+								<div class="photo-item">
+									<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								if len(images) > 7 {
+									<div class="photo-item">
+										<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 10 {
+							<!-- Spread 4: Two Column Equal -->
+							<div class="photo-row layout-two-equal">
+								<div class="photo-item">
+									<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								if len(images) > 9 {
+									<div class="photo-item">
+										<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 12 {
+							<!-- Spread 5: Small Left + Large Right -->
+							<div class="photo-row layout-large-right">
+								<div class="photo-item">
+									<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+								if len(images) > 11 {
+									<div class="photo-item">
+										<img src={ "./" + images[11] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+			<!-- SECTION 04: SOUND & MUSIC -->
+			<div class="grid-section major-break sound-section">
+				<div class="grid-row">
+					<div class="grid-col-5 sound-image-wrapper">
+						if len(images) > 17 {
+							<img src={ "./" + images[17] } alt="Sound exploration" class="sound-image"/>
+						}
+					</div>
+					<div class="grid-col-7 sound-content">
+						<h2>{ pCtx.T("arts.sound.title") }</h2>
+						<p class="sound-description">{ pCtx.T("arts.sound.text") }</p>
+					</div>
+				</div>
+			</div>
+			<!-- SECTION 05: SKETCHES & CLOSING STATEMENT -->
+			<div class="grid-section sketches-section">
+				<div class="grid-row">
+					<div class="grid-col-12">
+						<h2>{ pCtx.T("arts.sketches.title") }</h2>
+						<p class="sketches-description">{ pCtx.T("arts.sketches.text") }</p>
+					</div>
+					<div class="grid-col-8 closing-statement">
+						<p class="statement-text">{ pCtx.T("arts.outro.p1") }</p>
+						<blockquote class="statement-quote">
+							<p>{ pCtx.T("arts.outro.p2") }</p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
 	}
 }

@@ -1,20 +1,35 @@
 package layouts
 
 import "mymodules/gofolio/i18n"
+import "mymodules/gofolio/views/components"
 
 templ Navigation(pCtx i18n.PageContext) {
 	<nav aria-label="Main navigation">
-		<a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
-			<h3>SGB</h3>
-		</a>
-		<input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox"/>
-		@LanguageSwitcher(pCtx)
-		<label for="burger-toggle" class="burger-menu-label" aria-label="Toggle navigation menu">
-			<span class="burger-bar"></span>
-			<span class="burger-bar"></span>
-			<span class="burger-bar"></span>
-		</label>
-		@NavigationLinks(pCtx)
+		<div class="nav-inner">
+			<div class="nav-left-group">
+				<a id="logo-link" href={ pCtx.CurrentLangLink("/") }>
+					<h3>SGB</h3>
+				</a>
+				@LanguageSwitcher(pCtx)
+			</div>
+			<input type="checkbox" id="burger-toggle" class="burger-toggle-checkbox"/>
+			<label for="burger-toggle" class="burger-menu-label" aria-label="Toggle navigation menu">
+				<span class="burger-bar"></span>
+				<span class="burger-bar"></span>
+				<span class="burger-bar"></span>
+			</label>
+			<div class="nav-right-group">
+				@NavigationLinks(pCtx)
+				<div class="nav-utility-icons">
+					<a href="https://github.com/ShawnGB" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+						@components.Icon("github", "20", "")
+					</a>
+					<a href="https://www.linkedin.com/in/shawn-gordon-becker/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+						@components.Icon("linkedin", "20", "")
+					</a>
+				</div>
+			</div>
+		</div>
 	</nav>
 }
 
