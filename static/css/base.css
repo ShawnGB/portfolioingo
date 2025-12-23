@@ -41,6 +41,20 @@
   --link-hover: var(--ink-warm);
   --link-visited: var(--ink-soft);
 
+  /* === EDITORIAL MONOCHROME: Opacity & Effect Tokens === */
+  --opacity-editorial-number: 0.05;
+  --opacity-editorial-rule: 0.15;
+  --opacity-image-filter: 0.90;
+
+  /* Filter presets */
+  --filter-monochrome-editorial: saturate(0.82) contrast(0.92) opacity(0.90);
+
+  /* Semantic state colors (monochrome-aligned) */
+  --state-error: var(--ink-warm);
+  --state-error-bg: var(--paper-mid);
+  --state-success: var(--ink-warm);
+  --state-success-bg: var(--paper-mid);
+
   /* Legacy support */
   --linen-base: var(--paper-warm);
   --linen-light: var(--paper-light);

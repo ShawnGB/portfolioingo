@@ -9,8 +9,8 @@
   margin: 0 0 var(--space-5xl);
   background: linear-gradient(
     to bottom,
-    #f6f4f0 0%,
-    #f8f6f2 100%
+    var(--paper-mid) 0%,
+    var(--paper-warm) 100%
   );
   position: relative;
   overflow: visible;

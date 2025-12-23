@@ -204,8 +204,8 @@
 
 .form-submit-button:hover:not(:disabled) {
   background: var(--ink-soft);
-  transform: translateY(-2px); /* Increased from -1px */
-  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.15); /* Added shadow on hover */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
 }
 
 .form-submit-button:disabled {
@@ -238,12 +238,13 @@
 
 .form-error {
   font-size: 0.9375rem;
-  color: #a94442;
-  background: rgba(169, 68, 66, 0.08);
+  color: var(--state-error);
+  background: var(--state-error-bg);
   padding: var(--space-md) var(--space-lg);
-  border-left: 3px solid #a94442;
-  border-radius: 4px;
+  border-left: 3px solid var(--state-error);
+  border-radius: var(--radius-sm);
   margin-top: var(--space-md);
+  font-weight: 600;
 }
 
 
@@ -255,7 +256,7 @@
 
 .success-icon {
   font-size: 4rem;
-  color: #5cb85c;
+  color: var(--state-success);
   margin-bottom: var(--space-lg);
 }
 
@@ -361,7 +362,8 @@
   font-family: var(--font-display);
   font-size: 10rem;
   font-weight: 800;
-  color: rgba(43, 43, 43, 0.05); /* Increased from 0.02 for consistency */
+  color: var(--ink-warm);
+  opacity: var(--opacity-editorial-number);
   line-height: 1;
   pointer-events: none;
 }

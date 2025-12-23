@@ -1,6 +1,9 @@
 /* Base design system and resets - Inky Minimalism */
 @import "./css/base.css";
 
+/* Reusable utility classes */
+@import "./css/utilities.css";
+
 /* Photography integration */
 @import "./css/photo-moments.css";
 
