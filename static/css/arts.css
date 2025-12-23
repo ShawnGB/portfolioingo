@@ -1,115 +1,487 @@
-.page-intro-text .lead {
-  font-size: 1.25em;
-  color: var(--text);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  max-width: 70ch;
-}
+/* ===================================================================
+   ARTS PAGE — EDITORIAL PHOTO ESSAY
+   Magazine-quality photography showcase
+   =================================================================== */
 
-.art-category {
-  margin-bottom: 3.5rem;
-}
-
-.art-category h2 {
-  margin-bottom: 0.75rem;
-}
-
-.art-category p {
-  max-width: 70ch;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-.page-outro-text blockquote {
-  border-left: 3px solid var(--primary);
-  padding-left: 1.5em;
-  margin-left: 0;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-  color: var(--text-muted);
-  font-size: 1.1em;
-  max-width: 70ch;
-}
-
-.image-gallery__image-box {
+/* --- 1. HERO SECTION WITH FEATURED IMAGE --- */
+.arts-hero-section {
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 1 / 1;
-  border-radius: var(--radius-md);  /* Rounded corners for modern feel */
-
-  /* POLISHED: Subtle Raised Element - 1-2mm elevation */
-  box-shadow: var(--shadow-polished);
-
-  transition:
-    transform 0.3s ease-out,
-    opacity 0.3s ease-out,
-    box-shadow 0.3s ease-out,
-    z-index 0s linear 0.3s;
-  z-index: 1;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 64px;
 }
 
-.image-gallery img {
-  display: block;
+.hero-image-container {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  max-height: 800px;
+  overflow: hidden;
+  background: var(--paper-mid);
+}
+
+.arts-hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: object-fit 0.1s ease-in-out;
+  object-position: center;
+  /* Editorial monochrome treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
 }
 
-.image-gallery:hover .image-gallery__image-box {
-  opacity: 0.5;
-}
-
-.image-gallery .image-gallery__image-box:hover {
-  opacity: 1;
-  transform: scale(1.25);
-
-  z-index: 10;  /* Bring image to front */
-  box-shadow: var(--shadow-polished-hover);
-  transition-delay: 0s, 0s, 0s, 0s;
-}
-
-.image-gallery .image-gallery__image-box:hover img {
-  object-fit: contain;
-  background-color: var(--bg-color);
-}
-
-.image-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1rem;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.image-gallery__image-box .image-gallery__layover {
+.arts-hero-section .hero-overlay {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(var(--text-rgb), 0.6);
+  right: 0;
+  padding: var(--space-3xl);
+  background: linear-gradient(
+    to top,
+    rgba(242, 240, 235, 0.95) 0%,
+    rgba(242, 240, 235, 0.7) 60%,
+    transparent 100%
+  );
+}
 
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 5;
+.arts-hero-section .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-sm) 0;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.arts-hero-section .hero-subtitle {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+  max-width: 60ch;
+}
+
+/* Hero image metadata - Editorial element */
+.hero-image-metadata {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(28, 28, 28, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
   pointer-events: none;
 }
 
-.image-gallery__image-box:hover .image-gallery__layover {
-  opacity: 1;
-  pointer-events: auto;
+
+/* --- 2. INTRODUCTION SECTION --- */
+.arts-intro-section {
+  padding-top: 48px;
+  padding-bottom: 64px;
+  position: relative;
 }
 
-.image-gallery__layover-text {
-  font-size: 0.9em;
-  padding: 0.5em;
-  text-align: center;
+.intro-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-warm);
+  margin: 0;
+}
+
+.intro-text {
+  border-left: 2px solid var(--ink-warm);
+  padding-left: var(--space-lg);
+}
+
+.intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 65ch;
+}
+
+
+/* --- 3. PHOTOGRAPHY SECTION - EDITORIAL GRID --- */
+.photography-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: var(--paper-light);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Section number background - Editorial element */
+.photography-section::before {
+  content: "01";
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 800;
+  color: rgba(43, 43, 43, 0.02);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.photography-section .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  grid-column: 1 / -1;
+}
+
+.section-description {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-3xl) 0;
+  line-height: 1.6;
+}
+
+/* Editorial photo grid - Kinfolk/Cereal style */
+.photo-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+/* Photo item base */
+.photo-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper-mid);
+  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+}
+
+/* Photo metadata caption - Editorial element */
+.photo-metadata {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(28, 28, 28, 0.4);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-metadata {
+  opacity: 1;
+}
+
+/* Varying sizes for editorial rhythm */
+.photo-item.photo-large {
+  grid-column: span 8;
+  aspect-ratio: 16 / 10;
+}
+
+.photo-item.photo-medium {
+  grid-column: span 7;
+  aspect-ratio: 5 / 4;
+}
+
+.photo-item.photo-small {
+  grid-column: span 4;
+  aspect-ratio: 1 / 1;
+}
+
+.photo-item.photo-wide {
+  grid-column: span 12;
+  aspect-ratio: 21 / 9;
+}
+
+/* Photo image */
+.photo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Editorial monochrome treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.photo-item:hover .photo-image {
+  transform: scale(1.03);
+}
+
+
+/* --- 4. SOUND & MUSIC SECTION --- */
+.sound-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Section number background - Editorial element */
+.sound-section::before {
+  content: "02";
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 800;
+  color: rgba(43, 43, 43, 0.02);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sound-image-wrapper {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  background: var(--paper-mid);
+  border-radius: 4px;
+}
+
+.sound-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Editorial monochrome treatment */
+  filter: saturate(0.82) contrast(0.92) opacity(0.90);
+  mix-blend-mode: multiply;
+}
+
+.sound-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: var(--space-2xl);
+}
+
+.sound-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-lg) 0;
+  line-height: 1.2;
+}
+
+.sound-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0;
+  max-width: 55ch;
+}
+
+
+/* --- 5. SKETCHES & CLOSING STATEMENT --- */
+.sketches-section {
+  position: relative;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background: var(--paper-mid);
+  margin-left: -64px;
+  margin-right: -64px;
+  padding-left: 64px;
+  padding-right: 64px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Section number background - Editorial element */
+.sketches-section::before {
+  content: "03";
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  font-weight: 800;
+  color: rgba(43, 43, 43, 0.02);
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sketches-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  line-height: 1.2;
+  grid-column: 1 / -1;
+}
+
+.sketches-description {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-3xl) 0;
+  line-height: 1.6;
+  grid-column: 1 / -1;
+}
+
+.closing-statement {
+  padding-top: var(--space-2xl);
+  border-top: 2px solid var(--ink-warm);
+}
+
+.statement-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-2xl) 0;
+  max-width: 60ch;
+}
+
+.statement-quote {
+  position: relative;
+  padding: var(--space-2xl);
+  background: var(--paper-warm);
+  border-left: 4px solid var(--ink-warm);
+  border-radius: 4px;
+  margin: 0;
+}
+
+.statement-quote p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--ink-warm);
+  margin: 0;
+  max-width: 50ch;
+}
+
+.statement-quote::before {
+  content: """;
+  position: absolute;
+  top: -16px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  font-weight: 700;
+  color: var(--ink-warm);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+
+/* --- EDITORIAL DECORATIVE ELEMENTS --- */
+/* Vertical side label - Photography / Berlin */
+.arts-page-label {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(43, 43, 43, 0.25);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 900px) {
+  /* Hero */
+  .hero-image-container {
+    height: 50vh;
+    min-height: 400px;
+  }
+
+  .arts-hero-section .hero-overlay {
+    padding: var(--space-2xl);
+  }
+
+  /* Photo grid - stack on mobile */
+  .photo-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .photo-item.photo-large,
+  .photo-item.photo-medium,
+  .photo-item.photo-small,
+  .photo-item.photo-wide {
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Full-bleed sections */
+  .photography-section,
+  .sketches-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Sound section - stack */
+  .sound-image-wrapper {
+    height: 300px;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .sound-content {
+    padding-left: 0;
+  }
+
+  /* Closing statement */
+  .closing-statement {
+    grid-column: 1 / -1;
+  }
+
+  .statement-quote {
+    padding: var(--space-lg);
+  }
+
+  .statement-quote p {
+    font-size: 1.125rem;
+  }
+
+  /* Hide vertical label on mobile */
+  .arts-page-label {
+    display: none;
+  }
+
+  /* Smaller section numbers on mobile */
+  .photography-section::before,
+  .sound-section::before,
+  .sketches-section::before {
+    font-size: 6rem;
+  }
 }

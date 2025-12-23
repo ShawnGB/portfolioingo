@@ -5,93 +5,168 @@ import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
 templ About(pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "about.title", "about.pageSubtitle", "about.greeting.title", "about.greeting.p1", "about.pageTitle", "about.pageMetaDescription") {
-		<section>
-			<h2>{ pCtx.T("about.drivesMe.title") }</h2>
-			<div class="badges-container">
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("sparkles", "48", "")
+	// The SubpageTemplate is not used here to allow for a fully custom grid structure.
+	// We call BaseHtml directly.
+	@layouts.BaseHtml(pCtx, pCtx.T("about.pageTitle"), pCtx.T("about.pageMetaDescription")) {
+		<div class="page-grid-container">
+			<!-- 3. ABOUT INTRO -->
+			<div class="grid-section about-intro-section">
+				<div class="grid-row">
+					<div class="grid-col-4">
+						<h2 class="section-label">{ pCtx.T("about.title") }</h2>
 					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("about.drivesMe.item1.title") }</h3>
-						<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
-					</div>
-				</div>
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("heart", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("about.drivesMe.item2.title") }</h3>
-						<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
-					</div>
-				</div>
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("compass", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("about.drivesMe.item3.title") }</h3>
-						<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
-					</div>
-				</div>
-				<div class="badge">
-					<div class="badge-icon">
-						@components.Icon("award", "48", "")
-					</div>
-					<div class="badge-content">
-						<h3>{ pCtx.T("about.drivesMe.item4.title") }</h3>
-						<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
+					<div class="grid-col-8">
+						<div class="intro-content">
+							<div class="vertical-rule"></div>
+							<div class="body-text">
+								<p>{ pCtx.T("about.greeting.p1") }</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.path.title") }</h2>
-			<p>{ pCtx.T("about.path.p1") }</p>
-			<p>{ pCtx.T("about.path.p2") }</p>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.outsideScreen.title") }</h2>
-			<p>{ pCtx.T("about.outsideScreen.p1") }</p>
-			<p>{ pCtx.T("about.outsideScreen.p2") }</p>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.lookingFor.title") }</h2>
-			<p>{ pCtx.T("about.lookingFor.p1") }</p>
-			<ul>
-				<li>{ pCtx.T("about.lookingFor.item1") }</li>
-				<li>{ pCtx.T("about.lookingFor.item2") }</li>
-				<li>{ pCtx.T("about.lookingFor.item3") }</li>
-				<li>{ pCtx.T("about.lookingFor.item4") }</li>
-			</ul>
-			<p>{ pCtx.T("about.lookingFor.p2") }</p>
-			<p>{ pCtx.T("about.lookingFor.p3") }</p>
-			<p><em>{ pCtx.T("about.lookingFor.availability") }</em></p>
-			<p>
-				<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
-					@components.Icon("download", "24", "")
-					{ pCtx.T("about.lookingFor.ctaDownload") }
-				</a>
-			</p>
-		</section>
-		@layouts.SectionDivider()
-		<section>
-			<h2>{ pCtx.T("about.connect.title") }</h2>
-			<p>{ pCtx.T("about.connect.p1") }</p>
-			<p>
-				<a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
-			</p>
-			<p>
-				<a href="https://github.com/ShawnGB" class="icon-link" target="_blank" rel="noopener noreferrer">
-					@components.Icon("github", "24", "")
-					{ pCtx.T("about.connect.githubLinkText") }
-				</a>
-			</p>
-		</section>
+			<!-- 4. WHAT DRIVES ME + MY PATH -->
+			<div class="grid-section major-break drives-path-section">
+				<div class="grid-row">
+					<div class="grid-col-7">
+						<div class="body-text">
+							<ul class="values-list">
+								<li>
+									@components.Icon("compass", "20", "")
+									<div class="value-content">
+										<h3 class="subsection-header">{ pCtx.T("about.drivesMe.item1.title") }</h3>
+										<p>{ pCtx.T("about.drivesMe.item1.text") }</p>
+									</div>
+								</li>
+								<li>
+									@components.Icon("book-open", "20", "")
+									<div class="value-content">
+										<h3 class="subsection-header">{ pCtx.T("about.drivesMe.item2.title") }</h3>
+										<p>{ pCtx.T("about.drivesMe.item2.text") }</p>
+									</div>
+								</li>
+								<li>
+									@components.Icon("heart", "20", "")
+									<div class="value-content">
+										<h3 class="subsection-header">{ pCtx.T("about.drivesMe.item3.title") }</h3>
+										<p>{ pCtx.T("about.drivesMe.item3.text") }</p>
+									</div>
+								</li>
+								<li>
+									@components.Icon("users", "20", "")
+									<div class="value-content">
+										<h3 class="subsection-header">{ pCtx.T("about.drivesMe.item4.title") }</h3>
+										<p>{ pCtx.T("about.drivesMe.item4.text") }</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="grid-col-5">
+						<div class="path-label">
+							<small>My Journey</small>
+						</div>
+						<div class="body-text">
+							<p>{ pCtx.T("about.path.p1") }</p>
+							<p>{ pCtx.T("about.path.p2") }</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 5. PULL QUOTE + IMAGE + BEYOND SCREEN -->
+			<div class="grid-section quote-image-beyond-module">
+				<div class="grid-row">
+					<!-- Left: Pull Quote -->
+					<div class="grid-col-3">
+						<div class="pull-quote-wrapper">
+							<blockquote>
+								I build digital experiences that work with integrity – clear, purposeful, and grounded in respect for the people who use them.
+							</blockquote>
+						</div>
+					</div>
+					<!-- Middle: Mirror Image Slice -->
+					<div class="grid-col-4 image-wrapper-hero">
+						<img src="/static/images/DSC01643.jpg" alt="Self-reflection in mirror" loading="lazy" class="hero-portrait"/>
+						<span class="image-caption">Italy, 2025</span>
+					</div>
+					<!-- Right: Beyond the Screen -->
+					<div class="grid-col-4">
+						<div class="beyond-label-inline">
+							<h2 class="section-label">Beyond the Screen</h2>
+						</div>
+						<div class="body-text">
+							<p>{ pCtx.T("about.outsideScreen.p1") }</p>
+						</div>
+						<div class="interests-grid-inline">
+							<div class="interest-item">
+								@components.Icon("music", "18", "")
+								<span>Music</span>
+							</div>
+							<div class="interest-item">
+								@components.Icon("map", "18", "")
+								<span>Cycling</span>
+							</div>
+							<div class="interest-item">
+								@components.Icon("palette", "18", "")
+								<span>Photography</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 6. WHAT I'M LOOKING FOR -->
+			<div class="grid-section looking-for-section major-break">
+				<div class="grid-row">
+					<div class="looking-for-header">
+						<h2 class="section-header">{ pCtx.T("about.lookingFor.title") }</h2>
+					</div>
+				</div>
+				<div class="grid-row">
+					<div class="grid-col-4 looking-for-item">
+						<div class="icon-header">
+							@components.Icon("briefcase", "20", "")
+							<h3 class="subsection-header">Ideal Environment</h3>
+						</div>
+						<div class="body-text">
+							<p>{ pCtx.T("about.lookingFor.p1") }</p>
+						</div>
+					</div>
+					<div class="grid-col-4 looking-for-item">
+						<div class="icon-header">
+							@components.Icon("zap", "20", "")
+							<h3 class="subsection-header">I Thrive On</h3>
+						</div>
+						<ul>
+							<li>{ pCtx.T("about.lookingFor.item1") }</li>
+							<li>{ pCtx.T("about.lookingFor.item2") }</li>
+							<li>{ pCtx.T("about.lookingFor.item3") }</li>
+							<li>{ pCtx.T("about.lookingFor.item4") }</li>
+						</ul>
+					</div>
+					<div class="grid-col-4 looking-for-item">
+						<div class="icon-header">
+							@components.Icon("calendar", "20", "")
+							<h3 class="subsection-header">Role & Availability</h3>
+						</div>
+						<div class="body-text">
+							<p>{ pCtx.T("about.lookingFor.p2") }</p>
+							<p><em>{ pCtx.T("about.lookingFor.availability") }</em></p>
+						</div>
+					</div>
+				</div>
+				<div class="grid-row cta-footer-grid">
+					<div class="cta-button-wrapper">
+						<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
+							@components.Icon("download", "24", "")
+							{ pCtx.T("about.lookingFor.ctaDownload") }
+						</a>
+					</div>
+					<div class="contact-sentence">
+						<p>{ pCtx.T("about.connect.p1") } <a class="cta-link" href={ pCtx.CurrentLangLink("/contact") }>{ pCtx.T("about.connect.ctaText") }</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	}
 }

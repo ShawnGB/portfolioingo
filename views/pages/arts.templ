@@ -4,69 +4,177 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
 templ Arts(images []string, pCtx i18n.PageContext) {
-	@layouts.SubpageTemplate(pCtx, "arts.title", "arts.subtitle", "arts.intro.title", "arts.intro.p1", "arts.pageTitle", "arts.pageMetaDescription") {
-		<section id="photography" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.photography.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.photography.text") }
-			</p>
-			<div class="image-gallery">
-				for _,
-    image :=range images {
-					<div class="image-gallery__image-box">
-						<img
-							src={ "./" + image }
-							alt={ pCtx.T("arts.gallery.imageAlt") }
-							class="image-gallery__image"
-						/>
-						<div class="image-gallery__layover">
-							<p class="image-gallery__layover-text">
-								{ 
-          pCtx.T("arts.gallery.viewImageText") }
-							</p>
+	@layouts.BaseHtml(pCtx, pCtx.T("arts.pageTitle"), pCtx.T("arts.pageMetaDescription")) {
+		<!-- Vertical side label - Editorial element -->
+		<div class="arts-page-label">Photography / Berlin</div>
+		<div class="page-grid-container">
+			<!-- SECTION 01: HERO WITH FEATURED IMAGE -->
+			<div class="grid-section arts-hero-section">
+				<div class="grid-row">
+					<!-- Large hero image -->
+					if len(images) > 0 {
+						<div class="grid-col-12 hero-image-container">
+							<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") } class="arts-hero-image"/>
+							<!-- Hero image metadata - Editorial element -->
+							<div class="hero-image-metadata">{ images[0] } / Berlin 2024</div>
+							<div class="hero-overlay">
+								<h1 class="hero-title">{ pCtx.T("arts.title") }</h1>
+								<p class="hero-subtitle">{ pCtx.T("arts.subtitle") }</p>
+							</div>
+						</div>
+					}
+				</div>
+			</div>
+			<!-- SECTION 02: INTRODUCTION -->
+			<div class="grid-section arts-intro-section">
+				<div class="grid-row">
+					<div class="grid-col-4">
+						<h2 class="intro-label">{ pCtx.T("arts.intro.title") }</h2>
+					</div>
+					<div class="grid-col-8">
+						<div class="intro-text">
+							<p>{ pCtx.T("arts.intro.p1") }</p>
 						</div>
 					</div>
-				}
+				</div>
 			</div>
-		</section>
-		@layouts.SectionDivider()
-		<section id="sound-music" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.sound.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.sound.text") }
-			</p>
-			<div class="media-content-area"></div>
-		</section>
-		@layouts.SectionDivider()
-		<section id="sketches-studies" class="art-category">
-			<h2>
-				{ 
-    pCtx.T("arts.sketches.title") }
-			</h2>
-			<p>
-				{ 
-    pCtx.T("arts.sketches.text") }
-			</p>
-			<div class="visual-content-area"></div>
-		</section>
-		@layouts.SectionDivider()
-		<section class="page-outro-text">
-			<p>
-				{ 
-    pCtx.T("arts.outro.p1") }
-			</p>
-			<blockquote>
-				{ 
-    pCtx.T("arts.outro.p2") }
-			</blockquote>
-		</section>
+			<!-- SECTION 03: PHOTOGRAPHY - EDITORIAL GRID -->
+			<div class="grid-section major-break photography-section">
+				<div class="grid-row">
+					<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
+					<p class="section-description grid-col-12">{ pCtx.T("arts.photography.text") }</p>
+					<!-- Editorial photo grid - varying sizes for visual interest -->
+					<div class="grid-col-12 photo-editorial-grid">
+						if len(images) > 1 {
+							<!-- Row 1: Large + Small + Small -->
+							if len(images) > 1 {
+								<div class="photo-item photo-large">
+									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+									<div class="photo-metadata">{ images[1] } / Berlin</div>
+								</div>
+							}
+							if len(images) > 2 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 3 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 2: Small + Medium -->
+							if len(images) > 4 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[4] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 5 {
+								<div class="photo-item photo-medium">
+									<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 3: Wide + Small -->
+							if len(images) > 6 {
+								<div class="photo-item photo-wide">
+									<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+									<div class="photo-metadata">{ images[6] } / 2024</div>
+								</div>
+							}
+							if len(images) > 7 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 4: Small + Small + Medium -->
+							if len(images) > 8 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 9 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 10 {
+								<div class="photo-item photo-medium">
+									<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 5: Large + Small -->
+							if len(images) > 11 {
+								<div class="photo-item photo-large">
+									<img src={ "./" + images[11] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+									<div class="photo-metadata">{ images[11] } / Berlin 2024</div>
+								</div>
+							}
+							if len(images) > 12 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[12] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 6: Medium + Small + Small -->
+							if len(images) > 13 {
+								<div class="photo-item photo-medium">
+									<img src={ "./" + images[13] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 14 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[14] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							if len(images) > 15 {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[15] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Row 7: Wide -->
+							if len(images) > 16 {
+								<div class="photo-item photo-wide">
+									<img src={ "./" + images[16] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+							<!-- Remaining images as small items -->
+							for i := 17; i < len(images); i++ {
+								<div class="photo-item photo-small">
+									<img src={ "./" + images[i] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								</div>
+							}
+						}
+					</div>
+				</div>
+			</div>
+			<!-- SECTION 04: SOUND & MUSIC -->
+			<div class="grid-section major-break sound-section">
+				<div class="grid-row">
+					<div class="grid-col-5 sound-image-wrapper">
+						if len(images) > 17 {
+							<img src={ "./" + images[17] } alt="Sound exploration" class="sound-image"/>
+						}
+					</div>
+					<div class="grid-col-7 sound-content">
+						<h2>{ pCtx.T("arts.sound.title") }</h2>
+						<p class="sound-description">{ pCtx.T("arts.sound.text") }</p>
+					</div>
+				</div>
+			</div>
+			<!-- SECTION 05: SKETCHES & CLOSING STATEMENT -->
+			<div class="grid-section sketches-section">
+				<div class="grid-row">
+					<div class="grid-col-12">
+						<h2>{ pCtx.T("arts.sketches.title") }</h2>
+						<p class="sketches-description">{ pCtx.T("arts.sketches.text") }</p>
+					</div>
+					<div class="grid-col-8 closing-statement">
+						<p class="statement-text">{ pCtx.T("arts.outro.p1") }</p>
+						<blockquote class="statement-quote">
+							<p>{ pCtx.T("arts.outro.p2") }</p>
+						</blockquote>
+					</div>
+				</div>
+			</div>
+		</div>
 	}
 }

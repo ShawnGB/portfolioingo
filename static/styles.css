@@ -1,9 +1,20 @@
+/* Base design system and resets - Inky Minimalism */
 @import "./css/base.css";
+
+/* Photography integration */
+@import "./css/photo-moments.css";
+
+/* Layout components */
 @import "./css/nav.css";
 @import "./css/footer.css";
-@import "./css/icons.css";
-@import "./css/arts.css";
-@import "./css/projects.css";
+
+/* Page-specific styles */
 @import "./css/home.css";
-@import "./css/contact.css";
+@import "./css/about.css";
+@import "./css/projects.css";
 @import "./css/experience.css";
+@import "./css/arts.css";
+@import "./css/contact.css";
+
+/* Utility styles */
+@import "./css/icons.css";
