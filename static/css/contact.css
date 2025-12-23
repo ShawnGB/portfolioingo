@@ -3,167 +3,108 @@
    Professional contact page with visual hierarchy
    =================================================================== */
 
-/* --- 1. HERO SECTION WITH IMAGE --- */
-.contact-hero-section {
+/* --- 1. CLEAN INTRO SECTION (MATCH ABOUT/ARTS) --- */
+.contact-intro-header {
+  padding-top: 48px;
   position: relative;
-  min-height: 600px;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 80px;
 }
 
-.contact-hero-section .grid-row {
-  position: relative;
-  align-items: stretch;
-  min-height: 600px;
-}
-
-/* Hero image */
-.contact-hero-section .hero-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  background: var(--paper-mid);
-}
-
-.contact-hero-section .hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  /* Editorial monochrome image treatment */
-  filter: saturate(0.82) contrast(0.92) opacity(0.90);
-  mix-blend-mode: multiply;
-}
-
-/* Hero content overlay */
-.contact-hero-section .hero-content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--paper-warm);
-  padding: var(--space-3xl);
-}
-
-.hero-content-inner {
-  max-width: 100%;
-}
-
-.contact-hero-section .hero-content .section-label {
+.contact-title {
   font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.5rem; /* Match About/Arts page H2 scale */
+  font-weight: 600; /* Match About/Arts page weight */
   color: var(--text-primary);
-  margin: 0 0 var(--space-sm) 0;
-  line-height: 1.1;
+  margin: 0;
 }
 
-.contact-hero-section .hero-subtitle {
-  font-family: var(--font-body);
-  font-style: italic;
+.contact-intro-text {
+  border-left: 2px solid var(--ink-warm); /* Match About/Arts page style */
+  padding-left: var(--space-lg);
+}
+
+.contact-intro-text p {
   font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin: 0 0 var(--space-2xl) 0;
-  line-height: 1.5;
-}
-
-.hero-intro {
-  border-top: 2px solid var(--ink-warm);
-  padding-top: var(--space-lg);
-}
-
-.intro-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-warm);
-  margin: 0 0 var(--space-md) 0;
-}
-
-.hero-intro p {
-  font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: var(--text-secondary);
   margin: 0;
+  max-width: 65ch;
 }
 
 
 /* --- 2. CONTACT DETAILS SECTION --- */
 .contact-details-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
 }
 
 .section-header {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
-  margin: 0 0 var(--space-3xl) 0;
+  margin: 0 0 var(--space-2xl) 0;
   line-height: 1.2;
 }
 
-/* Contact details grid - monochrome editorial design */
-.contact-details-grid {
+/* Clean typographic contact list */
+.contact-details-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-2xl);
-  margin-bottom: var(--space-2xl);
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3xl) var(--space-2xl);
+  margin-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .contact-detail-item {
-  position: relative;
-  padding: var(--space-xl);
-  background: var(--paper-light);
-  border-left: 2px solid var(--ink-warm);
-  border-radius: 4px;
-  transition: transform 0.3s ease;
+  grid-column: span 4;
 }
 
-.contact-detail-item:hover {
-  transform: translateY(-2px);
-}
-
-.contact-detail-item h3 {
+.contact-detail-label {
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
+  color: var(--ink-muted);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.contact-detail-content {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.contact-detail-content p {
+  margin: 0 0 var(--space-xs) 0;
+  max-width: none;
+}
+
+.contact-detail-content p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-detail-content a {
   color: var(--ink-warm);
-  margin: 0 0 var(--space-md) 0;
-}
-
-.contact-detail-item p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-.contact-detail-item p + p {
-  margin-top: var(--space-xs);
-}
-
-.contact-detail-item a {
-  color: var(--text-secondary);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
+  border-bottom: 1px solid var(--ink-warm);
+  padding-bottom: 1px;
+  transition: opacity 0.2s ease;
 }
 
-.contact-detail-item a:hover {
-  border-bottom-color: var(--ink-warm);
+.contact-detail-content a:hover {
+  opacity: 0.65;
 }
 
 
 /* --- 3. CONTACT FORM SECTION - EDITORIAL LAYOUT --- */
 .contact-form-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
   background: var(--paper-mid);
   margin-left: -64px;
   margin-right: -64px;
@@ -175,8 +116,8 @@
 
 .form-section-label {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
   margin: 0 0 var(--space-lg) 0;
   line-height: 1.2;
@@ -187,14 +128,16 @@
   line-height: 1.7;
   color: var(--text-secondary);
   margin: 0;
+  max-width: 65ch;
 }
 
 
-/* --- 4. FORM EDITORIAL DESIGN --- */
+/* --- 4. FORM EDITORIAL DESIGN - SINGLE COLUMN --- */
 .contact-form-editorial {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  max-width: 600px; /* Comfortable reading width */
   width: 100%;
 }
 
@@ -204,36 +147,28 @@
   gap: var(--space-sm);
 }
 
-.form-field-full {
-  grid-column: 1 / -1;
-}
-
 .form-label {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--ink-warm);
 }
 
-/* Form inputs - Sunken effect */
 .form-input,
 .form-select,
 .form-textarea {
   font-family: var(--font-body);
   font-size: 1rem;
-  color: var(--text-primary);
-  background: var(--paper-light);
-  border: 1px solid var(--border-medium);
+  padding: var(--space-md);
+  border: 1px solid var(--border-subtle);
   border-radius: 4px;
-  padding: var(--space-md) var(--space-lg);
+  background: var(--paper-warm);
+  color: var(--text-primary);
+  transition: border-color 0.2s ease;
+  width: 100%;
   box-sizing: border-box;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  /* Sunken effect */
-  box-shadow:
-    inset 0 1px 3px rgba(43, 43, 43, 0.06),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .form-input:focus,
@@ -241,38 +176,16 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--ink-warm);
-  box-shadow:
-    inset 0 1px 3px rgba(43, 43, 43, 0.06),
-    inset 0 -1px 1px rgba(255, 255, 255, 0.3),
-    0 0 0 3px rgba(43, 43, 43, 0.08);
 }
 
 .form-input,
 .form-select {
-  height: 48px;
+  height: 52px; /* Increased from 48px for better touch targets */
 }
 
 .form-textarea {
   resize: vertical;
-  min-height: 120px;
-  line-height: 1.6;
-}
-
-.form-select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232b2b2b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right var(--space-md) center;
-  padding-right: calc(var(--space-lg) + var(--space-xl));
-}
-
-/* Form actions */
-.form-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
+  min-height: 150px;
 }
 
 .form-submit-button {
@@ -283,14 +196,16 @@
   background: var(--ink-warm);
   border: none;
   border-radius: 4px;
-  padding: var(--space-md) var(--space-2xl);
+  padding: var(--space-lg) var(--space-3xl); /* Increased padding for more presence */
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.05em; /* Subtle letter-spacing for refinement */
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.3s ease;
 }
 
 .form-submit-button:hover:not(:disabled) {
   background: var(--ink-soft);
-  transform: translateY(-1px);
+  transform: translateY(-2px); /* Increased from -1px */
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.15); /* Added shadow on hover */
 }
 
 .form-submit-button:disabled {
@@ -298,20 +213,30 @@
   cursor: not-allowed;
 }
 
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
 .loading-indicator {
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  color: var(--text-tertiary);
+  color: var(--text-secondary);
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .loading-indicator.htmx-request {
   opacity: 1;
 }
 
+/* hCaptcha widget styling */
+.h-captcha {
+  margin: var(--space-md) 0;
+}
+
 .form-error {
-  grid-column: 1 / -1;
   font-size: 0.9375rem;
   color: #a94442;
   background: rgba(169, 68, 66, 0.08);
@@ -324,21 +249,13 @@
 
 /* --- 5. SUCCESS STATE - HTMX SWAP --- */
 .contact-success-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4xl) var(--space-2xl);
   text-align: center;
-  background: var(--paper-light);
-  border: 2px solid var(--ink-warm);
-  border-radius: 4px;
+  padding: var(--space-4xl) var(--space-2xl);
 }
 
 .success-icon {
   font-size: 4rem;
-  line-height: 1;
-  color: var(--ink-warm);
+  color: #5cb85c;
   margin-bottom: var(--space-lg);
 }
 
@@ -352,39 +269,52 @@
 
 .success-message {
   font-size: 1.125rem;
-  line-height: 1.7;
+  line-height: 1.6;
   color: var(--text-secondary);
   margin: 0 0 var(--space-2xl) 0;
-  max-width: 45ch;
 }
 
 .success-link {
+  display: inline-block;
   font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--ink-warm);
+  color: var(--paper-warm);
+  background: var(--ink-warm);
+  padding: var(--space-md) var(--space-2xl);
+  border-radius: 4px;
   text-decoration: none;
-  border-bottom: 2px solid var(--ink-warm);
-  padding-bottom: 3px;
-  transition: opacity 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .success-link:hover {
-  opacity: 0.65;
+  background: var(--ink-soft);
 }
 
 
 /* --- 6. REACH OUT IF SECTION --- */
 .contact-cta-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
+}
+
+/* Editorial hairline above section */
+.contact-cta-section::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--ink-warm);
+  opacity: 0.2;
 }
 
 .contact-cta-section h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
   margin: 0 0 var(--space-2xl) 0;
   line-height: 1.2;
@@ -397,11 +327,11 @@
 }
 
 .reach-out-list li {
-  font-size: 1.125rem;
+  font-size: 1.1875rem; /* Increased from 1.125rem */
   line-height: 1.8;
   color: var(--text-secondary);
   padding-left: var(--space-xl);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-lg); /* Increased from --space-md */
   position: relative;
 }
 
@@ -410,14 +340,13 @@
   position: absolute;
   left: 0;
   color: var(--ink-warm);
-  font-weight: 600;
+  font-size: 1rem;
 }
 
-.closing-statement {
+.closing-text {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
-  max-width: 65ch;
   margin: 0;
 }
 
@@ -432,7 +361,7 @@
   font-family: var(--font-display);
   font-size: 10rem;
   font-weight: 800;
-  color: rgba(43, 43, 43, 0.02);
+  color: rgba(43, 43, 43, 0.05); /* Increased from 0.02 for consistency */
   line-height: 1;
   pointer-events: none;
 }
@@ -442,38 +371,22 @@
   position: fixed;
   right: 2rem;
   top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: rgba(43, 43, 43, 0.25);
-  white-space: nowrap;
+  color: var(--ink-muted);
+  opacity: 0.5;
   pointer-events: none;
+  z-index: 10;
 }
 
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 900px) {
-  /* Hero section */
-  .contact-hero-section {
-    min-height: auto;
-  }
-
-  .contact-hero-section .grid-row {
-    min-height: auto;
-    flex-direction: column-reverse;
-  }
-
-  .contact-hero-section .hero-image-wrapper {
-    min-height: 300px;
-  }
-
-  .contact-hero-section .hero-content {
-    padding: var(--space-2xl);
-  }
-
-  /* Full-bleed section */
+  /* Full-bleed sections */
   .contact-form-section {
     margin-left: -24px;
     margin-right: -24px;
@@ -481,16 +394,21 @@
     padding-right: 24px;
   }
 
-  /* Contact details grid */
-  .contact-details-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+  .contact-form-section,
+  .contact-details-section,
+  .contact-cta-section {
+    padding-top: 72px; /* Increased from 60px for better mobile spacing */
+    padding-bottom: 72px;
   }
 
-  /* Form - single column on mobile */
-  .contact-form-editorial {
+  /* Contact details list */
+  .contact-details-list {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
+    gap: var(--space-2xl);
+  }
+
+  .contact-detail-item {
+    grid-column: 1 / -1;
   }
 
   /* Hide vertical label on mobile */
@@ -498,25 +416,8 @@
     display: none;
   }
 
-  /* Section number smaller */
+  /* Smaller section numbers on mobile */
   .contact-form-section::before {
     font-size: 6rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .section-header {
-    font-size: clamp(1.5rem, 4vw, 1.75rem);
-  }
-
-  .contact-form-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
-
-  .contact-details-section,
-  .contact-cta-section {
-    padding-top: 60px;
-    padding-bottom: 60px;
   }
 }

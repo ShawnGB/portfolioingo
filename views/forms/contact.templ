@@ -19,61 +19,61 @@ type ContactFormData struct {
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
 		<div class="page-grid-container">
-			<!-- SECTION 01: HERO WITH IMAGE -->
-			<div class="grid-section contact-hero-section">
+			<!-- SECTION 01: CLEAN INTRO (LIKE ABOUT/ARTS) -->
+			<div class="grid-section contact-intro-header">
 				<div class="grid-row">
-					<!-- Hero image -->
-					<div class="grid-col-7 hero-image-wrapper">
-						<img src="/static/images/DSC01643.jpg" alt="Collaboration workspace" class="hero-image"/>
+					<div class="grid-col-4">
+						<h1 class="contact-title">{ pCtx.T("contact.title") }</h1>
 					</div>
-					<!-- Hero content overlay -->
-					<div class="grid-col-5 hero-content">
-						<div class="hero-content-inner">
-							<h1 class="section-label">{ pCtx.T("contact.title") }</h1>
-							<p class="hero-subtitle">{ pCtx.T("contact.subtitle") }</p>
-							<div class="hero-intro">
-								<h2 class="intro-label">{ pCtx.T("contact.intro.title") }</h2>
-								<p>{ pCtx.T("contact.intro.p1") }</p>
-							</div>
+					<div class="grid-col-8">
+						<div class="contact-intro-text">
+							<p><em>{ pCtx.T("contact.subtitle") }</em></p>
+							<p>{ pCtx.T("contact.intro.p1") }</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 02: CONTACT DETAILS COMPACT -->
+			<!-- SECTION 02: CONTACT DETAILS - CLEAN TYPOGRAPHY -->
 			<div class="grid-section major-break contact-details-section">
 				<div class="grid-row">
 					<div class="grid-col-12">
 						<h2 class="section-header">{ pCtx.T("contact.details.title") }</h2>
-						<div class="contact-details-grid">
+						<div class="contact-details-list">
 							<div class="contact-detail-item">
-								<h3>Address</h3>
-								<p>Shawn Gordon Becker</p>
-								<p>Baseler Str 38</p>
-								<p>12205 Berlin, Germany</p>
+								<div class="contact-detail-label">Address</div>
+								<div class="contact-detail-content">
+									<p>Shawn Gordon Becker</p>
+									<p>Baseler Str 38</p>
+									<p>12205 Berlin, Germany</p>
+								</div>
 							</div>
 							<div class="contact-detail-item">
-								<h3>Phone</h3>
-								<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
+								<div class="contact-detail-label">Phone</div>
+								<div class="contact-detail-content">
+									<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
+								</div>
 							</div>
 							<div class="contact-detail-item">
-								<h3>Email</h3>
-								<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
+								<div class="contact-detail-label">Email</div>
+								<div class="contact-detail-content">
+									<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 03: CONTACT FORM - EDITORIAL LAYOUT -->
+			<!-- SECTION 03: CONTACT FORM - CLEAN SINGLE COLUMN -->
 			<div class="grid-section major-break contact-form-section">
 				<div class="grid-row">
-					<div class="grid-col-4">
+					<div class="grid-col-12">
 						<h2 class="form-section-label">{ pCtx.T("contact.intro.p2") }</h2>
 						<p class="form-section-description">
 							<strong>{ pCtx.T("contact.intro.availability") }</strong>
 						</p>
-					</div>
-					<div class="grid-col-8">
-						@ContactFormPartial(data, pCtx)
+						<div style="margin-top: var(--space-3xl);">
+							@ContactFormPartial(data, pCtx)
+						</div>
 					</div>
 				</div>
 			</div>

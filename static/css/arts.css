@@ -3,82 +3,31 @@
    Magazine-quality photography showcase
    =================================================================== */
 
-/* --- 1. HERO SECTION WITH FEATURED IMAGE --- */
-.arts-hero-section {
+/* --- 1. INTRO SECTION (MATCH ABOUT PAGE) --- */
+.arts-intro-header {
+  padding-top: 48px;
   position: relative;
-  padding-top: 0;
-  padding-bottom: 0;
-  margin-bottom: 64px;
 }
 
-.hero-image-container {
-  position: relative;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 800px;
-  overflow: hidden;
-  background: var(--paper-mid);
-}
-
-.arts-hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  /* Editorial monochrome treatment */
-  filter: saturate(0.82) contrast(0.92) opacity(0.90);
-  mix-blend-mode: multiply;
-}
-
-.arts-hero-section .hero-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-3xl);
-  background: linear-gradient(
-    to top,
-    rgba(242, 240, 235, 0.95) 0%,
-    rgba(242, 240, 235, 0.7) 60%,
-    transparent 100%
-  );
-}
-
-.arts-hero-section .hero-title {
+.arts-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
+  font-size: 1.5rem; /* Match About page H2 scale */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
-  margin: 0 0 var(--space-sm) 0;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  margin: 0;
 }
 
-.arts-hero-section .hero-subtitle {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: clamp(1.125rem, 2vw, 1.5rem);
+.arts-intro-text {
+  border-left: 2px solid var(--ink-warm); /* Match About page style */
+  padding-left: var(--space-lg);
+}
+
+.arts-intro-text p {
+  font-size: 1.125rem;
+  line-height: 1.8;
   color: var(--text-secondary);
   margin: 0;
-  line-height: 1.4;
-  max-width: 60ch;
-}
-
-/* Hero image metadata - Editorial element */
-.hero-image-metadata {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(28, 28, 28, 0.4);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 0.75rem;
-  border-radius: 2px;
-  pointer-events: none;
+  max-width: 65ch;
 }
 
 
@@ -116,8 +65,8 @@
 /* --- 3. PHOTOGRAPHY SECTION - EDITORIAL GRID --- */
 .photography-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for better breathing room */
+  padding-bottom: 96px;
   background: var(--paper-light);
   margin-left: -64px;
   margin-right: -64px;
@@ -136,7 +85,7 @@
   font-family: var(--font-display);
   font-size: 10rem;
   font-weight: 800;
-  color: rgba(43, 43, 43, 0.02);
+  color: rgba(43, 43, 43, 0.05); /* Increased from 0.02 for consistency */
   line-height: 1;
   pointer-events: none;
   z-index: 0;
@@ -144,8 +93,8 @@
 
 .photography-section .section-header {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
   margin: 0 0 var(--space-md) 0;
   grid-column: 1 / -1;
@@ -158,91 +107,150 @@
   color: var(--text-secondary);
   margin: 0 0 var(--space-3xl) 0;
   line-height: 1.6;
+  letter-spacing: 0.01em; /* Subtle spacing for readability */
 }
 
-/* Editorial photo grid - Kinfolk/Cereal style */
-.photo-editorial-grid {
+/* MAGAZINE SPREAD LAYOUTS - Multiple Row Compositions */
+
+/* Base photo row - full width container */
+.photo-row {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 24px;
   width: 100%;
+  margin-bottom: 64px; /* Generous space between spreads */
 }
 
-/* Photo item base */
+/* Photo item base - clean, minimal */
 .photo-item {
   position: relative;
   overflow: hidden;
-  background: var(--paper-mid);
-  border-radius: 4px;
-  aspect-ratio: 4 / 3;
+  background: var(--paper-warm);
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Photo metadata caption - Editorial element */
-.photo-metadata {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(28, 28, 28, 0.4);
-  backdrop-filter: blur(8px);
-  padding: 0.5rem 0.75rem;
-  border-radius: 2px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.photo-item:hover .photo-metadata {
-  opacity: 1;
-}
-
-/* Varying sizes for editorial rhythm */
-.photo-item.photo-large {
-  grid-column: span 8;
-  aspect-ratio: 16 / 10;
-}
-
-.photo-item.photo-medium {
-  grid-column: span 7;
-  aspect-ratio: 5 / 4;
-}
-
-.photo-item.photo-small {
-  grid-column: span 4;
-  aspect-ratio: 1 / 1;
-}
-
-.photo-item.photo-wide {
-  grid-column: span 12;
-  aspect-ratio: 21 / 9;
-}
-
-/* Photo image */
-.photo-image {
+.photo-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  display: block;
   /* Editorial monochrome treatment */
   filter: saturate(0.82) contrast(0.92) opacity(0.90);
   mix-blend-mode: multiply;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.photo-item:hover .photo-image {
-  transform: scale(1.03);
+.photo-item:hover {
+  transform: scale(0.98);
+  opacity: 0.85;
+}
+
+/* === LAYOUT COMPOSITIONS === */
+
+/* Hero Full Width - Keep it SHORT like a header accent */
+.photo-row.layout-hero .photo-item {
+  grid-column: 1 / -1;
+  height: 280px; /* Fixed height - simple and effective */
+}
+
+/* Two Column Equal */
+.photo-row.layout-two-equal .photo-item:nth-child(1) {
+  grid-column: span 6;
+  aspect-ratio: 4 / 5;
+  max-height: 500px;
+}
+
+.photo-row.layout-two-equal .photo-item:nth-child(2) {
+  grid-column: span 6;
+  aspect-ratio: 4 / 5;
+  max-height: 500px;
+}
+
+/* Large Left + Small Right Stack */
+.photo-row.layout-large-left .photo-item:nth-child(1) {
+  grid-column: span 8;
+  aspect-ratio: 16 / 10;
+  grid-row: span 2;
+  max-height: 500px; /* Prevent it from getting too tall */
+}
+
+.photo-row.layout-large-left .photo-item:nth-child(2) {
+  grid-column: span 4;
+  aspect-ratio: 1 / 1;
+  max-height: 240px;
+}
+
+.photo-row.layout-large-left .photo-item:nth-child(3) {
+  grid-column: span 4;
+  aspect-ratio: 1 / 1;
+  max-height: 240px;
+}
+
+/* Three Column - Portrait */
+.photo-row.layout-three-portrait .photo-item {
+  grid-column: span 4;
+  aspect-ratio: 3 / 4;
+  max-height: 450px;
+}
+
+/* Asymmetric - 5-7 Split */
+.photo-row.layout-asymmetric .photo-item:nth-child(1) {
+  grid-column: span 5;
+  aspect-ratio: 3 / 4;
+  max-height: 450px;
+}
+
+.photo-row.layout-asymmetric .photo-item:nth-child(2) {
+  grid-column: span 7;
+  aspect-ratio: 16 / 10;
+  max-height: 400px;
+}
+
+/* Small Left + Large Right */
+.photo-row.layout-large-right .photo-item:nth-child(1) {
+  grid-column: span 4;
+  aspect-ratio: 1 / 1;
+  max-height: 350px;
+}
+
+.photo-row.layout-large-right .photo-item:nth-child(2) {
+  grid-column: span 8;
+  aspect-ratio: 16 / 10;
+  max-height: 450px;
+}
+
+/* === MOBILE RESPONSIVE === */
+
+@media (max-width: 900px) {
+  .photo-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  /* All layouts stack to single column on mobile */
+  .photo-row.layout-hero .photo-item {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    height: 240px; /* Smaller on mobile */
+  }
+
+  .photo-row.layout-two-equal .photo-item,
+  .photo-row.layout-large-left .photo-item,
+  .photo-row.layout-three-portrait .photo-item,
+  .photo-row.layout-asymmetric .photo-item,
+  .photo-row.layout-large-right .photo-item {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 
 /* --- 4. SOUND & MUSIC SECTION --- */
 .sound-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
 }
 
 /* Section number background - Editorial element */
@@ -254,7 +262,7 @@
   font-family: var(--font-display);
   font-size: 10rem;
   font-weight: 800;
-  color: rgba(43, 43, 43, 0.02);
+  color: rgba(43, 43, 43, 0.05); /* Increased from 0.02 for consistency */
   line-height: 1;
   pointer-events: none;
   z-index: 0;
@@ -287,8 +295,8 @@
 
 .sound-content h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
   margin: 0 0 var(--space-lg) 0;
   line-height: 1.2;
@@ -306,8 +314,8 @@
 /* --- 5. SKETCHES & CLOSING STATEMENT --- */
 .sketches-section {
   position: relative;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-bottom: 96px;
   background: var(--paper-mid);
   margin-left: -64px;
   margin-right: -64px;
@@ -325,7 +333,7 @@
   font-family: var(--font-display);
   font-size: 10rem;
   font-weight: 800;
-  color: rgba(43, 43, 43, 0.02);
+  color: rgba(43, 43, 43, 0.05); /* Increased from 0.02 for consistency */
   line-height: 1;
   pointer-events: none;
   z-index: 0;
@@ -333,8 +341,8 @@
 
 .sketches-section h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+  font-size: 1.5rem; /* Match About page consistency */
+  font-weight: 600; /* Match About page weight */
   color: var(--text-primary);
   margin: 0 0 var(--space-md) 0;
   line-height: 1.2;
@@ -417,30 +425,6 @@
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 900px) {
-  /* Hero */
-  .hero-image-container {
-    height: 50vh;
-    min-height: 400px;
-  }
-
-  .arts-hero-section .hero-overlay {
-    padding: var(--space-2xl);
-  }
-
-  /* Photo grid - stack on mobile */
-  .photo-editorial-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .photo-item.photo-large,
-  .photo-item.photo-medium,
-  .photo-item.photo-small,
-  .photo-item.photo-wide {
-    grid-column: span 1;
-    aspect-ratio: 4 / 3;
-  }
-
   /* Full-bleed sections */
   .photography-section,
   .sketches-section {

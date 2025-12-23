@@ -8,140 +8,98 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 		<!-- Vertical side label - Editorial element -->
 		<div class="arts-page-label">Photography / Berlin</div>
 		<div class="page-grid-container">
-			<!-- SECTION 01: HERO WITH FEATURED IMAGE -->
-			<div class="grid-section arts-hero-section">
-				<div class="grid-row">
-					<!-- Large hero image -->
-					if len(images) > 0 {
-						<div class="grid-col-12 hero-image-container">
-							<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") } class="arts-hero-image"/>
-							<!-- Hero image metadata - Editorial element -->
-							<div class="hero-image-metadata">{ images[0] } / Berlin 2024</div>
-							<div class="hero-overlay">
-								<h1 class="hero-title">{ pCtx.T("arts.title") }</h1>
-								<p class="hero-subtitle">{ pCtx.T("arts.subtitle") }</p>
-							</div>
-						</div>
-					}
-				</div>
-			</div>
-			<!-- SECTION 02: INTRODUCTION -->
-			<div class="grid-section arts-intro-section">
+			<!-- SECTION 01: INTRO (LIKE ABOUT PAGE) -->
+			<div class="grid-section arts-intro-header">
 				<div class="grid-row">
 					<div class="grid-col-4">
-						<h2 class="intro-label">{ pCtx.T("arts.intro.title") }</h2>
+						<h1 class="arts-title">{ pCtx.T("arts.title") }</h1>
 					</div>
 					<div class="grid-col-8">
-						<div class="intro-text">
+						<div class="arts-intro-text">
+							<p><em>{ pCtx.T("arts.subtitle") }</em></p>
 							<p>{ pCtx.T("arts.intro.p1") }</p>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 03: PHOTOGRAPHY - EDITORIAL GRID -->
+			<!-- SECTION 02: PHOTOGRAPHY - MAGAZINE SPREAD LAYOUTS -->
 			<div class="grid-section major-break photography-section">
 				<div class="grid-row">
-					<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
-					<p class="section-description grid-col-12">{ pCtx.T("arts.photography.text") }</p>
-					<!-- Editorial photo grid - varying sizes for visual interest -->
-					<div class="grid-col-12 photo-editorial-grid">
-						if len(images) > 1 {
-							<!-- Row 1: Large + Small + Small -->
-							if len(images) > 1 {
-								<div class="photo-item photo-large">
-									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-									<div class="photo-metadata">{ images[1] } / Berlin</div>
+					<div class="grid-col-12">
+						<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
+						<p class="section-description">{ pCtx.T("arts.photography.text") }</p>
+					</div>
+					<div class="grid-col-12">
+						if len(images) >= 3 {
+							<!-- Spread 1: Large Left + Two Small Right -->
+							<div class="photo-row layout-large-left">
+								<div class="photo-item">
+									<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							if len(images) > 2 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								<div class="photo-item">
+									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							if len(images) > 3 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								if len(images) > 2 {
+									<div class="photo-item">
+										<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 6 {
+							<!-- Spread 2: Three Column Portrait -->
+							<div class="photo-row layout-three-portrait">
+								<div class="photo-item">
+									<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							<!-- Row 2: Small + Medium -->
-							if len(images) > 4 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[4] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								<div class="photo-item">
+									<img src={ "./" + images[4] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							if len(images) > 5 {
-								<div class="photo-item photo-medium">
-									<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								if len(images) > 5 {
+									<div class="photo-item">
+										<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 8 {
+							<!-- Spread 3: Asymmetric Split -->
+							<div class="photo-row layout-asymmetric">
+								<div class="photo-item">
+									<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							<!-- Row 3: Wide + Small -->
-							if len(images) > 6 {
-								<div class="photo-item photo-wide">
-									<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-									<div class="photo-metadata">{ images[6] } / 2024</div>
+								if len(images) > 7 {
+									<div class="photo-item">
+										<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 10 {
+							<!-- Spread 4: Two Column Equal -->
+							<div class="photo-row layout-two-equal">
+								<div class="photo-item">
+									<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							if len(images) > 7 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
+								if len(images) > 9 {
+									<div class="photo-item">
+										<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
+						}
+						if len(images) >= 12 {
+							<!-- Spread 5: Small Left + Large Right -->
+							<div class="photo-row layout-large-right">
+								<div class="photo-item">
+									<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-							}
-							<!-- Row 4: Small + Small + Medium -->
-							if len(images) > 8 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							if len(images) > 9 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							if len(images) > 10 {
-								<div class="photo-item photo-medium">
-									<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							<!-- Row 5: Large + Small -->
-							if len(images) > 11 {
-								<div class="photo-item photo-large">
-									<img src={ "./" + images[11] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-									<div class="photo-metadata">{ images[11] } / Berlin 2024</div>
-								</div>
-							}
-							if len(images) > 12 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[12] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							<!-- Row 6: Medium + Small + Small -->
-							if len(images) > 13 {
-								<div class="photo-item photo-medium">
-									<img src={ "./" + images[13] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							if len(images) > 14 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[14] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							if len(images) > 15 {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[15] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							<!-- Row 7: Wide -->
-							if len(images) > 16 {
-								<div class="photo-item photo-wide">
-									<img src={ "./" + images[16] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
-							<!-- Remaining images as small items -->
-							for i := 17; i < len(images); i++ {
-								<div class="photo-item photo-small">
-									<img src={ "./" + images[i] } alt={ pCtx.T("arts.gallery.imageAlt") } class="photo-image"/>
-								</div>
-							}
+								if len(images) > 11 {
+									<div class="photo-item">
+										<img src={ "./" + images[11] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									</div>
+								}
+							</div>
 						}
 					</div>
 				</div>
