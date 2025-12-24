@@ -1,24 +1,40 @@
 /* ===================================================================
-   CONTACT PAGE — EDITORIAL MONOCHROME
-   Professional contact page with visual hierarchy
+   CONTACT PAGE REDESIGN — EDITORIAL MONOCHROME WITH VARIETY
+   Asymmetric layouts inspired by About page's editorial design
    =================================================================== */
 
-/* --- 1. CLEAN INTRO SECTION (MATCH ABOUT/ARTS) --- */
+/* --- 1. CLEAN INTRO SECTION (3/9 SPLIT - ALREADY GOOD) --- */
 .contact-intro-header {
   padding-top: 48px;
   position: relative;
 }
 
+/* Large decorative section number "01" */
+.contact-intro-header::before {
+  content: "01";
+  position: absolute;
+  top: 0;
+  left: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .contact-title {
   font-family: var(--font-display);
-  font-size: 1.5rem; /* Match About/Arts page H2 scale */
-  font-weight: 600; /* Match About/Arts page weight */
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin: 0;
 }
 
 .contact-intro-text {
-  border-left: 2px solid var(--ink-warm); /* Match About/Arts page style */
+  border-left: 2px solid var(--ink-warm);
   padding-left: var(--space-lg);
 }
 
@@ -26,42 +42,89 @@
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--text-secondary);
-  margin: 0;
+  margin: 0 0 var(--space-lg) 0;
   max-width: 65ch;
 }
 
+/* Pull quote - editorial warmth */
+.contact-pull-quote {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink-warm);
+  margin: var(--space-3xl) 0 0 0;
+  padding: 0;
+  border: none;
+  max-width: 50ch;
+}
 
-/* --- 2. CONTACT DETAILS SECTION --- */
+
+/* --- 2. CONTACT DETAILS SECTION - ASYMMETRIC 5/7 SPLIT --- */
 .contact-details-section {
   position: relative;
-  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-top: 96px;
   padding-bottom: 96px;
+}
+
+/* Large decorative section number "02" */
+.contact-details-section::before {
+  content: "02";
+  position: absolute;
+  top: -48px;
+  right: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Editorial hairline above section */
+.contact-details-section::after {
+  content: "";
+  position: absolute;
+  top: -48px;
+  left: 0;
+  width: 4rem;
+  height: 1px;
+  background: rgba(43, 43, 43, 0.15);
 }
 
 .section-header {
   font-family: var(--font-display);
-  font-size: 1.5rem; /* Match About page consistency */
-  font-weight: 600; /* Match About page weight */
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin: 0 0 var(--space-2xl) 0;
   line-height: 1.2;
 }
 
-/* Clean typographic contact list */
-.contact-details-list {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-3xl) var(--space-2xl);
-  margin-top: var(--space-2xl);
-  padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--border-subtle);
+/* Compact cards in left column */
+.contact-details-compact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
 }
 
-.contact-detail-item {
-  grid-column: span 4;
+.contact-card {
+  padding: var(--space-lg);
+  background: var(--paper-mid);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.contact-detail-label {
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
+}
+
+.contact-card-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
@@ -71,23 +134,22 @@
   margin: 0 0 var(--space-sm) 0;
 }
 
-.contact-detail-content {
+.contact-card-content {
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-primary);
 }
 
-.contact-detail-content p {
+.contact-card-content p {
   margin: 0 0 var(--space-xs) 0;
-  max-width: none;
 }
 
-.contact-detail-content p:last-child {
+.contact-card-content p:last-child {
   margin-bottom: 0;
 }
 
-.contact-detail-content a {
+.contact-card-content a {
   color: var(--ink-warm);
   text-decoration: none;
   border-bottom: 1px solid var(--ink-warm);
@@ -95,15 +157,87 @@
   transition: opacity 0.2s ease;
 }
 
-.contact-detail-content a:hover {
+.contact-card-content a:hover {
   opacity: 0.65;
 }
 
+/* Map-style decoration in right column */
+.map-decoration {
+  height: 100%;
+  min-height: 400px;
+  background: var(--paper-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
 
-/* --- 3. CONTACT FORM SECTION - EDITORIAL LAYOUT --- */
+/* Grid pattern background */
+.map-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(43, 43, 43, 0.04) 49px, rgba(43, 43, 43, 0.04) 50px),
+    repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(43, 43, 43, 0.04) 49px, rgba(43, 43, 43, 0.04) 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Map marker */
+.map-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.marker-dot {
+  width: 24px;
+  height: 24px;
+  background: var(--ink-warm);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(125, 102, 85, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 8px rgba(125, 102, 85, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(125, 102, 85, 0.1);
+  }
+}
+
+.marker-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.coordinates {
+  position: absolute;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+
+/* --- 3. CONTACT FORM SECTION - ASYMMETRIC 4/8 SPLIT --- */
 .contact-form-section {
   position: relative;
-  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-top: 96px;
   padding-bottom: 96px;
   background: var(--paper-mid);
   margin-left: -64px;
@@ -114,30 +248,108 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 
+/* Large decorative section number "03" */
+.contact-form-section::after {
+  content: "03";
+  position: absolute;
+  top: 24px;
+  left: -32px;
+  font-family: var(--font-display);
+  font-size: 12rem;
+  font-weight: 800;
+  color: var(--ink-warm);
+  opacity: 0.05;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Left sidebar: Contact methods */
+.contact-methods-sidebar {
+  position: sticky;
+  top: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.methods-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-md) 0;
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--ink-warm);
+}
+
+.method-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.method-card:hover {
+  transform: translateX(4px);
+  box-shadow: -4px 0 0 var(--ink-warm);
+}
+
+.method-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.method-content {
+  flex: 1;
+}
+
+.method-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.method-desc {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.availability-note {
+  margin-top: var(--space-xl);
+  padding: var(--space-md);
+  background: var(--paper-light);
+  border-left: 3px solid var(--ink-warm);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Right column: Form */
 .form-section-label {
   font-family: var(--font-display);
-  font-size: 1.5rem; /* Match About page consistency */
-  font-weight: 600; /* Match About page weight */
+  font-size: 1.5rem;
+  font-weight: 600;
   color: var(--text-primary);
   margin: 0 0 var(--space-lg) 0;
   line-height: 1.2;
 }
 
-.form-section-description {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
-  max-width: 65ch;
-}
 
-
-/* --- 4. FORM EDITORIAL DESIGN - SINGLE COLUMN --- */
+/* --- 4. FORM EDITORIAL DESIGN - FULL WIDTH IN 8-COL --- */
 .contact-form-editorial {
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  max-width: 600px; /* Comfortable reading width */
   width: 100%;
 }
 
@@ -180,7 +392,7 @@
 
 .form-input,
 .form-select {
-  height: 52px; /* Increased from 48px for better touch targets */
+  height: 52px;
 }
 
 .form-textarea {
@@ -196,9 +408,9 @@
   background: var(--ink-warm);
   border: none;
   border-radius: 4px;
-  padding: var(--space-lg) var(--space-3xl); /* Increased padding for more presence */
+  padding: var(--space-lg) var(--space-3xl);
   cursor: pointer;
-  letter-spacing: 0.05em; /* Subtle letter-spacing for refinement */
+  letter-spacing: 0.05em;
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.3s ease;
 }
 
@@ -293,101 +505,105 @@
 }
 
 
-/* --- 6. REACH OUT IF SECTION --- */
+/* --- 6. REACH OUT IF SECTION - PLAYFUL CARD ARRANGEMENT --- */
 .contact-cta-section {
   position: relative;
-  padding-top: 96px; /* Increased from 80px for consistency */
+  padding-top: 96px;
   padding-bottom: 96px;
 }
 
-/* Editorial hairline above section */
+/* Large decorative section number "04" */
 .contact-cta-section::before {
-  content: "";
+  content: "04";
   position: absolute;
-  top: 48px;
-  left: 0;
-  width: 4rem;
-  height: 2px;
-  background: var(--ink-warm);
-  opacity: 0.2;
-}
-
-.contact-cta-section h2 {
+  top: -24px;
+  right: -32px;
   font-family: var(--font-display);
-  font-size: 1.5rem; /* Match About page consistency */
-  font-weight: 600; /* Match About page weight */
-  color: var(--text-primary);
-  margin: 0 0 var(--space-2xl) 0;
-  line-height: 1.2;
-}
-
-.reach-out-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-3xl) 0;
-}
-
-.reach-out-list li {
-  font-size: 1.1875rem; /* Increased from 1.125rem */
-  line-height: 1.8;
-  color: var(--text-secondary);
-  padding-left: var(--space-xl);
-  margin-bottom: var(--space-lg); /* Increased from --space-md */
-  position: relative;
-}
-
-.reach-out-list li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
+  font-size: 12rem;
+  font-weight: 800;
+  line-height: 1;
   color: var(--ink-warm);
-  font-size: 1rem;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.closing-text {
+.cta-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3xl) 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.cta-cards-row {
+  margin-bottom: var(--space-xl);
+}
+
+.cta-card {
+  /* Grid column already defined by grid-col-* classes */
+}
+
+.cta-card-inner {
+  position: relative;
+  padding: var(--space-xl);
+  background: var(--paper-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.cta-card-inner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(43, 43, 43, 0.12);
+}
+
+.cta-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--ink-warm);
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.cta-card-inner p {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--text-secondary);
   margin: 0;
+  flex: 1;
+}
+
+.closing-statement {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin: var(--space-3xl) 0 0 0;
+  text-align: center;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
-/* --- 7. EDITORIAL DECORATIVE ELEMENTS --- */
-/* Section number background */
-.contact-form-section::before {
-  content: "03";
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-family: var(--font-display);
-  font-size: 10rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: var(--opacity-editorial-number);
-  line-height: 1;
-  pointer-events: none;
-}
-
-/* Vertical side label */
-.contact-page-label {
-  position: fixed;
-  right: 2rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(90deg);
-  transform-origin: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--ink-muted);
-  opacity: 0.5;
-  pointer-events: none;
-  z-index: 10;
-}
-
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
+/* --- 7. RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 900px) {
+  /* Hide decorative numbers on mobile */
+  .contact-intro-header::before,
+  .contact-details-section::before,
+  .contact-form-section::after,
+  .contact-cta-section::before {
+    display: none;
+  }
+
   /* Full-bleed sections */
   .contact-form-section {
     margin-left: -24px;
@@ -399,27 +615,31 @@
   .contact-form-section,
   .contact-details-section,
   .contact-cta-section {
-    padding-top: 72px; /* Increased from 60px for better mobile spacing */
+    padding-top: 72px;
     padding-bottom: 72px;
   }
 
-  /* Contact details list */
-  .contact-details-list {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+  /* Map decoration mobile adjustments */
+  .map-decoration {
+    min-height: 300px;
   }
 
-  .contact-detail-item {
-    grid-column: 1 / -1;
+  /* Methods sidebar no longer sticky on mobile */
+  .contact-methods-sidebar {
+    position: static;
+    margin-bottom: var(--space-2xl);
   }
 
-  /* Hide vertical label on mobile */
-  .contact-page-label {
-    display: none;
+  /* CTA cards stack on mobile */
+  .cta-cards-row {
+    gap: var(--space-lg) 0;
   }
 
-  /* Smaller section numbers on mobile */
-  .contact-form-section::before {
-    font-size: 6rem;
+  .cta-card {
+    margin-bottom: var(--space-lg);
+  }
+
+  .cta-card:last-child {
+    margin-bottom: 0;
   }
 }

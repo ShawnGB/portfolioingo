@@ -8,7 +8,7 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 		<!-- Vertical side label - Editorial element -->
 		<div class="arts-page-label">Photography / Berlin</div>
 		<div class="page-grid-container">
-			<!-- SECTION 01: INTRO (LIKE ABOUT PAGE) -->
+			<!-- SECTION 01: INTRO -->
 			<div class="grid-section arts-intro-header">
 				<div class="grid-row">
 					<div class="grid-col-4">
@@ -22,109 +22,239 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 02: PHOTOGRAPHY - MAGAZINE SPREAD LAYOUTS -->
+			<!-- SECTION 02: PHOTOGRAPHY - TRUE MAGAZINE VARIETY -->
 			<div class="grid-section major-break photography-section">
 				<div class="grid-row">
 					<div class="grid-col-12">
 						<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
 						<p class="section-description">{ pCtx.T("arts.photography.text") }</p>
 					</div>
-					<div class="grid-col-12">
-						if len(images) >= 3 {
-							<!-- Spread 1: Large Left + Two Small Right -->
-							<div class="photo-row layout-large-left">
-								<div class="photo-item">
-									<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+				</div>
+				<!-- EDITORIAL PHOTO SPREADS - EACH UNIQUE -->
+				<div class="photo-spreads">
+					if len(images) >= 2 {
+						<!-- Spread 1: FULL BLEED OPENER + SMALL INSET -->
+						<div class="spread spread-opener">
+							<div class="photo-fullbleed">
+								<img src={ "./" + images[0] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-meta-overlay">
+									<span class="meta-number">01</span>
+									<span class="meta-location">Berlin, Kreuzberg — 2025</span>
 								</div>
-								<div class="photo-item">
-									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
-								</div>
-								if len(images) > 2 {
-									<div class="photo-item">
-										<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
-									</div>
-								}
 							</div>
-						}
-						if len(images) >= 6 {
-							<!-- Spread 2: Three Column Portrait -->
-							<div class="photo-row layout-three-portrait">
-								<div class="photo-item">
-									<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							if len(images) > 1 {
+								<div class="photo-inset">
+									<img src={ "./" + images[1] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+									<div class="photo-metadata">
+										<p class="photo-metadata-camera">Leica M10, 35mm f/2.0</p>
+										<p class="photo-metadata-location">Rooftop view, early morning</p>
+									</div>
 								</div>
-								<div class="photo-item">
+							}
+						</div>
+					}
+					if len(images) >= 5 {
+						<!-- Spread 2: ASYMMETRIC OVERLAP - Two photos, second overlaps first -->
+						<div class="spread spread-overlap">
+							<div class="photo-base">
+								<img src={ "./" + images[2] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-metadata">
+									<p class="photo-metadata-filename">{ images[2] }</p>
+									<p class="photo-metadata-location">Mitte, 2024</p>
+								</div>
+							</div>
+							<div class="photo-floating">
+								<img src={ "./" + images[3] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-meta-side">
+									<span class="meta-detail">Detail / Window reflection</span>
+								</div>
+							</div>
+							if len(images) > 4 {
+								<div class="photo-vertical">
 									<img src={ "./" + images[4] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 								</div>
-								if len(images) > 5 {
-									<div class="photo-item">
-										<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
-									</div>
-								}
-							</div>
-						}
-						if len(images) >= 8 {
-							<!-- Spread 3: Asymmetric Split -->
-							<div class="photo-row layout-asymmetric">
-								<div class="photo-item">
-									<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							}
+						</div>
+					}
+					if len(images) >= 7 {
+						<!-- Spread 3: GRID BREAKER - One rotated, tight gaps -->
+						<div class="spread spread-rotated">
+							<div class="photo-tight-left">
+								<img src={ "./" + images[5] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-metadata">
+									<p class="photo-metadata-camera">Sony A7III, 50mm f/1.4</p>
+									<p class="photo-metadata-location">Friedrichshain evening</p>
 								</div>
-								if len(images) > 7 {
-									<div class="photo-item">
-										<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
-									</div>
-								}
 							</div>
-						}
-						if len(images) >= 10 {
-							<!-- Spread 4: Two Column Equal -->
-							<div class="photo-row layout-two-equal">
-								<div class="photo-item">
-									<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							<div class="photo-tilted">
+								<img src={ "./" + images[6] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="tilt-label">
+									<span>Unplanned moment</span>
 								</div>
-								if len(images) > 9 {
-									<div class="photo-item">
-										<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
-									</div>
-								}
 							</div>
-						}
-						if len(images) >= 12 {
-							<!-- Spread 5: Small Left + Large Right -->
-							<div class="photo-row layout-large-right">
-								<div class="photo-item">
-									<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+						</div>
+					}
+					if len(images) >= 10 {
+						<!-- Spread 4: THREE VERTICALS - Varied widths -->
+						<div class="spread spread-three-varied">
+							<div class="photo-narrow">
+								<img src={ "./" + images[7] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							</div>
+							<div class="photo-wide">
+								<img src={ "./" + images[8] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-metadata">
+									<p class="photo-metadata-filename">{ images[8] }</p>
+									<p class="photo-metadata-location">Prenzlauer Berg, 2024</p>
 								</div>
-								if len(images) > 11 {
-									<div class="photo-item">
+							</div>
+							if len(images) > 9 {
+								<div class="photo-medium">
+									<img src={ "./" + images[9] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+							}
+						</div>
+					}
+					if len(images) >= 12 {
+						<!-- Spread 5: CINEMATIC WIDE + STACKED SQUARES -->
+						<div class="spread spread-cinematic">
+							<div class="photo-letterbox">
+								<img src={ "./" + images[10] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="letterbox-meta">
+									<span class="meta-aspect">21:9 — Panoramic</span>
+									<span class="meta-location">Spree riverside, golden hour</span>
+								</div>
+							</div>
+							if len(images) > 11 {
+								<div class="photo-squares">
+									<div class="square-item">
 										<img src={ "./" + images[11] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
 									</div>
-								}
+									if len(images) > 12 {
+										<div class="square-item">
+											<img src={ "./" + images[12] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+										</div>
+									}
+								</div>
+							}
+						</div>
+					}
+					if len(images) >= 15 {
+						<!-- Spread 6: FULL BLEED DIVIDER + CAPTION -->
+						<div class="spread spread-divider">
+							<div class="photo-bleed-divider">
+								<img src={ "./" + images[13] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							</div>
+							<div class="divider-caption">
+								<p class="caption-text">
+									<em>"The city reveals itself in fragments — light, shadow, reflections.
+									Each frame is a conversation between what's there and what I see."</em>
+								</p>
+								<p class="caption-credit">Berlin series, 2024–2025</p>
+							</div>
+						</div>
+					}
+					if len(images) >= 17 {
+						<!-- Spread 7: L-SHAPE LAYOUT -->
+						<div class="spread spread-lshape">
+							<div class="photo-horizontal">
+								<img src={ "./" + images[14] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<div class="photo-metadata">
+									<p class="photo-metadata-camera">Fuji X100V, 23mm f/2.0</p>
+									<p class="photo-metadata-location">Italy, 2025</p>
+								</div>
+							</div>
+							<div class="photo-vertical-tall">
+								<img src={ "./" + images[15] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+							</div>
+							if len(images) > 16 {
+								<div class="photo-small-corner">
+									<img src={ "./" + images[16] } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								</div>
+							}
+						</div>
+					}
+				</div>
+			</div>
+			<!-- SECTION 03: SOUND & MUSIC - UNIQUE LAYOUT -->
+			<div class="grid-section major-break sound-section">
+				<div class="sound-layout">
+					<!-- Sound visual element - waveform style -->
+					<div class="sound-visual">
+						if len(images) > 17 {
+							<div class="sound-image-frame">
+								<img src={ "./" + images[17] } alt="Sound exploration" class="sound-image"/>
+								<div class="sound-overlay">
+									<svg class="waveform-decoration" width="200" height="80" viewBox="0 0 200 80">
+										<path d="M0,40 Q10,20 20,40 T40,40 T60,40 T80,40 T100,40 T120,40 T140,40 T160,40 T180,40 T200,40" stroke="rgba(255,255,255,0.3)" stroke-width="2" fill="none"></path>
+										<path d="M0,40 Q10,50 20,40 T40,40 T60,40 T80,40 T100,40 T120,40 T140,40 T160,40 T180,40 T200,40" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"></path>
+									</svg>
+								</div>
 							</div>
 						}
 					</div>
-				</div>
-			</div>
-			<!-- SECTION 04: SOUND & MUSIC -->
-			<div class="grid-section major-break sound-section">
-				<div class="grid-row">
-					<div class="grid-col-5 sound-image-wrapper">
-						if len(images) > 17 {
-							<img src={ "./" + images[17] } alt="Sound exploration" class="sound-image"/>
-						}
-					</div>
-					<div class="grid-col-7 sound-content">
-						<h2>{ pCtx.T("arts.sound.title") }</h2>
+					<div class="sound-content">
+						<div class="sound-header">
+							<span class="sound-number">03</span>
+							<h2>{ pCtx.T("arts.sound.title") }</h2>
+						</div>
 						<p class="sound-description">{ pCtx.T("arts.sound.text") }</p>
+						<div class="sound-details">
+							<div class="sound-detail-item">
+								<span class="detail-label">Instruments</span>
+								<span class="detail-value">Guitar, Bass, Keys</span>
+							</div>
+							<div class="sound-detail-item">
+								<span class="detail-label">Genres</span>
+								<span class="detail-value">Jazz, Ambient, Electronic</span>
+							</div>
+							<div class="sound-detail-item">
+								<span class="detail-label">Approach</span>
+								<span class="detail-value">Improvisation & layering</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 05: SKETCHES & CLOSING STATEMENT -->
+			<!-- SECTION 04: SKETCHES - SCATTERED LAYOUT -->
 			<div class="grid-section sketches-section">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<h2>{ pCtx.T("arts.sketches.title") }</h2>
-						<p class="sketches-description">{ pCtx.T("arts.sketches.text") }</p>
+				<div class="sketches-header">
+					<h2>{ pCtx.T("arts.sketches.title") }</h2>
+					<p class="sketches-description">{ pCtx.T("arts.sketches.text") }</p>
+				</div>
+				<!-- Visual suggestion of scattered sketches -->
+				<div class="sketches-visual">
+					<div class="sketch-placeholder sketch-1">
+						<div class="sketch-frame">
+							<svg viewBox="0 0 100 140" class="sketch-icon">
+								<rect x="10" y="10" width="80" height="120" fill="none" stroke="currentColor" stroke-width="1"></rect>
+								<line x1="20" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="1"></line>
+								<line x1="20" y1="50" x2="70" y2="50" stroke="currentColor" stroke-width="1"></line>
+								<line x1="20" y1="70" x2="75" y2="70" stroke="currentColor" stroke-width="1"></line>
+							</svg>
+							<span class="sketch-label">Architecture</span>
+						</div>
 					</div>
+					<div class="sketch-placeholder sketch-2">
+						<div class="sketch-frame">
+							<svg viewBox="0 0 120 100" class="sketch-icon">
+								<circle cx="60" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1"></circle>
+								<path d="M30,50 Q45,30 60,50 T90,50" fill="none" stroke="currentColor" stroke-width="1"></path>
+							</svg>
+							<span class="sketch-label">Portraits</span>
+						</div>
+					</div>
+					<div class="sketch-placeholder sketch-3">
+						<div class="sketch-frame">
+							<svg viewBox="0 0 100 100" class="sketch-icon">
+								<path d="M20,80 Q30,20 50,40 T80,80" fill="none" stroke="currentColor" stroke-width="1"></path>
+								<path d="M15,75 L85,75" stroke="currentColor" stroke-width="1"></path>
+							</svg>
+							<span class="sketch-label">Urban scenes</span>
+						</div>
+					</div>
+				</div>
+				<!-- Closing statement -->
+				<div class="grid-row">
 					<div class="grid-col-8 closing-statement">
 						<p class="statement-text">{ pCtx.T("arts.outro.p1") }</p>
 						<blockquote class="statement-quote">

@@ -19,76 +19,153 @@ type ContactFormData struct {
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
 		<div class="page-grid-container">
-			<!-- SECTION 01: CLEAN INTRO (LIKE ABOUT/ARTS) -->
+			<!-- SECTION 01: INTRO - ASYMMETRIC 3/9 SPLIT WITH PULL QUOTE -->
 			<div class="grid-section contact-intro-header">
 				<div class="grid-row">
-					<div class="grid-col-4">
+					<div class="grid-col-3">
 						<h1 class="contact-title">{ pCtx.T("contact.title") }</h1>
 					</div>
-					<div class="grid-col-8">
+					<div class="grid-col-9">
 						<div class="contact-intro-text">
 							<p><em>{ pCtx.T("contact.subtitle") }</em></p>
 							<p>{ pCtx.T("contact.intro.p1") }</p>
+							<!-- Pull quote editorial -->
+							<blockquote class="contact-pull-quote">
+								No pitch required. Just real conversation.
+							</blockquote>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 02: CONTACT DETAILS - CLEAN TYPOGRAPHY -->
+			<!-- SECTION 02: CONTACT DETAILS - ASYMMETRIC 5/7 SPLIT WITH MAP-STYLE DECORATION -->
 			<div class="grid-section major-break contact-details-section">
 				<div class="grid-row">
-					<div class="grid-col-12">
+					<!-- Left: Contact info in compact cards -->
+					<div class="grid-col-5">
 						<h2 class="section-header">{ pCtx.T("contact.details.title") }</h2>
-						<div class="contact-details-list">
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Address</div>
-								<div class="contact-detail-content">
+						<div class="contact-details-compact">
+							<div class="contact-card">
+								<div class="contact-card-label">Address</div>
+								<div class="contact-card-content">
 									<p>Shawn Gordon Becker</p>
 									<p>Baseler Str 38</p>
 									<p>12205 Berlin, Germany</p>
 								</div>
 							</div>
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Phone</div>
-								<div class="contact-detail-content">
+							<div class="contact-card">
+								<div class="contact-card-label">Phone</div>
+								<div class="contact-card-content">
 									<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
 								</div>
 							</div>
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Email</div>
-								<div class="contact-detail-content">
+							<div class="contact-card">
+								<div class="contact-card-label">Email</div>
+								<div class="contact-card-content">
 									<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!-- Right: Map-style decorative element -->
+					<div class="grid-col-7">
+						<div class="map-decoration">
+							<div class="map-grid">
+								<div class="map-marker">
+									<div class="marker-dot"></div>
+									<div class="marker-label">Berlin</div>
+								</div>
+								<div class="coordinates">52.4372° N, 13.3545° E</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<!-- SECTION 03: CONTACT FORM - CLEAN SINGLE COLUMN -->
+			<!-- SECTION 03: CONTACT FORM - ASYMMETRIC 4/8 SPLIT (METHODS + FORM) -->
 			<div class="grid-section major-break contact-form-section">
 				<div class="grid-row">
-					<div class="grid-col-12">
+					<!-- Left: Contact methods as stacked cards -->
+					<div class="grid-col-4">
+						<div class="contact-methods-sidebar">
+							<h3 class="methods-title">How to reach me</h3>
+							<div class="method-card">
+								<div class="method-icon">✉</div>
+								<div class="method-content">
+									<div class="method-label">Email me</div>
+									<div class="method-desc">Best for detailed inquiries</div>
+								</div>
+							</div>
+							<div class="method-card">
+								<div class="method-icon">☎</div>
+								<div class="method-content">
+									<div class="method-label">Call me</div>
+									<div class="method-desc">For quick questions</div>
+								</div>
+							</div>
+							<div class="method-card">
+								<div class="method-icon">💼</div>
+								<div class="method-content">
+									<div class="method-label">LinkedIn</div>
+									<div class="method-desc">Professional network</div>
+								</div>
+							</div>
+							<div class="availability-note">
+								<strong>{ pCtx.T("contact.intro.availability") }</strong>
+							</div>
+						</div>
+					</div>
+					<!-- Right: The actual form (8 columns) -->
+					<div class="grid-col-8">
 						<h2 class="form-section-label">{ pCtx.T("contact.intro.p2") }</h2>
-						<p class="form-section-description">
-							<strong>{ pCtx.T("contact.intro.availability") }</strong>
-						</p>
-						<div style="margin-top: var(--space-3xl);">
+						<div style="margin-top: var(--space-xl);">
 							@ContactFormPartial(data, pCtx)
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 04: REACH OUT IF -->
+			<!-- SECTION 04: REACH OUT IF - PLAYFUL CARD ARRANGEMENT -->
 			<div class="grid-section contact-cta-section">
 				<div class="grid-row">
 					<div class="grid-col-12">
-						<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
-						<ul class="reach-out-list">
-							<li>{ pCtx.T("contact.reachOutIf.item1") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item2") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item3") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item4") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item5") }</li>
-						</ul>
+						<h2 class="cta-main-title">{ pCtx.T("contact.reachOutIf.title") }</h2>
+					</div>
+				</div>
+				<div class="grid-row cta-cards-row">
+					<!-- 5 cards in varied widths: 3/4/5 or 4/4/4 pattern -->
+					<div class="grid-col-4 cta-card">
+						<div class="cta-card-inner">
+							<div class="cta-number">01</div>
+							<p>{ pCtx.T("contact.reachOutIf.item1") }</p>
+						</div>
+					</div>
+					<div class="grid-col-4 cta-card">
+						<div class="cta-card-inner">
+							<div class="cta-number">02</div>
+							<p>{ pCtx.T("contact.reachOutIf.item2") }</p>
+						</div>
+					</div>
+					<div class="grid-col-4 cta-card">
+						<div class="cta-card-inner">
+							<div class="cta-number">03</div>
+							<p>{ pCtx.T("contact.reachOutIf.item3") }</p>
+						</div>
+					</div>
+				</div>
+				<div class="grid-row cta-cards-row">
+					<div class="grid-col-6 cta-card">
+						<div class="cta-card-inner">
+							<div class="cta-number">04</div>
+							<p>{ pCtx.T("contact.reachOutIf.item4") }</p>
+						</div>
+					</div>
+					<div class="grid-col-6 cta-card">
+						<div class="cta-card-inner">
+							<div class="cta-number">05</div>
+							<p>{ pCtx.T("contact.reachOutIf.item5") }</p>
+						</div>
+					</div>
+				</div>
+				<div class="grid-row">
+					<div class="grid-col-12">
 						<p class="closing-statement">{ pCtx.T("contact.outro.p1") }</p>
 					</div>
 				</div>
