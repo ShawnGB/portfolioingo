@@ -1,305 +1,253 @@
 /* ==========================================
-   UTILITIES.CSS - Reusable Design Patterns
+   UTILITIES.CSS - BASELINE PATTERNS ONLY
    ========================================== */
 
 /*
-  This file contains extracted CSS patterns that were duplicated
-  across multiple page-specific stylesheets. By centralizing these
-  patterns, we reduce code duplication and ensure consistency.
+  This file contains ONLY patterns that exist in the baseline pages:
+  - home.css (homepage/index)
+  - about.css (about page)
+  - base.css (global base styles)
+
+  DO NOT add patterns from Arts, Experience, Projects, or Contact pages.
+  Those pages should be redesigned to use these baseline utilities.
 */
 
 /* ========================================
-   SECTION DECORATIONS
+   IMAGE STYLES
    ======================================== */
 
-/* Section Numbers - Large decorative numbers in background */
-.section-number::before {
-  content: attr(data-number);
-  position: absolute;
-  top: -0.5rem;
-  left: 0;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: var(--opacity-editorial-number);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Variants for different contexts */
-.section-number--large::before {
-  font-size: 14rem;
-}
-
-.section-number--small::before {
-  font-size: 10rem;
-}
-
-.section-number--centered::before {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.section-number--right::before {
-  left: auto;
-  right: 0;
-}
-
-/* ========================================
-   EDITORIAL HAIRLINES
-   ======================================== */
-
-/* Thin decorative rules for visual separation */
-.hairline::before {
-  content: '';
-  position: absolute;
-  height: 1px;
-  background: var(--ink-warm);
-  opacity: var(--opacity-editorial-rule);
-  pointer-events: none;
-}
-
-/* Horizontal hairline */
-.hairline--horizontal::before {
-  width: 4rem;
-  height: 1px;
-}
-
-.hairline--horizontal-thick::before {
-  width: 6rem;
-  height: 2px;
-}
-
-/* Top positioned hairline */
-.hairline--top::before {
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* Bottom positioned hairline */
-.hairline--bottom::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--ink-warm);
-  opacity: var(--opacity-editorial-rule);
-  pointer-events: none;
-}
-
-/* Narrow width variant */
-.hairline--narrow::before {
-  width: 60%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* ========================================
-   IMAGE FILTERS & TREATMENTS
-   ======================================== */
-
-/* Editorial monochrome image style */
+/* Editorial monochrome image style - from home.css line 39, about.css line 263 */
 .img-editorial {
-  filter: var(--filter-monochrome-editorial);
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.90;
   mix-blend-mode: multiply;
 }
 
-/* Interactive editorial images with hover effect */
-.img-editorial--interactive {
-  filter: var(--filter-monochrome-editorial);
-  mix-blend-mode: multiply;
-  transition: filter 0.3s ease;
-}
-
-.img-editorial--interactive:hover {
-  filter: saturate(1) contrast(1) opacity(1);
-}
-
-/* Image with depth gradient overlay */
-.img-with-depth {
-  position: relative;
-}
-
-.img-with-depth::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  pointer-events: none;
-  z-index: 1;
+/* Image caption - from about.css lines 283-291 */
+.image-caption {
+  display: block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
 }
 
 /* ========================================
    TYPOGRAPHY PATTERNS
    ======================================== */
 
-/* Section headers - consistent styling across pages */
+/* Section header - from about.css line 328 */
 .section-header {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Section label - from about.css line 59 */
+.section-label {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-  line-height: 1.2;
+  margin: 0;
 }
 
-.section-header--large {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+/* Subsection header - from about.css lines 160-166 */
+.subsection-header {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
 }
 
-/* Intro/lead text styling */
-.intro-text {
+/* Intro content wrapper with left padding - from about.css lines 67-70 */
+.intro-content {
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+/* Body text container - from about.css lines 82-87 */
+.body-text p {
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--text-secondary);
   max-width: 65ch;
 }
 
-.intro-text--large {
-  font-size: 1.25rem;
-  line-height: 1.7;
+/* Vertical rule - from about.css lines 72-80 */
+.vertical-rule {
+  position: absolute;
+  left: 0;
+  top: 0.25rem;
+  width: 1px;
+  height: 90%;
+  background-color: var(--border-subtle);
+  opacity: 0.8;
 }
 
-/* Vertical rule/border accent */
-.border-left-accent {
-  border-left: 2px solid var(--ink-warm);
-  padding-left: var(--space-lg);
+/* Pull quote wrapper with editorial hairline - from about.css lines 222-247 */
+.pull-quote-wrapper {
+  position: relative;
+  padding-top: 2rem;
 }
 
-.border-left-subtle {
-  border-left: 1px solid var(--border-subtle);
-  padding-left: var(--space-lg);
+.pull-quote-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--ink-warm);
+  opacity: 0.2;
+}
+
+.pull-quote-wrapper blockquote {
+  font-style: italic;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  line-height: 1.5;
+  color: var(--ink-warm);
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Icon header - from about.css lines 337-351 */
+.icon-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-md);
+}
+
+.icon-header .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
 }
 
 /* ========================================
-   HOVER EFFECTS & INTERACTIONS
+   LABELS
    ======================================== */
 
-/* Opacity fade on hover */
-.hover-fade {
-  transition: opacity 0.2s ease;
+/* Mono label - based on about.css .path-label small (lines 187-194) */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin: 0;
+  display: block;
 }
 
-.hover-fade:hover {
-  opacity: 0.65;
-}
+/* ========================================
+   CARDS & CONTAINERS
+   ======================================== */
 
-.hover-fade--strong:hover {
-  opacity: 0.5;
-}
-
-/* Lift effect on hover */
-.hover-lift {
+/* Base card - from about.css .interest-item (lines 432-446) */
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.hover-lift:hover {
+/* Card hover - from about.css .interest-item:hover (lines 448-451) */
+.card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
 }
 
-.hover-lift--strong {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card .icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
-.hover-lift--strong:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
+/* ========================================
+   LIST PATTERNS
+   ======================================== */
+
+/* Icon list - from about.css .values-list (lines 139-173) */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Underline animation on hover */
-.hover-underline {
+.values-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: 24px;
+}
+
+.values-list .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.3rem;
+  opacity: 0.7;
+}
+
+.values-list .value-content p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Checkmarked list - from about.css .looking-for-item ul (lines 357-378) */
+.checkmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkmark-list li {
   position: relative;
-  text-decoration: none;
+  padding-left: 1.25rem;
+  margin-bottom: 6px;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
 }
 
-.hover-underline::after {
-  content: '';
+.checkmark-list li::before {
+  content: "✓";
   position: absolute;
-  bottom: -2px;
   left: 0;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.3s ease;
+  color: var(--ink-warm);
+  opacity: 0.5;
 }
-
-.hover-underline:hover::after {
-  width: 100%;
-}
-
-/* ========================================
-   LAYOUT UTILITIES
-   ======================================== */
-
-/* Full-bleed section (breaks out of container) */
-.section-bleed {
-  margin-left: calc(-1 * var(--space-3xl));
-  margin-right: calc(-1 * var(--space-3xl));
-  padding-left: var(--space-3xl);
-  padding-right: var(--space-3xl);
-}
-
-@media (max-width: 900px) {
-  .section-bleed {
-    margin-left: calc(-1 * var(--space-xl));
-    margin-right: calc(-1 * var(--space-xl));
-    padding-left: var(--space-xl);
-    padding-right: var(--space-xl);
-  }
-}
-
-/* Section with top border */
-.section-bordered-top {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: var(--space-2xl);
-}
-
-/* ========================================
-   SPACING UTILITIES
-   ======================================== */
-
-/* Margin utilities */
-.mb-0 { margin-bottom: 0; }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-.mb-2xl { margin-bottom: var(--space-2xl); }
-.mb-3xl { margin-bottom: var(--space-3xl); }
-
-.mt-0 { margin-top: 0; }
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-.mt-2xl { margin-top: var(--space-2xl); }
-.mt-3xl { margin-top: var(--space-3xl); }
 
 /* ========================================
    RESPONSIVE UTILITIES
    ======================================== */
 
-@media (max-width: 767.98px) {
-  .section-number::before {
-    font-size: 8rem;
-  }
-
-  .section-number--large::before {
-    font-size: 10rem;
-  }
-
-  .section-bleed {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+@media (max-width: 900px) {
+  .body-text p {
+    max-width: 100%;
   }
 }

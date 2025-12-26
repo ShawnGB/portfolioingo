@@ -1,166 +1,44 @@
 /* ===================================================================
-   ARTS PAGE REDESIGN — TRUE MAGAZINE EDITORIAL VARIETY
-   Breaking grids, overlapping photos, varied rhythms
+   ARTS PAGE — MINIMAL LAYOUT ONLY (Desktop-first)
+   Pure structure: Grid, positioning, dimensions, spacing
+   NO backgrounds, borders, decorations, or responsive
    =================================================================== */
 
-/* --- 1. INTRO SECTION (UNCHANGED) --- */
+/* --- 1. INTRO SECTION ---*/
 .arts-intro-header {
   padding-top: 48px;
-  position: relative;
 }
 
-.arts-intro-header::before {
-  content: "01";
-  position: absolute;
-  top: 0;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.arts-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.arts-intro-text {
-  border-left: 2px solid var(--ink-warm);
-  padding-left: var(--space-lg);
-}
-
-.arts-intro-text p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin: 0;
-  max-width: 65ch;
-}
-
-
-/* --- 2. PHOTOGRAPHY SECTION - MAGAZINE SPREADS --- */
+/* --- 2. PHOTOGRAPHY SECTION --- */
 .photography-section {
   position: relative;
   padding-top: 96px;
   padding-bottom: 96px;
-  background: var(--paper-light);
   margin-left: -64px;
   margin-right: -64px;
   padding-left: 64px;
   padding-right: 64px;
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.photography-section::before {
-  content: "02";
-  position: absolute;
-  top: 24px;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: 0.05;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .photography-section .section-header {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-  grid-column: 1 / -1;
+  margin-bottom: var(--space-3xl);
 }
 
-.section-description {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin: 0 0 var(--space-3xl) 0;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-
-/* Photo spreads container */
 .photo-spreads {
   display: flex;
   flex-direction: column;
-  gap: 120px; /* Large gaps between spreads for magazine rhythm */
+  gap: var(--space-5xl);
   margin-top: 64px;
 }
 
-/* Base photo styling */
 .spread img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: saturate(0.82) contrast(0.92) opacity(0.90);
-  mix-blend-mode: multiply;
-  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.spread img:hover {
-  transform: scale(0.98);
-  opacity: 0.85;
-}
-
-/* Shared metadata styling */
-.photo-metadata {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: var(--space-md) var(--space-lg);
-  background: rgba(248, 246, 242, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(43, 43, 43, 0.08);
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.spread [class*="photo-"]:hover .photo-metadata {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.photo-metadata-filename,
-.photo-metadata-camera {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-warm);
-  margin: 0 0 2px 0;
-  letter-spacing: 0.05em;
-}
-
-.photo-metadata-location {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--text-tertiary);
-  margin: 0;
-  letter-spacing: 0.02em;
-}
-
-
-/* ============================================
-   SPREAD 1: FULL BLEED OPENER + SMALL INSET
-   ============================================ */
+/* --- SPREAD 1: FULL BLEED OPENER + INSET --- */
 .spread-opener {
   position: relative;
   width: 100%;
@@ -172,10 +50,8 @@
   width: 100%;
   height: 600px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
-/* Overlay metadata - top right */
 .photo-meta-overlay {
   position: absolute;
   top: var(--space-lg);
@@ -184,46 +60,20 @@
   flex-direction: column;
   align-items: flex-end;
   gap: var(--space-xs);
-  background: rgba(248, 246, 242, 0.88);
   padding: var(--space-md) var(--space-lg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 4px;
 }
 
-.meta-number {
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: 0.3;
-  line-height: 1;
-}
-
-.meta-location {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-secondary);
-  letter-spacing: 0.05em;
-}
-
-/* Small inset photo - overlaps bottom right */
 .photo-inset {
   position: absolute;
-  bottom: -40px; /* Breaks containment */
+  bottom: -40px;
   right: 60px;
   width: 320px;
   height: 240px;
   overflow: hidden;
-  background: var(--paper-warm);
-  box-shadow: 0 12px 40px rgba(43, 43, 43, 0.15);
   z-index: 2;
 }
 
-
-/* ============================================
-   SPREAD 2: ASYMMETRIC OVERLAP
-   ============================================ */
+/* --- SPREAD 2: ASYMMETRIC OVERLAP --- */
 .spread-overlap {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -239,19 +89,15 @@
   position: relative;
   height: 450px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
-/* Floating photo overlaps base */
 .photo-floating {
   grid-column: 2 / 4;
   grid-row: 1 / 3;
   position: relative;
   height: 380px;
-  margin-top: 80px; /* Offset creates overlap */
+  margin-top: 80px;
   overflow: hidden;
-  background: var(--paper-warm);
-  box-shadow: 0 16px 48px rgba(43, 43, 43, 0.18);
   z-index: 3;
 }
 
@@ -259,17 +105,7 @@
   position: absolute;
   top: var(--space-md);
   left: var(--space-md);
-  background: rgba(248, 246, 242, 0.9);
   padding: var(--space-sm) var(--space-md);
-  border-radius: 2px;
-}
-
-.meta-detail {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--text-tertiary);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .photo-vertical {
@@ -277,17 +113,13 @@
   grid-row: 2 / 3;
   height: 280px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
-
-/* ============================================
-   SPREAD 3: GRID BREAKER - ROTATED PHOTO
-   ============================================ */
+/* --- SPREAD 3: GRID BREAKER - ROTATED --- */
 .spread-rotated {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 16px; /* Tight gap */
+  gap: 16px;
   align-items: center;
 }
 
@@ -295,17 +127,13 @@
   position: relative;
   height: 420px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
-/* Slightly rotated photo - breaks rigidity */
 .photo-tilted {
   position: relative;
   height: 380px;
   overflow: hidden;
-  background: var(--paper-warm);
-  transform: rotate(-1.5deg); /* Subtle tilt */
-  box-shadow: 0 8px 32px rgba(43, 43, 43, 0.12);
+  transform: rotate(-1.5deg);
 }
 
 .tilt-label {
@@ -313,63 +141,51 @@
   bottom: var(--space-md);
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(248, 246, 242, 0.92);
   padding: var(--space-xs) var(--space-md);
-  border-radius: 20px;
 }
 
-.tilt-label span {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-style: italic;
-  color: var(--text-tertiary);
-  letter-spacing: 0.02em;
-}
-
-
-/* ============================================
-   SPREAD 4: THREE VERTICALS - VARIED WIDTHS
-   ============================================ */
+/* --- SPREAD 4: THREE VERTICALS - VARIED WIDTHS --- */
 .spread-three-varied {
   display: grid;
-  grid-template-columns: 0.8fr 1.4fr 1fr; /* Asymmetric widths */
+  grid-template-columns: 0.8fr 1.4fr 1fr;
   gap: 32px;
 }
 
 .photo-narrow {
   height: 560px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
 .photo-wide {
   position: relative;
   height: 560px;
   overflow: hidden;
-  background: var(--paper-warm);
 }
 
 .photo-medium {
   height: 560px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
+.photo-metadata {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-md) var(--space-lg);
+}
 
-/* ============================================
-   SPREAD 5: CINEMATIC WIDE + STACKED SQUARES
-   ============================================ */
+/* --- SPREAD 5: CINEMATIC WIDE + STACKED SQUARES --- */
 .spread-cinematic {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 40px; /* Loose gap */
+  gap: 40px;
 }
 
 .photo-letterbox {
   position: relative;
-  height: 340px; /* Cinematic aspect */
+  height: 340px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
 .letterbox-meta {
@@ -381,36 +197,18 @@
   gap: var(--space-xs);
 }
 
-.meta-aspect,
-.letterbox-meta .meta-location {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.meta-aspect {
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
-}
-
 .photo-squares {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Tight vertical stacking */
+  gap: 16px;
 }
 
 .square-item {
   height: 162px;
   overflow: hidden;
-  background: var(--paper-warm);
 }
 
-
-/* ============================================
-   SPREAD 6: FULL BLEED DIVIDER + CAPTION
-   ============================================ */
+/* --- SPREAD 6: FULL BLEED DIVIDER + CAPTION --- */
 .spread-divider {
   position: relative;
   margin-left: -64px;
@@ -421,37 +219,13 @@
   width: 100%;
   height: 400px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
 .divider-caption {
-  background: var(--paper-warm);
   padding: var(--space-2xl) 64px;
-  border-top: 2px solid var(--ink-warm);
 }
 
-.caption-text {
-  font-family: var(--font-body);
-  font-size: 1.25rem;
-  font-style: italic;
-  line-height: 1.8;
-  color: var(--ink-warm);
-  margin: 0 0 var(--space-md) 0;
-  max-width: 60ch;
-}
-
-.caption-credit {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
-  margin: 0;
-  letter-spacing: 0.05em;
-}
-
-
-/* ============================================
-   SPREAD 7: L-SHAPE LAYOUT
-   ============================================ */
+/* --- SPREAD 7: L-SHAPE LAYOUT --- */
 .spread-lshape {
   display: grid;
   grid-template-columns: 1.5fr 1fr 0.8fr;
@@ -465,7 +239,6 @@
   position: relative;
   height: 340px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
 .photo-vertical-tall {
@@ -474,7 +247,6 @@
   height: 100%;
   min-height: 480px;
   overflow: hidden;
-  background: var(--paper-warm);
 }
 
 .photo-small-corner {
@@ -482,35 +254,17 @@
   grid-row: 2 / 3;
   height: 220px;
   overflow: hidden;
-  background: var(--paper-mid);
 }
 
-
-/* --- 3. SOUND & MUSIC SECTION - UNIQUE LAYOUT --- */
+/* --- 3. SOUND & MUSIC SECTION --- */
 .sound-section {
   position: relative;
   padding-top: 96px;
   padding-bottom: 96px;
-  background: var(--paper-mid);
   margin-left: -64px;
   margin-right: -64px;
   padding-left: 64px;
   padding-right: 64px;
-}
-
-.sound-section::before {
-  content: "03";
-  position: absolute;
-  top: -24px;
-  right: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: 0.05;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .sound-layout {
@@ -520,40 +274,10 @@
   align-items: center;
 }
 
-.sound-visual {
-  position: relative;
-}
-
 .sound-image-frame {
   position: relative;
   height: 480px;
   overflow: hidden;
-  background: var(--paper-warm);
-  border-radius: 4px;
-  box-shadow: 0 12px 40px rgba(43, 43, 43, 0.12);
-}
-
-.sound-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(0.92) opacity(0.90);
-  mix-blend-mode: multiply;
-}
-
-/* Waveform overlay decoration */
-.sound-overlay {
-  position: absolute;
-  bottom: var(--space-lg);
-  left: var(--space-lg);
-  right: var(--space-lg);
-  display: flex;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.waveform-decoration {
-  opacity: 0.7;
 }
 
 .sound-content {
@@ -562,97 +286,29 @@
   gap: var(--space-lg);
 }
 
-.sound-header {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-md);
-  border-bottom: 2px solid var(--ink-warm);
-  padding-bottom: var(--space-md);
-}
-
-.sound-number {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: 0.2;
-  line-height: 1;
-}
-
-.sound-content h2 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.sound-description {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin: 0;
-  max-width: 55ch;
-}
-
 .sound-details {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-  margin-top: var(--space-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
 }
 
 .sound-detail-item {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 6px 0;
 }
 
-.detail-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-  font-weight: 600;
-}
-
-.detail-value {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-}
-
-
-/* --- 4. SKETCHES SECTION - SCATTERED LAYOUT --- */
+/* --- 4. SKETCHES SECTION --- */
 .sketches-section {
   position: relative;
   padding-top: 96px;
   padding-bottom: 96px;
-  background: var(--paper-light);
   margin-left: -64px;
   margin-right: -64px;
   padding-left: 64px;
   padding-right: 64px;
-  border-top: 1px solid var(--border-subtle);
-}
-
-.sketches-section::before {
-  content: "04";
-  position: absolute;
-  top: 24px;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: 0.05;
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
 }
 
 .sketches-header {
@@ -660,25 +316,6 @@
   margin-bottom: 64px;
 }
 
-.sketches-section h2 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-  line-height: 1.2;
-}
-
-.sketches-description {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Scattered sketch placeholders */
 .sketches-visual {
   position: relative;
   display: grid;
@@ -694,7 +331,6 @@
   height: 280px;
 }
 
-/* Add variety to sketch positions */
 .sketch-1 {
   transform: rotate(-3deg) translateY(-12px);
 }
@@ -713,277 +349,25 @@
   align-items: center;
   gap: var(--space-md);
   padding: var(--space-xl);
-  background: var(--paper-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  box-shadow: 0 4px 16px rgba(43, 43, 43, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.sketch-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(43, 43, 43, 0.12);
 }
 
 .sketch-icon {
   width: 120px;
   height: 120px;
-  color: var(--ink-warm);
   opacity: 0.5;
 }
 
-.sketch-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-}
-
-/* Closing statement */
 .closing-statement {
   padding-top: var(--space-2xl);
-  border-top: 2px solid var(--ink-warm);
   margin: 0 auto;
 }
 
-.statement-text {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin: 0 0 var(--space-2xl) 0;
-  max-width: 60ch;
-}
-
-.statement-quote {
-  position: relative;
-  padding: var(--space-2xl);
-  background: var(--paper-warm);
-  border-left: 4px solid var(--ink-warm);
-  border-radius: 4px;
-  margin: 0;
-}
-
-.statement-quote p {
-  font-family: var(--font-body);
-  font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: var(--ink-warm);
-  margin: 0;
-  max-width: 50ch;
-}
-
-.statement-quote::before {
-  content: """;
-  position: absolute;
-  top: -16px;
-  left: 16px;
-  font-family: var(--font-display);
-  font-size: 6rem;
-  font-weight: 700;
-  color: var(--ink-warm);
-  opacity: 0.15;
-  line-height: 1;
-}
-
-
-/* --- EDITORIAL DECORATIVE ELEMENTS --- */
 .arts-page-label {
   position: fixed;
   right: 2rem;
   top: 50%;
   transform: translateY(-50%) rotate(-90deg);
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: rgba(43, 43, 43, 0.25);
   white-space: nowrap;
   pointer-events: none;
   z-index: 10;
-}
-
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 900px) {
-  /* Hide decorative numbers on mobile */
-  .arts-intro-header::before,
-  .photography-section::before,
-  .sound-section::before,
-  .sketches-section::before {
-    display: none;
-  }
-
-  /* Full-bleed sections */
-  .photography-section,
-  .sound-section,
-  .sketches-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  /* Photo spreads - stack all to single column */
-  .photo-spreads {
-    gap: 64px;
-  }
-
-  /* Spread 1: Opener */
-  .spread-opener {
-    min-height: auto;
-  }
-
-  .photo-fullbleed {
-    height: 400px;
-  }
-
-  .photo-inset {
-    position: static;
-    width: 100%;
-    height: 240px;
-    margin-top: var(--space-lg);
-  }
-
-  /* Spread 2: Overlap - stack */
-  .spread-overlap {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .photo-base,
-  .photo-floating,
-  .photo-vertical {
-    height: 300px;
-    margin-top: 0;
-  }
-
-  /* Spread 3: Rotated - stack and remove rotation */
-  .spread-rotated {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .photo-tight-left,
-  .photo-tilted {
-    height: 300px;
-    transform: none;
-  }
-
-  /* Spread 4: Three varied - stack */
-  .spread-three-varied {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .photo-narrow,
-  .photo-wide,
-  .photo-medium {
-    height: 320px;
-  }
-
-  /* Spread 5: Cinematic - stack */
-  .spread-cinematic {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .photo-letterbox {
-    height: 240px;
-  }
-
-  .photo-squares {
-    flex-direction: row;
-    gap: var(--space-md);
-  }
-
-  .square-item {
-    flex: 1;
-    height: 180px;
-  }
-
-  /* Spread 6: Divider */
-  .spread-divider {
-    margin-left: -24px;
-    margin-right: -24px;
-  }
-
-  .photo-bleed-divider {
-    height: 280px;
-  }
-
-  .divider-caption {
-    padding: var(--space-xl) 24px;
-  }
-
-  .caption-text {
-    font-size: 1.125rem;
-  }
-
-  /* Spread 7: L-shape - stack */
-  .spread-lshape {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-  }
-
-  .photo-horizontal,
-  .photo-vertical-tall,
-  .photo-small-corner {
-    height: 300px;
-    min-height: auto;
-  }
-
-  /* Sound section */
-  .sound-layout {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xl);
-  }
-
-  .sound-image-frame {
-    height: 320px;
-  }
-
-  .sound-details {
-    gap: var(--space-sm);
-  }
-
-  /* Sketches section */
-  .sketches-visual {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
-  .sketch-1,
-  .sketch-2,
-  .sketch-3 {
-    transform: none;
-  }
-
-  .sketch-placeholder {
-    height: 240px;
-  }
-
-  .closing-statement {
-    grid-column: 1 / -1;
-  }
-
-  .statement-quote {
-    padding: var(--space-lg);
-  }
-
-  .statement-quote p {
-    font-size: 1.125rem;
-  }
-
-  /* Hide vertical label on mobile */
-  .arts-page-label {
-    display: none;
-  }
 }

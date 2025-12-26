@@ -44,10 +44,10 @@
   /* === EDITORIAL MONOCHROME: Opacity & Effect Tokens === */
   --opacity-editorial-number: 0.05;
   --opacity-editorial-rule: 0.15;
-  --opacity-image-filter: 0.90;
+  --opacity-image-filter: 0.9;
 
   /* Filter presets */
-  --filter-monochrome-editorial: saturate(0.82) contrast(0.92) opacity(0.90);
+  --filter-monochrome-editorial: saturate(0.82) contrast(0.92) opacity(0.9);
 
   /* Semantic state colors (monochrome-aligned) */
   --state-error: var(--ink-warm);
@@ -202,7 +202,6 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" /></filter><rect width="400" height="400" filter="url(%23grain)" opacity="0.06" /></svg>');
   opacity: 0.04; /* Extremely subtle - single global layer */
   mix-blend-mode: multiply;
   pointer-events: none;
@@ -501,6 +500,25 @@ button.cta-link:hover {
   opacity: 0.6;
 }
 
+/* CTA Link with underline (for larger editorial links with icons) */
+.cta-link--underline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink-warm);
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.cta-link--underline:hover {
+  opacity: 0.65;
+}
+
 /* Horizontal divider */
 hr,
 .divider,
@@ -673,10 +691,98 @@ hr,
 }
 
 /* =================================
-   6. Responsive Design
+   6. 12-Column Grid System
+   ================================= */
+
+/* Grid container - max width and centering */
+.page-grid-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 64px;
+  position: relative;
+}
+
+/* 12-column grid row */
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+/* Column span utilities */
+.grid-col-1 {
+  grid-column: span 1;
+}
+.grid-col-2 {
+  grid-column: span 2;
+}
+.grid-col-3 {
+  grid-column: span 3;
+}
+.grid-col-4 {
+  grid-column: span 4;
+}
+.grid-col-5 {
+  grid-column: span 5;
+}
+.grid-col-6 {
+  grid-column: span 6;
+}
+.grid-col-7 {
+  grid-column: span 7;
+}
+.grid-col-8 {
+  grid-column: span 8;
+}
+.grid-col-9 {
+  grid-column: span 9;
+}
+.grid-col-10 {
+  grid-column: span 10;
+}
+.grid-col-11 {
+  grid-column: span 11;
+}
+.grid-col-12 {
+  grid-column: span 12;
+}
+
+/* Column offset utilities */
+.grid-col-offset-1 {
+  grid-column-start: 6;
+}
+
+/* Section vertical spacing */
+.grid-section {
+  grid-column: 1 / -1;
+  padding: 64px 0;
+  position: relative;
+}
+
+.grid-section.major-break {
+  padding-top: 112px;
+  margin-top: 64px;
+}
+
+/* =================================
+   7. Responsive Design
    ================================= */
 
 @media (max-width: 900px) {
+  .page-grid-container {
+    padding: 0 24px;
+  }
+
+  .grid-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl) 0;
+  }
+
+  [class^="grid-col-"] {
+    grid-column: 1 / -1;
+  }
+
   .header-integrated {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);

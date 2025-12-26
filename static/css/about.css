@@ -54,21 +54,7 @@
   position: relative;
 }
 
-/* Large decorative section number "01" */
-.about-intro-section::before {
-  content: "01";
-  position: absolute;
-  top: 0;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
-  pointer-events: none;
-  z-index: 0;
-}
+/* Intro section - no number */
 
 .about-intro-section .section-label {
   font-family: var(--font-display);
@@ -106,18 +92,18 @@
   position: relative;
 }
 
-/* Large decorative section number "02" */
+/* Large decorative section number "01" */
 .drives-path-section::before {
-  content: "02";
+  content: "01";
   position: absolute;
   top: -48px;
   right: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -150,41 +136,7 @@
   pointer-events: none;
 }
 
-.values-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.values-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  margin-bottom: 24px; /* Reduced internal spacing */
-}
-
-.values-list .icon {
-  flex-shrink: 0;
-  width: 20px; /* Reduced size */
-  height: 20px;
-  margin-top: 0.3rem; /* Optical alignment */
-  opacity: 0.7;
-}
-
-.subsection-header {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 4px 0;
-}
-
-.values-list .value-content p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
-}
+/* Values list uses .values-list from utilities.css */
 
 /* Better prose spacing in "My Path" column */
 .drives-path-section .body-text p {
@@ -216,18 +168,18 @@
   background: var(--paper-mid); /* Subtle background variation */
 }
 
-/* Large decorative section number "03" */
+/* Large decorative section number "02" */
 .quote-image-beyond-module::before {
-  content: "03";
+  content: "02";
   position: absolute;
   top: 24px;
   left: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -317,18 +269,18 @@
   position: relative;
 }
 
-/* Large decorative section number "04" (no change in number) */
+/* Large decorative section number "03" */
 .looking-for-section::before {
-  content: "04";
+  content: "03";
   position: absolute;
   top: -24px;
   right: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -364,32 +316,7 @@
   opacity: 0.7;
 }
 
-.looking-for-item .subsection-header {
-  margin: 0;
-}
-
-.looking-for-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.looking-for-item ul li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 6px; /* Slightly more spacing */
-  line-height: 1.7; /* Improved readability */
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-}
-
-.looking-for-item ul li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--ink-warm);
-  opacity: 0.5; /* Subtle checkmark */
-}
+/* Looking for items use .checkmark-list from utilities.css */
 
 .cta-footer-grid {
   grid-column: 1 / -1;
@@ -506,7 +433,6 @@
   }
 
   /* Hide decorative numbers on mobile */
-  .about-intro-section::before,
   .drives-path-section::before,
   .quote-image-beyond-module::before,
   .looking-for-section::before {

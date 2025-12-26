@@ -27,7 +27,6 @@ templ Projects(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-
 			<!-- SECTION 02: CURRENT PROJECT - FULL-WIDTH EDITORIAL HERO -->
 			<div class="grid-section major-break current-project-hero">
 				<div class="grid-row">
@@ -56,7 +55,6 @@ templ Projects(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-
 			<!-- SECTION 03: FEATURED WEBSITE - LARGE SCREENSHOT SPREAD (7/5) -->
 			<div class="grid-section major-break featured-website-spread">
 				<div class="grid-row">
@@ -85,7 +83,6 @@ templ Projects(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-
 			<!-- SECTION 04: MORE WEBSITES - MAGAZINE GRID (VARIED SIZES) -->
 			<div class="grid-section websites-magazine-grid">
 				<div class="grid-row">
@@ -149,45 +146,29 @@ templ Projects(pCtx i18n.PageContext) {
 							@components.Icon("github", "16", "")
 						</a>
 					</div>
-					<!-- Cultural work - Wide card (6 columns) -->
-					<div class="grid-col-6 cultural-card-wide">
-						<div class="cultural-inner">
-							<div class="cultural-image-small">
-								<img src="/static/images/DSC02720.jpg" alt="Cultural space"/>
-							</div>
-							<div class="cultural-text">
-								<small class="cultural-label">Cultural & Creative</small>
-								<h3>{ pCtx.T("projects.cultural.kultschaette.name") }</h3>
-								<p>{ pCtx.T("projects.cultural.kultschaette.p1") }</p>
-							</div>
+				</div>
+			</div>
+			<!-- SECTION 05: BEYOND CODE -->
+			<div class="grid-section looking-for-section major-break">
+				<div class="grid-row">
+					<div class="looking-for-header">
+						<h2 class="section-header">Beyond Code</h2>
+					</div>
+				</div>
+				<div class="grid-row">
+					<div class="grid-col-4 looking-for-item">
+						<div class="icon-header">
+							@components.Icon("music", "20", "")
+							<h3 class="subsection-header">{ pCtx.T("projects.film.title") }</h3>
+						</div>
+						<div class="body-text">
+							<p>{ pCtx.T("projects.film.description") }</p>
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<!-- SECTION 05: FILM & CREATIVE - ASYMMETRIC FOOTER (5/7) -->
-			<div class="grid-section film-footer-section">
-				<div class="grid-row">
-					<div class="grid-col-5 film-image-col">
-						<div class="film-decoration-number">05</div>
-					</div>
-					<div class="grid-col-7 film-content-col">
-						<h2 class="film-title">{ pCtx.T("projects.film.title") }</h2>
-						<p class="film-description">{ pCtx.T("projects.film.description") }</p>
-						<div class="film-projects-list">
-							<div class="film-project-item">
-								<h4>{ pCtx.T("projects.cultural.evolveFestivalSupport.name") }</h4>
-								<p>{ pCtx.T("projects.cultural.evolveFestivalSupport.p1") }</p>
-							</div>
-							<div class="film-project-item">
-								<h4>{ pCtx.T("projects.cultural.vegetarischDeluxe.name") }</h4>
-								<p>{ pCtx.T("projects.cultural.vegetarischDeluxe.p1") }</p>
-							</div>
-						</div>
-						<a href="https://www.crew-united.com/de/Shawn-Gordon-Becker_270405.html" class="crew-united-link" target="_blank" rel="noopener noreferrer">
-							@components.Icon("external-link", "20", "")
-							{ pCtx.T("projects.film.linkCrewUnitedText") }
-						</a>
+				<div class="grid-row cta-footer-grid">
+					<div class="contact-sentence">
+						<p><a class="cta-link" href={ pCtx.CurrentLangLink("/experience") }>Experience</a> · Explore more creative work on <a class="cta-link" href={ pCtx.CurrentLangLink("/arts") }>the Arts page</a></p>
 					</div>
 				</div>
 			</div>
