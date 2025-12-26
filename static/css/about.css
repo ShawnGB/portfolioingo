@@ -1,89 +1,12 @@
 /* ===================================================================
-   ABOUT PAGE V7 — EDITORIAL MONOCHROME REFINEMENT
-   Wider columns, editorial decoration, better visual interest
+   ABOUT PAGE — EDITORIAL MONOCHROME
+   Layout-specific styles only
    =================================================================== */
 
-/* --- 1. GLOBAL GRID SYSTEM (OPTIMIZED FOR SPACE) --- */
-.page-grid-container {
-  max-width: 1280px; /* Wide max-width for better space usage */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 64px; /* Page gutters */
-  position: relative; /* For decorative elements */
-}
-
-.grid-row {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 32px; /* Standard gutter from --space-xl */
-}
-
-/* --- Column Span Utilities --- */
-.grid-col-1 { grid-column: span 1; }
-.grid-col-2 { grid-column: span 2; }
-.grid-col-3 { grid-column: span 3; }
-.grid-col-4 { grid-column: span 4; }
-.grid-col-5 { grid-column: span 5; }
-.grid-col-6 { grid-column: span 6; }
-.grid-col-7 { grid-column: span 7; }
-.grid-col-8 { grid-column: span 8; }
-.grid-col-9 { grid-column: span 9; }
-.grid-col-10 { grid-column: span 10; }
-.grid-col-11 { grid-column: span 11; }
-.grid-col-12 { grid-column: span 12; }
-
-/* Column offset utilities */
-.grid-col-offset-1 { grid-column-start: 6; }
-
-/* --- Section Vertical Spacing --- */
-.grid-section {
-  grid-column: 1 / -1;
-  padding: 64px 0; /* Default section gap */
-  position: relative; /* For decorative elements */
-}
-
-.grid-section.major-break {
-  padding-top: 112px; /* Increased major section break for better rhythm */
-  margin-top: 64px;
-}
-
-
-/* --- 3. ABOUT INTRO --- */
+/* --- ABOUT INTRO --- */
 .about-intro-section {
   padding-top: 48px;
   position: relative;
-}
-
-/* Intro section - no number */
-
-.about-intro-section .section-label {
-  font-family: var(--font-display);
-  font-size: 1.5rem; /* H2 scale */
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.about-intro-section .intro-content {
-  position: relative;
-  padding-left: var(--space-lg);
-}
-
-.about-intro-section .vertical-rule {
-  position: absolute;
-  left: 0;
-  top: 0.25rem; /* Aligned to text height */
-  width: 1px;
-  height: 90%; /* Aligned to text block */
-  background-color: var(--border-subtle);
-  opacity: 0.8; /* Reduced opacity */
-}
-
-.about-intro-section .body-text p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 65ch; /* Maintain readability */
 }
 
 
@@ -184,33 +107,6 @@
   z-index: 0;
 }
 
-/* Editorial hairline above quote */
-.pull-quote-wrapper {
-  position: relative;
-  padding-top: 2rem;
-}
-
-.pull-quote-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4rem;
-  height: 2px;
-  background: var(--ink-warm);
-  opacity: 0.2;
-}
-
-.pull-quote-wrapper blockquote {
-  font-style: italic;
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem); /* Smaller to fit 3-col layout */
-  line-height: 1.5;
-  color: var(--ink-warm);
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-weight: 500; /* Medium weight for emphasis */
-}
 
 /* Hero-style portrait - larger, center-cropped editorial image */
 .image-wrapper-hero {
@@ -245,16 +141,6 @@
   z-index: 1;
 }
 
-/* Image caption - editorial metadata */
-.image-caption {
-  display: block;
-  margin-top: var(--space-sm);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  opacity: 0.6;
-  letter-spacing: 0.05em;
-}
 
 
 /* --- 6. WHAT I'M LOOKING FOR (NOW SECTION 04) --- */
@@ -291,30 +177,6 @@
   margin-bottom: var(--space-xl);
 }
 
-.looking-for-header .section-header {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-/* Icon header styling for "Looking For" cards */
-.icon-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--space-md);
-}
-
-.icon-header .icon {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  opacity: 0.7;
-}
 
 /* Looking for items use .checkmark-list from utilities.css */
 
@@ -347,13 +209,6 @@
 
 
 /* Beyond the Screen - inline in three-column layout */
-.beyond-label-inline .section-label {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-}
 
 .quote-image-beyond-module .body-text p {
   color: var(--text-secondary);
@@ -370,33 +225,6 @@
   margin-top: var(--space-md);
 }
 
-.interest-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--paper-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.interest-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
-}
-
-.interest-item .icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  flex-shrink: 0;
-}
 
 /* Beyond screen image - small editorial photo */
 .beyond-image-col {
@@ -419,18 +247,6 @@
 
 /* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 900px) {
-  .page-grid-container {
-    padding: 0 24px;
-  }
-
-  .grid-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl) 0;
-  }
-
-  [class^="grid-col-"] {
-    grid-column: 1 / -1;
-  }
 
   /* Hide decorative numbers on mobile */
   .drives-path-section::before,

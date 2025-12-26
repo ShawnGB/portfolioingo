@@ -6,12 +6,12 @@ templ BaseHtml(pCtx i18n.PageContext, pagetitle string, pagedescription string) 
 	<!DOCTYPE html>
 	<html lang={ pCtx.ActiveLang }>
 		@Head(pCtx, pagetitle, pagedescription)
-		@Navigation(pCtx)
 		<body>
+			@Navigation(pCtx)
 			<div class="page-container">
 				{ children... }
 			</div>
+			@Footer()
 		</body>
-		@Footer()
 	</html>
 }

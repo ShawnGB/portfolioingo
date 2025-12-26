@@ -36,9 +36,24 @@
 
 /* ========================================
    TYPOGRAPHY PATTERNS
+
+   These utility classes provide specific text sizing/styling
+   DECOUPLED from semantic HTML tags (h1-h6).
+
+   When to use these vs semantic tags (h1-h6):
+   - Use .section-header when you want large heading SIZE but not <h2> semantics
+   - Use .section-label when you want medium heading SIZE but not <h2> semantics
+   - Use .subsection-header when you want small heading SIZE but not <h3> semantics
+   - Use semantic <h1>-<h6> when the element IS semantically a heading
+
+   Example:
+   <div class="section-header">Visual heading without semantic meaning</div>
+   <h2>Actual semantic section heading</h2>
+
+   See base.css for semantic h1-h6 default styles.
    ======================================== */
 
-/* Section header - from about.css line 328 */
+/* Section header - Large heading style (similar to h2 size) */
 .section-header {
   font-family: var(--font-display);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
@@ -47,7 +62,7 @@
   margin: 0;
 }
 
-/* Section label - from about.css line 59 */
+/* Section label - Medium heading style (smaller than h2) */
 .section-label {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -56,7 +71,7 @@
   margin: 0;
 }
 
-/* Subsection header - from about.css lines 160-166 */
+/* Subsection header - Small heading style (similar to h3 size) */
 .subsection-header {
   font-family: var(--font-display);
   font-size: 1.125rem;
