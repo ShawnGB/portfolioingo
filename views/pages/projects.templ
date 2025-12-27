@@ -7,19 +7,17 @@ import "mymodules/gofolio/views/components"
 templ Projects(pCtx i18n.PageContext) {
 	@layouts.BaseHtml(pCtx, pCtx.T("projects.pageTitle"), pCtx.T("projects.pageMetaDescription")) {
 		<div class="page-grid-container">
-			<!-- SECTION 01: INTRO - 3/9 ASYMMETRIC WITH PULL QUOTE -->
-			<div class="grid-section projects-intro-section">
+			<!-- Intro Section -->
+			<div class="grid-section">
 				<div class="grid-row">
-					<div class="grid-col-3">
-						<h1 class="section-label">{ pCtx.T("projects.title") }</h1>
-						<blockquote class="intro-pull-quote">
-							Building digital products that respect both users and craft.
-						</blockquote>
+					<div class="grid-col-4">
+						<h2 class="section-label">{ pCtx.T("projects.title") }</h2>
 					</div>
-					<div class="grid-col-9">
+					<div class="grid-col-8">
 						<div class="intro-content">
 							<div class="vertical-rule"></div>
 							<div class="body-text">
+								<blockquote>Building digital products that respect both users and craft.</blockquote>
 								<p><em>{ pCtx.T("projects.pageSubtitle") }</em></p>
 								<p>{ pCtx.T("projects.introduction.p1") }</p>
 							</div>
@@ -27,151 +25,93 @@ templ Projects(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 02: CURRENT PROJECT - FULL-WIDTH EDITORIAL HERO -->
-			<div class="grid-section major-break current-project-hero">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<div class="project-label-editorial">Current Project</div>
-					</div>
-					<div class="grid-col-7 hero-workspace-image">
-						<img src="/static/images/DSC02779.jpg" alt="Workspace" class="workspace-image"/>
-						<span class="image-caption-editorial">Go monolith — Berlin, 2025</span>
-					</div>
-					<div class="grid-col-5 hero-project-content">
-						<h2 class="hero-title">{ pCtx.T("projects.currentProject.title") }</h2>
-						<p class="hero-description">{ pCtx.T("projects.currentProject.description") }</p>
-						<div class="hero-motivation">
-							<h3 class="motivation-label">{ pCtx.T("projects.currentProject.motivation.label") }</h3>
-							<p>{ pCtx.T("projects.currentProject.motivation.text") }</p>
-						</div>
-						<div class="hero-stack-compact">
-							<span class="stack-label">Stack</span>
-							<p class="stack-text">Go + Templ + HTMX + Native SSR</p>
-						</div>
-						<a href="https://github.com/ShawnGB/portfolioingo" class="github-link-hero" target="_blank" rel="noopener noreferrer">
+			<!-- Current Project -->
+			<section>
+				<p class="label-mono">Current Project</p>
+				<article>
+					<img src="/static/images/DSC02779.jpg" alt="Workspace"/>
+					<span class="image-caption">Go monolith — Berlin, 2025</span>
+					<h2>{ pCtx.T("projects.currentProject.title") }</h2>
+					<p>{ pCtx.T("projects.currentProject.description") }</p>
+					<h3>{ pCtx.T("projects.currentProject.motivation.label") }</h3>
+					<p>{ pCtx.T("projects.currentProject.motivation.text") }</p>
+					<dl>
+						<dt class="label-mono">Stack</dt>
+						<dd>Go + Templ + HTMX + Native SSR</dd>
+					</dl>
+					<p>
+						<a href="https://github.com/ShawnGB/portfolioingo" class="button" target="_blank" rel="noopener noreferrer">
 							@components.Icon("github", "20", "")
 							View on GitHub
 						</a>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 03: FEATURED WEBSITE - LARGE SCREENSHOT SPREAD (7/5) -->
-			<div class="grid-section major-break featured-website-spread">
-				<div class="grid-row">
-					<div class="grid-col-7">
-						<div class="screenshot-large-wrapper">
-							<img src="/static/images/jesse-becker-preview.png" alt="Jesse Becker Photography" class="screenshot-large"/>
-							<div class="screenshot-overlay">
-								<span class="screenshot-label">Live Site</span>
-								<span class="screenshot-url">jessebecker.de</span>
-							</div>
-						</div>
-					</div>
-					<div class="grid-col-5 featured-details">
-						<div class="featured-header">
-							<small class="featured-category">Photography Portfolio</small>
-							<h2 class="featured-title">{ pCtx.T("projects.websitesBuilt.jessebecker.name") }</h2>
-						</div>
-						<p class="featured-description">{ pCtx.T("projects.websitesBuilt.jessebecker.description") }</p>
-						<blockquote class="featured-quote">
-							Minimalist design that lets photography speak — no distractions, just pure visual storytelling.
-						</blockquote>
-						<a href="http://www.jessebecker.com/" class="visit-link" target="_blank" rel="noopener noreferrer">
-							Visit Site
-							@components.Icon("external-link", "18", "")
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 04: MORE WEBSITES - MAGAZINE GRID (VARIED SIZES) -->
-			<div class="grid-section websites-magazine-grid">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<h2 class="section-header-magazine">More Digital Products</h2>
-					</div>
-					<!-- Arina's site - Vertical portrait style (4 columns) -->
-					<div class="grid-col-4 project-card-portrait">
-						<div class="portrait-screenshot">
-							<img src="/static/images/arina-shanzev-preview.png" alt="Arina Shanzev portfolio"/>
-						</div>
-						<div class="portrait-content">
-							<h3>{ pCtx.T("projects.websitesBuilt.arinashanzev.name") }</h3>
-							<p>{ pCtx.T("projects.websitesBuilt.arinashanzev.description") }</p>
-							<a href="https://arinashanzev.com" target="_blank" rel="noopener noreferrer">
-								@components.Icon("external-link", "16", "")
-								arinashanzev.com
-							</a>
-						</div>
-					</div>
-					<!-- Bernd Wolf - Text card (4 columns) -->
-					<div class="grid-col-4 project-card-text">
-						<div class="text-card-inner">
-							<div class="card-icon">
-								@components.Icon("briefcase", "24", "")
-							</div>
-							<h3>{ pCtx.T("projects.websitesBuilt.berndwolf.name") }</h3>
-							<p>{ pCtx.T("projects.websitesBuilt.berndwolf.description") }</p>
-							<a href="https://berndwolf.net/en/home" target="_blank" rel="noopener noreferrer">
-								@components.Icon("external-link", "16", "")
-								berndwolf.net
-							</a>
-						</div>
-					</div>
-					<!-- Evolve Festival - Landscape (4 columns) -->
-					<div class="grid-col-4 project-card-landscape">
-						<div class="landscape-image">
-							<img src="/static/images/DSC03106.jpg" alt="Festival atmosphere"/>
-						</div>
-						<div class="landscape-content">
-							<h3>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.name") }</h3>
-							<p>{ pCtx.T("projects.websitesBuilt.evolveFestivalWebsite.description") }</p>
-							<a href="https://www.evolve-festival.com/" target="_blank" rel="noopener noreferrer">
-								@components.Icon("external-link", "16", "")
-								evolve-festival.com
-							</a>
-						</div>
-					</div>
-					<!-- Old portfolio + U/skillity - Small compact cards (3/3/6) -->
-					<div class="grid-col-3 project-mini-card">
-						<h4>{ pCtx.T("projects.websitesBuilt.oldPortfolio.name") }</h4>
-						<p>{ pCtx.T("projects.websitesBuilt.oldPortfolio.description") }</p>
-						<a href="https://github.com/ShawnGB/my-portfolio" target="_blank" rel="noopener noreferrer">
-							@components.Icon("github", "16", "")
-						</a>
-					</div>
-					<div class="grid-col-3 project-mini-card">
-						<h4>{ pCtx.T("projects.websitesBuilt.uskillity.name") }</h4>
-						<p>{ pCtx.T("projects.websitesBuilt.uskillity.description") }</p>
-						<a href="https://github.com/ShawnGB/uskillity-frontend" target="_blank" rel="noopener noreferrer">
-							@components.Icon("github", "16", "")
-						</a>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 05: BEYOND CODE -->
-			<div class="grid-section looking-for-section major-break">
-				<div class="grid-row">
-					<div class="looking-for-header">
-						<h2 class="section-header">Beyond Code</h2>
-					</div>
-				</div>
-				<div class="grid-row">
-					<div class="grid-col-4 looking-for-item">
-						<div class="icon-header">
-							@components.Icon("music", "20", "")
-							<h3 class="subsection-header">{ pCtx.T("projects.film.title") }</h3>
-						</div>
-						<div class="body-text">
-							<p>{ pCtx.T("projects.film.description") }</p>
-						</div>
-					</div>
-				</div>
-				<div class="grid-row cta-footer-grid">
-					<div class="contact-sentence">
-						<p><a class="cta-link" href={ pCtx.CurrentLangLink("/experience") }>Experience</a> · Explore more creative work on <a class="cta-link" href={ pCtx.CurrentLangLink("/arts") }>the Arts page</a></p>
-					</div>
-				</div>
-			</div>
+					</p>
+				</article>
+			</section>
+			<!-- Websites Built -->
+			<section>
+				<h2>Websites Built</h2>
+				<!-- Jesse Becker Photography -->
+				<article>
+					<img src="/static/images/jesse-becker-preview.png" alt="Jesse Becker Photography"/>
+					<p class="label-mono">Photography Portfolio</p>
+					<h3>{ pCtx.T("projects.websitesBuilt.jessebecker.name") }</h3>
+					<p>{ pCtx.T("projects.websitesBuilt.jessebecker.description") }</p>
+					<blockquote>Minimalist design that lets photography speak — no distractions, just pure visual storytelling.</blockquote>
+					<p><a href="http://www.jessebecker.com/" target="_blank" rel="noopener noreferrer">Visit Site</a></p>
+				</article>
+				<!-- MH Becker -->
+				<article>
+					<img src="/static/images/mh-becker-preview.png" alt="MH Becker GmbH"/>
+					<p class="label-mono">Company Website</p>
+					<h3>{ pCtx.T("projects.websitesBuilt.mhbecker.name") }</h3>
+					<p>{ pCtx.T("projects.websitesBuilt.mhbecker.description") }</p>
+					<p><a href="https://www.mh-becker.de/" target="_blank" rel="noopener noreferrer">Visit Site</a></p>
+				</article>
+				<!-- Diehl Brot -->
+				<article>
+					<img src="/static/images/diehl-brot-preview.png" alt="Diehl Brot"/>
+					<p class="label-mono">Bakery Website</p>
+					<h3>{ pCtx.T("projects.websitesBuilt.diehlbrot.name") }</h3>
+					<p>{ pCtx.T("projects.websitesBuilt.diehlbrot.description") }</p>
+					<p><a href="https://diehlbrot.de/" target="_blank" rel="noopener noreferrer">Visit Site</a></p>
+				</article>
+			</section>
+			<!-- Other Projects -->
+			<section>
+				<h2>Side Projects & Experiments</h2>
+				<p>{ pCtx.T("projects.sideProjects.intro") }</p>
+				<!-- Movie Search App -->
+				<article>
+					<p class="label-mono">Web App</p>
+					<h3>{ pCtx.T("projects.sideProjects.movieSearch.title") }</h3>
+					<p>{ pCtx.T("projects.sideProjects.movieSearch.description") }</p>
+					<p><a href="https://github.com/ShawnGB/capstone-project" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+				</article>
+				<!-- Trivia Game -->
+				<article>
+					<p class="label-mono">Game</p>
+					<h3>{ pCtx.T("projects.sideProjects.triviaGame.title") }</h3>
+					<p>{ pCtx.T("projects.sideProjects.triviaGame.description") }</p>
+					<p><a href="https://github.com/ShawnGB/triv" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+				</article>
+				<!-- GitTix -->
+				<article>
+					<p class="label-mono">CLI Tool</p>
+					<h3>{ pCtx.T("projects.sideProjects.gitTix.title") }</h3>
+					<p>{ pCtx.T("projects.sideProjects.gitTix.description") }</p>
+					<p><a href="https://github.com/ShawnGB/gittix" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+				</article>
+			</section>
+			<!-- CTA Footer -->
+			<section>
+				<p>
+					<a href="/static/ShawnBeckerResume.pdf" class="button" target="_blank" rel="noopener noreferrer">
+						@components.Icon("download", "24", "")
+						Download CV
+					</a>
+				</p>
+				<p>or <a href={ pCtx.CurrentLangLink("/contact") }>get in touch</a></p>
+			</section>
 		</div>
 	}
 }

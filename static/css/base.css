@@ -213,7 +213,7 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Blockquote - pull quote style */
+/* Blockquote - pull quote style with editorial hairline */
 blockquote {
   font-family: var(--font-body);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -222,9 +222,21 @@ blockquote {
   line-height: 1.5;
   color: var(--ink-warm);
   margin: 3rem 0;
-  padding: 0;
+  padding: 2rem 0 0 0;
   max-width: 55ch;
   border: none;
+  position: relative;
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--ink-warm);
+  opacity: 0.2;
 }
 
 /* Definition lists */
@@ -270,20 +282,110 @@ dl dd ul li {
   color: #b71c1c;
 }
 
-/* Section spacing */
+/* Section spacing and padding */
 section {
-  margin-bottom: var(--space-xl);
+  padding: var(--space-4xl) 0;
+  margin-bottom: 0; /* spacing handled by padding */
 }
 
 section:last-child {
-  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-5xl);
+}
+
+/* Images - Editorial monochrome by default */
+img {
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove filter when needed */
+img.img-original {
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+/* Articles (cards) - default card styling */
+article {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
+}
+
+/* Article variations */
+article.article--column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+article.article--accent {
+  border-left: 2px solid var(--border-default);
 }
 
 /* =================================
    5. Common Components
    ================================= */
 
-/* Minimal CTA Links */
+/* Buttons - Semantic button styling */
+.button,
+a.button,
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-warm);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.button:hover,
+a.button:hover,
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(43, 43, 43, 0.1);
+}
+
+/* Solid button variant */
+.button--solid,
+a.button--solid,
+button.button--solid {
+  background: var(--ink-warm);
+  color: var(--paper-warm);
+  border-color: var(--ink-warm);
+}
+
+.button--solid:hover,
+a.button--solid:hover,
+button.button--solid:hover {
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
+}
+
+/* Legacy support - keep cta-link as alias to button */
 a.cta-link,
 button.cta-link {
   display: inline-block;

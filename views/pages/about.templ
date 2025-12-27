@@ -86,14 +86,12 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 					<!-- Middle: Mirror Image Slice -->
 					<div class="grid-col-4 image-wrapper-hero">
-						<img src="/static/images/DSC01643.jpg" alt="Self-reflection in mirror" loading="lazy" class="hero-portrait"/>
+						<img src="/static/images/DSC01643.jpg" alt="Self-reflection in mirror" loading="lazy" class="hero-portrait img-editorial"/>
 						<span class="image-caption">Italy, 2025</span>
 					</div>
 					<!-- Right: Beyond the Screen -->
 					<div class="grid-col-4">
-						<div class="beyond-label-inline">
-							<h2 class="section-label">Beyond the Screen</h2>
-						</div>
+						<h2 class="section-label">Beyond the Screen</h2>
 						<div class="body-text">
 							<p>{ pCtx.T("about.outsideScreen.p1") }</p>
 						</div>
@@ -122,7 +120,7 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 				</div>
 				<div class="grid-row">
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("briefcase", "20", "")
 							<h3 class="subsection-header">Ideal Environment</h3>
@@ -131,7 +129,7 @@ templ About(pCtx i18n.PageContext) {
 							<p>{ pCtx.T("about.lookingFor.p1") }</p>
 						</div>
 					</div>
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("zap", "20", "")
 							<h3 class="subsection-header">I Thrive On</h3>
@@ -143,7 +141,7 @@ templ About(pCtx i18n.PageContext) {
 							<li>{ pCtx.T("about.lookingFor.item4") }</li>
 						</ul>
 					</div>
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("calendar", "20", "")
 							<h3 class="subsection-header">Role & Availability</h3>

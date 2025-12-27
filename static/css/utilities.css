@@ -1,100 +1,30 @@
 /* ==========================================
-   UTILITIES.CSS - BASELINE PATTERNS ONLY
+   UTILITIES.CSS - COMPOSED PATTERNS ONLY
    ========================================== */
 
 /*
-  This file contains ONLY patterns that exist in the baseline pages:
-  - home.css (homepage/index)
-  - about.css (about page)
-  - base.css (global base styles)
+  PHILOSOPHY:
+  This file contains ONLY composed patterns that can't be achieved
+  with single semantic HTML elements. Most styling is now in base.css
+  as global semantic element styles.
 
-  DO NOT add patterns from Arts, Experience, Projects, or Contact pages.
-  Those pages should be redesigned to use these baseline utilities.
+  USE SEMANTIC HTML FIRST:
+  - <section> = automatic padding/spacing
+  - <h1>, <h2>, <h3> = heading styles
+  - <p> = body text
+  - <img> = editorial monochrome filter
+  - <blockquote> = pull quote with hairline
+  - <article> = card with hover effect
+  - <a class="button"> = button styling
+
+  ONLY use utilities for COMPOSED patterns below.
 */
 
 /* ========================================
-   IMAGE STYLES
+   DECORATIVE ELEMENTS
    ======================================== */
 
-/* Editorial monochrome image style - from home.css line 39, about.css line 263 */
-.img-editorial {
-  filter: saturate(0.82) contrast(0.92);
-  opacity: 0.90;
-  mix-blend-mode: multiply;
-}
-
-/* Image caption - from about.css lines 283-291 */
-.image-caption {
-  display: block;
-  margin-top: var(--space-sm);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  opacity: 0.6;
-  letter-spacing: 0.05em;
-}
-
-/* ========================================
-   TYPOGRAPHY PATTERNS
-
-   These utility classes provide specific text sizing/styling
-   DECOUPLED from semantic HTML tags (h1-h6).
-
-   When to use these vs semantic tags (h1-h6):
-   - Use .section-header when you want large heading SIZE but not <h2> semantics
-   - Use .section-label when you want medium heading SIZE but not <h2> semantics
-   - Use .subsection-header when you want small heading SIZE but not <h3> semantics
-   - Use semantic <h1>-<h6> when the element IS semantically a heading
-
-   Example:
-   <div class="section-header">Visual heading without semantic meaning</div>
-   <h2>Actual semantic section heading</h2>
-
-   See base.css for semantic h1-h6 default styles.
-   ======================================== */
-
-/* Section header - Large heading style (similar to h2 size) */
-.section-header {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-/* Section label - Medium heading style (smaller than h2) */
-.section-label {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-/* Subsection header - Small heading style (similar to h3 size) */
-.subsection-header {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 4px 0;
-}
-
-/* Intro content wrapper with left padding - from about.css lines 67-70 */
-.intro-content {
-  position: relative;
-  padding-left: var(--space-lg);
-}
-
-/* Body text container - from about.css lines 82-87 */
-.body-text p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 65ch;
-}
-
-/* Vertical rule - from about.css lines 72-80 */
+/* Vertical rule - optional left accent */
 .vertical-rule {
   position: absolute;
   left: 0;
@@ -105,35 +35,22 @@
   opacity: 0.8;
 }
 
-/* Pull quote wrapper with editorial hairline - from about.css lines 222-247 */
-.pull-quote-wrapper {
-  position: relative;
-  padding-top: 2rem;
+/* Image caption - small metadata text */
+.image-caption {
+  display: block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
 }
 
-.pull-quote-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4rem;
-  height: 2px;
-  background: var(--ink-warm);
-  opacity: 0.2;
-}
+/* ========================================
+   COMPOSED PATTERNS
+   ======================================== */
 
-.pull-quote-wrapper blockquote {
-  font-style: italic;
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
-  line-height: 1.5;
-  color: var(--ink-warm);
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-weight: 500;
-}
-
-/* Icon header - from about.css lines 337-351 */
+/* Icon + heading pattern */
 .icon-header {
   display: flex;
   align-items: center;
@@ -150,54 +67,16 @@
   opacity: 0.7;
 }
 
-/* ========================================
-   LABELS
-   ======================================== */
-
-/* Mono label - based on about.css .path-label small (lines 187-194) */
+/* Mono label - uppercase metadata */
 .label-mono {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-tertiary);
   margin: 0;
   display: block;
-}
-
-/* ========================================
-   CARDS & CONTAINERS
-   ======================================== */
-
-/* Base card - from about.css .interest-item (lines 432-446) */
-.card {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--paper-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Card hover - from about.css .interest-item:hover (lines 448-451) */
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
-}
-
-.card .icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  flex-shrink: 0;
 }
 
 /* ========================================
@@ -224,6 +103,13 @@
   height: 20px;
   margin-top: 0.3rem;
   opacity: 0.7;
+}
+
+.values-list .value-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
 }
 
 .values-list .value-content p {
@@ -257,12 +143,3 @@
   opacity: 0.5;
 }
 
-/* ========================================
-   RESPONSIVE UTILITIES
-   ======================================== */
-
-@media (max-width: 900px) {
-  .body-text p {
-    max-width: 100%;
-  }
-}

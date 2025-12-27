@@ -7,283 +7,190 @@ import "mymodules/gofolio/views/components"
 templ Experience(pCtx i18n.PageContext) {
 	@layouts.BaseHtml(pCtx, pCtx.T("experience.pageTitle"), pCtx.T("experience.pageMetaDescription")) {
 		<div class="page-grid-container">
-			<!-- SECTION 01: INTRODUCTION - ASYMMETRIC 3/9 SPLIT -->
-			<div class="grid-section experience-intro-section">
+			<!-- Intro Section -->
+			<div class="grid-section">
 				<div class="grid-row">
-					<div class="grid-col-3">
-						<h1 class="section-label">{ pCtx.T("experience.title") }</h1>
-						<!-- Pull quote - editorial style -->
-						<blockquote>
-							7+ years bridging code and strategy
-						</blockquote>
+					<div class="grid-col-4">
+						<h2 class="section-label">{ pCtx.T("experience.title") }</h2>
 					</div>
-					<div class="grid-col-9">
+					<div class="grid-col-8">
 						<div class="intro-content">
 							<div class="vertical-rule"></div>
 							<div class="body-text">
+								<blockquote>7+ years bridging code and strategy</blockquote>
 								<p>{ pCtx.T("experience.introduction.p1") }</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- SECTION 02: SKILLS - CALM 2-COLUMN LAYOUT WITH PULL QUOTE -->
-			<div class="grid-section skills-section">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<div class="label-mono--small">Technical Expertise</div>
+			<!-- Skills Section -->
+			<section>
+				<p class="label-mono">Technical Expertise</p>
+				<div class="grid--halves">
+					<div>
+						<div class="icon-header">
+							@components.Icon("code", "20", "")
+							<h3>{ pCtx.T("experience.skills.development.title") }</h3>
+						</div>
+						<p>{ pCtx.T("experience.skills.development.list") }</p>
+						<div class="icon-header">
+							@components.Icon("tool", "20", "")
+							<h3>{ pCtx.T("experience.skills.tooling.title") }</h3>
+						</div>
+						<p>{ pCtx.T("experience.skills.tooling.list") }</p>
+						<div class="icon-header">
+							@components.Icon("palette", "20", "")
+							<h3>{ pCtx.T("experience.skills.creative.title") }</h3>
+						</div>
+						<p>{ pCtx.T("experience.skills.creative.list") }</p>
+					</div>
+					<div>
+						<blockquote>Building sustainable digital products with care</blockquote>
+						<div class="icon-header">
+							@components.Icon("zap", "20", "")
+							<h3>{ pCtx.T("experience.skills.emerging.title") }</h3>
+						</div>
+						<p>{ pCtx.T("experience.skills.emerging.list") }</p>
+						<div class="icon-header">
+							@components.Icon("heart", "20", "")
+							<h3>{ pCtx.T("experience.skills.soft.title") }</h3>
+						</div>
+						<p>{ pCtx.T("experience.skills.soft.list") }</p>
 					</div>
 				</div>
-				<div class="grid-row">
-					<!-- Left column: 3 skills -->
-					<div class="grid-col-6">
-						<!-- Development -->
-						<div class="skill-item">
-							<div class="icon-header">
-								@components.Icon("code", "20", "")
-								<h3 class="subsection-header">{ pCtx.T("experience.skills.development.title") }</h3>
-							</div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.skills.development.list") }</p>
-							</div>
-						</div>
-						<!-- Tooling -->
-						<div class="skill-item">
-							<div class="icon-header">
-								@components.Icon("tool", "20", "")
-								<h3 class="subsection-header">{ pCtx.T("experience.skills.tooling.title") }</h3>
-							</div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.skills.tooling.list") }</p>
-							</div>
-						</div>
-						<!-- Creative -->
-						<div class="skill-item">
-							<div class="icon-header">
-								@components.Icon("palette", "20", "")
-								<h3 class="subsection-header">{ pCtx.T("experience.skills.creative.title") }</h3>
-							</div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.skills.creative.list") }</p>
-							</div>
-						</div>
-					</div>
-					<!-- Right column: Pull quote + 2 skills -->
-					<div class="grid-col-6">
-						<!-- Pull quote -->
-						<div class="pull-quote-wrapper">
-							<blockquote>
-								Building sustainable digital products with care
-							</blockquote>
-						</div>
-						<!-- Emerging -->
-						<div class="skill-item">
-							<div class="icon-header">
-								@components.Icon("zap", "20", "")
-								<h3 class="subsection-header">{ pCtx.T("experience.skills.emerging.title") }</h3>
-							</div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.skills.emerging.list") }</p>
-							</div>
-						</div>
-						<!-- Soft Skills -->
-						<div class="skill-item">
-							<div class="icon-header">
-								@components.Icon("heart", "20", "")
-								<h3 class="subsection-header">{ pCtx.T("experience.skills.soft.title") }</h3>
-							</div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.skills.soft.list") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 03: DYNAMIC TIMELINE WITH VARIED LAYOUTS -->
-			<div class="grid-section major-break timeline-section">
-				<div class="grid-row">
-					<h2 class="section-header">Career & Education</h2>
-				</div>
-			<!-- ROW 1: Neue Fische + Freelance -->
-			<div class="grid-row timeline-row">
-				<!-- Neue Fische -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2023 – Present</div>
-					<div class="timeline-item card card--accent-left">
-						<h3>{ pCtx.T("experience.education.neueFische.title") }</h3>
-						<p class="institution">
-							<a href="https://www.neuefische.de" target="_blank" rel="noopener noreferrer">
-								{ pCtx.T("experience.education.neueFische.institution") }
-							</a>
-						</p>
-						<div class="education-badge">Education • 2023</div>
-						<p class="description">{ pCtx.T("experience.education.neueFische.description") }</p>
-					</div>
-				</div>
+			</section>
+			<!-- Career & Education Timeline -->
+			<section>
+				<h2>Career & Education</h2>
 				<!-- Freelance -->
-				<div class="grid-col-6 timeline-item work-item offset-up">
+				<article>
 					<h3>{ pCtx.T("experience.freelance.title") }</h3>
-					<p class="company">{ pCtx.T("experience.freelance.company") }</p>
-					<p class="meta">{ pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
+					<p class="label-mono">{ pCtx.T("experience.freelance.company") } · { pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
 					<ul>
 						<li>{ pCtx.T("experience.freelance.item1") }</li>
 						<li>{ pCtx.T("experience.freelance.item2") }</li>
 						<li>{ pCtx.T("experience.freelance.item3") }</li>
 						<li>{ pCtx.T("experience.freelance.item4") }</li>
 					</ul>
-				</div>
-			</div>
-			<!-- ROW 2: Freiheit + Data4Life -->
-			<div class="grid-row timeline-row">
+				</article>
+				<!-- Neue Fische -->
+				<article>
+					<h3>{ pCtx.T("experience.education.neueFische.title") }</h3>
+					<p class="label-mono">
+						<a href="https://www.neuefische.de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.neueFische.institution") }</a> · Education · 2023
+					</p>
+					<p>{ pCtx.T("experience.education.neueFische.description") }</p>
+				</article>
 				<!-- Freiheit -->
-				<div class="grid-col-6 timeline-item work-item offset-up">
+				<article>
 					<h3>{ pCtx.T("experience.freiheit.title") }</h3>
-					<p class="company"><a href="https://freiheit.software" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.freiheit.company") }</a></p>
-					<p class="meta">{ pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }</p>
+					<p class="label-mono">
+						<a href="https://freiheit.software" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.freiheit.company") }</a> · { pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }
+					</p>
 					<ul>
 						<li>{ pCtx.T("experience.freiheit.item1") }</li>
 						<li>{ pCtx.T("experience.freiheit.item2") }</li>
 						<li>{ pCtx.T("experience.freiheit.item3") }</li>
 						<li>{ pCtx.T("experience.freiheit.item4") }</li>
 					</ul>
-				</div>
+				</article>
 				<!-- Data4Life -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2021 – 2023</div>
-					<div class="timeline-item work-item">
-						<h3>{ pCtx.T("experience.data4life.title") }</h3>
-						<p class="company"><a href="https://www.data4life.care/de/" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.data4life.company") }</a></p>
-						<p class="meta">{ pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }</p>
-						<ul>
-							<li>{ pCtx.T("experience.data4life.item1") }</li>
-							<li>{ pCtx.T("experience.data4life.item2") }</li>
-							<li>{ pCtx.T("experience.data4life.item3") }</li>
-							<li>{ pCtx.T("experience.data4life.item4") }</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- ROW 3: CODE University + Yptokey -->
-			<div class="grid-row timeline-row">
+				<article>
+					<h3>{ pCtx.T("experience.data4life.title") }</h3>
+					<p class="label-mono">
+						<a href="https://www.data4life.care/de/" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.data4life.company") }</a> · { pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }
+					</p>
+					<ul>
+						<li>{ pCtx.T("experience.data4life.item1") }</li>
+						<li>{ pCtx.T("experience.data4life.item2") }</li>
+						<li>{ pCtx.T("experience.data4life.item3") }</li>
+						<li>{ pCtx.T("experience.data4life.item4") }</li>
+					</ul>
+				</article>
 				<!-- CODE University -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2018 – 2023</div>
-					<div class="timeline-item card card--accent-left">
-						<h3>{ pCtx.T("experience.education.code.title") }</h3>
-						<p class="institution">
-							<a href="https://code.berlin" target="_blank" rel="noopener noreferrer">
-								{ pCtx.T("experience.education.code.institution") }
-							</a>
-						</p>
-						<div class="education-badge">Education • 2018–2023</div>
-						<p class="description">{ pCtx.T("experience.education.code.description") }</p>
-					</div>
-				</div>
+				<article>
+					<h3>{ pCtx.T("experience.education.code.title") }</h3>
+					<p class="label-mono">
+						<a href="https://code.berlin" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.code.institution") }</a> · Education · 2018–2023
+					</p>
+					<p>{ pCtx.T("experience.education.code.description") }</p>
+				</article>
 				<!-- Yptokey -->
-				<div class="grid-col-6 timeline-item work-item offset-up">
+				<article>
 					<h3>{ pCtx.T("experience.yptokey.title") }</h3>
-					<p class="company"><a href="https://www.elatec-rfid.com/int/yptokey" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.yptokey.company") }</a></p>
-					<p class="meta">{ pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }</p>
+					<p class="label-mono">
+						<a href="https://www.elatec-rfid.com/int/yptokey" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.yptokey.company") }</a> · { pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }
+					</p>
 					<ul>
 						<li>{ pCtx.T("experience.yptokey.item1") }</li>
 						<li>{ pCtx.T("experience.yptokey.item2") }</li>
 						<li>{ pCtx.T("experience.yptokey.item3") }</li>
 						<li>{ pCtx.T("experience.yptokey.item4") }</li>
 					</ul>
-				</div>
-			</div>
-			<!-- ROW 4: Refund.me + Ireland -->
-			<div class="grid-row timeline-row">
+				</article>
 				<!-- Refund.me -->
-				<div class="grid-col-6 timeline-item work-item offset-up">
+				<article>
 					<h3>{ pCtx.T("experience.refund.title") }</h3>
-					<p class="company"><a href="https://en.wikipedia.org/wiki/Refund.me" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.refund.company") }</a></p>
-					<p class="meta">{ pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }</p>
+					<p class="label-mono">
+						<a href="https://en.wikipedia.org/wiki/Refund.me" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.refund.company") }</a> · { pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }
+					</p>
 					<ul>
 						<li>{ pCtx.T("experience.refund.item1") }</li>
 					</ul>
-				</div>
+				</article>
 				<!-- Ireland -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2017 – 2018</div>
-					<div class="timeline-item education-item">
-						<h3>{ pCtx.T("experience.education.ireland.title") }</h3>
-						<p class="institution">
-							<a href="https://www.maynoothuniversity.ie" target="_blank" rel="noopener noreferrer">
-								{ pCtx.T("experience.education.ireland.institution") }
-							</a>
-						</p>
-						<div class="education-badge">Education • 2017</div>
-						<p class="description">{ pCtx.T("experience.education.ireland.description") }</p>
-					</div>
-				</div>
-			</div>
-			<!-- ROW 5: U/skillity + IHK -->
-			<div class="grid-row timeline-row">
-				<!-- U/skillity -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2016 – 2017</div>
-					<div class="timeline-item work-item">
-						<h3>{ pCtx.T("experience.uskillity.title") }</h3>
-						<p class="company">{ pCtx.T("experience.uskillity.company") }</p>
-						<p class="meta">{ pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
-						<ul>
-							<li>{ pCtx.T("experience.uskillity.item1") }</li>
-							<li>{ pCtx.T("experience.uskillity.item2") }</li>
-						</ul>
-					</div>
-				</div>
-				<!-- IHK -->
-				<div class="grid-col-6 timeline-item education-item offset-up">
-					<h3>{ pCtx.T("experience.education.ihk.title") }</h3>
-					<p class="institution">
-						<a href="https://www.ihk.de" target="_blank" rel="noopener noreferrer">
-							{ pCtx.T("experience.education.ihk.institution") }
-						</a>
+				<article>
+					<h3>{ pCtx.T("experience.education.ireland.title") }</h3>
+					<p class="label-mono">
+						<a href="https://www.maynoothuniversity.ie" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.ireland.institution") }</a> · Education · 2017
 					</p>
-					<div class="education-badge">Education • 2016</div>
-					<p class="description">{ pCtx.T("experience.education.ihk.description") }</p>
-				</div>
-			</div>
-			<!-- ROW 6: Kultstätte + SAE -->
-			<div class="grid-row timeline-row">
+					<p>{ pCtx.T("experience.education.ireland.description") }</p>
+				</article>
+				<!-- U/skillity -->
+				<article>
+					<h3>{ pCtx.T("experience.uskillity.title") }</h3>
+					<p class="label-mono">{ pCtx.T("experience.uskillity.company") } · { pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
+					<ul>
+						<li>{ pCtx.T("experience.uskillity.item1") }</li>
+						<li>{ pCtx.T("experience.uskillity.item2") }</li>
+					</ul>
+				</article>
+				<!-- IHK -->
+				<article>
+					<h3>{ pCtx.T("experience.education.ihk.title") }</h3>
+					<p class="label-mono">
+						<a href="https://www.ihk.de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.ihk.institution") }</a> · Education · 2016
+					</p>
+					<p>{ pCtx.T("experience.education.ihk.description") }</p>
+				</article>
 				<!-- Kultstätte -->
-				<div class="grid-col-6 timeline-item work-item offset-up">
+				<article>
 					<h3>{ pCtx.T("experience.kultstaette.title") }</h3>
-					<p class="company">{ pCtx.T("experience.kultstaette.company") }</p>
-					<p class="meta">{ pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
+					<p class="label-mono">{ pCtx.T("experience.kultstaette.company") } · { pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
 					<ul>
 						<li>{ pCtx.T("experience.kultstaette.item1") }</li>
 					</ul>
-				</div>
+				</article>
 				<!-- SAE -->
-				<div class="grid-col-6 offset-down-wrapper">
-					<div class="row-timespan">2006 – 2016</div>
-					<div class="timeline-item card card--accent-left">
-						<h3>{ pCtx.T("experience.education.sae.title") }</h3>
-						<p class="institution">
-							<a href="https://www.sae.edu/deu/de" target="_blank" rel="noopener noreferrer">
-								{ pCtx.T("experience.education.sae.institution") }
-							</a>
-						</p>
-						<div class="education-badge">Education • 2006</div>
-						<p class="description">{ pCtx.T("experience.education.sae.description") }</p>
-					</div>
-				</div>
-			</div>
-			</div>
-			<!-- SECTION 04: CTA FOOTER -->
-			<div class="grid-section cta-footer-section">
-				<div class="grid-row">
-					<div class="cta-wrapper">
-						<a href="/static/ShawnBeckerResume.pdf" class="cta-link with-icon download" target="_blank" rel="noopener noreferrer">
-							@components.Icon("download", "24", "")
-							CV (PDF)
-						</a>
-						<p>or <a class="cta-link" href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("experience.cta.viewProjects") }</a></p>
-					</div>
-				</div>
-			</div>
+				<article>
+					<h3>{ pCtx.T("experience.education.sae.title") }</h3>
+					<p class="label-mono">
+						<a href="https://www.sae.edu/deu/de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.sae.institution") }</a> · Education · 2006
+					</p>
+					<p>{ pCtx.T("experience.education.sae.description") }</p>
+				</article>
+			</section>
+			<!-- CTA Footer -->
+			<section>
+				<p>
+					<a href="/static/ShawnBeckerResume.pdf" class="button" target="_blank" rel="noopener noreferrer">
+						@components.Icon("download", "24", "")
+						CV (PDF)
+					</a>
+				</p>
+				<p>or <a href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("experience.cta.viewProjects") }</a></p>
+			</section>
 		</div>
 	}
 }

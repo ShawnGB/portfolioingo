@@ -5,7 +5,7 @@
 
 /* --- ABOUT INTRO --- */
 .about-intro-section {
-  padding-top: 48px;
+  padding-top: var(--space-2xl);
   position: relative;
 }
 
@@ -19,7 +19,7 @@
 .drives-path-section::before {
   content: "01";
   position: absolute;
-  top: -48px;
+  top: calc(var(--space-2xl) * -1);
   right: -32px;
   font-family: var(--font-display);
   font-size: 10.2rem;
@@ -35,7 +35,7 @@
 .drives-path-section::after {
   content: "";
   position: absolute;
-  top: -48px;
+  top: calc(var(--space-2xl) * -1);
   left: 0;
   width: 4rem;
   height: 1px;
@@ -75,7 +75,7 @@
 
 .path-label small {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-tertiary);
@@ -113,7 +113,7 @@
   position: relative;
   height: 680px; /* Tall hero-style crop */
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .image-wrapper-hero .hero-portrait {
@@ -122,9 +122,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center center; /* Center crop - will slice to middle */
-  filter: saturate(0.82) contrast(0.92);
-  opacity: 0.90;
-  mix-blend-mode: multiply;
 }
 
 /* Subtle radial gradient for depth */
@@ -226,97 +223,4 @@
 }
 
 
-/* Beyond screen image - small editorial photo */
-.beyond-image-col {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
-.beyond-image {
-  width: 100%;
-  height: auto;
-  max-height: 320px;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(0.92);
-  opacity: 0.88;
-  mix-blend-mode: multiply;
-  border-radius: 4px;
-}
-
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 900px) {
-
-  /* Hide decorative numbers on mobile */
-  .drives-path-section::before,
-  .quote-image-beyond-module::before,
-  .looking-for-section::before {
-    display: none;
-  }
-
-  /* Stack three-column layout on mobile */
-  .quote-image-beyond-module .grid-row {
-    gap: var(--space-2xl) 0;
-  }
-
-  /* Hide vertical text on mobile */
-  .drives-path-section .grid-row::after {
-    display: none;
-  }
-
-  /* Beyond screen adjustments */
-  .beyond-screen-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .beyond-screen-section::after {
-    left: 24px; /* Adjust hairline for mobile padding */
-  }
-
-  .interests-grid {
-    gap: var(--space-md);
-  }
-
-  .pull-quote-wrapper {
-    margin-bottom: var(--space-xl);
-  }
-
-  .looking-for-item {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .looking-for-item:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .looking-for-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .cta-footer-grid .cta-button-wrapper {
-    grid-column: 1 / -1;
-  }
-
-  .quote-image-beyond-module {
-    padding: 80px 0; /* Reduced but still generous on mobile */
-  }
-
-  /* Hero portrait adjustments for mobile */
-  .image-wrapper-hero {
-    height: 400px; /* Shorter on mobile */
-  }
-
-  /* Interests grid mobile */
-  .interests-grid-inline {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-}
+/* --- END OF ABOUT PAGE STYLES --- */
