@@ -1,6 +1,13 @@
-/* ===================================================================
-   EXPERIENCE PAGE — BASELINE (Ready for Design)
-   Minimal structure only - custom timeline layout to be designed
-   =================================================================== */
+.experience-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.ecperinece-card {
+  display: flex;
+  flex-direction: column;
+}
 
-/* Placeholder - add custom timeline styling here when designing */
+.edu {
+  background-color: var(--paper-light);
+}
