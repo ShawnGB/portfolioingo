@@ -4,28 +4,13 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
+templ aboutIntro(pCtx i18n.PageContext) {
+	<p>{ pCtx.T("about.greeting.p1") }</p>
+}
+
 templ About(pCtx i18n.PageContext) {
-	// The SubpageTemplate is not used here to allow for a fully custom grid structure.
-	// We call BaseHtml directly.
-	@layouts.BaseHtml(pCtx, pCtx.T("about.pageTitle"), pCtx.T("about.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- 3. ABOUT INTRO -->
-			<div class="grid-section about-intro-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("about.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<p>{ pCtx.T("about.greeting.p1") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 4. WHAT DRIVES ME + MY PATH -->
+	@layouts.SubpageTemplate(pCtx, "about.title", aboutIntro(pCtx), "about.pageTitle", "about.pageMetaDescription") {
+		<!-- 4. WHAT DRIVES ME + MY PATH -->
 			<div class="grid-section major-break drives-path-section">
 				<div class="grid-row">
 					<div class="grid-col-7">
@@ -165,6 +150,5 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-		</div>
 	}
 }

@@ -4,25 +4,12 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
+templ experienceIntro(pCtx i18n.PageContext) {
+	<p>{ pCtx.T("experience.introduction.p1") }</p>
+}
+
 templ Experience(pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("experience.pageTitle"), pCtx.T("experience.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- Intro Section -->
-			<div class="grid-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("experience.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<p>{ pCtx.T("experience.introduction.p1") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	@layouts.SubpageTemplate(pCtx, "experience.title", experienceIntro(pCtx), "experience.pageTitle", "experience.pageMetaDescription") {
 			<!-- Skills Section -->
 			<section>
 				<p class="label-mono">Technical Expertise</p>
@@ -63,7 +50,7 @@ templ Experience(pCtx i18n.PageContext) {
 				<h2>Career & Education</h2>
 				<blockquote>7+ years bridging code and strategy</blockquote>
 				<!-- Freelance -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.freelance.title") }</h3>
 					<p class="label-mono">{ pCtx.T("experience.freelance.company") } · { pCtx.T("experience.freelance.period") } · { pCtx.T("experience.freelance.location") }</p>
 					<ul>
@@ -74,7 +61,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- Neue Fische -->
-				<article class="ecperinece-card edu">
+				<article class="experience-card edu">
 					<h3>{ pCtx.T("experience.education.neueFische.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.neuefische.de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.neueFische.institution") }</a> · Education · 2023
@@ -82,7 +69,7 @@ templ Experience(pCtx i18n.PageContext) {
 					<p>{ pCtx.T("experience.education.neueFische.description") }</p>
 				</article>
 				<!-- Freiheit -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.freiheit.title") }</h3>
 					<p class="label-mono">
 						<a href="https://freiheit.software" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.freiheit.company") }</a> · { pCtx.T("experience.freiheit.period") } · { pCtx.T("experience.freiheit.location") }
@@ -95,7 +82,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- Data4Life -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.data4life.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.data4life.care/de/" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.data4life.company") }</a> · { pCtx.T("experience.data4life.period") } · { pCtx.T("experience.data4life.location") }
@@ -108,7 +95,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- CODE University -->
-				<article class="ecperinece-card edu">
+				<article class="experience-card edu">
 					<h3>{ pCtx.T("experience.education.code.title") }</h3>
 					<p class="label-mono">
 						<a href="https://code.berlin" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.code.institution") }</a> · Education · 2018–2023
@@ -116,7 +103,7 @@ templ Experience(pCtx i18n.PageContext) {
 					<p>{ pCtx.T("experience.education.code.description") }</p>
 				</article>
 				<!-- Yptokey -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.yptokey.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.elatec-rfid.com/int/yptokey" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.yptokey.company") }</a> · { pCtx.T("experience.yptokey.period") } · { pCtx.T("experience.yptokey.location") }
@@ -129,7 +116,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- Refund.me -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.refund.title") }</h3>
 					<p class="label-mono">
 						<a href="https://en.wikipedia.org/wiki/Refund.me" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.refund.company") }</a> · { pCtx.T("experience.refund.period") } · { pCtx.T("experience.refund.location") }
@@ -139,7 +126,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- Ireland -->
-				<article class="ecperinece-card edu">
+				<article class="experience-card edu">
 					<h3>{ pCtx.T("experience.education.ireland.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.maynoothuniversity.ie" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.ireland.institution") }</a> · Education · 2017
@@ -147,7 +134,7 @@ templ Experience(pCtx i18n.PageContext) {
 					<p>{ pCtx.T("experience.education.ireland.description") }</p>
 				</article>
 				<!-- U/skillity -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.uskillity.title") }</h3>
 					<p class="label-mono">{ pCtx.T("experience.uskillity.company") } · { pCtx.T("experience.uskillity.period") } · { pCtx.T("experience.uskillity.location") }</p>
 					<ul>
@@ -156,7 +143,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- IHK -->
-				<article class="ecperinece-card edu">
+				<article class="experience-card edu">
 					<h3>{ pCtx.T("experience.education.ihk.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.ihk.de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.ihk.institution") }</a> · Education · 2016
@@ -164,7 +151,7 @@ templ Experience(pCtx i18n.PageContext) {
 					<p>{ pCtx.T("experience.education.ihk.description") }</p>
 				</article>
 				<!-- Kultstätte -->
-				<article class="ecperinece-card">
+				<article class="experience-card">
 					<h3>{ pCtx.T("experience.kultstaette.title") }</h3>
 					<p class="label-mono">{ pCtx.T("experience.kultstaette.company") } · { pCtx.T("experience.kultstaette.period") } · { pCtx.T("experience.kultstaette.location") }</p>
 					<ul>
@@ -172,7 +159,7 @@ templ Experience(pCtx i18n.PageContext) {
 					</ul>
 				</article>
 				<!-- SAE -->
-				<article class="ecperinece-card edu">
+				<article class="experience-card edu">
 					<h3>{ pCtx.T("experience.education.sae.title") }</h3>
 					<p class="label-mono">
 						<a href="https://www.sae.edu/deu/de" target="_blank" rel="noopener noreferrer">{ pCtx.T("experience.education.sae.institution") }</a> · Education · 2006
@@ -190,6 +177,5 @@ templ Experience(pCtx i18n.PageContext) {
 				</p>
 				<p>or <a href={ pCtx.CurrentLangLink("/projects") }>{ pCtx.T("experience.cta.viewProjects") }</a></p>
 			</section>
-		</div>
 	}
 }

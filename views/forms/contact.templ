@@ -17,27 +17,14 @@ type ContactFormData struct {
 	ErrorMessage   string
 }
 
+templ contactIntro(pCtx i18n.PageContext) {
+	<p><em>{ pCtx.T("contact.subtitle") }</em></p>
+	<p>{ pCtx.T("contact.intro.p1") }</p>
+	<blockquote>No pitch required. Just real conversation.</blockquote>
+}
+
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- Intro Section -->
-			<div class="grid-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("contact.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<p><em>{ pCtx.T("contact.subtitle") }</em></p>
-								<p>{ pCtx.T("contact.intro.p1") }</p>
-								<blockquote>No pitch required. Just real conversation.</blockquote>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	@layouts.SubpageTemplate(pCtx, "contact.title", contactIntro(pCtx), "contact.pageTitle", "contact.pageMetaDescription") {
 			<!-- Contact Details -->
 			<section>
 				<h2>{ pCtx.T("contact.details.title") }</h2>
@@ -111,6 +98,5 @@ templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 				</article>
 				<p>{ pCtx.T("contact.outro.p1") }</p>
 			</section>
-		</div>
 	}
 }

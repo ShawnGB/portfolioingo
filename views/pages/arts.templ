@@ -3,26 +3,13 @@ package pages
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
+templ artsIntro(pCtx i18n.PageContext) {
+	<p><em>{ pCtx.T("arts.subtitle") }</em></p>
+	<p>{ pCtx.T("arts.intro.p1") }</p>
+}
+
 templ Arts(images []string, pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("arts.pageTitle"), pCtx.T("arts.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- Intro Section -->
-			<div class="grid-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("arts.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<p><em>{ pCtx.T("arts.subtitle") }</em></p>
-								<p>{ pCtx.T("arts.intro.p1") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	@layouts.SubpageTemplate(pCtx, "arts.title", artsIntro(pCtx), "arts.pageTitle", "arts.pageMetaDescription") {
 			<!-- Photography Section -->
 			<section>
 				<h2>{ pCtx.T("arts.photography.title") }</h2>
@@ -64,6 +51,5 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 				<p>{ pCtx.T("arts.outro.p1") }</p>
 				<p><em>More content (sketches, music recordings) coming soon.</em></p>
 			</section>
-		</div>
 	}
 }

@@ -4,27 +4,14 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
+templ projectsIntro(pCtx i18n.PageContext) {
+	<blockquote>Building digital products that respect both users and craft.</blockquote>
+	<p><em>{ pCtx.T("projects.pageSubtitle") }</em></p>
+	<p>{ pCtx.T("projects.introduction.p1") }</p>
+}
+
 templ Projects(pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("projects.pageTitle"), pCtx.T("projects.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- Intro Section -->
-			<div class="grid-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("projects.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<blockquote>Building digital products that respect both users and craft.</blockquote>
-								<p><em>{ pCtx.T("projects.pageSubtitle") }</em></p>
-								<p>{ pCtx.T("projects.introduction.p1") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+	@layouts.SubpageTemplate(pCtx, "projects.title", projectsIntro(pCtx), "projects.pageTitle", "projects.pageMetaDescription") {
 			<!-- Current Project -->
 			<section>
 				<p class="label-mono">Current Project</p>
@@ -112,6 +99,5 @@ templ Projects(pCtx i18n.PageContext) {
 				</p>
 				<p>or <a href={ pCtx.CurrentLangLink("/contact") }>get in touch</a></p>
 			</section>
-		</div>
 	}
 }
