@@ -1,13 +1,21 @@
 /* ===================================================================
-   CONTACT PAGE — BASELINE (Ready for Design)
-   Minimal structure only - custom layouts to be designed
+   CONTACT PAGE
    =================================================================== */
 
-/* Form field styling - minimal baseline */
 .form-field-group {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--space-xs);
 }
 
 .form-input,
@@ -56,5 +64,3 @@
   text-align: center;
   padding: var(--space-4xl) var(--space-2xl);
 }
-
-/* Placeholder - add custom contact layouts here when designing */

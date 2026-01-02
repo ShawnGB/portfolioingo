@@ -1,9 +1,10 @@
 .experience-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: var(--space-xl);
 }
-.ecperinece-card {
+
+.experience-card {
   display: flex;
   flex-direction: column;
 }

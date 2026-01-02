@@ -10,31 +10,26 @@ templ artsIntro(pCtx i18n.PageContext) {
 
 templ Arts(images []string, pCtx i18n.PageContext) {
 	@layouts.SubpageTemplate(pCtx, "arts.title", artsIntro(pCtx), "arts.pageTitle", "arts.pageMetaDescription") {
-			<!-- Photography Section -->
 			<section>
-				<h2>{ pCtx.T("arts.photography.title") }</h2>
+				<h2 class="section-header">{ pCtx.T("arts.photography.title") }</h2>
 				<p><em>{ pCtx.T("arts.photography.text") }</em></p>
-				<!-- Simple image grid - ready for custom layout design -->
 				<div class="arts-gallery">
 					if len(images) > 0 {
 						for i, imagePath := range images {
 							<figure class="arts-gallery-item">
-								<img src={ "./" + imagePath } alt={ pCtx.T("arts.gallery.imageAlt") }/>
+								<img src={ "/static/" + imagePath } alt={ pCtx.T("arts.gallery.imageAlt") } title="Photography - Berlin, 2025"/>
 								<figcaption class="image-caption">Photo { string(rune(i + 1)) }</figcaption>
 							</figure>
 						}
 					}
 				</div>
 			</section>
-			<!-- Sound Section -->
 			<section class="grid--halves">
 				<div>
-					if len(images) > 17 {
-						<img src={ "./" + images[17] } alt="Sound exploration"/>
-					}
+					<img src="/static/images/website/shawn-playing-bass.jpg" alt="Playing bass guitar" title="Musical exploration - Berlin, 2025" class="img-editorial"/>
 				</div>
 				<div>
-					<h2>{ pCtx.T("arts.sound.title") }</h2>
+					<h2 class="section-header">{ pCtx.T("arts.sound.title") }</h2>
 					<p><em>{ pCtx.T("arts.sound.text") }</em></p>
 					<dl>
 						<dt class="label-mono">Instruments</dt>
@@ -46,7 +41,6 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 					</dl>
 				</div>
 			</section>
-			<!-- Closing -->
 			<section>
 				<p>{ pCtx.T("arts.outro.p1") }</p>
 				<p><em>More content (sketches, music recordings) coming soon.</em></p>

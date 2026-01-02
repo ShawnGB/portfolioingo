@@ -2,9 +2,7 @@ package forms
 
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
-import "mymodules/gofolio/views/components"
 
-// ContactFormData bleibt wie es ist.
 type ContactFormData struct {
 	Website        string
 	FirstName      string
@@ -21,81 +19,19 @@ templ contactIntro(pCtx i18n.PageContext) {
 	<p><em>{ pCtx.T("contact.subtitle") }</em></p>
 	<p>{ pCtx.T("contact.intro.p1") }</p>
 	<blockquote>No pitch required. Just real conversation.</blockquote>
+	<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
 }
 
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
 	@layouts.SubpageTemplate(pCtx, "contact.title", contactIntro(pCtx), "contact.pageTitle", "contact.pageMetaDescription") {
-			<!-- Contact Details -->
 			<section>
-				<h2>{ pCtx.T("contact.details.title") }</h2>
-				<article>
-					<p class="label-mono">Address</p>
-					<p>Shawn Gordon Becker</p>
-					<p>Baseler Str 38</p>
-					<p>12205 Berlin, Germany</p>
-				</article>
-				<article>
-					<p class="label-mono">Phone</p>
-					<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
-				</article>
-				<article>
-					<p class="label-mono">Email</p>
-					<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
-				</article>
-				<article>
-					<p class="label-mono">Location</p>
-					<p>52.4372° N, 13.3545° E</p>
-				</article>
-			</section>
-			<!-- Contact Methods -->
-			<section>
-				<h2>How to reach me</h2>
-				<article>
-					@components.Icon("mail", "20", "")
-					<div>
-						<h3>Email me</h3>
-						<p>Best for detailed inquiries</p>
-					</div>
-				</article>
-				<article>
-					@components.Icon("phone", "20", "")
-					<div>
-						<h3>Call me</h3>
-						<p>For quick questions</p>
-					</div>
-				</article>
-				<article>
-					@components.Icon("briefcase", "20", "")
-					<div>
-						<h3>LinkedIn</h3>
-						<p>Professional network</p>
-					</div>
-				</article>
-				<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
-			</section>
-			<!-- Contact Form -->
-			<section>
-				<h2>{ pCtx.T("contact.intro.p2") }</h2>
+				<h2 class="section-label">{ pCtx.T("contact.intro.p2") }</h2>
 				@ContactFormPartial(data, pCtx)
 			</section>
-			<!-- Reach Out If -->
 			<section>
-				<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
-				<article>
-					<p>{ pCtx.T("contact.reachOutIf.item1") }</p>
-				</article>
-				<article>
-					<p>{ pCtx.T("contact.reachOutIf.item2") }</p>
-				</article>
-				<article>
-					<p>{ pCtx.T("contact.reachOutIf.item3") }</p>
-				</article>
-				<article>
-					<p>{ pCtx.T("contact.reachOutIf.item4") }</p>
-				</article>
-				<article>
-					<p>{ pCtx.T("contact.reachOutIf.item5") }</p>
-				</article>
+				<h2 class="section-label">Alternative Contact</h2>
+				<p>Prefer email? Reach me directly at <a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
+				<p>Or connect on <a href="https://www.linkedin.com/in/shawn-gordon-becker/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
 				<p>{ pCtx.T("contact.outro.p1") }</p>
 			</section>
 	}

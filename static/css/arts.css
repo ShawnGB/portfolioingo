@@ -1,9 +1,8 @@
 /* ===================================================================
-   ARTS PAGE — BASELINE (Ready for Design)
-   Minimal structure only - custom layouts to be designed
+   ARTS PAGE
+   Layout-specific styles only
    =================================================================== */
 
-/* Simple gallery grid - customize layout as needed */
 .arts-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

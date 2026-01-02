@@ -17,7 +17,7 @@ var (
 
 // LoadImages loads and caches image filenames at startup
 func LoadImages() error {
-	images, err := utils.GetImageFilenames()
+	images, err := utils.GetArtsImages()
 	if err != nil {
 		return err
 	}
