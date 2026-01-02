@@ -16,10 +16,15 @@ templ Arts(images []string, pCtx i18n.PageContext) {
 				<div class="arts-gallery">
 					if len(images) > 0 {
 						for i, imagePath := range images {
-							<figure class="arts-gallery-item">
-								<img src={ "/static/" + imagePath } alt={ pCtx.T("arts.gallery.imageAlt") } title="Photography - Berlin, 2025"/>
-								<figcaption class="image-caption">Photo { string(rune(i + 1)) }</figcaption>
-							</figure>
+							if i % 7 == 0 {
+								<figure class="arts-gallery-item arts-gallery-item--feature">
+									<img src={ "/static/" + imagePath } alt={ pCtx.T("arts.gallery.imageAlt") } title="Photography - Berlin, 2025"/>
+								</figure>
+							} else {
+								<figure class="arts-gallery-item">
+									<img src={ "/static/" + imagePath } alt={ pCtx.T("arts.gallery.imageAlt") } title="Photography - Berlin, 2025"/>
+								</figure>
+							}
 						}
 					}
 				</div>

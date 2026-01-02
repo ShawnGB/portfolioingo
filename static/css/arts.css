@@ -3,19 +3,58 @@
    Layout-specific styles only
    =================================================================== */
 
+/* Gallery Grid - Mixed sizes with features */
 .arts-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-2xl);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
   margin-top: var(--space-3xl);
 }
 
+/* Regular gallery items */
 .arts-gallery-item {
   margin: 0;
+  overflow: hidden;
 }
 
 .arts-gallery-item img {
   width: 100%;
   height: auto;
+  max-height: 320px;
+  object-fit: contain;
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.arts-gallery-item:hover img {
+  transform: scale(1.02);
+}
+
+/* Feature images - full width, respect aspect ratio */
+.arts-gallery-item--feature {
+  grid-column: 1 / -1;
+  max-height: 600px;
+}
+
+.arts-gallery-item--feature img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .arts-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .arts-gallery-item img {
+    max-height: 240px;
+  }
+
+  .arts-gallery-item--feature img {
+    max-height: 400px;
+  }
 }
