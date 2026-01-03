@@ -66,21 +66,7 @@
   max-width: 55ch; /* Slightly tighter for side column */
 }
 
-/* Path section label - small editorial header */
-.path-label {
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.path-label small {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-  font-weight: 500;
-}
+/* Path label now in utilities.css (used across multiple pages) */
 
 
 /* --- 5. PULL QUOTE + IMAGE + BEYOND (THREE-COLUMN EDITORIAL) --- */

@@ -24,6 +24,22 @@
    DECORATIVE ELEMENTS
    ======================================== */
 
+/* Path label - small editorial header with hairline */
+.path-label {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.path-label small {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
 /* Vertical rule - optional left accent */
 .vertical-rule {
   position: absolute;
