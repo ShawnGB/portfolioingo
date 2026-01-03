@@ -3,58 +3,42 @@
    Layout-specific styles only
    =================================================================== */
 
-/* Gallery Grid - Mixed sizes with features */
-.arts-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--space-md);
-  margin-top: var(--space-3xl);
-}
-
-/* Regular gallery items */
-.arts-gallery-item {
-  margin: 0;
-  overflow: hidden;
-}
-
-.arts-gallery-item img {
+/* Anchor images - full width, visual dominance */
+.arts-anchor img {
   width: 100%;
   height: auto;
-  max-height: 320px;
-  object-fit: contain;
   display: block;
-  transition: transform 0.3s ease;
 }
 
-.arts-gallery-item:hover img {
-  transform: scale(1.02);
+/* Sound & Music section - image + text, no grid */
+.arts-sound {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: flex-start;
+  margin: var(--space-3xl) 0 var(--space-2xl) 0;
 }
 
-/* Feature images - full width, respect aspect ratio */
-.arts-gallery-item--feature {
-  grid-column: 1 / -1;
-  max-height: 600px;
+.arts-sound img {
+  flex: 1;
+  max-width: 50%;
+  object-fit: cover;
 }
 
-.arts-gallery-item--feature img {
-  width: 100%;
-  height: auto;
-  max-height: 600px;
-  object-fit: contain;
+.arts-sound-text {
+  flex: 1;
 }
 
-/* Responsive */
+.arts-sound-text h2 {
+  margin-top: 0;
+}
+
+/* Responsive: Stack on mobile */
 @media (max-width: 768px) {
-  .arts-gallery {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: var(--space-sm);
+  .arts-sound {
+    flex-direction: column;
   }
 
-  .arts-gallery-item img {
-    max-height: 240px;
-  }
-
-  .arts-gallery-item--feature img {
-    max-height: 400px;
+  .arts-sound img {
+    max-width: 100%;
   }
 }
