@@ -1,165 +1,5 @@
 /* =================================
-   1. CSS Variables & Design Tokens
-   ================================= */
-
-:root {
-  /* === EDITORIAL MONOCHROME === */
-  /* Warm materials - no color accents */
-
-  /* === WARM PAPER: Base === */
-  --paper-warm: #f8f6f2; /* Warm beige-tinted off-white */
-  --paper-mid: #f7f6f4; /* Mid paper - for subtle sections */
-  --paper-light: #fdfcfb; /* Lightest - for cards/elevated surfaces */
-
-  /* === WARM BLACKS: Text === */
-  --ink-warm: #2b2b2b; /* Softer ink - reduced contrast, not pure black */
-  --ink-soft: #3a3a3a; /* Lighter for secondary text */
-  --ink-muted: #5a5a58; /* Muted - for tertiary text */
-
-  /* === WARM GRAYS: Dividers & Borders === */
-  --gray-warm-100: #e8e8e6; /* Light warm gray - subtle dividers */
-  --gray-warm-200: #d4d4d1; /* Medium warm gray - borders */
-  --gray-warm-300: #a8a8a5; /* Dark warm gray - de-emphasized elements */
-
-  /* === SEMANTIC ASSIGNMENTS === */
-  --bg-base: var(--paper-warm);
-  --bg-surface: var(--paper-light);
-  --bg-elevated: var(--paper-light);
-  --bg-section-alt: var(--paper-mid);
-  --bg-inset: var(--paper-mid);
-
-  --text-primary: var(--ink-warm);
-  --text-secondary: var(--ink-soft);
-  --text-tertiary: var(--ink-muted);
-
-  --border-subtle: var(--gray-warm-100);
-  --border-medium: var(--gray-warm-200);
-  --border-strong: var(--gray-warm-300);
-  --border-default: var(--gray-warm-200);
-
-  --link-default: var(--ink-warm);
-  --link-hover: var(--ink-warm);
-  --link-visited: var(--ink-soft);
-
-  /* === EDITORIAL MONOCHROME: Opacity & Effect Tokens === */
-  --opacity-editorial-number: 0.05;
-  --opacity-editorial-rule: 0.15;
-  --opacity-image-filter: 0.90;
-
-  /* Filter presets */
-  --filter-monochrome-editorial: saturate(0.82) contrast(0.92) opacity(0.90);
-
-  /* Semantic state colors (monochrome-aligned) */
-  --state-error: var(--ink-warm);
-  --state-error-bg: var(--paper-mid);
-  --state-success: var(--ink-warm);
-  --state-success-bg: var(--paper-mid);
-
-  /* Legacy support */
-  --linen-base: var(--paper-warm);
-  --linen-light: var(--paper-light);
-  --linen-dark: var(--paper-mid);
-  --ink: var(--ink-warm);
-  --paper-base: var(--paper-warm);
-  --paper-surface: var(--paper-light);
-  --paper-inset: var(--paper-mid);
-  --ink-primary: var(--ink-warm);
-  --ink-secondary: var(--ink-soft);
-  --ink-tertiary: var(--ink-muted);
-  --ink-border: var(--gray-warm-200);
-  --primary: var(--ink-warm);
-  --primary-dark: var(--ink-soft);
-  --primary-light: var(--ink-muted);
-
-  /* Legacy support (keeping for backward compatibility) */
-  --bg-color: var(--bg-base);
-  --text: var(--text-primary);
-  --text-muted: var(--text-tertiary);
-
-  /* RGB values for alpha transparency */
-  --primary-rgb: 28, 28, 28; /* Warm near-black #1C1C1C */
-  --secondary-rgb: 42, 42, 40; /* Softer black #2A2A28 */
-  --text-rgb: 28, 28, 28; /* Warm near-black #1C1C1C */
-
-  /* Typography - Editorial Monochrome */
-  --font-display:
-    "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif; /* Display/Headers - Geometric sans */
-  --font-body: "Newsreader", Georgia, serif; /* Body text - Editorial serif */
-  --font-mono: "JetBrains Mono", "Courier New", monospace; /* Technical/Code */
-
-  /* Weight Scale */
-  --weight-light: 300; /* Light - for large introductory text */
-  --weight-regular: 400; /* Regular - for body paragraphs */
-  --weight-medium: 500; /* Medium - for emphasis */
-  --weight-semibold: 600; /* Semi-bold - for strong emphasis */
-  --weight-bold: 700; /* Bold - for subheadings */
-  --weight-extrabold: 800; /* Extra bold - for main headings */
-
-  /* Modular Type Scale - Refined for readability */
-  --text-xs: 0.75rem; /* 12px - Small/Meta */
-  --text-sm: 0.875rem; /* 14px - Captions */
-  --text-base: 1rem; /* 16px - Body text */
-  --text-md: 1.125rem; /* 18px - Large body */
-  --text-lg: 1.25rem; /* 20px - Lead paragraphs */
-  --text-xl: 1.5rem; /* 24px - H4 */
-  --text-2xl: 1.75rem; /* 28px - H3 */
-  --text-3xl: 2.25rem; /* 36px - H2 */
-  --text-4xl: 3.5rem; /* 56px - H1 max */
-
-  /* Spacing Scale - Generous breathing room */
-  --space-xs: 0.5rem; /* 8px */
-  --space-sm: 0.75rem; /* 12px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
-  --space-4xl: 6rem; /* 96px */
-  --space-5xl: 8rem; /* 128px */
-
-  /* === Minimal Shadow System === */
-
-  /* Subtle elevation */
-  --shadow-subtle:
-    0 1px 2px rgba(28, 28, 28, 0.04), 0 4px 8px rgba(28, 28, 28, 0.02);
-
-  /* Card hover */
-  --shadow-card:
-    0 4px 8px rgba(28, 28, 28, 0.06), 0 12px 24px rgba(28, 28, 28, 0.04);
-
-  --shadow-card-hover:
-    0 8px 16px rgba(28, 28, 28, 0.08), 0 16px 32px rgba(28, 28, 28, 0.06);
-
-  /* Polished elevation (legacy support) */
-  --shadow-polished: var(--shadow-subtle);
-  --shadow-polished-hover: var(--shadow-card);
-
-  /* Top-down Light Simulation (legacy support) */
-  --highlight-top: rgba(255, 255, 255, 0.5);
-  --shadow-inset-dark: rgba(28, 28, 28, 0.08);
-
-  /* === Animation & Interaction === */
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* === Border Radius === */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-
-  /* Layout */
-  --nav-height: 3.5rem;
-  --container-max: 800px; /* Tighter for reading */
-  --container-wide: 1200px;
-
-  /* Breakpoints */
-  --breakpoint-mobile: 767.98px;
-}
-
-/* =================================
-   2. Reset & Base Styles
+   Reset & Base Styles
    ================================= */
 
 /* ZERO TOLERANCE FOR OVERFLOW */
@@ -175,42 +15,33 @@ html {
 body {
   margin: 0;
   padding: 0;
-  max-width: 100%;
-  overflow-x: hidden;
   background-color: var(--paper-warm);
   color: var(--ink-warm);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.7; /* Generous for reading */
+  line-height: 1.7;
   font-weight: 400;
   letter-spacing: 0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  position: relative;
-}
-
-/* Subtle Paper Grain - Material presence */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" /></filter><rect width="400" height="400" filter="url(%23grain)" opacity="0.06" /></svg>');
-  opacity: 0.04; /* Extremely subtle - single global layer */
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  z-index: 1;
 }
 
 /* =================================
-   3. Typography - Editorial Hierarchy
+   Typography - Editorial Hierarchy
+
+   USAGE GUIDELINES:
+
+   Use semantic HTML tags (h1-h6, p, etc.) when:
+   - The element IS semantically that type (e.g., <h2> for actual section headings)
+   - You want default styling for that element type
+   - SEO and accessibility matter (screen readers use semantic structure)
+
+   Use utility classes (.section-header, .section-label, etc.) when:
+   - You need a specific visual size decoupled from semantic meaning
+   - Example: <div class="section-header"> when you want h2 sizing without <h2> semantics
+   - You want to override default tag styling in a specific context
+
+   See utilities.css for available typography utility classes.
    ================================= */
 
 /* LINKS: Monochrome with opacity transitions */
@@ -382,7 +213,7 @@ li {
   margin-bottom: 0.5rem;
 }
 
-/* Blockquote - pull quote style */
+/* Blockquote - pull quote style with editorial hairline */
 blockquote {
   font-family: var(--font-body);
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -391,9 +222,21 @@ blockquote {
   line-height: 1.5;
   color: var(--ink-warm);
   margin: 3rem 0;
-  padding: 0;
+  padding: 2rem 0 0 0;
   max-width: 55ch;
   border: none;
+  position: relative;
+}
+
+blockquote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: var(--ink-warm);
+  opacity: 0.2;
 }
 
 /* Definition lists */
@@ -427,15 +270,6 @@ dl dd ul li {
    4. Utility Classes
    ================================= */
 
-/* Layout utilities */
-.flex-center-full {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Visibility utilities */
 .hidden {
   display: none;
 }
@@ -448,37 +282,110 @@ dl dd ul li {
   color: #b71c1c;
 }
 
-/* Language switcher */
-.lang-separator {
-  padding: 0 5px;
-  color: var(--text-tertiary);
-}
-
-.lang-link {
-  padding: 0 5px;
-  text-decoration: none;
-  color: var(--text-secondary);
-  transition: opacity 0.2s ease;
-}
-
-.lang-link:hover {
-  opacity: 0.65;
-}
-
-/* Section spacing */
+/* Section spacing and padding */
 section {
-  margin-bottom: var(--space-xl);
+  padding: var(--space-4xl) 0;
+  margin-bottom: 0; /* spacing handled by padding */
 }
 
 section:last-child {
-  margin-bottom: var(--space-3xl);
+  padding-bottom: var(--space-5xl);
+}
+
+/* Images - Editorial monochrome by default */
+img {
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.9;
+  mix-blend-mode: multiply;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Remove filter when needed */
+img.img-original {
+  filter: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+/* Articles (cards) - default card styling */
+article {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+article:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
+}
+
+/* Article variations */
+article.article--column {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+article.article--accent {
+  border-left: 2px solid var(--border-default);
 }
 
 /* =================================
    5. Common Components
    ================================= */
 
-/* Minimal CTA Links */
+/* Buttons - Semantic button styling */
+.button,
+a.button,
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-warm);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.button:hover,
+a.button:hover,
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(43, 43, 43, 0.1);
+}
+
+/* Solid button variant */
+.button--solid,
+a.button--solid,
+button.button--solid {
+  background: var(--ink-warm);
+  color: var(--paper-warm);
+  border-color: var(--ink-warm);
+}
+
+.button--solid:hover,
+a.button--solid:hover,
+button.button--solid:hover {
+  background: var(--ink-soft);
+  border-color: var(--ink-soft);
+}
+
+/* Legacy support - keep cta-link as alias to button */
 a.cta-link,
 button.cta-link {
   display: inline-block;
@@ -499,6 +406,25 @@ button.cta-link {
 a.cta-link:hover,
 button.cta-link:hover {
   opacity: 0.6;
+}
+
+/* CTA Link with underline (for larger editorial links with icons) */
+.cta-link--underline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink-warm);
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink-warm);
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.cta-link--underline:hover {
+  opacity: 0.65;
 }
 
 /* Horizontal divider */
@@ -525,163 +451,13 @@ hr,
   max-width: var(--container-max);
   margin: var(--nav-height) auto 0;
   padding: 0 2rem;
-  background: transparent;
-}
-
-/* Content section wrapper */
-.page-container > section,
-.page-container
-  > div:not(.hero-section-wrapper):not(.photo-divider):not(
-    .color-block-section
-  ):not(.cta-section) {
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding: var(--space-2xl) 0;
-}
-
-.page-container ul {
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  padding-inline-start: 40px;
-  width: auto;
-  display: block;
-}
-
-.page-container ul li {
-  margin-bottom: 0.5em;
-  box-shadow: none;
-  padding: 0;
-  flex-basis: auto;
-  flex-grow: 0;
-}
-
-.page-container ul.is-grid {
-  width: 100%;
-  display: flex;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-  padding-inline-start: 0;
-  list-style-type: none;
-}
-
-.page-container ul.is-grid li {
-  background: var(--bg-surface);
-  margin: 0;
-  box-sizing: border-box;
-  padding: var(--space-lg);
-  flex-basis: calc((100% - 2 * var(--space-md)) / 3);
-  flex-grow: 1;
-  flex-shrink: 1;
-  margin-bottom: var(--space-md);
-  border-radius: var(--radius-lg);
-  transition: var(--transition-smooth);
-  cursor: pointer;
-  box-shadow: var(--shadow-subtle);
-  border: 1px solid var(--border-subtle);
-}
-
-.page-container ul.is-grid li:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
-}
-
-.page-container ul:not(.is-grid):not(.nav-links) {
-  list-style-type: none;
-  padding-inline-start: 0;
-}
-
-.page-container ul:not(.is-grid):not(.nav-links) li {
-  margin-bottom: 0.5em;
-}
-
-/* Page main header */
-.page-main-header {
-  text-align: left;
-  margin-bottom: var(--space-xl);
-}
-
-.page-main-header h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: var(--space-sm);
-  letter-spacing: -0.025em;
-}
-
-.page-subtitle {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  font-style: italic;
-  line-height: 1.6;
-  max-width: 65ch;
-}
-
-/* Integrated Header */
-.header-integrated {
-  width: 100%;
-  max-width: var(--container-max);
-  margin: var(--space-4xl) auto;
-  padding: 0 var(--space-xl);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-2xl);
-  align-items: start;
-}
-
-.header-integrated .header-main h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-lg) 0;
-  line-height: 1.1;
-  letter-spacing: -0.025em;
-}
-
-.header-integrated .header-main .page-subtitle {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin: 0;
-  line-height: 1.6;
-  font-weight: 400;
-}
-
-.header-integrated .header-content {
-  background: var(--paper-mid);
-  padding: var(--space-2xl);
-  border-radius: var(--radius-md);
-  border-left: 2px solid var(--border-medium);
-}
-
-.header-integrated .header-content .content-label {
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-warm);
-  font-weight: 700;
-  margin: 0 0 var(--space-md) 0;
-}
-
-.header-integrated .header-content .content-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
 }
 
 /* =================================
-   6. Responsive Design
+   Responsive Design
    ================================= */
 
 @media (max-width: 900px) {
-  .header-integrated {
-    grid-template-columns: 1fr;
-    gap: var(--space-2xl);
-  }
-
   .page-container {
     padding: 0 1.5rem;
   }
@@ -690,9 +466,5 @@ hr,
 @media (max-width: 767.98px) {
   .page-container {
     padding: 0 1rem;
-  }
-
-  .page-container ul li {
-    flex-basis: calc((100% - var(--space-md)) / 2);
   }
 }

@@ -1,305 +1,161 @@
 /* ==========================================
-   UTILITIES.CSS - Reusable Design Patterns
+   UTILITIES.CSS - COMPOSED PATTERNS ONLY
    ========================================== */
 
 /*
-  This file contains extracted CSS patterns that were duplicated
-  across multiple page-specific stylesheets. By centralizing these
-  patterns, we reduce code duplication and ensure consistency.
+  PHILOSOPHY:
+  This file contains ONLY composed patterns that can't be achieved
+  with single semantic HTML elements. Most styling is now in base.css
+  as global semantic element styles.
+
+  USE SEMANTIC HTML FIRST:
+  - <section> = automatic padding/spacing
+  - <h1>, <h2>, <h3> = heading styles
+  - <p> = body text
+  - <img> = editorial monochrome filter
+  - <blockquote> = pull quote with hairline
+  - <article> = card with hover effect
+  - <a class="button"> = button styling
+
+  ONLY use utilities for COMPOSED patterns below.
 */
 
 /* ========================================
-   SECTION DECORATIONS
+   DECORATIVE ELEMENTS
    ======================================== */
 
-/* Section Numbers - Large decorative numbers in background */
-.section-number::before {
-  content: attr(data-number);
+/* Path label - small editorial header with hairline */
+.path-label {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.path-label small {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* Vertical rule - optional left accent */
+.vertical-rule {
   position: absolute;
-  top: -0.5rem;
   left: 0;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  color: var(--ink-warm);
-  opacity: var(--opacity-editorial-number);
-  pointer-events: none;
-  z-index: 0;
+  top: 0.25rem;
+  width: 1px;
+  height: 90%;
+  background-color: var(--border-subtle);
+  opacity: 0.8;
 }
 
-/* Variants for different contexts */
-.section-number--large::before {
-  font-size: 14rem;
-}
-
-.section-number--small::before {
-  font-size: 10rem;
-}
-
-.section-number--centered::before {
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.section-number--right::before {
-  left: auto;
-  right: 0;
+/* Image caption - small metadata text */
+.image-caption {
+  display: block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
 }
 
 /* ========================================
-   EDITORIAL HAIRLINES
+   COMPOSED PATTERNS
    ======================================== */
 
-/* Thin decorative rules for visual separation */
-.hairline::before {
-  content: '';
-  position: absolute;
-  height: 1px;
-  background: var(--ink-warm);
-  opacity: var(--opacity-editorial-rule);
-  pointer-events: none;
+/* Icon + heading pattern */
+.icon-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-md);
 }
 
-/* Horizontal hairline */
-.hairline--horizontal::before {
-  width: 4rem;
-  height: 1px;
+.icon-header .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
 }
 
-.hairline--horizontal-thick::before {
-  width: 6rem;
-  height: 2px;
-}
-
-/* Top positioned hairline */
-.hairline--top::before {
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-/* Bottom positioned hairline */
-.hairline--bottom::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--ink-warm);
-  opacity: var(--opacity-editorial-rule);
-  pointer-events: none;
-}
-
-/* Narrow width variant */
-.hairline--narrow::before {
-  width: 60%;
-  left: 50%;
-  transform: translateX(-50%);
+/* Mono label - uppercase metadata */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin: 0;
+  display: block;
 }
 
 /* ========================================
-   IMAGE FILTERS & TREATMENTS
+   LIST PATTERNS
    ======================================== */
 
-/* Editorial monochrome image style */
-.img-editorial {
-  filter: var(--filter-monochrome-editorial);
-  mix-blend-mode: multiply;
+/* Icon list - from about.css .values-list (lines 139-173) */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* Interactive editorial images with hover effect */
-.img-editorial--interactive {
-  filter: var(--filter-monochrome-editorial);
-  mix-blend-mode: multiply;
-  transition: filter 0.3s ease;
+.values-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  margin-bottom: 24px;
 }
 
-.img-editorial--interactive:hover {
-  filter: saturate(1) contrast(1) opacity(1);
+.values-list .icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.3rem;
+  opacity: 0.7;
 }
 
-/* Image with depth gradient overlay */
-.img-with-depth {
-  position: relative;
-}
-
-.img-with-depth::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(255, 255, 255, 0) 70%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ========================================
-   TYPOGRAPHY PATTERNS
-   ======================================== */
-
-/* Section headers - consistent styling across pages */
-.section-header {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-  line-height: 1.2;
-}
-
-.section-header--large {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-/* Intro/lead text styling */
-.intro-text {
+.values-list .value-content h3 {
   font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 65ch;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
 }
 
-.intro-text--large {
-  font-size: 1.25rem;
+.values-list .value-content p {
+  font-size: 0.9375rem;
   line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
-/* Vertical rule/border accent */
-.border-left-accent {
-  border-left: 2px solid var(--ink-warm);
-  padding-left: var(--space-lg);
+/* Checkmarked list - from about.css .looking-for-item ul (lines 357-378) */
+.checkmark-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.border-left-subtle {
-  border-left: 1px solid var(--border-subtle);
-  padding-left: var(--space-lg);
+.checkmark-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 6px;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
 }
 
-/* ========================================
-   HOVER EFFECTS & INTERACTIONS
-   ======================================== */
-
-/* Opacity fade on hover */
-.hover-fade {
-  transition: opacity 0.2s ease;
-}
-
-.hover-fade:hover {
-  opacity: 0.65;
-}
-
-.hover-fade--strong:hover {
+.checkmark-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--ink-warm);
   opacity: 0.5;
 }
 
-/* Lift effect on hover */
-.hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.hover-lift:hover {
-  transform: translateY(-2px);
-}
-
-.hover-lift--strong {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover-lift--strong:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
-}
-
-/* Underline animation on hover */
-.hover-underline {
-  position: relative;
-  text-decoration: none;
-}
-
-.hover-underline::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.3s ease;
-}
-
-.hover-underline:hover::after {
-  width: 100%;
-}
-
-/* ========================================
-   LAYOUT UTILITIES
-   ======================================== */
-
-/* Full-bleed section (breaks out of container) */
-.section-bleed {
-  margin-left: calc(-1 * var(--space-3xl));
-  margin-right: calc(-1 * var(--space-3xl));
-  padding-left: var(--space-3xl);
-  padding-right: var(--space-3xl);
-}
-
-@media (max-width: 900px) {
-  .section-bleed {
-    margin-left: calc(-1 * var(--space-xl));
-    margin-right: calc(-1 * var(--space-xl));
-    padding-left: var(--space-xl);
-    padding-right: var(--space-xl);
-  }
-}
-
-/* Section with top border */
-.section-bordered-top {
-  border-top: 1px solid var(--border-subtle);
-  padding-top: var(--space-2xl);
-}
-
-/* ========================================
-   SPACING UTILITIES
-   ======================================== */
-
-/* Margin utilities */
-.mb-0 { margin-bottom: 0; }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
-.mb-2xl { margin-bottom: var(--space-2xl); }
-.mb-3xl { margin-bottom: var(--space-3xl); }
-
-.mt-0 { margin-top: 0; }
-.mt-sm { margin-top: var(--space-sm); }
-.mt-md { margin-top: var(--space-md); }
-.mt-lg { margin-top: var(--space-lg); }
-.mt-xl { margin-top: var(--space-xl); }
-.mt-2xl { margin-top: var(--space-2xl); }
-.mt-3xl { margin-top: var(--space-3xl); }
-
-/* ========================================
-   RESPONSIVE UTILITIES
-   ======================================== */
-
-@media (max-width: 767.98px) {
-  .section-number::before {
-    font-size: 8rem;
-  }
-
-  .section-number--large::before {
-    font-size: 10rem;
-  }
-
-  .section-bleed {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}

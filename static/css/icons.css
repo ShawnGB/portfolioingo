@@ -137,6 +137,45 @@
   transform: translateY(3px) scale(1.1);
 }
 
+/* CTA Solid Variant - Inverse of .with-icon (for forms, primary actions) */
+.cta-link--solid,
+button.cta-link--solid {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  background: var(--ink-warm);
+  border-radius: var(--radius-md);
+  border: none;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--paper-warm);
+  text-decoration: none;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.cta-link--solid:hover:not(:disabled),
+button.cta-link--solid:hover:not(:disabled) {
+  background: var(--ink-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-subtle);
+}
+
+.cta-link--solid:disabled,
+button.cta-link--solid:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Large variant for emphasis (e.g., form submit) */
+.cta-link--solid.large,
+button.cta-link--solid.large {
+  padding: var(--space-lg) var(--space-3xl);
+}
+
 /* Tech Stack Grid */
 .tech-stack-grid {
   display: grid;

@@ -1,453 +1,281 @@
 /* ===================================================================
-   EXPERIENCE PAGE — EDITORIAL MONOCHROME (COMPACT)
-   Tight, scannable, sophisticated
+   EXPERIENCE PAGE — EDITORIAL CREATIVE LAYOUTS
+   Three distinct chapter layouts + decorative elements
    =================================================================== */
 
-/* --- 1. INTRO SECTION --- */
-.experience-intro-section {
-  padding-top: 48px;
-  padding-bottom: 48px;
+/* ========================================
+   CHAPTER 1: HORIZONTAL BREAKOUT
+   ======================================== */
+
+.experience-chapter-1 {
   position: relative;
 }
 
-.experience-intro-section::before {
-  content: "01";
+/* Decorative section number "01" */
+.experience-chapter-1::before {
+  content: "2006 - 2016";
   position: absolute;
-  top: 0;
-  left: -32px;
+  top: 120px;
+  right: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.07;
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
 
-.experience-intro-section .section-label {
+/* Editorial hairline */
+.experience-chapter-1::after {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 4rem;
+  height: 1px;
+  background: rgba(43, 43, 43, 0.15);
+}
+
+/* Full-bleed horizontal image container */
+.breakout-image-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+/* Horizontal strip image - middle third crop */
+.breakout-image-horizontal {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center 40%; /* Slightly above center for better composition */
+  display: block;
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.9;
+}
+
+.breakout-image-container .image-caption {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 0 var(--space-xl);
+}
+
+/* ========================================
+   CHAPTER 2: VERTICAL SIDEBAR
+   ======================================== */
+
+.experience-chapter-2 {
+  position: relative;
+}
+
+/* Decorative section number "02" */
+.experience-chapter-2::before {
+  content: "2016 - 2022";
+  position: absolute;
+  top: 48px;
+  left: -32px;
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vertical image strip - tall sidebar */
+.vertical-image-strip-wrapper {
+  position: relative;
   margin: 0;
 }
 
-.experience-intro-section .intro-content {
+.vertical-image-strip {
+  width: 100%;
+  height: 1200px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: var(--radius-sm);
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.9;
+}
+
+.vertical-image-strip-wrapper .image-caption {
+  margin-top: var(--space-sm);
+}
+
+/* ========================================
+   CHAPTER 3: FULL WIDTH IMAGE BETWEEN TEXT
+   ======================================== */
+
+.experience-chapter-3 {
   position: relative;
-  padding-left: var(--space-lg);
 }
 
-.experience-intro-section .vertical-rule {
+/* Decorative section number "03" */
+.experience-chapter-3::before {
+  content: "2023 - Present";
   position: absolute;
-  left: 0;
-  top: 0.25rem;
-  width: 2px;
-  height: 90%;
-  background-color: var(--ink-warm);
-  opacity: 0.15;
+  top: 48px;
+  right: -24px;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--ink-warm);
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.experience-intro-section .body-text p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 65ch;
+/* Full-width image between text sections */
+.full-width-image {
+  margin: var(--space-2xl) 0;
 }
 
+.full-width-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  filter: saturate(0.82) contrast(0.92);
+  opacity: 0.9;
+}
 
-/* --- 2. SKILLS SECTION (COMPACT 2-COLUMN) --- */
-.skills-section {
+.full-width-image .image-caption {
+  margin-top: var(--space-sm);
+  text-align: center;
+}
+
+/* ========================================
+   TIMELINE SECTION
+   ======================================== */
+
+.timeline-section {
   position: relative;
   background: var(--paper-mid);
   margin-left: -64px;
   margin-right: -64px;
-  padding: 48px 64px;
+  padding-left: 64px;
+  padding-right: 64px;
   border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
 }
 
-.skills-section::before {
-  content: "02";
+/* Decorative section number "TIMELINE" */
+.timeline-section::before /* Vertical metadata text */
+.timeline-section .grid-row:first-of-type::after {
+  content: "TIMELINE / JOURNEY";
   position: absolute;
-  top: -24px;
-  right: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.07;
+  left: -4rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  opacity: 0.25;
   pointer-events: none;
-  z-index: 0;
 }
 
-.skills-section::after {
-  content: "";
-  position: absolute;
-  top: 48px;
-  left: 64px;
-  width: 6rem;
-  height: 2px;
-  background: rgba(43, 43, 43, 0.2);
+.timeline-grid {
+  margin-top: var(--space-lg);
 }
 
-.skills-section .section-header {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-2xl) 0;
-  grid-column: 1 / -1;
-}
-
-/* Left column - Category labels */
-.skills-categories {
+/* Timeline cards as semantic articles */
+.timeline-card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: var(--paper-warm);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  min-height: 100px;
+  justify-content: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.skill-category {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md) 0;
+.timeline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 28, 28, 0.06);
 }
 
-.skill-category svg {
-  width: 20px;
-  height: 20px;
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-.skill-category h3 {
+.timeline-year {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   color: var(--text-primary);
-  margin: 0;
+}
+
+.timeline-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  opacity: 0.8;
   line-height: 1.4;
 }
 
-/* Right column - Skills lists */
-.skills-lists {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+.timeline-present {
+  border: 1px solid var(--border-medium);
+  background: var(--paper-light);
 }
 
-.skill-list {
-  padding: var(--space-md) 0;
-  border-left: 2px solid var(--ink-warm);
-  padding-left: var(--space-lg);
-}
-
-.skill-list p {
-  font-size: 0.9375rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-
-/* --- 3. UNIFIED TIMELINE (Experience + Education) --- */
-.timeline-section {
-  position: relative;
-  padding-top: 80px;
-  padding-bottom: 48px;
-}
-
-.timeline-section::before {
-  content: "03";
-  position: absolute;
-  top: 24px;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.07;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.timeline-section::after {
-  content: "";
-  position: absolute;
-  top: 32px;
-  left: 0;
-  width: 6rem;
-  height: 2px;
-  background: rgba(43, 43, 43, 0.2);
-}
-
-.timeline-section .section-header {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  font-weight: 600;
+.timeline-present .timeline-label {
+  font-weight: var(--weight-medium);
   color: var(--text-primary);
-  margin: 0 0 var(--space-3xl) 0;
-  grid-column: 1 / -1;
-}
-
-/* Unified timeline container */
-.unified-timeline {
-  position: relative;
-  padding-left: 3rem;
-}
-
-/* Vertical timeline line */
-.unified-timeline::before {
-  content: "";
-  position: absolute;
-  left: 1.125rem;
-  top: 1rem;
-  bottom: 1rem;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    rgba(43, 43, 43, 0.25) 0%,
-    rgba(43, 43, 43, 0.1) 100%
-  );
-}
-
-/* Timeline items */
-.timeline-item {
-  position: relative;
-  margin-bottom: var(--space-3xl);
-  padding-left: var(--space-2xl);
-}
-
-/* Timeline dot */
-.timeline-dot {
-  position: absolute;
-  left: 0;
-  top: 0.5rem;
-  width: 10px;
-  height: 10px;
-  background: var(--ink-warm);
-  border: 2px solid var(--paper-warm);
-  border-radius: 50%;
-  opacity: 0.4;
-  z-index: 1;
-}
-
-.timeline-dot.current {
-  width: 14px;
-  height: 14px;
-  opacity: 1;
-  box-shadow: 0 0 0 3px rgba(43, 43, 43, 0.1);
-}
-
-/* Timeline date */
-.timeline-date {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-tertiary);
+  font-size: var(--text-sm);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: var(--space-sm);
 }
 
-.timeline-item:has(.current) .timeline-date {
-  color: var(--ink-warm);
-  font-weight: 700;
-}
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
 
-/* Timeline label (Education/Experience) */
-.timeline-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--ink-warm);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: var(--space-sm);
-  opacity: 0.7;
-}
-
-/* Timeline content */
-.timeline-content h3 {
-  font-family: var(--font-display);
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-xs) 0;
-  line-height: 1.3;
-}
-
-.timeline-content .company,
-.timeline-content .institution {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink-warm);
-  margin: 0 0 var(--space-xs) 0;
-}
-
-.timeline-content .company a,
-.timeline-content .institution a {
-  color: var(--ink-warm);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom-color 0.2s ease;
-}
-
-.timeline-content .company a:hover,
-.timeline-content .institution a:hover {
-  border-bottom-color: var(--ink-warm);
-}
-
-.timeline-content .meta {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-tertiary);
-  margin: 0 0 var(--space-md) 0;
-}
-
-.timeline-content .description {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: var(--space-sm) 0 0 0;
-}
-
-.timeline-content ul {
-  list-style: none;
-  padding: 0;
-  margin: var(--space-md) 0 0 0;
-}
-
-.timeline-content ul li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: var(--space-sm);
-  line-height: 1.7;
-  color: var(--text-secondary);
-  font-size: 0.9375rem;
-}
-
-.timeline-content ul li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: var(--ink-warm);
-  opacity: 0.5;
-  font-size: 1em;
-}
-
-/* Education items - special styling */
-.education-item {
-  padding: var(--space-lg);
-  margin-left: -var(--space-lg);
-  margin-right: -var(--space-lg);
-  background: var(--paper-light);
-  border-radius: 4px;
-  border-left: 3px solid var(--ink-warm);
-}
-
-.education-item .timeline-dot {
-  left: var(--space-lg);
-}
-
-
-/* --- 4. CTA SECTION --- */
-.cta-footer-section {
-  position: relative;
-  padding-top: 64px;
-  padding-bottom: 48px;
-}
-
-.cta-footer-section .cta-wrapper {
-  grid-column: 5 / span 4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-.cta-footer-section .cta-link {
-  text-align: center;
-}
-
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 900px) {
-  .page-grid-container {
-    padding: 0 24px;
-  }
-
-  .grid-row {
-    grid-template-columns: 1fr !important;
-    gap: var(--space-lg) 0;
-  }
-
-  [class^="grid-col-"] {
-    grid-column: 1 / -1 !important;
-  }
-
-  /* Hide decorative numbers on mobile */
-  .experience-intro-section::before,
-  .skills-section::before,
+  /* Disable decorative numbers on mobile */
+  .experience-chapter-1::before,
+  .experience-chapter-2::before,
+  .experience-chapter-3::before,
   .timeline-section::before {
     display: none;
   }
 
-  /* Full-bleed sections mobile adjustments */
-  .skills-section {
+  /* Disable vertical metadata text on mobile */
+  .experience-chapter-2 .grid-row::after,
+  .timeline-section .grid-row:first-of-type::after {
+    display: none;
+  }
+
+  /* Stack image breakout */
+  .breakout-image-horizontal {
+    height: 200px;
+  }
+
+  /* Reduce vertical image height */
+  .vertical-image-strip {
+    height: 600px;
+  }
+
+  /* Timeline full-bleed adjustment */
+  .timeline-section {
     margin-left: -24px;
     margin-right: -24px;
     padding-left: 24px;
     padding-right: 24px;
-  }
-
-  /* Skills - stack categories and lists */
-  .skills-categories,
-  .skills-lists {
-    gap: var(--space-md);
-  }
-
-  .skill-category {
-    padding: var(--space-sm) 0;
-  }
-
-  .skill-list {
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
-  }
-
-  /* Timeline - reduce left padding */
-  .unified-timeline {
-    padding-left: 2rem;
-  }
-
-  .unified-timeline::before {
-    left: 0.625rem;
-  }
-
-  .timeline-item {
-    padding-left: var(--space-lg);
-  }
-
-  .timeline-content h3 {
-    font-size: 1.125rem;
-  }
-
-  /* Education items */
-  .education-item {
-    margin-left: -var(--space-md);
-    margin-right: 0;
-    padding: var(--space-md);
-  }
-
-  .education-item .timeline-dot {
-    left: var(--space-md);
-  }
-
-  /* CTA - full width on mobile */
-  .cta-footer-section .cta-wrapper {
-    grid-column: 1 / -1;
   }
 }

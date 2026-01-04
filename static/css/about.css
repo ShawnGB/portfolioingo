@@ -1,103 +1,12 @@
 /* ===================================================================
-   ABOUT PAGE V7 — EDITORIAL MONOCHROME REFINEMENT
-   Wider columns, editorial decoration, better visual interest
+   ABOUT PAGE — EDITORIAL MONOCHROME
+   Layout-specific styles only
    =================================================================== */
 
-/* --- 1. GLOBAL GRID SYSTEM (OPTIMIZED FOR SPACE) --- */
-.page-grid-container {
-  max-width: 1280px; /* Wide max-width for better space usage */
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 64px; /* Page gutters */
-  position: relative; /* For decorative elements */
-}
-
-.grid-row {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 32px; /* Standard gutter from --space-xl */
-}
-
-/* --- Column Span Utilities --- */
-.grid-col-1 { grid-column: span 1; }
-.grid-col-2 { grid-column: span 2; }
-.grid-col-3 { grid-column: span 3; }
-.grid-col-4 { grid-column: span 4; }
-.grid-col-5 { grid-column: span 5; }
-.grid-col-6 { grid-column: span 6; }
-.grid-col-7 { grid-column: span 7; }
-.grid-col-8 { grid-column: span 8; }
-.grid-col-9 { grid-column: span 9; }
-.grid-col-10 { grid-column: span 10; }
-.grid-col-11 { grid-column: span 11; }
-.grid-col-12 { grid-column: span 12; }
-
-/* Column offset utilities */
-.grid-col-offset-1 { grid-column-start: 6; }
-
-/* --- Section Vertical Spacing --- */
-.grid-section {
-  grid-column: 1 / -1;
-  padding: 64px 0; /* Default section gap */
-  position: relative; /* For decorative elements */
-}
-
-.grid-section.major-break {
-  padding-top: 112px; /* Increased major section break for better rhythm */
-  margin-top: 64px;
-}
-
-
-/* --- 3. ABOUT INTRO --- */
+/* --- ABOUT INTRO --- */
 .about-intro-section {
-  padding-top: 48px;
+  padding-top: var(--space-2xl);
   position: relative;
-}
-
-/* Large decorative section number "01" */
-.about-intro-section::before {
-  content: "01";
-  position: absolute;
-  top: 0;
-  left: -32px;
-  font-family: var(--font-display);
-  font-size: 12rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
-  pointer-events: none;
-  z-index: 0;
-}
-
-.about-intro-section .section-label {
-  font-family: var(--font-display);
-  font-size: 1.5rem; /* H2 scale */
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.about-intro-section .intro-content {
-  position: relative;
-  padding-left: var(--space-lg);
-}
-
-.about-intro-section .vertical-rule {
-  position: absolute;
-  left: 0;
-  top: 0.25rem; /* Aligned to text height */
-  width: 1px;
-  height: 90%; /* Aligned to text block */
-  background-color: var(--border-subtle);
-  opacity: 0.8; /* Reduced opacity */
-}
-
-.about-intro-section .body-text p {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 65ch; /* Maintain readability */
 }
 
 
@@ -106,18 +15,18 @@
   position: relative;
 }
 
-/* Large decorative section number "02" */
+/* Large decorative section number "01" */
 .drives-path-section::before {
-  content: "02";
+  content: "01";
   position: absolute;
-  top: -48px;
+  top: calc(var(--space-2xl) * -1);
   right: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -126,7 +35,7 @@
 .drives-path-section::after {
   content: "";
   position: absolute;
-  top: -48px;
+  top: calc(var(--space-2xl) * -1);
   left: 0;
   width: 4rem;
   height: 1px;
@@ -150,62 +59,14 @@
   pointer-events: none;
 }
 
-.values-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.values-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
-  margin-bottom: 24px; /* Reduced internal spacing */
-}
-
-.values-list .icon {
-  flex-shrink: 0;
-  width: 20px; /* Reduced size */
-  height: 20px;
-  margin-top: 0.3rem; /* Optical alignment */
-  opacity: 0.7;
-}
-
-.subsection-header {
-  font-family: var(--font-display);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 4px 0;
-}
-
-.values-list .value-content p {
-  font-size: 0.9375rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  margin: 0;
-}
+/* Values list uses .values-list from utilities.css */
 
 /* Better prose spacing in "My Path" column */
 .drives-path-section .body-text p {
   max-width: 55ch; /* Slightly tighter for side column */
 }
 
-/* Path section label - small editorial header */
-.path-label {
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-xs);
-  border-bottom: 1px solid var(--border-subtle);
-}
-
-.path-label small {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-  font-weight: 500;
-}
+/* Path label now in utilities.css (used across multiple pages) */
 
 
 /* --- 5. PULL QUOTE + IMAGE + BEYOND (THREE-COLUMN EDITORIAL) --- */
@@ -216,56 +77,29 @@
   background: var(--paper-mid); /* Subtle background variation */
 }
 
-/* Large decorative section number "03" */
+/* Large decorative section number "02" */
 .quote-image-beyond-module::before {
-  content: "03";
+  content: "02";
   position: absolute;
   top: 24px;
   left: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Editorial hairline above quote */
-.pull-quote-wrapper {
-  position: relative;
-  padding-top: 2rem;
-}
-
-.pull-quote-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4rem;
-  height: 2px;
-  background: var(--ink-warm);
-  opacity: 0.2;
-}
-
-.pull-quote-wrapper blockquote {
-  font-style: italic;
-  font-size: clamp(1.5rem, 2.5vw, 1.875rem); /* Smaller to fit 3-col layout */
-  line-height: 1.5;
-  color: var(--ink-warm);
-  border: none;
-  padding: 0;
-  margin: 0;
-  font-weight: 500; /* Medium weight for emphasis */
-}
 
 /* Hero-style portrait - larger, center-cropped editorial image */
 .image-wrapper-hero {
   position: relative;
   height: 680px; /* Tall hero-style crop */
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .image-wrapper-hero .hero-portrait {
@@ -274,9 +108,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center center; /* Center crop - will slice to middle */
-  filter: saturate(0.82) contrast(0.92);
-  opacity: 0.90;
-  mix-blend-mode: multiply;
 }
 
 /* Subtle radial gradient for depth */
@@ -293,16 +124,6 @@
   z-index: 1;
 }
 
-/* Image caption - editorial metadata */
-.image-caption {
-  display: block;
-  margin-top: var(--space-sm);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-  opacity: 0.6;
-  letter-spacing: 0.05em;
-}
 
 
 /* --- 6. WHAT I'M LOOKING FOR (NOW SECTION 04) --- */
@@ -317,18 +138,18 @@
   position: relative;
 }
 
-/* Large decorative section number "04" (no change in number) */
+/* Large decorative section number "03" */
 .looking-for-section::before {
-  content: "04";
+  content: "03";
   position: absolute;
   top: -24px;
   right: -32px;
   font-family: var(--font-display);
-  font-size: 12rem;
+  font-size: 10.2rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
-  opacity: 0.05; /* Consistent visibility across all numbers */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 0;
 }
@@ -339,57 +160,8 @@
   margin-bottom: var(--space-xl);
 }
 
-.looking-for-header .section-header {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
 
-/* Icon header styling for "Looking For" cards */
-.icon-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--space-md);
-}
-
-.icon-header .icon {
-  flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  opacity: 0.7;
-}
-
-.looking-for-item .subsection-header {
-  margin: 0;
-}
-
-.looking-for-item ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.looking-for-item ul li {
-  position: relative;
-  padding-left: 1.25rem;
-  margin-bottom: 6px; /* Slightly more spacing */
-  line-height: 1.7; /* Improved readability */
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-}
-
-.looking-for-item ul li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--ink-warm);
-  opacity: 0.5; /* Subtle checkmark */
-}
+/* Looking for items use .checkmark-list from utilities.css */
 
 .cta-footer-grid {
   grid-column: 1 / -1;
@@ -420,13 +192,6 @@
 
 
 /* Beyond the Screen - inline in three-column layout */
-.beyond-label-inline .section-label {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0 0 var(--space-md) 0;
-}
 
 .quote-image-beyond-module .body-text p {
   color: var(--text-secondary);
@@ -443,138 +208,5 @@
   margin-top: var(--space-md);
 }
 
-.interest-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: var(--paper-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-secondary);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
 
-.interest-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(43, 43, 43, 0.08);
-}
-
-.interest-item .icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.6;
-  flex-shrink: 0;
-}
-
-/* Beyond screen image - small editorial photo */
-.beyond-image-col {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
-.beyond-image {
-  width: 100%;
-  height: auto;
-  max-height: 320px;
-  object-fit: cover;
-  filter: saturate(0.82) contrast(0.92);
-  opacity: 0.88;
-  mix-blend-mode: multiply;
-  border-radius: 4px;
-}
-
-
-/* --- RESPONSIVE ADJUSTMENTS --- */
-@media (max-width: 900px) {
-  .page-grid-container {
-    padding: 0 24px;
-  }
-
-  .grid-row {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl) 0;
-  }
-
-  [class^="grid-col-"] {
-    grid-column: 1 / -1;
-  }
-
-  /* Hide decorative numbers on mobile */
-  .about-intro-section::before,
-  .drives-path-section::before,
-  .quote-image-beyond-module::before,
-  .looking-for-section::before {
-    display: none;
-  }
-
-  /* Stack three-column layout on mobile */
-  .quote-image-beyond-module .grid-row {
-    gap: var(--space-2xl) 0;
-  }
-
-  /* Hide vertical text on mobile */
-  .drives-path-section .grid-row::after {
-    display: none;
-  }
-
-  /* Beyond screen adjustments */
-  .beyond-screen-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .beyond-screen-section::after {
-    left: 24px; /* Adjust hairline for mobile padding */
-  }
-
-  .interests-grid {
-    gap: var(--space-md);
-  }
-
-  .pull-quote-wrapper {
-    margin-bottom: var(--space-xl);
-  }
-
-  .looking-for-item {
-    margin-bottom: var(--space-2xl);
-  }
-
-  .looking-for-item:last-of-type {
-    margin-bottom: 0;
-  }
-
-  .looking-for-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-  .cta-footer-grid .cta-button-wrapper {
-    grid-column: 1 / -1;
-  }
-
-  .quote-image-beyond-module {
-    padding: 80px 0; /* Reduced but still generous on mobile */
-  }
-
-  /* Hero portrait adjustments for mobile */
-  .image-wrapper-hero {
-    height: 400px; /* Shorter on mobile */
-  }
-
-  /* Interests grid mobile */
-  .interests-grid-inline {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-}
+/* --- END OF ABOUT PAGE STYLES --- */

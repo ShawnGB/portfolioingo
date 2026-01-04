@@ -1,0 +1,154 @@
+/* =================================
+   CSS DESIGN TOKENS
+   Design system variables only
+   ================================= */
+
+:root {
+  /* =================================
+     COLOR PALETTE - Editorial Monochrome
+     ================================= */
+
+  /* Warm Paper Tones */
+  --paper-warm: #f8f6f2; /* Warm beige-tinted off-white */
+  --paper-mid: #f7f6f4; /* Mid paper - for subtle sections */
+  --paper-light: #fdfcfb; /* Lightest - for cards/elevated surfaces */
+
+  /* Warm Ink Blacks */
+  --ink-warm: #2b2b2b; /* Softer ink - reduced contrast, not pure black */
+  --ink-soft: #3a3a3a; /* Lighter for secondary text */
+  --ink-muted: #5a5a58; /* Muted - for tertiary text */
+
+  /* Warm Grays - Dividers & Borders */
+  --gray-warm-100: #e8e8e6; /* Light warm gray - subtle dividers */
+  --gray-warm-200: #d4d4d1; /* Medium warm gray - borders */
+  --gray-warm-300: #a8a8a5; /* Dark warm gray - de-emphasized elements */
+
+  /* =================================
+     SEMANTIC COLOR ASSIGNMENTS
+     ================================= */
+
+  /* Backgrounds */
+  --bg-base: var(--paper-warm);
+  --bg-surface: var(--paper-light);
+  --bg-elevated: var(--paper-light);
+  --bg-section-alt: var(--paper-mid);
+  --bg-inset: var(--paper-mid);
+
+  /* Text */
+  --text-primary: var(--ink-warm);
+  --text-secondary: var(--ink-soft);
+  --text-tertiary: var(--ink-muted);
+
+  /* Borders */
+  --border-subtle: var(--gray-warm-100);
+  --border-medium: var(--gray-warm-200);
+  --border-strong: var(--gray-warm-300);
+  --border-default: var(--gray-warm-200);
+
+  /* Links */
+  --link-default: var(--ink-warm);
+  --link-hover: var(--ink-warm);
+  --link-visited: var(--ink-soft);
+
+  /* States (monochrome-aligned) */
+  --state-error: var(--ink-warm);
+  --state-error-bg: var(--paper-mid);
+  --state-success: var(--ink-warm);
+  --state-success-bg: var(--paper-mid);
+
+  /* =================================
+     EDITORIAL EFFECTS
+     ================================= */
+
+  /* Opacity Tokens */
+  --opacity-editorial-number: 0.05;
+  --opacity-editorial-rule: 0.15;
+  --opacity-image-filter: 0.9;
+
+  /* Filter Presets */
+  --filter-monochrome-editorial: saturate(0.82) contrast(0.92) opacity(0.9);
+
+  /* =================================
+     TYPOGRAPHY SCALE
+     ================================= */
+
+  /* Font Families */
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif; /* Display/Headers - Geometric sans */
+  --font-body: "Newsreader", Georgia, serif; /* Body text - Editorial serif */
+  --font-mono: "JetBrains Mono", "Courier New", monospace; /* Technical/Code */
+
+  /* Font Weights */
+  --weight-light: 300; /* Light - for large introductory text */
+  --weight-regular: 400; /* Regular - for body paragraphs */
+  --weight-medium: 500; /* Medium - for emphasis */
+  --weight-semibold: 600; /* Semi-bold - for strong emphasis */
+  --weight-bold: 700; /* Bold - for subheadings */
+  --weight-extrabold: 800; /* Extra bold - for main headings */
+
+  /* Type Scale - Modular Scale for Readability */
+  --text-xs: 0.75rem; /* 12px - Small/Meta */
+  --text-sm: 0.875rem; /* 14px - Captions */
+  --text-base: 1rem; /* 16px - Body text */
+  --text-md: 1.125rem; /* 18px - Large body */
+  --text-lg: 1.25rem; /* 20px - Lead paragraphs */
+  --text-xl: 1.5rem; /* 24px - H4 */
+  --text-2xl: 1.75rem; /* 28px - H3 */
+  --text-3xl: 2.25rem; /* 36px - H2 */
+  --text-4xl: 3.5rem; /* 56px - H1 max */
+
+  /* =================================
+     SPACING SCALE
+     ================================= */
+
+  --space-xs: 0.5rem; /* 8px */
+  --space-sm: 0.75rem; /* 12px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+  --space-4xl: 6rem; /* 96px */
+  --space-5xl: 8rem; /* 128px */
+
+  /* =================================
+     SHADOWS - Minimal Elevation System
+     ================================= */
+
+  /* Subtle elevation */
+  --shadow-subtle: 0 1px 2px rgba(28, 28, 28, 0.04), 0 4px 8px rgba(28, 28, 28, 0.02);
+
+  /* Card elevation */
+  --shadow-card: 0 4px 8px rgba(28, 28, 28, 0.06), 0 12px 24px rgba(28, 28, 28, 0.04);
+  --shadow-card-hover: 0 8px 16px rgba(28, 28, 28, 0.08), 0 16px 32px rgba(28, 28, 28, 0.06);
+
+  /* =================================
+     TRANSITIONS
+     ================================= */
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* =================================
+     BORDER RADIUS
+     ================================= */
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  /* =================================
+     LAYOUT CONSTRAINTS
+     ================================= */
+
+  --nav-height: 3.5rem;
+  --container-max: 800px; /* Tighter for reading */
+  --container-wide: 1200px;
+
+  /* =================================
+     BREAKPOINTS
+     ================================= */
+
+  --breakpoint-mobile: 767.98px;
+}

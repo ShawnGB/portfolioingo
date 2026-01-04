@@ -3,7 +3,6 @@ package forms
 import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 
-// ContactFormData bleibt wie es ist.
 type ContactFormData struct {
 	Website        string
 	FirstName      string
@@ -16,83 +15,24 @@ type ContactFormData struct {
 	ErrorMessage   string
 }
 
+templ contactIntro(pCtx i18n.PageContext) {
+	<p><em>{ pCtx.T("contact.subtitle") }</em></p>
+	<p>{ pCtx.T("contact.intro.p1") }</p>
+	<blockquote>No pitch required. Just real conversation.</blockquote>
+	<p><strong>{ pCtx.T("contact.intro.availability") }</strong></p>
+}
+
 templ Contact(data ContactFormData, pCtx i18n.PageContext) {
-	@layouts.BaseHtml(pCtx, pCtx.T("contact.pageTitle"), pCtx.T("contact.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- SECTION 01: CLEAN INTRO (LIKE ABOUT/ARTS) -->
-			<div class="grid-section contact-intro-header">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h1 class="contact-title">{ pCtx.T("contact.title") }</h1>
-					</div>
-					<div class="grid-col-8">
-						<div class="contact-intro-text">
-							<p><em>{ pCtx.T("contact.subtitle") }</em></p>
-							<p>{ pCtx.T("contact.intro.p1") }</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 02: CONTACT DETAILS - CLEAN TYPOGRAPHY -->
-			<div class="grid-section major-break contact-details-section">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<h2 class="section-header">{ pCtx.T("contact.details.title") }</h2>
-						<div class="contact-details-list">
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Address</div>
-								<div class="contact-detail-content">
-									<p>Shawn Gordon Becker</p>
-									<p>Baseler Str 38</p>
-									<p>12205 Berlin, Germany</p>
-								</div>
-							</div>
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Phone</div>
-								<div class="contact-detail-content">
-									<p><a href="tel:+491709664725">+49 170 966 47 25</a></p>
-								</div>
-							</div>
-							<div class="contact-detail-item">
-								<div class="contact-detail-label">Email</div>
-								<div class="contact-detail-content">
-									<p><a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 03: CONTACT FORM - CLEAN SINGLE COLUMN -->
-			<div class="grid-section major-break contact-form-section">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<h2 class="form-section-label">{ pCtx.T("contact.intro.p2") }</h2>
-						<p class="form-section-description">
-							<strong>{ pCtx.T("contact.intro.availability") }</strong>
-						</p>
-						<div style="margin-top: var(--space-3xl);">
-							@ContactFormPartial(data, pCtx)
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- SECTION 04: REACH OUT IF -->
-			<div class="grid-section contact-cta-section">
-				<div class="grid-row">
-					<div class="grid-col-12">
-						<h2>{ pCtx.T("contact.reachOutIf.title") }</h2>
-						<ul class="reach-out-list">
-							<li>{ pCtx.T("contact.reachOutIf.item1") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item2") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item3") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item4") }</li>
-							<li>{ pCtx.T("contact.reachOutIf.item5") }</li>
-						</ul>
-						<p class="closing-statement">{ pCtx.T("contact.outro.p1") }</p>
-					</div>
-				</div>
-			</div>
-		</div>
+	@layouts.SubpageTemplate(pCtx, "contact.title", contactIntro(pCtx), "contact.pageTitle", "contact.pageMetaDescription") {
+			<section>
+				<h2 class="section-label">{ pCtx.T("contact.intro.p2") }</h2>
+				@ContactFormPartial(data, pCtx)
+			</section>
+			<section>
+				<h2 class="section-label">Alternative Contact</h2>
+				<p>Prefer email? Reach me directly at <a href="mailto:contact@shawnbecker.de">contact@shawnbecker.de</a></p>
+				<p>Or connect on <a href="https://www.linkedin.com/in/shawn-gordon-becker/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+				<p>{ pCtx.T("contact.outro.p1") }</p>
+			</section>
 	}
 }

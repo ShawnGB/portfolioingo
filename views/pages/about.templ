@@ -4,28 +4,13 @@ import "mymodules/gofolio/i18n"
 import "mymodules/gofolio/views/layouts"
 import "mymodules/gofolio/views/components"
 
+templ aboutIntro(pCtx i18n.PageContext) {
+	<p>{ pCtx.T("about.greeting.p1") }</p>
+}
+
 templ About(pCtx i18n.PageContext) {
-	// The SubpageTemplate is not used here to allow for a fully custom grid structure.
-	// We call BaseHtml directly.
-	@layouts.BaseHtml(pCtx, pCtx.T("about.pageTitle"), pCtx.T("about.pageMetaDescription")) {
-		<div class="page-grid-container">
-			<!-- 3. ABOUT INTRO -->
-			<div class="grid-section about-intro-section">
-				<div class="grid-row">
-					<div class="grid-col-4">
-						<h2 class="section-label">{ pCtx.T("about.title") }</h2>
-					</div>
-					<div class="grid-col-8">
-						<div class="intro-content">
-							<div class="vertical-rule"></div>
-							<div class="body-text">
-								<p>{ pCtx.T("about.greeting.p1") }</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- 4. WHAT DRIVES ME + MY PATH -->
+	@layouts.SubpageTemplate(pCtx, "about.title", aboutIntro(pCtx), "about.pageTitle", "about.pageMetaDescription") {
+		<!-- 4. WHAT DRIVES ME + MY PATH -->
 			<div class="grid-section major-break drives-path-section">
 				<div class="grid-row">
 					<div class="grid-col-7">
@@ -86,27 +71,25 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 					<!-- Middle: Mirror Image Slice -->
 					<div class="grid-col-4 image-wrapper-hero">
-						<img src="/static/images/DSC01643.jpg" alt="Self-reflection in mirror" loading="lazy" class="hero-portrait"/>
+						<img src="/static/images/arts/05.jpg" alt="Self-reflection in mirror" title="Mirror reflection - Italy, 2025" loading="lazy" class="hero-portrait img-editorial"/>
 						<span class="image-caption">Italy, 2025</span>
 					</div>
 					<!-- Right: Beyond the Screen -->
 					<div class="grid-col-4">
-						<div class="beyond-label-inline">
-							<h2 class="section-label">Beyond the Screen</h2>
-						</div>
+						<h2 class="section-label">Beyond the Screen</h2>
 						<div class="body-text">
 							<p>{ pCtx.T("about.outsideScreen.p1") }</p>
 						</div>
 						<div class="interests-grid-inline">
-							<div class="interest-item">
+							<div class="card">
 								@components.Icon("music", "18", "")
 								<span>Music</span>
 							</div>
-							<div class="interest-item">
+							<div class="card">
 								@components.Icon("map", "18", "")
 								<span>Cycling</span>
 							</div>
-							<div class="interest-item">
+							<div class="card">
 								@components.Icon("palette", "18", "")
 								<span>Photography</span>
 							</div>
@@ -122,7 +105,7 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 				</div>
 				<div class="grid-row">
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("briefcase", "20", "")
 							<h3 class="subsection-header">Ideal Environment</h3>
@@ -131,19 +114,19 @@ templ About(pCtx i18n.PageContext) {
 							<p>{ pCtx.T("about.lookingFor.p1") }</p>
 						</div>
 					</div>
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("zap", "20", "")
 							<h3 class="subsection-header">I Thrive On</h3>
 						</div>
-						<ul>
+						<ul class="checkmark-list">
 							<li>{ pCtx.T("about.lookingFor.item1") }</li>
 							<li>{ pCtx.T("about.lookingFor.item2") }</li>
 							<li>{ pCtx.T("about.lookingFor.item3") }</li>
 							<li>{ pCtx.T("about.lookingFor.item4") }</li>
 						</ul>
 					</div>
-					<div class="grid-col-4 looking-for-item">
+					<div class="grid-col-4">
 						<div class="icon-header">
 							@components.Icon("calendar", "20", "")
 							<h3 class="subsection-header">Role & Availability</h3>
@@ -167,6 +150,5 @@ templ About(pCtx i18n.PageContext) {
 					</div>
 				</div>
 			</div>
-		</div>
 	}
 }

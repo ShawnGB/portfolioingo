@@ -1,0 +1,143 @@
+/* =================================
+   12-COLUMN GRID SYSTEM
+   Centralized grid layout system
+   ================================= */
+
+/* Grid container - max width and centering */
+.page-grid-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 64px;
+  position: relative;
+}
+
+/* 12-column grid row */
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+}
+
+/* =================================
+   Column Span Utilities
+   ================================= */
+
+.grid-col-1 {
+  grid-column: span 1;
+}
+.grid-col-2 {
+  grid-column: span 2;
+}
+.grid-col-3 {
+  grid-column: span 3;
+}
+.grid-col-4 {
+  grid-column: span 4;
+}
+.grid-col-5 {
+  grid-column: span 5;
+}
+.grid-col-6 {
+  grid-column: span 6;
+}
+.grid-col-7 {
+  grid-column: span 7;
+}
+.grid-col-8 {
+  grid-column: span 8;
+}
+.grid-col-9 {
+  grid-column: span 9;
+}
+.grid-col-10 {
+  grid-column: span 10;
+}
+.grid-col-11 {
+  grid-column: span 11;
+}
+.grid-col-12 {
+  grid-column: span 12;
+}
+
+/* =================================
+   Common Grid Patterns
+   ================================= */
+
+/* Intro layout - narrow title, wide content (3/9 or 4/8) */
+.grid--intro {
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  gap: var(--space-2xl);
+}
+
+/* Hero layout - image left, content right (5/7) */
+.grid--hero {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+/* Thirds - three equal columns */
+.grid--thirds {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Halves - two equal columns */
+.grid--halves {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+/* Asymmetric - 7/5 split */
+.grid--feature {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: var(--space-2xl);
+}
+
+/* =================================
+   Column Offset Utilities
+   ================================= */
+
+.grid-col-offset-1 {
+  grid-column-start: 6;
+}
+
+/* =================================
+   Section Vertical Spacing
+   ================================= */
+
+.grid-section {
+  grid-column: 1 / -1;
+  padding: 64px 0;
+  position: relative;
+}
+
+.grid-section.major-break {
+  padding-top: 112px;
+  margin-top: 64px;
+}
+
+/* =================================
+   Responsive Grid
+   ================================= */
+
+@media (max-width: 900px) {
+  .page-grid-container {
+    padding: 0 24px;
+  }
+
+  .grid-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl) 0;
+  }
+
+  [class^="grid-col-"] {
+    grid-column: 1 / -1;
+  }
+}

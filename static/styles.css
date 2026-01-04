@@ -1,3 +1,9 @@
+/* Design tokens - CSS variables only */
+@import "./css/variables.css";
+
+/* 12-column grid system */
+@import "./css/grid.css";
+
 /* Base design system and resets - Inky Minimalism */
 @import "./css/base.css";
 
