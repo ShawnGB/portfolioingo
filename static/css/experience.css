@@ -3,15 +3,6 @@
    Three distinct chapter layouts + decorative elements
    =================================================================== */
 
-/* Override base.css constraints for creative layouts */
-.page-grid-container p {
-  max-width: 100%; /* Remove 65ch limit for multi-column layouts */
-}
-
-.page-grid-container blockquote {
-  max-width: 100%; /* Remove 55ch limit in grid layouts */
-}
-
 /* ========================================
    CHAPTER 1: HORIZONTAL BREAKOUT
    ======================================== */
@@ -22,12 +13,12 @@
 
 /* Decorative section number "01" */
 .experience-chapter-1::before {
-  content: "01";
+  content: "2006 - 2016";
   position: absolute;
-  top: -24px;
+  top: 120px;
   right: -32px;
   font-family: var(--font-display);
-  font-size: 10.2rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
@@ -55,8 +46,8 @@
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: var(--space-2xl);
-  margin-bottom: var(--space-2xl);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-lg);
   text-align: center;
 }
 
@@ -87,35 +78,18 @@
 
 /* Decorative section number "02" */
 .experience-chapter-2::before {
-  content: "02";
+  content: "2016 - 2022";
   position: absolute;
-  top: -24px;
+  top: 48px;
   left: -32px;
   font-family: var(--font-display);
-  font-size: 10.2rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
   opacity: 0.04;
   pointer-events: none;
   z-index: 0;
-}
-
-/* Vertical metadata text */
-.experience-chapter-2 .grid-row::after {
-  content: "FORMALIZATION / GROWTH";
-  position: absolute;
-  right: -4rem;
-  top: 40%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-  opacity: 0.25;
-  pointer-events: none;
 }
 
 /* Vertical image strip - tall sidebar */
@@ -149,27 +123,18 @@
 
 /* Decorative section number "03" */
 .experience-chapter-3::before {
-  content: "03";
+  content: "2023 - Present";
   position: absolute;
-  top: -24px;
-  right: 48px;
+  top: 48px;
+  right: -24px;
   font-family: var(--font-display);
-  font-size: 10.2rem;
+  font-size: 4rem;
   font-weight: 800;
   line-height: 1;
   color: var(--ink-warm);
   opacity: 0.04;
   pointer-events: none;
   z-index: 0;
-}
-
-/* Large blockquote for chapter 3 intro - twice the size */
-.large-blockquote {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.4;
-  margin: 0;
 }
 
 /* Full-width image between text sections */
@@ -206,22 +171,7 @@
 }
 
 /* Decorative section number "TIMELINE" */
-.timeline-section::before {
-  content: "04";
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  font-family: var(--font-display);
-  font-size: 10.2rem;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--ink-warm);
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Vertical metadata text */
+.timeline-section::before /* Vertical metadata text */
 .timeline-section .grid-row:first-of-type::after {
   content: "TIMELINE / JOURNEY";
   position: absolute;
@@ -254,7 +204,9 @@
   text-align: center;
   min-height: 100px;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .timeline-card:hover {
