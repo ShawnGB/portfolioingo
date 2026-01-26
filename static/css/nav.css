@@ -211,10 +211,16 @@ nav ul li a[aria-current="page"] {
   .nav-inner {
     flex-wrap: wrap;
     padding: 0 var(--space-lg);
+    align-items: center;
   }
 
   .nav-left-group {
     flex: 1;
+    align-items: center;
+  }
+
+  .burger-menu-label {
+    align-items: center;
   }
 
   .nav-right-group {

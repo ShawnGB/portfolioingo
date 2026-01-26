@@ -138,3 +138,33 @@ h1.hero-main-visual-text .line-2 {
   background: rgba(43, 43, 43, 0.05);
   border-bottom-color: rgba(43, 43, 43, 0.5);
 }
+
+/* =================================
+   MOBILE RESPONSIVE
+   ================================= */
+
+@media (max-width: 900px) {
+  .hero-section-wrapper {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    max-height: none;
+    padding: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-3xl);
+    transform: none;
+  }
+
+  .hero-left-column {
+    height: 280px;
+    min-height: unset;
+    margin: 0;
+  }
+
+  .hero-right-column {
+    padding: var(--space-xl) 0 0 0;
+    transform: none;
+  }
+
+  .hero-content::before {
+    display: none;
+  }
+}

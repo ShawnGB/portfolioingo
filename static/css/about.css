@@ -209,4 +209,55 @@
 }
 
 
+/* =================================
+   MOBILE RESPONSIVE
+   ================================= */
+
+@media (max-width: 900px) {
+  /* Full-bleed section margin adjustment */
+  .looking-for-section {
+    margin-left: -24px;
+    margin-right: -24px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Hide decorative section numbers */
+  .drives-path-section::before,
+  .quote-image-beyond-module::before,
+  .looking-for-section::before {
+    display: none;
+  }
+
+  /* Hide vertical metadata text */
+  .drives-path-section .grid-row::after {
+    display: none;
+  }
+
+  /* Reduce tall hero image height */
+  .image-wrapper-hero {
+    height: 400px;
+  }
+
+  /* Quote section breathing room */
+  .quote-image-beyond-module {
+    padding: var(--space-3xl) 0;
+  }
+
+  /* CTA footer - stack and reorder */
+  .cta-footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .cta-footer-grid .contact-sentence {
+    order: 1;
+  }
+
+  .cta-footer-grid .cta-button-wrapper {
+    order: 2;
+  }
+}
+
 /* --- END OF ABOUT PAGE STYLES --- */
