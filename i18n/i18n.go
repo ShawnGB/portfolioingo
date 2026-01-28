@@ -55,6 +55,16 @@ func Init(localesDir string) {
 func MiddlewareI18n(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		currentPath := r.URL.Path
+
+		// Skip i18n processing for static files and special routes
+		if strings.HasPrefix(currentPath, "/static/") ||
+			currentPath == "/robots.txt" ||
+			currentPath == "/sitemap.xml" ||
+			strings.HasPrefix(currentPath, "/.well-known/") {
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		var langCodeToUse string
 		var basePath string = currentPath
 
