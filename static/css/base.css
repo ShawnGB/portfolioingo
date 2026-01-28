@@ -102,10 +102,10 @@ h2 {
 
 /* H3: Subsection headings */
 h3 {
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem); /* 18px → 2.5vw → 24px */
+  font-size: clamp(0.95rem, 1.5vw, 1.125rem); /* 15px → 1.5vw → 18px - compact to prevent wrapping */
   font-weight: 600;
   line-height: 1.3;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em; /* tighter tracking */
   margin: 2rem 0 0.75rem 0;
   color: var(--ink-soft);
 }

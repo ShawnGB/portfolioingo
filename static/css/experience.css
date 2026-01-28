@@ -157,92 +157,6 @@
 }
 
 /* ========================================
-   TIMELINE SECTION
-   ======================================== */
-
-.timeline-section {
-  position: relative;
-  background: var(--paper-mid);
-  margin-left: -64px;
-  margin-right: -64px;
-  padding-left: 64px;
-  padding-right: 64px;
-  border-top: 1px solid var(--border-subtle);
-}
-
-/* Decorative section number "TIMELINE" */
-.timeline-section::before /* Vertical metadata text */
-.timeline-section .grid-row:first-of-type::after {
-  content: "TIMELINE / JOURNEY";
-  position: absolute;
-  left: -4rem;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-tertiary);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
-.timeline-grid {
-  margin-top: var(--space-lg);
-}
-
-/* Timeline cards as semantic articles */
-.timeline-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
-  padding: var(--space-md);
-  background: var(--paper-warm);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  text-align: center;
-  min-height: 100px;
-  justify-content: center;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.timeline-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(28, 28, 28, 0.06);
-}
-
-.timeline-year {
-  font-family: var(--font-display);
-  font-size: var(--text-lg);
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.timeline-label {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
-  opacity: 0.8;
-  line-height: 1.4;
-}
-
-.timeline-present {
-  border: 1px solid var(--border-medium);
-  background: var(--paper-light);
-}
-
-.timeline-present .timeline-label {
-  font-weight: var(--weight-medium);
-  color: var(--text-primary);
-  font-size: var(--text-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-/* ========================================
    RESPONSIVE ADJUSTMENTS
    ======================================== */
 
@@ -250,14 +164,12 @@
   /* Disable decorative numbers on mobile */
   .experience-chapter-1::before,
   .experience-chapter-2::before,
-  .experience-chapter-3::before,
-  .timeline-section::before {
+  .experience-chapter-3::before {
     display: none;
   }
 
   /* Disable vertical metadata text on mobile */
-  .experience-chapter-2 .grid-row::after,
-  .timeline-section .grid-row:first-of-type::after {
+  .experience-chapter-2 .grid-row::after {
     display: none;
   }
 
@@ -269,13 +181,5 @@
   /* Reduce vertical image height */
   .vertical-image-strip {
     height: 600px;
-  }
-
-  /* Timeline full-bleed adjustment */
-  .timeline-section {
-    margin-left: -24px;
-    margin-right: -24px;
-    padding-left: 24px;
-    padding-right: 24px;
   }
 }

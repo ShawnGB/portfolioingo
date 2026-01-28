@@ -114,6 +114,7 @@
   color: var(--ink-warm);
   text-decoration: none;
   transition: all 0.2s ease;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .cta-link.with-icon .icon {

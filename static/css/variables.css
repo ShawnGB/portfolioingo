@@ -85,16 +85,16 @@
   --weight-bold: 700; /* Bold - for subheadings */
   --weight-extrabold: 800; /* Extra bold - for main headings */
 
-  /* Type Scale - Modular Scale for Readability */
-  --text-xs: 0.75rem; /* 12px - Small/Meta */
-  --text-sm: 0.875rem; /* 14px - Captions */
-  --text-base: 1rem; /* 16px - Body text */
-  --text-md: 1.125rem; /* 18px - Large body */
-  --text-lg: 1.25rem; /* 20px - Lead paragraphs */
-  --text-xl: 1.5rem; /* 24px - H4 */
-  --text-2xl: 1.75rem; /* 28px - H3 */
-  --text-3xl: 2.25rem; /* 36px - H2 */
-  --text-4xl: 3.5rem; /* 56px - H1 max */
+  /* Type Scale - Reduced ~10% to compensate for Space Grotesk width vs system fonts */
+  --text-xs: 0.6875rem; /* 11px - Small/Meta */
+  --text-sm: 0.8rem; /* 12.8px - Captions */
+  --text-base: 0.9rem; /* 14.4px - Body text */
+  --text-md: 1rem; /* 16px - Large body */
+  --text-lg: 1.125rem; /* 18px - Lead paragraphs */
+  --text-xl: 1.35rem; /* 21.6px - H4 */
+  --text-2xl: 1.5625rem; /* 25px - H3 */
+  --text-3xl: 2rem; /* 32px - H2 */
+  --text-4xl: 3.125rem; /* 50px - H1 max */
 
   /* =================================
      SPACING SCALE
