@@ -20,14 +20,14 @@ func Security(next http.Handler) http.Handler {
 		w.Header().Set("Permissions-Policy", "geolocation=(), microphone=(), camera=()")
 
 		// Content Security Policy
-		// Allows: self-hosted resources, inline scripts/styles (for templ), hCaptcha
+		// Allows: self-hosted resources, inline scripts/styles (for templ), hCaptcha, Google Fonts, HTMX, Google Analytics
 		csp := "default-src 'self'; " +
-			"script-src 'self' 'unsafe-inline' https://js.hcaptcha.com https://hcaptcha.com; " +
-			"style-src 'self' 'unsafe-inline' https://hcaptcha.com; " +
+			"script-src 'self' 'unsafe-inline' https://js.hcaptcha.com https://hcaptcha.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; " +
+			"style-src 'self' 'unsafe-inline' https://hcaptcha.com https://fonts.googleapis.com; " +
 			"frame-src https://hcaptcha.com; " +
-			"connect-src 'self' https://hcaptcha.com; " +
-			"font-src 'self'; " +
-			"img-src 'self' data:; " +
+			"connect-src 'self' https://hcaptcha.com https://www.google-analytics.com https://analytics.google.com; " +
+			"font-src 'self' https://fonts.gstatic.com; " +
+			"img-src 'self' data: https://www.google-analytics.com; " +
 			"object-src 'none'; " +
 			"base-uri 'self'; " +
 			"form-action 'self';"
